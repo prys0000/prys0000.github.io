@@ -9,6 +9,8 @@ redirect_from:
 
 ## Grant Funded Projects - Contributions and Management
 
+* [American Congress Digital Archives Portal](https://exlibris.lib.wvu.edu/news/2025/01/13/funding-secured-for-congressional-archives-enhancements-civics-and-history-education): The Carl Albert Center, along with the University of West Virginia, Robert J. Dole Institute of Politics, the Dirksen Congressional Center, and the Richard B. Russell Library of Political Research, received $1.5 million in congressionally directed spending to expand utility, usability, and capacity of the American Congress Digital Archives Portal and to equip K-12 educators with resources and tools for refortified civics and history education.
+
 * [The James R. Jones Carl Albert Center Digital Archive (PI)](https://oucac.access.preservica.com/): Ambassador James R. Jones donated $1,000,000 to facilitate the migration of all digital collections from ArchivesSpace to the Preservica digital content management platform (Gift received on 2021-08-19).
   
 * [Digital Archives Portal: Congressional Archives for Education (co-PI)]((https://congressarchives.org/) ):
