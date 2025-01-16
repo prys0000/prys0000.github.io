@@ -18,6 +18,8 @@ My research focuses on the impact of information system components (data + human
 
 Current Large-Scale Projects
 ======
+The Carl Albert Center, along with the University of West Virginia, Robert J. Dole Institute of Politica, the Dirksen Congressional Center, and the Richard B. Russell Library of Political Research, received $1.5 million in congressionally directed spending to expand utility, usability, and capacity of the [American Congress Digital Archives Portal](https://congressarchives.org/) and to equip K-12 educators with resources and tools for refortified civics and history education. 
+
 The Carl Albert Center Archives, along with Harvard University and the University of Iowa, was awarded collaborative research grant funds from the National Science Foundation (NSF) for the project ["Understanding the Evolution of Political Campaign Advertisements over the Last Century"](https://github.com/prys0000/political-commercial-collection-archives).
 
 The [Congressional Portal Project](https://github.com/prys0000/congressional-portal-project/tree/main) provides a repository for workflows, methodologies, instructional materials, controlled vocabularies, and more. This repository was created to house large-scale project efficiency methodologies and automated workflows and to document strategies throughout the project timeline. The project scope focuses on materials relating to the American Congress from the Carl Albert Research and Studies Center Archives. 
