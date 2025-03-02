@@ -1,0 +1,12 @@
+/* Change the default link color */
+a {
+  color: #111192; /* navy */
+  text-decoration: none; /* remove underline if you want */
+  font-family: "Your Favorite Font", sans-serif; /* example font */
+}
+
+/* Change the link color when hovered over */
+a:hover {
+  color: #660206;
+  text-decoration: underline; /* add underline on hover (optional) */
+}
