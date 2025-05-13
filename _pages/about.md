@@ -8,9 +8,12 @@ redirect_from:
   - /about.html
 ---
 
-As the Senior Archivist III, I provide leadership and direction for the [Carl Albert Congressional Research and Studies Center Archives](https://www.ou.edu/carlalbertcenter/congressional-collection) distinguished repository of manuscripts, photographs, audiovisual materials, and born-digital assets from the late 1800s. My primary professional objective is to advance adequate infrastructure and long-term digital collection management strategies. As a committed archivist, educator, and collaborator, I have significantly contributed to the profession through my leadership, advocacy, and program development skills. 
+I lead the archives team at the Carl Albert Congressional Research and Studies Center, managing historical materials from the late 1800s to today. My focus is developing better systems for long-term digital collection management.
+As both an archivist and educator, I help bridge the gap between technology and collection management. I work to make information more accessible through collaborative approaches.
 
-As a practitioner and educator, I can foster interdisciplinary collaborations and offer innovative concepts bridging the technology and collection management gap. As a collaborator, I strive to explore inclusive and inventive methods to broaden access to information. My academic qualifications include a master's degree in Library and Information Science (MLIS) with a specialization in Digital Content Management and a master's degree in Museum Science (M.S.) with a focus on Digital Asset Management. I am a Ph.D. candidate in Information Science at the University of North Texas, concentrating on large-scale digital asset management.
+I hold a master's in Library and Information Science with Digital Content Management specialization and a master's in Museum Science focusing on Digital Asset Management. I'm currently completing my PhD in Information Science at the University of North Texas, studying large-scale digital asset management.
+
+My goal is to preserve our historical collections while making them available to researchers and the public using the best practices in the field.
 
 Data-driven, Efficiency-Focused Research
 ======
