@@ -7,13 +7,9 @@ redirect_from:
   - /about/
   - /about.html
 ---
-
-I lead the archives team at the Carl Albert Congressional Research and Studies Center, managing historical materials from the late 1800s to today. My focus is developing better systems for long-term digital collection management.
-As both an archivist and educator, I help bridge the gap between technology and collection management. I work to make information more accessible through collaborative approaches.
-
-I hold a master's in Library and Information Science with Digital Content Management specialization and a master's in Museum Science focusing on Digital Asset Management. I'm currently completing my PhD in Information Science at the University of North Texas, studying large-scale digital asset management.
-
-My goal is to preserve our historical collections while making them available to researchers and the public using the best practices in the field.
+About
+======
+I am a digital archivist with 14 years of experience in congressional and cultural heritage repositories. I currently serve as Senior Archivist III and Curator at the Carl Albert Congressional Research Archives and as an Instructor of Information Science at the University of Oklahoma. I hold an M.L.I.S. in Digital Content Management, an M.S. in Museum Science, and am completing a Ph.D. in Information Science with a focus on Archival Informatics.
 
 Data-driven, Efficiency-Focused Research
 ======
