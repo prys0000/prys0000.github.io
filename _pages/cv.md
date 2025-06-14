@@ -186,17 +186,3 @@ Results-driven digital archivist with 14 years of progressive experience designi
 - SAA Emerging Leader Nominee (2017)
 
 ---
-
-## References
-- **Jennifer Green**, Metropolitan Library Systems  
-  *jennifer.green@metrolibrary.org*
-- **Chad Williams**, Oklahoma Historical Society  
-  *chad.williams@history.ok.gov*
-- **Bob Blackburn**, Former OHS Executive Director  
-  *bobblackburn1951@gmail.com*
-- **Jason Hadley**, Archivist III, OHS  
-  *jason.hadley@history.ok.gov*
-- **June Abbas**, Director, SLIS, OU  
-  *jmabbas@ou.edu*
-- **Elizabeth Doring**, Carl Albert Center, OU  
-  *elizabeth.doring@ou.edu*
