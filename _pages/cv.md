@@ -106,9 +106,9 @@ Results-driven digital archivist with 14 years of progressive experience designi
 
 ---
 
-## 📚 Selected Publications & Presentations
+## Selected Publications & Presentations
 
-### 🧠 Peer-Reviewed Articles
+### Peer-Reviewed Articles
 - **“Using AI to Summarize US Presidential Campaign TV Advertisement Videos, 1952–2012”**  
   Adam Breuer, Bryce J. Dietrich, Michael H. Crespin, Matthew Butler, J. A. Pryse, Kosuke Imai. *arXiv* (2025).  
   [DOI: 10.48550/arxiv.2503.22589](https://doi.org/10.48550/arXiv.2503.22589) – *Forthcoming*
@@ -164,12 +164,12 @@ Results-driven digital archivist with 14 years of progressive experience designi
 
 
 ## Professional Service
-  - Executive Board Member, National Association of Government Archives & Records Administrators (NAGARA), 2021–present
-  - Advisory Board, American Congress Digital Archives Portal, 2023–present
+  - Executive Board Member, [National Association of Government Archives & Records Administrators (NAGARA)](https://www.nagara.org/), 2021–present
+  - Advisory Board, [American Congress Digital Archives Portal](https://congressarchives.org/), 2023–present
   - Data Curation Network Mentorship Program, 2023-2024
   - National Association of Government Archives and Records Administrators: Mentorship Program, 2024-2025
-  - Executive Board Member, Oklahoma Museums Association (OMA), 2019-2022
-  - Staff Initiatives Committee, University of Oklahoma Staff Senate (OUSS) (2020–present)
+  - Executive Board Member, [Oklahoma Museums Association (OMA)](https://www.okmuseums.org/), 2019-2022
+  - Staff Initiatives Committee, University of Oklahoma Staff Senate (OUSS)](https://www.ou.edu/staff-senate/committees) (2020–present)
   - Native American Studies, Tribal Collaboration Committee Member, University of Oklahoma: (2018–present)
   - Reference, Access & Outreach Section Steering Committee Society of Southwest Archivists (SSA): (2018–2019)
   - Oklahoma Representative Digital Public Library of America (DPLA): e (2014–2016)
