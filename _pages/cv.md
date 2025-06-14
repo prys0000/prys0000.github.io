@@ -9,35 +9,74 @@ redirect_from:
 
 {% include base_path %}
 
-## Education
-###### Ph.D. Candidate in Information Science
-- University of North Texas, Concentration in Large-Scale Digital Asset Management
-- Expected Completion: 2025
+## Professional Summary
+Results-driven digital archivist with 14 years of progressive experience designing and managing large-scale congressional and cultural heritage repositories. Proven track record supporting state and federal agencies in the acquisition, appraisal, and lifecycle management of records across all formats. Leads institution-wide records management programs, including retention scheduling and disposition reviews, ensuring legal compliance and public access. Smithsonian-trained fellow and Ph.D. candidate in Information Science, advancing research in adaptive, AI-assisted workflows. Skilled in policy development, born-digital acquisition, metadata standards (DACS, EAD, PREMIS, Dublin Core), and preservation platforms (Preservica, ArchivesSpace, AWS). A recognized mentor, collaborator, and educator, I’m committed to public service, inclusive access, and archival innovation.
 
+## Professional Skills 
+
+- Records Disposition Scheduling and Facilitation
+- Records Appraisal and Backlog Reduction
+- Access Review & Restricted-Data Handling
+- Digital and Electronic Records Management & Policy Development
+- Public-Facing Outreach & Social-Media Promotion
+- AV & Legacy-Media Reformatting, Repair, Preservation
+- User Training, Outreach & Documentation
+- Grant & Budget Stewardship 
+- Team Leadership & Cross-Functional Collaboration
+- Risk Assessment & Emerging-Tech Monitoring
+
+## Education
+###### Ph.D. Candidate in Information Science, University of North Texas, Expected Completion: 2025
+- **Dissertation:** Adaptive Learning Models for Efficient & Standardized Archival Processes
+  ***Focus***: large-scale records management, adaptive learning model development, AI appraisal, Python automation
+  
 ###### M.L.I.S. in Library and Information Science (Digital Content Management Specialization) University of North Texas, 2015
+  - ***Focus***: large-scale records and digital content management, adaptive learning model development
 
 ###### M.S. in Museum Science (Digital Asset Management Focus) University of Oklahoma, 2011
+  - ***Focus***: digital asset management, large-scale records management, institutional content management
 
+###### Advanced Archival Training
+  - Smithsonian Institution Research Fellow: Electronic Records Management & Digital Archives (2014)
+  - Data Curation Network Workshops – Specialized Data Types (2019, 2023)
+  - Archival Education & Research Institute, Louisiana State University (LSU), 2023
 
 ## Professional Experience
-##### Senior Archivist III
-###### Carl Albert Congressional Research and Studies Center Archives, University of Oklahoma 2018–Present
-- Provide leadership for a distinguished repository of manuscripts, photographs, audiovisual materials, and born-digital assets dating back to the late 1800s.
-- Oversee daily operations related to collection accessibility, research services, and community outreach, ensuring an equitable, user-focused environment.
-- Manage teams of interns and student workers, coordinate training, performance reviews, and ongoing professional development.
-- Develop and implement digital collection management strategies, focusing on efficiency, scalability, and sustainability for large-scale projects.
-- Collaborate with internal and external stakeholders on grants, workshops, and educational initiatives to promote archival stewardship and public engagement.
+##### University of Oklahoma, Norman, Okla
+  ###### Senior Archivist III and Curator, Carl Albert Congressional Research Archives, 2018 - present
+  ###### Instructor of Information Science, 2018 – present
+  - Direct end-to-end stewardship of 175.5 TB digital congressional assets, including email, social-media exports, and legislative multimedia.
+  - Designed the Center’s Electronic Records Management (ERM) framework, authored retention schedules and reviews, and Digital Collection policies, integrating appraisal, fixity verification, PREMIS event logging, and automated ingest to Preservica.
+  - Led a $1 M migration of all legacy digital collections from ArchivesSpace to Preservica.
+  - Improved public engagement by clearing the backlog, improving access, and implementing AI-assisted triage tools.
+  - Produces concise guidance for House chiefs of staff, committee aides, and researchers on transfer standards, naming conventions, and encryption practices.
+  - Co-Principal Investigator on the American Congress Digital Archives Portal (NEH, $349 K)— expanding federated access to 100,000+ congressional files and developing K-12 civics modules.
+  - Co-Principal Investigator on the Collaborative Research: Understanding the Evolution of Political Campaign Advertisements over the Last Century (NSF $300 K) – investigating the evolution of issue advocacy, as it relates to consonance.
+  - Principal Investigator in a project that pilot-tested AWS Textract on 20,000 handwritten letters; reduced descriptive backlogs by 60 %.
+  - Supervise multiple FTEs, 10–15 students, and rotating interns; implement competency-based training and weekend digitization rotations to meet grant deadlines.
+  - Delivers multiple workshops annually for records creators on content management standards, digitization assessments, and workflow efficiency measures.
 
-##### Director of Digital Archives, Archivist III
-###### Oklahoma Historical Society 2016–2018
- 
-- Led the planning and execution of initiatives to preserve and digitize special collections, including rare documents, audiovisual archives, and other cultural heritage materials.
-- Provided specialized reference and instructional services; liaised with faculty to integrate archival resources into curricular programs.
-- Developed workflows and policies for reading-room access, circulation of archival materials, and staff training programs.
+##### Oklahoma Historical Society, Oklahoma City, Oklahoma
+  ###### Director of Digital Archives, Archivist III, 2016-3/2018 / Digital Archivist III, 2015-2016
+   - Managed statewide digital preservation program covering 13 M legislative journal pages, 118,000 maps, and 3,000 oral-history tapes; drafted the Society’s first born-digital transfer policy.
+   - Implemented workflow to reduce extensive backlog.
+   - Created multiple local and state initiatives to develop agency records content management workflow and digital platforms for accessibility.
+   - Deployed workflows, ensuring NARA-level checksum validation and automated derivatives for public portal delivery.
+   - Collaborated with state IT and records-management offices to align retention schedules with digital-preservation best practices.
+  ###### Archivist III, Archivist II, Archivist I
+    - Progressively promoted while accessing and describing photographic, audiovisual, and textual materials dating from the Territorial era to the present, instituted triage workflows for at-risk magnetic media.
 
-##### Archivist III, Archivist II, Archivist I
-###### Oklahoma Historical Society 2011–2018
 
+## Technical and Media Engineering Expertise
+  - Cloud Storage & Secure Transfer: Advanced use of AWS (S3, Glacier, Storage Gateway) and Google Cloud (Storage, Transfer, server-side encryption, gsutil) for scalable ingest, fixity, and disaster-recovery workflows.
+  - Programming & Markup Expertise: Python, JavaScript, Java, R, PHP; XML, MARCXML, XHTML, SVG, LaTeX/TeX, DFXML, shell scripting. Proven record of automation, linked-open-data integration, and semantic-web applications.
+  - AI and Machine Learning (ML) toolchains for metadata extraction, complete lifecycle configuration, and metadata mapping
+  - Digital Forensics & Acquisition: Proficient with FRED workstations, Tableau/UltraBlock bridges, FTK, Sleuth Kit, EnCase, DataAccessioner, Brunnhilde for bit-level capture, triage, and integrity validation of born-digital collections.
+  - Repository & CMS Platforms: Preservica, ArchivesSpace, Cuadra STAR, Archivists’ Toolkit, Archon, PastPerfect, Omeka—management and public-access deployment.
+  - Standards & Models: Deep knowledge of Dublin Core, EAD, METS, PREMIS, PBCore, MARC, EBUCore, WARC; adheres to OAIS/TDR, ISO 16363, IASA, AES31 guidelines; creator of the CAC+ extended-metadata model.
+  - Legacy-to-Digital Media Preservation: Engineer-level operation of wax cylinders, wire recorders, open-reel audio (¼", ½", 1"), lacquer discs, shellac 78s, 1" Type C and 2" Quad video decks (Ampex VPR-80/820, RCA TR-600/800, Sony BVH-2000), and 16 / 35 mm optical-mag film systems. Rebuild tape heads, calibrate         servo electronics, correct time-base errors, and design custom A-D capture chains with TBCs, waveform-monitoring, and frame-by-frame film scanners (e.g., Filmfabriek HDS+).
+  - Studio Design & Training: Planned and built multi-format AV preservation suites that integrate legacy gear with broadcast-grade digitization hardware; coached archivists and students on safe handling, signal flow, and troubleshooting best practices.
+    
 ## Selected Publications & Presentations
 
 **Peer Reviewed**
@@ -48,15 +87,17 @@ redirect_from:
 
 **Other Publications and Datasets**
 
-- “Oral History Interviews Data Curation Primer,” JA Pryse, Matthew Harp, Sara Mannheimer, Wanda Marsolek, Wind Cowles, Data Curation Network (2020).
-- "Carl Albert Center COVID-19 Curation Project." JA Pryse, Southwestern Archivist (2020) 43(2): 18-24.
-- “Audiovisual data curation primer. Data Curation Network,” Grace M. Jerrild, Lauren Phegley, Data Curation Network (2023). 
-- "Carl Albert Center Human Rights Digital Archive,” JA Pryse, Southwestern Archivist 43(1): 23-25.
-- "The Carl Albert Photo Collection." JA Pryse, Southwestern Archivist 42(3): 24-26.
-- “Audio, Film, and Video Preservation and Access at the Oklahoma Historical Society,” Rachel Mosman, JA Pryse. Recorded Sound Journal, Summer: 6-8.
-- “Journey of Big Bertha Webster,” JA Pryse, International Association of Sound and Audiovisual Archives (IASA) Journal (46): 67-68.
-- “Journey Back to Life,” JA Pryse, Archival Outlook (May-June) p23.
-- “Clara Luper Collection at the Oklahoma Historical Society: Community Description Project,” JA Pryse, International Association of Sound and Audiovisual Archives (IASA) Journal (43)L 70-74.
+  - "Using AI to Summarize US Presidential Campaign TV Advertisement Videos, 1952-2012” Adam Breuer, Bryce J. Dietrich, Michael H. Crespin, Matthew Butler, J. A. Pyrse, and Kosuke Imai. arXiv (2025) doi: 10.48550/arXiv.2503.22589, forthcoming.
+  - "Adaptive Learning Models for Efficient and Standardized Archival Processes." JA Pryse, Archival Science Journal (2025), https://doi.org/10.22541/au.173438107.75954501/v2, forthcoming.
+  - “Practical Remote Workflow Solutions for Complex Digital Projects: Opportunities in a Pandemic” JA Pryse. Journal for Museum and Archives Professionals (2021) doi: 0.1177/15501906211052720
+  - “Changing Guard,” JA Pryse, Public Libraries Journal (2017), 78(1): 118-137.
+  - “Oral History Interviews Data Curation Primer,” JA Pryse, Matthew Harp, Sara Mannheimer, Wanda Marsolek, Wind Cowles, Data Curation Network (2020).
+  - "Carl Albert Center COVID-19 Curation Project." JA Pryse, Southwestern Archivist (2020) 43(2): 18-24.
+  - “Audiovisual data curation primer. Data Curation Network,” Grace M. Jerrild, Lauren Phegley, Data Curation Network (2023).
+  - “Audio, Film, and Video Preservation and Access at the Oklahoma Historical Society,” Rachel Mosman, JA Pryse. Recorded Sound Journal, Summer: 6-8.
+  - “Journey of Big Bertha Webster,” JA Pryse, International Association of Sound and Audiovisual Archives (IASA) Journal (46): 67-68.
+  - “Journey Back to Life,” JA Pryse, Archival Outlook (May-June) p23.
+  - “Clara Luper Collection at the Oklahoma Historical Society: Community Description Project,” JA Pryse, International Association of Sound and Audiovisual Archives (IASA) Journal (43)L 70-74.
 
 **Working Papers**
 
