@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-/* Apply Garamond globally */
-body, html,
+/* Apply Garamond font globally to all meaningful elements */
+html, body,
+.site, .page, .wrapper, .initial-content,
+.page__content, .entry-content,
 h1, h2, h3, h4, h5, h6,
 p, li, blockquote, span,
-.site, .page, .entry-content, .page__content, .archive, .author__bio, .author__content, .author__name {
+.author__bio, .author__content, .author__name {
   font-family: 'EB Garamond', serif !important;
+  font-weight: 400;
 }
 
-/* Links */
+/* Ensure all links follow font too */
 a {
   color: #111192;
   text-decoration: none;
-  font-family: 'EB Garamond', serif;
+  font-family: 'EB Garamond', serif !important;
 }
 
 a:hover {
