@@ -9,36 +9,61 @@ redirect_from:
 
 ## Grant Funded Projects - Contributions and Management
 
-* [American Congress Digital Archives Portal](https://exlibris.lib.wvu.edu/news/2025/01/13/funding-secured-for-congressional-archives-enhancements-civics-and-history-education): The Carl Albert Center, along with the University of West Virginia, Robert J. Dole Institute of Politics, the Dirksen Congressional Center, and the Richard B. Russell Library of Political Research, received $1.5 million in congressionally directed spending to expand utility, usability, and capacity of the American Congress Digital Archives Portal and to equip K-12 educators with resources and tools for refortified civics and history education.
-
 * [The James R. Jones Carl Albert Center Digital Archive (PI)](https://oucac.access.preservica.com/): Ambassador James R. Jones donated $1,000,000 to facilitate the migration of all digital collections from ArchivesSpace to the Preservica digital content management platform (Gift received on 2021-08-19).
   
-* [Digital Archives Portal: Congressional Archives for Education (co-PI)]((https://congressarchives.org/) ):
+* [Digital Archives Portal: Congressional Archives for Education (co-PI)](https://congressarchives.org/) ):
     * Funding Entity: National Historical Publications and Records Commission (NHPRC), $1.5 million
     * Collaborative Partners: West Virginia University Libraries (WVUL),
     * Abstract: This project will further develop the Portal’s technical infrastructure, add significantly more archival content, create educational resources for K-12 civics and history curricula, and conduct outreach activities for educators.
+    * ***Key Project Initiatives:*** https://github.com/prys0000/congressional-portal-project
       
 * [Historical Collection of Political Campaign Advertisements: Online Archiving, Automated Coding, and Scientific Analysis (co-PI)](https://s-lib024.lib.uiowa.edu/campaignvids/index.html):
     * Funding Entity: National Science Foundation
     * Funding Unit: Accountable Institutions and Behavior (AIB) program and the Established Program to Stimulate Competitive Research (EPSCoR)
     * Collaborative Partners: Harvard University and Purdue University
-    * Abstract: Television advertising, a primary way voters hear about candidates absent a media filter, is ubiquitous in political campaigns in the United States. Drawing on an existing but underutilized data set of over 100,000 political ads, this project examines the evolution of political advertising, especially as it pertains to issue advocacy and unity.  The project makes significant methodological and substantive contributions to several fields, including political, information, and library sciences, enhancing our understanding of how ads shape and inform political behavior.  It also promotes interdisciplinary graduate and undergraduate education at research and teaching institutions in the emerging sub-field of automated audiovisual analysis, including students and scholars from traditionally underrepresented groups.<br/><br/>The project uses a collection of over 100,000 political ads from 1912-2018, the Julian P. Kanter Political Commercial Collection archived at the University of Oklahoma, to develop (1) an automated system to identify issues (and other politically relevant) content from ad image, audio, and text and (2) a state-of-the-art user interface that gives researchers the ability to query, interact with and view videos, and also output data for analysis.  The project uses the data to examine the evolution of political advertising, testing models of horizontal and vertical diffusion of issues.  The project’s tools and data, introduced at an interdisciplinary workshop, are widely available to scholars from various disciplines studying American politics, campaigns, political communication, and public opinion.
+    * ***Key Project Initiatives:*** https://github.com/prys0000/political-commercial-collection-archives
 
 * [The American Congress Digital Archives Portal Project,” (PI)](https://congressarchives.org/) 
     * Funding Entity: National Endowment for the Humanities
     * Funding Unit: Division of Preservation and Access, Humanities Collections and Reference Resources
     * Collaborative Partners: Dirksen Congressional Center, Robert J. Dole Institute of Politics at the University of Kansas, Richard B. Russell Library for Political Research and Studies at the University of Georgia, and the University of Hawai’i
-    * Abstract: To further develop and expand the first-ever online portal, bringing together congressional archives from repositories throughout the United States. The portal promises to bring historical congressional materials to the fingertips of more scholars, educators, and public members. It could revolutionize the study and understanding of Congress and its importance in American democracy. The American Congress Digital Archives Portal is a non-partisan project that addresses these challenges and provides more accessible, more accessible access to congressional archives. By digitizing congressional archives from multiple institutions across the country and making them available through one website (Portal), the public can discover and access thousands of historical records of Congress from anywhere. The prototype Portal, created with a grant from the National Endowment for the Humanities, currently aggregates materials from WVU Libraries, the Robert J. Dole Institute of Politics at The University of Kansas, and the Robert C. Byrd Center for Congressional History and Education (Shepherd University, West Virginia).
+    * ***Key Project Initiatives:*** https://github.com/prys0000/congressional-portal-project
+        
+* Congressional Correspondence Handwriting Textract Pilot Project (PI):
+  * Funding Entity: Data Institute for Societal Challenges (DISC), $2,500 (Awarded on 2022-05-19)
+  * Abstract: Evaluate the AWS Textract platform for optical character recognition (OCR) on handwritten letters in archival holdings
+  * ***Key Project Initiatives:*** https://github.com/prys0000/archives-handwriting-text-extract-project
+
+* [The Independent Student Voice: Access to the University of Oklahoma’s Historic Newspaper (PI)](https://gateway.okhistory.org/explore/collections/OUSN/):
+  * Funding Entity: Ethics and Excellence in Journalism Foundation, $25,000 (Awarded on 2020-01-01)
+  * Abstract: This project digitized 100 years of the Campus newspaper, resulting in over 475,000 freely accessible pages on the Gateway to Oklahoma History.
   
-* Congressional Correspondence Handwriting Textract Pilot Project (PI): A pilot project by the Data Institute for Societal Challenges (DISC) to evaluate the AWS Textract platform for optical character recognition (OCR) on handwritten letters in archival holdings, funded with $2,500 (Awarded on 2022-05-19).
-* [The Independent Student Voice: Access to the University of Oklahoma’s Historic Newspaper (PI)](https://gateway.okhistory.org/explore/collections/OUSN/): Supported by the Ethics and Excellence in Journalism Foundation with a grant of $25,000 (Awarded on 2020-01-01). This project digitized 100 years of the Campus newspaper, resulting in over 475,000 freely accessible pages on the Gateway to Oklahoma History.
-* [Redlining, a Community Driven Exhibit (PI)](https://cacredlining.omeka.net/): Funded by the Oklahoma Humanities Foundation with $5,000 (Awarded on 2020-01-01). The project aims to create an interactive platform that explores the after-effects of redlining through time and place using the voices of Oklahoma City communities.
-* [Carl Albert Center COVID-19 Digital Curation Project (PI)](https://caccovid19.omeka.net/): Created with $5,000 from the Data Institute for Societal Challenges (DISC) at the University of Oklahoma. The project documents COVID-19 announcements, policies, and responses from various entities.
-* [Carl Albert Platform of Interactive Discovery (PI)](https://cacdiscovery.omeka.net/): Funded with $3,000 from the Oklahoma Department of Libraries and the Oklahoma Historical Records Advisory Board. The project aims to digitize, preserve, and host the Carl Albert Photograph Series and related textual passages.
-* Improving Access to Collections: Grants for Archival Collections Representing Oklahoma: PAccessng Access to the Digital Materials of the Carl Albert Collection (PI): This project was funded with $2,859.00 from the National Historical Publications and Records Commission (NHPRC) through the Oklahoma Historical Records Advisory Board (OHRAB) and Oklahoma Department of Libraries (ODL) grant.
-* Sounds of History (PI): Supported by the Oklahoma Humanities Foundation with a grant of $1,500 (Awarded on 2020-02-14). The project aims to create an archival audio studio at the Carl Albert Congressional Research and Studies Center.
-* Carl Albert Congressional Research and Studies Center Native American Politics Archival Workshop (co-PI): Funded with $5,000 from the Special Projects Fund of The American Political Science Association’s Centennial Center (APSA). The project provides funding for non-OU scholars to access the Center's archival collections and hosts a weeklong workshop to explore unexplored segments.
-* [Bob Wills and his Texas Playboys, Let’s Playboys: Supported by The Grammy Foundation, with $20,000 (Managed in 2012-04-01)](https://www.oklahoman.com/story/entertainment/music/2015/05/26/oklahoma-historical-society-releases-bob-wills-record/60744203007/). The project aimed to preserve, digitize, and produce an album of 600 hours of Bob Wills’ music recorded in the 1940s on glass transcription discs.
+* [Redlining, a Community Driven Exhibit (PI)](https://cacredlining.omeka.net/):
+  * Funding Entity: Oklahoma Humanities Foundation, $5,000 (Awarded on 2020-01-01).
+  * Abstract: The project created an interactive platform that explores the after-effects of redlining through time and place using the voices of Oklahoma City communities.
+  
+* [Carl Albert Center COVID-19 Digital Curation Project (PI)](https://caccovid19.omeka.net/):
+  * Funding Entity: Data Institute for Societal Challenges (DISC) at the University of Oklahoma, $5,000
+  * Abstract: The project documents COVID-19 announcements, policies, and responses from various entities.
+  
+* [Carl Albert Platform of Interactive Discovery (PI)](https://cacdiscovery.omeka.net/):
+  * Funding Entity: Oklahoma Department of Libraries and the Oklahoma Historical Records Advisory Board, $3,000
+  * Abstract: The project digitized, preserved, and hosted the Carl Albert Photograph Series and related textual passages
+    
+* Improving Access to Collections: Grants for Archival Collections Representing Oklahoma: Accessing Access to the Digital Materials of the Carl Albert Collection (PI):
+  * Funding Entity: National Historical Publications and Records Commission (NHPRC) through the Oklahoma Historical Records Advisory Board (OHRAB), $2,859.00
+  
+* Sounds of History (PI):
+  * Funding Entity: Oklahoma Humanities Foundation, $1,500 (Awarded on 2020-02-14).
+  * Abstract: The project created an archival audio studio at the Carl Albert Congressional Research and Studies Center
+    
+* Carl Albert Congressional Research and Studies Center Native American Politics Archival Workshop (co-PI):
+  * Funding Entity: Special Projects Fund of The American Political Science Association’s Centennial Center (APSA), $5,000
+  * Abstract: The project provided funding for non-OU scholars to access the Center's archival collections and hosts a weeklong workshop to explore unexplored segments
+    
+* [Bob Wills and his Texas Playboys, Let’s Playboys:](https://www.oklahoman.com/story/entertainment/music/2015/05/26/oklahoma-historical-society-releases-bob-wills-record/60744203007/).
+  * Funding Entity: The Grammy Foundation, $20,000 (Managed in 2012-04-01)
+  * Abstract: The project preserved, digitized, and produced an album of 600 hours of Bob Wills’ music recorded in the 1940s on glass transcription discs
 * [The Gateway to Oklahoma History: Supported by the Ethics and Excellence in Journalism Foundation](https://gateway.okhistory.org/). This project involved digitizing Oklahoma newspapers before 1923, with three awards received in 2009, 2011, and 2013.
 * Oklahoma Commissioners of the Land Office Digitization and Preservation Project (PI): This project was funded with $98,000 from the Oklahoma Commissioners of Land. To enable access, it transferred and preserved over 20,000 pages of historical land records dating before Oklahoma Statehood (1905-1907).
 * [The Oklahoma State Legislature Preservation and Digitization Program – Oklahoma Senate (PI)](https://oksenate.gov/calendar/journals): Resulted in 13 million searchable pages of Oklahoma State Senate Journals from statehood (1907) through the present, funded in FY2015.
