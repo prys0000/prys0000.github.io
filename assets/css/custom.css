@@ -23,7 +23,6 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Force EB Garamond globally */
 body,
 html,
 .page,
@@ -37,3 +36,4 @@ html,
 p, li, h1, h2, h3, h4, h5, h6, span, blockquote {
   font-family: 'EB Garamond', serif !important;
 }
+
