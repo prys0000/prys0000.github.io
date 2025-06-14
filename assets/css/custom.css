@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+
 /* Change the default link color */
 a {
   color: #111192; /* navy */
   text-decoration: none; /* remove underline if you want */
-  font-family: "EB Garamond", serif; /* example font */
+  font-family: "EB Garamond", serif;
+}
+
+body, html {
+  font-family: 'EB Garamond', serif; /* no stray quote */
 }
 
 /* Change the link color when hovered over */
