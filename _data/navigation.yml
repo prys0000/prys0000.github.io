@@ -1,18 +1,18 @@
 # main links links
 main:
-  - title: "Grants and Funding"
+    - title: "CV"
+    url: /cv/
+    
+  - title: "Select Projects and Grants (PI/co-PI)"
     url: /markdown/
  
-  - title: "Teaching Experience"
+  - title: "Teaching Experience and Course Info."
     url: /teaching/    
     
   - title: "Publications"
     url: /publications/
-
-  - title: "CV"
-    url: /cv/
     
-  - title: "Talks"
+  - title: "Selected Presentations"
     url: /talks/    
 
 
