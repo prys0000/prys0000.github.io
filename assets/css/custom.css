@@ -22,3 +22,18 @@ a:hover {
   color: #660206;
   text-decoration: underline;
 }
+
+/* Force EB Garamond globally */
+body,
+html,
+.page,
+.site,
+.wrapper,
+.page__content,
+.entry-content,
+.archive__item-excerpt,
+.page__meta,
+.page__lead,
+p, li, h1, h2, h3, h4, h5, h6, span, blockquote {
+  font-family: 'EB Garamond', serif !important;
+}
