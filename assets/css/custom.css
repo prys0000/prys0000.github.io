@@ -37,3 +37,11 @@ p, li, h1, h2, h3, h4, h5, h6, span, blockquote {
   font-family: 'EB Garamond', serif !important;
 }
 
+/* Ensure navigation bar and links use EB Garamond */
+nav.greedy-nav a,
+.masthead__menu-item a {
+  font-family: 'EB Garamond', serif !important;
+  font-size: 1.1rem; /* Optional: adjust for readability */
+  text-transform: none; /* Optional: remove all-caps */
+}
+
