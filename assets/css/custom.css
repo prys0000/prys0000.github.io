@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
-/* Apply Garamond font globally to all meaningful elements */
+/* Force EB Garamond globally */
 html, body,
-.site, .page, .wrapper, .initial-content,
-.page__content, .entry-content,
 h1, h2, h3, h4, h5, h6,
-p, li, blockquote, span,
-.author__bio, .author__content, .author__name {
+p, span, li, blockquote, figcaption,
+nav, footer, header,
+.page, .site, .wrapper,
+.page__content, .entry-content,
+.masthead__menu-item,
+.author__name, .author__bio {
   font-family: 'EB Garamond', serif !important;
-  font-weight: 400;
+  font-weight: 400 !important;
 }
 
-/* Ensure all links follow font too */
+/* Link styles */
 a {
   color: #111192;
   text-decoration: none;
@@ -22,26 +24,3 @@ a:hover {
   color: #660206;
   text-decoration: underline;
 }
-
-body,
-html,
-.page,
-.site,
-.wrapper,
-.page__content,
-.entry-content,
-.archive__item-excerpt,
-.page__meta,
-.page__lead,
-p, li, h1, h2, h3, h4, h5, h6, span, blockquote {
-  font-family: 'EB Garamond', serif !important;
-}
-
-/* Ensure navigation bar and links use EB Garamond */
-nav.greedy-nav a,
-.masthead__menu-item a {
-  font-family: 'EB Garamond', serif !important;
-  font-size: 1.1rem; /* Optional: adjust for readability */
-  text-transform: none; /* Optional: remove all-caps */
-}
-
