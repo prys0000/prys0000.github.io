@@ -13,14 +13,12 @@ redirect_from:
 **Senior Archivist III, Instructor**  
 [japryse@ou.edu](mailto:japryse@ou.edu)  
 Norman, Oklahoma
-[**CV**](https://prys0000.github.io/cv/)
 
 ---
 
 ## Professional Summary
 Results-driven digital archivist with 14 years of progressive experience designing and managing large-scale congressional and cultural heritage repositories. Proven track record supporting state and federal agencies in the acquisition, appraisal, and lifecycle management of records across all formats. Leads institution-wide records management programs, including retention scheduling and disposition reviews, ensuring legal compliance and public access. Smithsonian-trained fellow and Ph.D. candidate in Information Science, advancing research in adaptive, AI-assisted workflows. Skilled in policy development, born-digital acquisition, metadata standards (DACS, EAD, PREMIS, Dublin Core), and preservation platforms (Preservica, ArchivesSpace, AWS). A recognized mentor, collaborator, and educator, I’m committed to public service, inclusive access, and archival innovation.
 
-*Visit my **[CV](https://prys0000.github.io/cv/)** for more information*
 
 ### Core Competencies
 - Records Disposition Scheduling and Facilitation  
