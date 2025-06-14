@@ -9,11 +9,12 @@ redirect_from:
 ---
 About
 ======
-I am a digital archivist with 14 years of experience in congressional and cultural heritage repositories. I currently serve as Senior Archivist III and Curator at the Carl Albert Congressional Research Archives and as an Instructor of Information Science at the University of Oklahoma. I hold an M.L.I.S. in Digital Content Management, an M.S. in Museum Science, and am completing a Ph.D. in Information Science with a focus on Archival Informatics.
+I am a digital archivist with 14 years of experience in congressional and cultural heritage repositories. I currently serve as Senior Archivist III and Curator at the Carl Albert Congressional Research Archives, as well as an Instructor of Information Science at the University of Oklahoma. I hold an M.L.I.S. in Digital Content Management and an M.S. in Museum Science, and I am completing a Ph.D. in Information Science with a focus on Archival Informatics.
+*Visit my **[CV](https://prys0000.github.io/cv/)** for more information*
 
 Data-driven, Efficiency-Focused Research
 ======
-My research focuses on the impact of information system components (data + human) and the ability to process information (product) efficiently. My work centers on cultural heritage content/information management systems and workflow methodology. I am interested in measuring the rate and efficiency of information flow by exploring traditional goal and system models and forecasting models to predict or prevent possible barriers and obstructions from subsystem to the end product.
+My research focuses on the impact of information system components (data + human) and the ability to process information (product) efficiently. My work focuses on cultural heritage content and information management systems, as well as workflow methodologies. I am interested in measuring the rate and efficiency of information flow by exploring traditional goal and system models, as well as forecasting models, to predict or prevent possible barriers and obstructions from the subsystem to the end product.
 
 Current Large-Scale Projects
 ======
@@ -23,7 +24,7 @@ The Carl Albert Center Archives, along with Harvard University and the Universit
 
 The [Congressional Portal Project](https://github.com/prys0000/congressional-portal-project/tree/main) provides a repository for workflows, methodologies, instructional materials, controlled vocabularies, and more. This repository was created to house large-scale project efficiency methodologies and automated workflows and to document strategies throughout the project timeline. The project scope focuses on materials relating to the American Congress from the Carl Albert Research and Studies Center Archives. 
 
-The [Archives Handwriting Text Extraction and Analysis Project](https://github.com/prys0000/archives-handwriting-text-extract-project) was developed to create and test versatile text extraction and cleaning tools available through local applications or by AWS Textract. This flexibility allows the tools to align with a specific repository or project requirements and facilitate local file processing and customization.
+The [Archives Handwriting Text Extraction and Analysis Project](https://github.com/prys0000/archives-handwriting-text-extract-project) was developed to create and test versatile text extraction and cleaning tools available through local applications or by AWS Textract. This flexibility enables the tools to align with specific repository or project requirements, facilitating local file processing and customization.
 
 For more info
 ------
