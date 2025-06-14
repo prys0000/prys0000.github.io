@@ -1,18 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 
+/* Global font override */
+body, html,
+h1, h2, h3, h4, h5, h6,
+p, li, blockquote, .site, .page, .entry-content, .archive, .author__bio, .page__content {
+  font-family: 'EB Garamond', serif !important;
+}
+
 /* Change the default link color */
 a {
   color: #111192; /* navy */
-  text-decoration: none; /* remove underline if you want */
-  font-family: "EB Garamond", serif;
-}
-
-body, html {
-  font-family: 'EB Garamond', serif; /* no stray quote */
+  text-decoration: none;
+  font-family: 'EB Garamond', serif;
 }
 
 /* Change the link color when hovered over */
 a:hover {
   color: #660206;
-  text-decoration: underline; /* add underline on hover (optional) */
+  text-decoration: underline;
 }
