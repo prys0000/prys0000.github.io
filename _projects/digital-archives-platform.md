@@ -7,7 +7,7 @@ redirect_from:
   - /md/
   - /projects.html
 ---
-
+<div style="padding: 2rem">
 ## Project Title: Digital Archives and Content Platform Development
 
 ### Duration
@@ -61,4 +61,4 @@ This approach significantly reduced manual labor and improved the discoverabilit
 	- "Carl Albert Center COVID-19 Curation Project" (2020)
 	- "The Carl Albert Photo Collection" (2021)
 	
-
+</div>
