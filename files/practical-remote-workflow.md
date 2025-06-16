@@ -1,0 +1,1 @@
+<iframe src="/files/practical-remote-workflow.pdf" width="100%" height="800px" style="border: none;"></iframe>
