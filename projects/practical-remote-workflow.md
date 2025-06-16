@@ -1,9 +1,10 @@
 
 ---
-layout: single
-title: "Practical Remote Workflow Solutions"
+layout: default
 permalink: /projects/practical-remote-workflow/
-redirect_from:
+title: "Practical Remote Workflow Solutions"
+author_profile: true
+redirect_from: 
   - /md/
   - /projects.html
 ---
