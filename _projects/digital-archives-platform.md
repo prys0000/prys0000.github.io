@@ -1,8 +1,10 @@
 ---
-layout: project
+permalink: /digital-archives-platform/
 title: "Digital Archives and Content Platform Development"
-date: 2025-06-01
-categories: [digital-archives, machine-learning]
+author_profile: true
+redirect_from: 
+  - /md/
+  - /projects.html
 ---
 
 ## Project Title: Digital Archives and Content Platform Development
