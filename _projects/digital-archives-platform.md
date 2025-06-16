@@ -46,7 +46,7 @@ This approach significantly reduced manual labor and improved the discoverabilit
 - Created a scalable model for future digital preservation projects
 
 <figure>
-	<img src="https://github.com/prys0000/prys0000.github.io/blob/5bc1ea5abb4b0d47dccc7eccf39cb15aef636308/images/Jones_DA.jpg">
+	<img src="https://raw.githubusercontent.com/prys0000/prys0000.github.io/5bc1ea5abb4b0d47dccc7eccf39cb15aef636308/images/Jones_DA.jpg" alt="CAC Digital Archives">
 	<figcaption>CAC Digital Archives</figcaption>
 </figure>
 
