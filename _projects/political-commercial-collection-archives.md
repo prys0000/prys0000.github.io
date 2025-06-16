@@ -75,11 +75,13 @@ Our task at the Carl Albert Center focused on **aim #1**, delivering a cleaned, 
 
 ---
 
-## Image Example
+## Temporary Video Viewing Platform
 
 <figure style="text-align: center; margin: 2rem 0;">
-  <img src="/images/polcom.jpg" alt="Political Ads Interface" style="max-width: 100%; height: auto;">
-  <figcaption style="font-style: italic;">Sample interface used in ad reprocessing</figcaption>
+  <a href="https://vimeo.com/oucac" target="_blank">
+    <img src="/images/polcom.jpg" alt="Political Ads Interface" style="max-width: 100%; height: auto;">
+  </a>
+  <figcaption style="font-style: italic;">Click image to visit CAC Digital Archives</figcaption>
 </figure>
 
 ---
