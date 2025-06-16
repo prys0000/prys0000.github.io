@@ -1,5 +1,5 @@
 ---
-layout: single
+layout: default
 permalink: /digital-archives-platform/
 title: "Digital Archives and Content Platform Development"
 author_profile: true
