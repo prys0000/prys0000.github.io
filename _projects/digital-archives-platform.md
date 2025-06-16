@@ -52,7 +52,8 @@ This approach significantly reduced manual labor and improved the discoverabilit
 <figure style="text-align: center; margin: 2rem 0;">
   <a href="https://oucac.access.preservica.com/ target="_blank">
   <img src="/images/Jones_DA.jpg" alt="CAC Digital Archives" style="max-width: 100%; height: auto;">
-  <figcaption style="font-style: italic;">CAC Digital Archives</figcaption>
+  </a>
+    <figcaption style="font-style: italic;">CAC Digital Archives</figcaption>
 </figure>
 
 ### Related Links
