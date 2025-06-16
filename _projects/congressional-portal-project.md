@@ -29,7 +29,7 @@ The project integrates **Natural Language Processing (NLP)** and **OpenAI’s GP
 
 <figure>
   <a href="https://congressarchives.org/">
-    <img src="/images/congressional_portal_banner.png" alt="Congressional Portal Project banner" style="max-width:100%">
+    <img src="/images/congport.jpg" alt="American Congress Digital Archives Portal" style="max-width:100%">
   </a>
   <figcaption>American Congress Digital Archives Portal</figcaption>
 </figure>
