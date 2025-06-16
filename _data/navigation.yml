@@ -6,6 +6,9 @@ main:
   - title: "Select Projects and Grants (PI/co-PI)"
     url: /markdown/
 
+  - title: "Project Details"
+    url: /projects/
+
   - title: "Publications"
     url: /publications/
 
@@ -15,5 +18,4 @@ main:
   - title: "Selected Presentations"
     url: /talks/
 
-  - title: "Projects"
-    url: /projects/
+
