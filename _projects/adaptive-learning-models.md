@@ -17,7 +17,7 @@ redirect_from:
 <span style="padding-left: 0.5rem;">Carl Albert Congressional Research and Studies Center Archives</span>
 
 ### Project Overview  
-This project addresses the increasing demands placed on archival systems by large-scale digitization efforts and the complex metadata requirements that accompany them. By developing [**adaptive learning pipelines**](images/practical-remote-workflow.pdf), the project enhances efficiency, accuracy, and repeatability in managing digitized historical documents, especially those relevant to American Indian policy, congressional records, and tribal sovereignty.
+This project addresses the increasing demands placed on archival systems by large-scale digitization efforts and the complex metadata requirements that accompany them. By developing [**adaptive learning pipelines**](https://github.com/prys0000/prys0000.github.io/tree/750167dbc3880d5e65c7ba42b1a30ebcb4755f8d/images)), the project enhances efficiency, accuracy, and repeatability in managing digitized historical documents, especially those relevant to American Indian policy, congressional records, and tribal sovereignty.
 
 The model extracts meaningful metadata and enriches archival content using **Natural Language Processing (NLP)** and **machine learning** in an iterative, feedback-controlled environment.
 
