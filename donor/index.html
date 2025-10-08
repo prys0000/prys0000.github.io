@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC — Donor & Congregation Resources</title>
+  <meta name="description" content="Resources for congregations: collection policies, agreements, image/publication guidance, handling instructions, and the donor packet." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f7f8; --card:#fff; --muted:#6b7280;
+      --accent:#0f172a; --accent-2:#2b6fb3;
+      --radius:10px; --container:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--accent);background:var(--bg);line-height:1.5}
+    a{color:var(--accent-2);text-decoration:none}
+    .wrap{max-width:var(--container);margin:0 auto;padding:18px}
+    header{background:rgba(255,255,255,0.7);backdrop-filter:blur(4px);border-bottom:1px solid rgba(15,23,42,0.04);position:sticky;top:0;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#3b82c4);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather}
+    .button{background:var(--accent-2);color:#fff;padding:9px 14px;border-radius:8px;font-weight:600}
+
+    .hero{padding:36px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+    h1{font-family:Merriweather;font-size:26px;margin:0 0 8px}
+    .lead{color:var(--muted);margin:0 0 14px}
+
+    .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.05)}
+    .links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
+    .link-item{padding:12px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd)}
+    .link-item h4{margin:0 0 6px;font-size:15px}
+    .link-item p{margin:0;color:var(--muted);font-size:13px}
+
+    main{max-width:var(--container);margin:18px auto;padding:0 18px}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px}
+    .meta{color:var(--muted);font-size:14px}
+
+    /* PDF viewer and file list */
+    .pdf-wrap{margin-top:14px}
+    .pdf-frame{width:100%;height:64vh;border:0;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04)}
+    .file-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd);gap:12px}
+    .file-row .meta{color:var(--muted);font-size:13px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+
+    footer{padding:28px 18px;text-align:center;color:var(--muted);font-size:14px}
+
+    @media (max-width:880px){
+      .hero-grid{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .links-grid{grid-template-columns:1fr}
+      .pdf-frame{height:50vh}
+    }
+    @media print{header,footer{display:none}.pdf-frame{height:800px}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav" role="banner">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">H</div>
+        <div>
+          <div style="font-weight:700">Heritage & Research Center</div>
+          <div style="font-size:13px;color:var(--muted)">Donor & Congregation Resources</div>
+        </div>
+      </div>
+      <nav>
+        <a class="button" href="#resources">Review resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Welcome — Resources for Congregations & Donors</h1>
+        <p class="lead">A single place to review collection policies, intake/loan agreements, image & publication guidance, handling instructions, and the donor packet. Send this link before a visit so congregations can prepare.</p>
+
+        <div class="card" aria-labelledby="quicklinks">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <strong id="quicklinks">Collection Transfer Agreements and Policy Links</strong>
+              <div class="meta">Click each link below for more information</div>
+            </div>
+            <div>
+              <a class="btn" href="/donor/harc-donor-congregation-agreement-draft2.pdf.pdf" id="donor-packet" aria-label="Download donor packet">Download Agreement PDF</a>
+            </div>
+          </div>
+
+          <div class="links-grid" style="margin-top:12px">
+			<a class="link-item" href="donor-packet"><h4>Collection Agreement</h4>Collections Transfer Agreement.</p></a>
+            <a class="link-item" href="#policies"><h4>Collection Policies</h4><p>Accessioning, access, retention, and restrictions.</p></a>
+            <a class="link-item" href="#agreements"><h4>Agreements</h4><p>Intake, loan, and donation forms.</p></a>
+            <a class="link-item" href="#images"><h4>Image & Publication</h4><p>Permissions, reproduction, and citation guidance.</p></a>
+            <a class="link-item" href="#handling"><h4>Handling & Transportation</h4><p>Packing, shipping, and on-site handling tips.</p></a>
+          </div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="card" role="complementary" aria-label="Contact">
+          <strong style="display:block;margin-bottom:8px">Need help?</strong>
+          <p class="meta">Contact the HARC team to arrange a visit or request forms.</p>
+          <div style="margin-top:12px"><div style="font-weight:600">Email</div><div class="meta">Barbara Gordon, Executive Director: bgordon@harcsm.org</div></div>
+          <div style="margin-top:12px"><div style="font-weight:600">Phone</div><div class="meta">(574)678-6155</div></div>
+          <div style="margin-top:14px;display:flex;gap:10px">
+            <a href="#policies">View policies</a>
+            <a href="#donor-packet">Collection Agreement</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main class="wrap" id="resources" role="main">
+    <section class="card pdf-wrap" aria-labelledby="preview">
+      <h3 id="preview">Preview files</h3>
+
+      <!-- Single responsive viewer -->
+      <iframe id="pdfViewer" class="pdf-frame" src="/donor/harc-collection-policy-2025-draft1.pdf" title="PDF preview" loading="lazy"></iframe>
+
+      <!-- File lists -->
+      <div style="margin-top:12px;display:grid;gap:10px">
+        <div id="policies" class="file-row" style="align-items:center">
+          <div>
+            <div style="font-weight:600">Collection Policy (draft)</div>
+            <div class="meta">Overview of accessioning, access, and retention.</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" data-src="/donor/harc-collection-policy-2025-draft1.pdf" onclick="previewPDF(event)">Preview</a>
+            <a class="btn" href="/donor/harc-collection-policy-2025-draft1.pdf" target="_blank" rel="noopener">Download</a>
+          </div>
+        </div>
+
+        <div id="agreements" style="display:grid;gap:8px">
+          <div class="file-row">
+            <div><div style="font-weight:600">Image Use Agreement (draft)</div><div class="meta">Permissions and reproduction guidance.</div></div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" data-src="/donor/harc-image-use-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
+              <a class="btn" href="/donor/harc-image-use-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+
+          <div class="file-row">
+            <div><div style="font-weight:600">Publication Loan Agreement (draft)</div><div class="meta">Terms for loaning items for publication.</div></div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" data-src="/donor/harc-publication-loan-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
+              <a class="btn" href="/donor/harc-publication-loan-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+
+          <div class="file-row">
+            <div><div style="font-weight:600">Stacks / Reading Room Agreement (draft)</div><div class="meta">Onsite use and handling guidance.</div></div>
+            <div style="display:flex;gap:8px">
+              <a class="btn" href="#" data-src="/donor/harc-stacks-readingroom-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
+              <a class="btn" href="/donor/harc-stacks-readingroom-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
+            </div>
+          </div>
+        </div>
+
+        <div id="images" class="file-row">
+          <div><div style="font-weight:600">Image & Publication Guidance</div><div class="meta">Quick guidance — see Image Use Agreement for details.</div></div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" data-src="/donor/harc-image-use-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
+            <a class="btn" href="/donor/harc-image-use-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
+          </div>
+        </div>
+
+        <div id="handling" class="file-row">
+          <div><div style="font-weight:600">Handling & Transportation</div><div class="meta">Packing, shipping, and on-site procedures.</div></div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" data-src="/donor/harc-collection-policy-2025-draft1.pdf" onclick="previewPDF(event)">Preview</a>
+            <a class="btn" href="/donor/harc-collection-policy-2025-draft1.pdf" target="_blank" rel="noopener">Download</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <footer>
+    <div class="wrap">Made with care — Heritage & Research Center at Saint Mary's · <a href="https://github.com/prys0000/prys0000.github.io" target="_blank" rel="noopener">GitHub</a></div>
+  </footer>
+
+  <script>
+    // smooth scroll for internal hash links + PDF preview handler
+    document.addEventListener('click', function(e){
+      const a = e.target.closest('a');
+      if(!a) return;
+      const href = a.getAttribute('href') || '';
+      if(href.startsWith('#')){
+        const el = document.querySelector(href);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+      }
+    });
+
+    function previewPDF(e){
+      e.preventDefault();
+      const src = e.currentTarget.getAttribute('data-src');
+      if(!src) return;
+      const iframe = document.getElementById('pdfViewer');
+      iframe.src = src;
+      iframe.focus();
+      iframe.scrollIntoView({behavior:'smooth',block:'start'});
+    }
+  </script>
+</body>
+</html>
