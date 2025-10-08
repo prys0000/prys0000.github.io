@@ -55,6 +55,7 @@
     @media print{header,footer{display:none}.pdf-frame{height:800px}}
   </style>
 </head>
+
 <body>
   <header>
     <div class="wrap nav" role="banner">
@@ -75,25 +76,47 @@
     <div class="wrap hero-grid">
       <div>
         <h1>Welcome — Resources for Congregations & Donors</h1>
-        <p class="lead">A single place to review collection policies, intake/loan agreements, image & publication guidance, handling instructions, and the donor packet. Send this link before a visit so congregations can prepare.</p>
+        <p class="lead">A single place to review collection policies, intake/transfer agreements, image & publication guidance, handling instructions, and the donor packet. Send this link before a visit so congregations can prepare.</p>
 
         <div class="card" aria-labelledby="quicklinks">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div>
-              <strong id="quicklinks">Collection Transfer Agreements and Policy Links</strong>
-              <div class="meta">Click each link below for more information</div>
+              <strong id="quicklinks">Collection Transfer Agreements & Policy Links</strong>
+              <div class="meta">Click any item to preview or download the document.</div>
             </div>
+
+            <!-- Download: fixed filename (remove extra .pdf) -->
             <div>
-              <a class="btn" href="/donor/harc-donor-congregation-agreement-draft2.pdf.pdf" id="donor-packet" aria-label="Download donor packet">Download Agreement PDF</a>
+              <a class="btn" href="/donor/harc-donor-congregation-agreement-draft2.pdf" id="donor-packet" aria-label="Download donor agreement">Download Agreement PDF</a>
             </div>
           </div>
 
           <div class="links-grid" style="margin-top:12px">
-			<a class="link-item" href="donor-packet"><h4>Collection Agreement</h4>Collections Transfer Agreement.</p></a>
-            <a class="link-item" href="#policies"><h4>Collection Policies</h4><p>Accessioning, access, retention, and restrictions.</p></a>
-            <a class="link-item" href="#agreements"><h4>Agreements</h4><p>Intake, loan, and donation forms.</p></a>
-            <a class="link-item" href="#images"><h4>Image & Publication</h4><p>Permissions, reproduction, and citation guidance.</p></a>
-            <a class="link-item" href="#handling"><h4>Handling & Transportation</h4><p>Packing, shipping, and on-site handling tips.</p></a>
+            <!-- link to collection agreement anchor -->
+            <a class="link-item" href="#collection-agreement">
+              <h4>Collection Agreement</h4>
+              <p>Collections Transfer Agreement (draft) — terms and next steps.</p>
+            </a>
+
+            <a class="link-item" href="#policies">
+              <h4>Collection Policies</h4>
+              <p>Accessioning, access, retention, and restrictions.</p>
+            </a>
+
+            <a class="link-item" href="#agreements">
+              <h4>Other Agreements</h4>
+              <p>Image, publication, and loan agreements.</p>
+            </a>
+
+            <a class="link-item" href="#images">
+              <h4>Image & Publication</h4>
+              <p>Permissions, reproduction, and citation guidance.</p>
+            </a>
+
+            <a class="link-item" href="#handling">
+              <h4>Handling & Transportation</h4>
+              <p>Packing, shipping, and on-site handling tips.</p>
+            </a>
           </div>
         </div>
       </div>
@@ -102,11 +125,17 @@
         <div class="card" role="complementary" aria-label="Contact">
           <strong style="display:block;margin-bottom:8px">Need help?</strong>
           <p class="meta">Contact the HARC team to arrange a visit or request forms.</p>
-          <div style="margin-top:12px"><div style="font-weight:600">Email</div><div class="meta">Barbara Gordon, Executive Director: bgordon@harcsm.org</div></div>
-          <div style="margin-top:12px"><div style="font-weight:600">Phone</div><div class="meta">(574)678-6155</div></div>
+          <div style="margin-top:12px">
+            <div style="font-weight:600">Email</div>
+            <div class="meta">Barbara Gordon, Executive Director: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font-weight:600">Phone</div>
+            <div class="meta">(574) 678-6155</div>
+          </div>
           <div style="margin-top:14px;display:flex;gap:10px">
             <a href="#policies">View policies</a>
-            <a href="#donor-packet">Collection Agreement</a>
+            <a href="#collection-agreement">Collection Agreement</a>
           </div>
         </div>
       </aside>
@@ -117,12 +146,26 @@
     <section class="card pdf-wrap" aria-labelledby="preview">
       <h3 id="preview">Preview files</h3>
 
-      <!-- Single responsive viewer -->
+      <!-- Single responsive viewer (id used by the preview handler) -->
       <iframe id="pdfViewer" class="pdf-frame" src="/donor/harc-collection-policy-2025-draft1.pdf" title="PDF preview" loading="lazy"></iframe>
 
       <!-- File lists -->
       <div style="margin-top:12px;display:grid;gap:10px">
-        <div id="policies" class="file-row" style="align-items:center">
+
+        <!-- Collection Agreement entry -->
+        <div id="collection-agreement" class="file-row">
+          <div>
+            <div style="font-weight:600">Collection Transfer Agreement (draft)</div>
+            <div class="meta">Transfer terms, legal and practical notes for congregations.</div>
+          </div>
+          <div style="display:flex;gap:8px">
+            <a class="btn" href="#" data-src="/donor/harc-donor-congregation-agreement-draft2.pdf" onclick="previewPDF(event)">Preview</a>
+            <a class="btn" href="/donor/harc-donor-congregation-agreement-draft2.pdf" target="_blank" rel="noopener">Download</a>
+          </div>
+        </div>
+
+        <!-- Policies -->
+        <div id="policies" class="file-row">
           <div>
             <div style="font-weight:600">Collection Policy (draft)</div>
             <div class="meta">Overview of accessioning, access, and retention.</div>
@@ -133,9 +176,13 @@
           </div>
         </div>
 
+        <!-- Agreements group -->
         <div id="agreements" style="display:grid;gap:8px">
           <div class="file-row">
-            <div><div style="font-weight:600">Image Use Agreement (draft)</div><div class="meta">Permissions and reproduction guidance.</div></div>
+            <div>
+              <div style="font-weight:600">Image Use Agreement (draft)</div>
+              <div class="meta">Permissions and reproduction guidance.</div>
+            </div>
             <div style="display:flex;gap:8px">
               <a class="btn" href="#" data-src="/donor/harc-image-use-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
               <a class="btn" href="/donor/harc-image-use-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
@@ -143,7 +190,10 @@
           </div>
 
           <div class="file-row">
-            <div><div style="font-weight:600">Publication Loan Agreement (draft)</div><div class="meta">Terms for loaning items for publication.</div></div>
+            <div>
+              <div style="font-weight:600">Publication Loan Agreement (draft)</div>
+              <div class="meta">Terms for loaning items for publication.</div>
+            </div>
             <div style="display:flex;gap:8px">
               <a class="btn" href="#" data-src="/donor/harc-publication-loan-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
               <a class="btn" href="/donor/harc-publication-loan-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
@@ -151,7 +201,10 @@
           </div>
 
           <div class="file-row">
-            <div><div style="font-weight:600">Stacks / Reading Room Agreement (draft)</div><div class="meta">Onsite use and handling guidance.</div></div>
+            <div>
+              <div style="font-weight:600">Stacks / Reading Room Agreement (draft)</div>
+              <div class="meta">Onsite use and handling guidance.</div>
+            </div>
             <div style="display:flex;gap:8px">
               <a class="btn" href="#" data-src="/donor/harc-stacks-readingroom-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
               <a class="btn" href="/donor/harc-stacks-readingroom-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
@@ -159,8 +212,12 @@
           </div>
         </div>
 
+        <!-- Images and handling -->
         <div id="images" class="file-row">
-          <div><div style="font-weight:600">Image & Publication Guidance</div><div class="meta">Quick guidance — see Image Use Agreement for details.</div></div>
+          <div>
+            <div style="font-weight:600">Image & Publication Guidance</div>
+            <div class="meta">Quick guidance — see Image Use Agreement for details.</div>
+          </div>
           <div style="display:flex;gap:8px">
             <a class="btn" href="#" data-src="/donor/harc-image-use-agreement-draft1.pdf" onclick="previewPDF(event)">Preview</a>
             <a class="btn" href="/donor/harc-image-use-agreement-draft1.pdf" target="_blank" rel="noopener">Download</a>
@@ -168,17 +225,27 @@
         </div>
 
         <div id="handling" class="file-row">
-          <div><div style="font-weight:600">Handling & Transportation</div><div class="meta">Packing, shipping, and on-site procedures.</div></div>
+          <div>
+            <div style="font-weight:600">Handling & Transportation</div>
+            <div class="meta">Packing, shipping, and on-site procedures.</div>
+          </div>
           <div style="display:flex;gap:8px">
             <a class="btn" href="#" data-src="/donor/harc-collection-policy-2025-draft1.pdf" onclick="previewPDF(event)">Preview</a>
             <a class="btn" href="/donor/harc-collection-policy-2025-draft1.pdf" target="_blank" rel="noopener">Download</a>
           </div>
         </div>
+
       </div>
     </section>
 
+    <section class="card" style="margin-top:16px">
+      <h3>About this page</h3>
+      <p class="meta">Hosted on GitHub Pages. Replace contact info, file links, or text with your final assets. For best results rename files to lowercase, hyphen-separated names (the paths above assume that convention).</p>
+    </section>
+  </main>
+
   <footer>
-    <div class="wrap">Made with care — Heritage & Research Center at Saint Mary's · <a href="https://github.com/prys0000/prys0000.github.io" target="_blank" rel="noopener">GitHub</a></div>
+    <div class="wrap">Made with care — Heritage &amp; Research Center at Saint Mary's · <a href="https://github.com/prys0000/prys0000.github.io" target="_blank" rel="noopener">GitHub</a></div>
   </footer>
 
   <script>
