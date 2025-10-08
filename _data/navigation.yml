@@ -18,4 +18,9 @@ main:
   - title: "Selected Presentations"
     url: /talks/
 
+    - title: "Donor Resources"
+      url: "/donor/"
+      external: false
+
+
 
