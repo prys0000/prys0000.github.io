@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC — Donor & Congregation Resources</title>
+  <meta name="description" content="Landing page for congregations to review collection policies, agreements, image/publication guidance, handling instructions, and donor packet." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    /* Minimal, self-contained styles inspired by Omeka S Freedom theme: clean cards, roomy spacing, muted palette */
+    :root{
+      --bg:#f7f7f8;
+      --card:#ffffff;
+      --muted:#6b7280;
+      --accent:#0f172a; /* dark navy */
+      --accent-2:#285e8e; /* soft blue */
+      --radius:12px;
+      --container:1100px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;color:var(--accent);background:var(--bg);margin:0}
+    a{color:var(--accent-2);text-decoration:none}
+    header{background:linear-gradient(180deg,rgba(255,255,255,0.6),transparent);backdrop-filter:blur(6px);position:sticky;top:0;z-index:40;border-bottom:1px solid rgba(15,23,42,0.04)}
+    .wrap{max-width:var(--container);margin:0 auto;padding:20px}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#2b6fb3);display:inline-flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:Merriweather}
+    .navlinks{display:flex;gap:14px;align-items:center}
+    .button{background:var(--accent-2);color:white;padding:10px 14px;border-radius:10px;font-weight:600}
+
+    .hero{padding:48px 20px 36px}
+    .hero-inner{display:grid;grid-template-columns:1fr 360px;gap:28px;align-items:start}
+    .title{font-family:Merriweather;font-size:28px;margin:0 0 8px}
+    .lead{color:var(--muted);margin:0 0 18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:0 6px 18px rgba(15,23,42,0.06)}
+
+    .links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+    .link-item{display:block;padding:12px;border-radius:10px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(180deg,#fff, #fbfbfd)}
+    .link-item h4{margin:0 0 6px;font-size:15px}
+    .link-item p{margin:0;color:var(--muted);font-size:13px}
+
+    .download{display:flex;gap:10px;align-items:center}
+    .download .btn{padding:10px 12px;border-radius:8px;background:#111827;color:#fff}
+
+    main{max-width:var(--container);margin:18px auto;padding:0 20px}
+    section{margin:18px 0}
+    .two-col{display:grid;grid-template-columns:1fr 320px;gap:22px}
+    .meta{font-size:14px;color:var(--muted)}
+    footer{padding:30px 20px;color:var(--muted);text-align:center}
+
+    /* Responsive */
+    @media (max-width:880px){
+      .hero-inner{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .links-grid{grid-template-columns:1fr}
+      .navlinks{display:none}
+    }
+
+    /* Print tweaks */
+    @media print{body{background:#fff}header,footer{display:none}.card{box-shadow:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">
+        <div class="logo">H</div>
+        <div>
+          <div style="font-weight:700">Heritage & Research Center (HARC)</div>
+          <div style="font-size:13px;color:var(--muted)">Donor & Congregation Resources</div>
+        </div>
+      </div>
+      <nav class="navlinks">
+        <a class="button" href="#resources">Review Resources</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <div>
+        <h1 class="title">Welcome — Resources for Congregations & Donors</h1>
+        <p class="lead">A single spot to review collection policies, intake/loan agreements, image & publication guidance, handling instructions, and the donor packet. Share this link before a visit so congregations can prepare.</p>
+
+        <div class="card">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <strong>Quick links</strong>
+              <div class="meta">Everything you need in one place</div>
+            </div>
+            <div class="download">
+              <a class="btn" href="#donor-packet" aria-label="Download donor packet">Download PDF</a>
+            </div>
+          </div>
+
+          <div style="margin-top:12px" class="links-grid">
+            <a class="link-item" href="#policies">
+              <h4>Collection Policies</h4>
+              <p>Accessioning rules, access, retention, and related policies.</p>
+            </a>
+            <a class="link-item" href="#agreements">
+              <h4>Agreements</h4>
+              <p>Intake, loan, and donation forms with explanations.</p>
+            </a>
+            <a class="link-item" href="#images">
+              <h4>Image & Publication</h4>
+              <p>Guidance on photography, reproduction, and rights.</p>
+            </a>
+            <a class="link-item" href="#handling">
+              <h4>Handling & Transportation</h4>
+              <p>Best practices for packing, shipping and onsite handling.</p>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <aside>
+        <div class="card">
+          <strong style="display:block;margin-bottom:8px">Need help?</strong>
+          <p class="meta">Contact the HARC team to arrange a visit, request an intake form, or ask questions about policies.</p>
+          <div style="margin-top:12px">
+            <div style="font-weight:600">Email</div>
+            <div class="meta">collections@harcsm.org</div>
+          </div>
+          <div style="margin-top:12px">
+            <div style="font-weight:600">Phone</div>
+            <div class="meta">(555) 555-5555</div>
+          </div>
+          <div style="margin-top:14px;display:flex;gap:8px">
+            <a href="#policies">View policies</a>
+            <a href="#donor-packet">Donor packet</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <main>
+    <section id="resources" class="card">
+      <div class="two-col">
+        <div>
+          <h3 id="policies">Collection Policies</h3>
+          <p class="meta">Short summary of policy here — link to the full policy PDF or page. Replace this text with a short friendly paragraph that explains access, restrictions, and retention.</p>
+
+          <h3 id="agreements" style="margin-top:16px">Agreements</h3>
+          <p class="meta">Intake and loan agreements: what to expect, what we ask donors to provide, and how long the intake process takes.</p>
+
+          <h3 id="images" style="margin-top:16px">Image & Publication</h3>
+          <p class="meta">How images may be used, rights and permissions, and a simple checklist for reproduction requests.</p>
+
+          <h3 id="handling" style="margin-top:16px">Handling & Transportation</h3>
+          <p class="meta">Packing tips, recommended supplies, in-person handling procedures, and contact info for arranging transports.</p>
+        </div>
+
+        <aside>
+          <div class="card">
+            <h4 style="margin:0 0 8px">Donor Packet</h4>
+            <p class="meta">We have a printed donor packet used at the Carl Albert Center. It can be mailed or handed to congregations and contains intake forms, policy summaries, and practical guidance.</p>
+            <div style="margin-top:12px">
+              <a class="button" id="donor-packet" href="#">Download donor packet (PDF)</a>
+            </div>
+            <div style="margin-top:12px;font-size:13px;color:var(--muted)">Tip: Replace the PDF link above with the hosted PDF URL (e.g., a GitHub release, S3 link, or site asset).</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>About this page</h3>
+      <p class="meta">Built to be simple and donor-friendly. You can host this on GitHub Pages (push as <code>index.html</code> to the repository named <code>prys0000.github.io</code>) or on your temporary site. Replace the placeholder text, contact info, and PDF links with your real assets.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div style="max-width:var(--container);margin:0 auto;padding:0 20px">Made with care — Heritage & Research Center · <a href="https://github.com/prys0000/prys0000.github.io" target="_blank" rel="noopener">GitHub</a></div>
+  </footer>
+
+  <script>
+    // Small helper: smooth scroll for internal links
+    document.addEventListener('click', function(e){
+      const t = e.target.closest('a');
+      if(!t) return;
+      const href = t.getAttribute('href');
+      if(href && href.startsWith('#')){
+        const el = document.querySelector(href);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
+      }
+    });
+  </script>
+</body>
+</html>
