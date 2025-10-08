@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC — Box List Inventory Template (Editable)</title>
+  <meta name="description" content="Editable box list inventory template for donors — Heritage & Research Center at Saint Mary's" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f7f8; --card:#fff; --muted:#6b7280;
+      --accent:#0f172a; --accent-2:#2b6fb3; --gold:#c07a2c;
+      --radius:10px; --container:1100px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--accent);line-height:1.45;padding:18px}
+    .wrap{max-width:var(--container);margin:0 auto}
+    .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+    header.site{margin-bottom:16px}
+    .site-top{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#3b82c4);color:#fff;display:inline-grid;place-items:center;font-family:Merriweather;font-weight:700}
+    .brand-title{font-weight:700;font-family:Merriweather;font-size:18px}
+    .brand-sub{font-size:13px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 300px;gap:16px;margin:16px 0}
+    .lead{color:var(--muted);margin-top:6px}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .info-field label{display:block;font-weight:600;color:var(--gold);margin-bottom:6px;font-size:0.9rem}
+    .info-field input{width:100%;padding:8px;border:1px solid #e6e6e6;border-radius:8px;font-size:0.95rem}
+    .note{background:#fff8e6;border-left:4px solid #ffd16a;padding:12px;border-radius:8px;color:#4a4a4a;margin-top:12px;font-size:0.95rem}
+    .example-label{display:inline-block;background:var(--accent-2);color:#fff;padding:7px 12px;border-radius:6px;font-weight:600;margin:12px 0;font-size:0.9rem}
+    .table-wrap{overflow:auto;margin-top:12px;border-radius:8px}
+    table{width:100%;border-collapse:collapse;min-width:980px}
+    thead th{position:sticky;top:0;background:linear-gradient(180deg,var(--accent-2),#2e6fae);color:#fff;padding:12px 10px;text-align:left;font-weight:700;font-size:0.9rem}
+    tbody td{padding:10px;border:1px solid #eee;vertical-align:top;font-size:0.9rem;color:#222}
+    tbody tr:nth-child(even){background:#fbfdff}
+    tbody tr.example-row{background:#dff3f8}
+    tbody tr:hover{background:#f1f5f9}
+    .muted{color:var(--muted);font-size:0.92rem}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+    .summary .item{background:#eef6ff;padding:12px;border-radius:8px;text-align:center}
+    .summary .label{font-size:0.85rem;color:var(--muted)}
+    .summary .value{font-weight:700;font-size:1.25rem;color:var(--gold);margin-top:6px}
+    .notes{margin-top:14px;background:#fbfdff;padding:12px;border-radius:8px;border:1px solid #eef6ff}
+    .notes h3{margin:0 0 8px;color:var(--accent-2);font-size:1rem}
+    .notes p{margin:0;color:var(--muted);font-size:0.95rem}
+    footer.page{margin-top:18px;padding-top:12px;border-top:1px solid #eee;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    /* controls */
+    .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:0;cursor:pointer}
+    .btn.secondary{background:#6b7280}
+    .btn.ghost{background:transparent;color:var(--accent-2);border:1px solid rgba(43,111,179,0.12)}
+    .small{padding:6px 8px;font-size:0.9rem}
+
+    /* editable cell focus */
+    td[contenteditable="true"]:focus{outline:2px solid rgba(43,111,179,0.18);background:#fff}
+
+    @media (max-width:980px){
+      .hero{grid-template-columns:1fr}
+      .info-grid{grid-template-columns:1fr}
+      .summary{grid-template-columns:repeat(2,1fr)}
+      table{min-width:900px}
+    }
+
+    @media print{
+      body{padding:0}
+      header.site .logo{display:none}
+      .card{box-shadow:none;border-radius:0;padding:6mm}
+      .note{page-break-inside:avoid}
+      thead th{background:#124a84 !important; -webkit-print-color-adjust:exact}
+      .controls, .example-label, .notes, footer.page {display:none}
+      tbody td{font-size:11px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- header -->
+    <header class="site">
+      <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 14px">
+        <div class="logo" aria-hidden="true">H</div>
+        <div>
+          <div class="brand-title">Heritage & Research Center</div>
+          <div class="brand-sub">Box List Inventory Template — Saint Mary's</div>
+        </div>
+      </div>
+    </header>
+
+    <!-- hero -->
+    <section class="hero">
+      <div class="card">
+        <h2 style="margin:0;font-family:Merriweather">Box List Inventory</h2>
+        <div class="lead muted">Complete one row per box. Keep original order where possible. Example rows are editable — delete them when finished.</div>
+
+        <div class="info-grid" aria-label="collection information" style="margin-top:12px">
+          <div class="info-field">
+            <label>Congregation / Donor</label>
+            <input id="donorName" type="text" placeholder="Sisters of [Congregation Name]">
+          </div>
+          <div class="info-field">
+            <label>Date of Inventory</label>
+            <input id="inventoryDate" type="date">
+          </div>
+          <div class="info-field">
+            <label>Prepared by</label>
+            <input id="preparedBy" type="text" placeholder="Name and title">
+          </div>
+          <div class="info-field">
+            <label>Contact</label>
+            <input id="contactInfo" type="text" placeholder="Phone / Email">
+          </div>
+        </div>
+
+        <div class="note" role="note">
+          <strong>Instructions:</strong> Fill one editable row per physical box or container. Include brief descriptions, date ranges, quantities, and any restrictions. Preserve original order; do not remove or discard material before HARC reviews it.
+        </div>
+      </div>
+
+      <aside style="align-self:start">
+        <div class="card" style="padding:12px">
+          <strong style="display:block;margin-bottom:8px">Need help?</strong>
+          <div class="muted">Email: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
+          <div class="muted" style="margin-top:8px">Phone: (574) 678-6155</div>
+          <div style="margin-top:12px"><a style="color:var(--accent-2)" href="#table">Jump to table</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- controls -->
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0">
+      <div class="example-label">EXAMPLE ROWS — edit or delete</div>
+      <div class="controls">
+        <button class="btn" id="addRowBtn" title="Add a blank row">+ Add row</button>
+        <button class="btn ghost small" id="clearExamplesBtn" title="Clear example rows">Clear examples</button>
+        <button class="btn secondary small" id="printBtn" title="Print">Print</button>
+        <button class="btn" id="exportCsvBtn" title="Export CSV">Export CSV</button>
+      </div>
+    </div>
+
+    <!-- editable table -->
+    <div id="table" class="table-wrap card" style="padding:12px">
+      <table aria-labelledby="table-title">
+        <thead>
+          <tr>
+            <th style="width:90px">Box #</th>
+            <th style="width:300px">Contents description</th>
+            <th style="width:120px">Date range</th>
+            <th style="width:120px">Material type</th>
+            <th style="width:90px">Quantity</th>
+            <th style="width:130px">Condition</th>
+            <th style="min-width:200px">Special notes</th>
+            <th style="width:120px">Restrictions</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Example rows (editable) -->
+          <tr class="example-row">
+            <td contenteditable="true">1 of 45</td>
+            <td contenteditable="true">General Council meeting minutes</td>
+            <td contenteditable="true">1950–1965</td>
+            <td contenteditable="true">Documents</td>
+            <td contenteditable="true">15 folders</td>
+            <td contenteditable="true">Good</td>
+            <td contenteditable="true">Bound volumes; original order maintained</td>
+            <td contenteditable="true">None</td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">2 of 45</td>
+            <td contenteditable="true">Correspondence — Mother Superior Mary Elizabeth</td>
+            <td contenteditable="true">1948–1972</td>
+            <td contenteditable="true">Documents</td>
+            <td contenteditable="true">~200 letters</td>
+            <td contenteditable="true">Fair</td>
+            <td contenteditable="true">Some fragile; chronological order</td>
+            <td contenteditable="true">Closed until 2030</td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">3 of 45</td>
+            <td contenteditable="true">Chapter proceedings and reports</td>
+            <td contenteditable="true">1965–1985</td>
+            <td contenteditable="true">Documents</td>
+            <td contenteditable="true">8 binders</td>
+            <td contenteditable="true">Good</td>
+            <td contenteditable="true">Includes election results</td>
+            <td contenteditable="true">None</td>
+          </tr>
+
+          <!-- five empty editable rows ready for input -->
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+
+      <!-- error / helper area -->
+      <div id="status" style="margin-top:12px;color:var(--muted);font-size:0.95rem"></div>
+
+      <!-- summary & notes -->
+      <div class="summary" aria-hidden="false">
+        <div class="item"><div class="label">Total boxes</div><div class="value" id="totalBoxes">___</div></div>
+        <div class="item"><div class="label">Linear feet</div><div class="value" id="linearFeet">___</div></div>
+        <div class="item"><div class="label">Cubic feet</div><div class="value" id="cubicFeet">___</div></div>
+        <div class="item"><div class="label">Oversized items</div><div class="value" id="oversizedCount">___</div></div>
+      </div>
+
+      <div class="notes" style="margin-top:12px">
+        <h3>Additional notes</h3>
+        <p class="muted">Include organization notes, known gaps, fragile items, or anything staff should know before intake.</p>
+      </div>
+
+      <div style="margin-top:12px;font-size:0.9rem;color:var(--muted)">
+        <strong>Column definitions:</strong>
+        <ul style="margin:8px 0 0 18px">
+          <li><strong>Box #</strong> — "1 of 45", or "OS-1" for oversized.</li>
+          <li><strong>Contents description</strong> — short summary (e.g., "meeting minutes").</li>
+          <li><strong>Date range</strong> — inclusive dates (e.g., 1950–1965).</li>
+          <li><strong>Material type</strong> — Documents, Photographs, Audio, Slides, Artifacts, etc.</li>
+          <li><strong>Quantity</strong> — approximate count (e.g., "15 folders", "~200 photos").</li>
+          <li><strong>Condition</strong> — Excellent / Good / Fair / Poor or note specific damage.</li>
+          <li><strong>Special notes</strong> — handling, arrangement, digitization needs.</li>
+          <li><strong>Restrictions</strong> — "None", or "Closed until 2030", etc.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="page">
+      <div class="muted">Heritage & Research Center at Saint Mary's · Email: <a href="mailto:harc@saintmarys.edu">harc@saintmarys.edu</a> · Location: Notre Dame, IN</div>
+      <div style="margin-top:8px;color:var(--muted)">Submit completed inventory with your Deed of Gift / Transfer Agreement.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Utilities
+    function createCell(text = '') {
+      const td = document.createElement('td');
+      td.contentEditable = 'true';
+      td.innerText = text;
+      return td;
+    }
+
+    function addRow(values = []) {
+      const tbody = document.getElementById('tableBody');
+      const tr = document.createElement('tr');
+      for (let i = 0; i < 8; i++) {
+        tr.appendChild(createCell(values[i] || ''));
+      }
+      tbody.appendChild(tr);
+      updateSummary();
+      return tr;
+    }
+
+    // Add row button
+    document.getElementById('addRowBtn').addEventListener('click', () => {
+      addRow();
+      const tbody = document.getElementById('tableBody');
+      tbody.lastElementChild.querySelector('td').focus();
+    });
+
+    // Clear example rows: remove rows with class example-row
+    document.getElementById('clearExamplesBtn').addEventListener('click', () => {
+      const tbody = document.getElementById('tableBody');
+      [...tbody.querySelectorAll('tr.example-row')].forEach(r => r.remove());
+      updateSummary();
+    });
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    // Export CSV
+    document.getElementById('exportCsvBtn').addEventListener('click', () => {
+      const donor = document.getElementById('donorName').value.trim();
+      const date = document.getElementById('inventoryDate').value;
+      const prepared = document.getElementById('preparedBy').value.trim();
+      const contact = document.getElementById('contactInfo').value.trim();
+
+      const rows = [];
+      // header meta rows
+      rows.push(['Donor', donor || '']);
+      rows.push(['Inventory date', date || '']);
+      rows.push(['Prepared by', prepared || '']);
+      rows.push(['Contact', contact || '']);
+      rows.push([]); // blank row
+
+      // table header
+      const header = ['Box #','Contents description','Date range','Material type','Quantity','Condition','Special notes','Restrictions'];
+      rows.push(header);
+
+      // table body
+      const tbody = document.getElementById('tableBody');
+      tbody.querySelectorAll('tr').forEach(tr => {
+        const cells = [...tr.querySelectorAll('td')].map(td => td.innerText.replace(/\r?\n|\r/g, ' ').trim());
+        // skip rows that are completely empty
+        if (cells.every(c => c === '')) return;
+        rows.push(cells);
+      });
+
+      // convert rows to CSV string
+      const csv = rows.map(r => r.map(cell => `"${(cell||'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const safeDonor = (donor || 'donor').replace(/\s+/g,'-').toLowerCase();
+      a.download = `box-list-${safeDonor || 'inventory'}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      document.getElementById('status').innerText = 'CSV exported.';
+      setTimeout(()=> document.getElementById('status').innerText = '', 2500);
+    });
+
+    // Preview first non-empty row on load (update summary)
+    function updateSummary(){
+      const tbody = document.getElementById('tableBody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const filled = rows.filter(r => [...r.querySelectorAll('td')].some(td=>td.innerText.trim() !== ''));
+      document.getElementById('totalBoxes').innerText = filled.length || '___';
+      // linear & cubic feet left blank for manual entry
+    }
+    updateSummary();
+
+    // Make table keyboard friendly: Enter inserts new row
+    document.getElementById('tableBody').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        // avoid line breaks in cell
+        e.preventDefault();
+        const tr = e.target.closest('tr');
+        const next = tr.nextElementSibling;
+        if (next) next.querySelector('td').focus();
+        else addRow();
+      }
+      // Ctrl+S to export CSV
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        document.getElementById('exportCsvBtn').click();
+      }
+    });
+
+    // Allow double-click on empty cell to focus and start editing
+    document.getElementById('tableBody').addEventListener('dblclick', (e) => {
+      const td = e.target.closest('td');
+      if (td) td.focus();
+    });
+
+    // Initially focus first editable cell
+    window.addEventListener('load', ()=> {
+      const first = document.querySelector('#tableBody td[contenteditable="true"]');
+      if(first) first.focus();
+    });
+  </script>
+</body>
+</html>
