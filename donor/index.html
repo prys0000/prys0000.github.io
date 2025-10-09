@@ -8,11 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#f6f7f8; --card:#fff; --muted:#6b7280;
-      --accent:#0f172a; --accent-2:#2b6fb3;
-      --radius:10px; --container:1100px;
+      --bg:#f6f7f8;
+      --card:#fff;
+      --muted:#6b7280;
+      --accent:#0f172a;
+      --accent-2:#2b6fb3;
+      --radius:10px;
+      --container:1100px;
     }
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--accent);background:var(--bg);line-height:1.5}
     a{color:var(--accent-2);text-decoration:none}
     .wrap{max-width:var(--container);margin:0 auto;padding:18px}
@@ -20,16 +25,22 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;gap:12px;align-items:center}
     .logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#3b82c4);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather}
-    .button{background:var(--accent-2);color:#fff;padding:9px 14px;border-radius:8px;font-weight:600}
+    .logo-link{display:inline-block;line-height:0}
+    .logo-link:focus{outline:3px solid rgba(43,111,179,0.18);border-radius:8px}
+    .button{background:var(--accent-2);color:#fff;padding:9px 14px;border-radius:8px;font-weight:600;border:0}
 
     .hero{padding:36px 0}
     .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
+    @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} }
+
     h1{font-family:Merriweather;font-size:26px;margin:0 0 8px}
     .lead{color:var(--muted);margin:0 0 14px}
 
     .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.05)}
     .links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
-    .link-item{padding:12px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd)}
+    @media (max-width:880px){ .links-grid{grid-template-columns:1fr} }
+
+    .link-item{padding:12px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd);display:block}
     .link-item h4{margin:0 0 6px;font-size:15px}
     .link-item p{margin:0;color:var(--muted);font-size:13px}
 
@@ -47,66 +58,44 @@
     .error-box{display:none;padding:14px;border-radius:8px;background:#fff;border:1px solid rgba(15,23,42,0.04);margin-top:10px}
     footer{padding:28px 18px;text-align:center;color:var(--muted);font-size:14px}
 
-    @media (max-width:880px){
-      .hero-grid{grid-template-columns:1fr}
-      .two-col{grid-template-columns:1fr}
-      .links-grid{grid-template-columns:1fr}
-      .pdf-frame{height:50vh}
+    @media print{
+      header,footer{display:none}
+      .pdf-frame{height:800px;display:block}
     }
-    @media print{header,footer{display:none}.pdf-frame{height:800px;display:block}}
-
-    /* make the logo behave as a link and accessible focus state */
-    .logo-link { display:inline-block; text-decoration:none; line-height:0; }
-    .logo-link:focus { outline: 3px solid rgba(43,111,179,0.18); border-radius:8px; }
-
-    .hero-grid{
-    display: grid;
-    grid-template-columns: 1fr 320px; /* main column + sidebar */
-    gap: 24px;
-    align-items: start;
-  }
-
-/* keep the mobile stacking behavior */
-@media (max-width: 880px){
-  .hero-grid{ grid-template-columns: 1fr; }
-}
-
-
   </style>
 </head>
 <body>
   <header>
-  <div class="wrap nav" role="banner">
-    <div class="brand">
-      <!-- logo now links back to donor home (section: handling) -->
-      <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
-        <div class="logo" aria-hidden="true">H</div>
-      </a>
-
-      <div>
-        <div style="font-weight:700">Heritage & Research Center</div>
-        <div style="font-size:13px;color:var(--muted)">Donor & Congregation Resources</div>
+    <div class="wrap nav" role="banner">
+      <div class="brand">
+        <!-- logo links back to donor home (section: handling) -->
+        <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
+          <div class="logo" aria-hidden="true">H</div>
+        </a>
+        <div>
+          <div style="font-weight:700">Heritage &amp; Research Center</div>
+          <div style="font-size:13px;color:var(--muted)">Donor &amp; Congregation Resources</div>
+        </div>
       </div>
-    </div>
 
-    <nav>
-      <a class="button" href="#resources">Review resources</a>
-      <a class="button" href="/donor/box-list.html" target="_blank" rel="noopener">Box List Inventory</a>
-      <a class="button" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">Item-level Inventory</a>
-    </nav>
-  </div>
-</header>
+      <nav>
+        <a class="button" href="#resources">Review resources</a>
+        <a class="button" href="/donor/box-list.html" target="_blank" rel="noopener">Box List Inventory</a>
+        <a class="button" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">Item-level Inventory</a>
+      </nav>
+    </div>
+  </header>
 
   <section class="hero">
-    <div class="wrap hero-grid" style="display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start;">
+    <div class="wrap hero-grid">
       <div>
-        <h1>Welcome — Resources for Congregations & Donors</h1>
-        <p class="lead">A single place to review collection policies, intake/transfer agreements, image & publication guidance, handling instructions, and the donor packet. Send this link before a visit so congregations can prepare.</p>
+        <h1>Welcome — Resources for Congregations &amp; Donors</h1>
+        <p class="lead">A single place to review collection policies, intake/transfer agreements, image &amp; publication guidance, handling instructions, and the donor packet. Send this link before a visit so congregations can prepare.</p>
 
         <div class="card" aria-labelledby="quicklinks">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div>
-              <strong id="quicklinks">Collection Transfer Agreements & Policy Links</strong>
+              <strong id="quicklinks">Collection Transfer Agreements &amp; Policy Links</strong>
               <div class="meta">Click any item to preview or download the document.</div>
             </div>
             <div>
@@ -114,31 +103,33 @@
             </div>
           </div>
 
-         <div class="links-grid" style="margin-top:12px">
-          <a class="link-item" href="#collection-agreement">
-            <h4>Collection Agreement</h4>
-            <p>Collections Transfer Agreement (draft) — terms and next steps.</p>
-          </a>
+          <div class="links-grid" style="margin-top:12px">
+            <a class="link-item" href="#collection-agreement">
+              <h4>Collection Agreement</h4>
+              <p>Collections Transfer Agreement (draft) — terms and next steps.</p>
+            </a>
 
-        <a class="link-item" href="#policies">
-          <h4>Collection Policies</h4>
-          <p>Accessioning, access, retention, and restrictions.</p>
-        </a>
+            <a class="link-item" href="#policies">
+              <h4>Collection Policies</h4>
+              <p>Accessioning, access, retention, and restrictions.</p>
+            </a>
 
-        <a class="link-item" href="/donor/box-list.html" target="_blank" rel="noopener">
-          <h4>Box-Level Inventories</h4>
-          <p>Editable box-list template — one row per physical container.</p>
-        </a>
+            <a class="link-item" href="/donor/box-list.html" target="_blank" rel="noopener">
+              <h4>Box-Level Inventories</h4>
+              <p>Editable box-list template — one row per physical container.</p>
+            </a>
 
-        <a class="link-item" href="#images">
-          <h4>Image & Publication</h4>
-          <p>Permissions, reproduction, and citation guidance.</p>
-        </a>
+            <a class="link-item" href="#images">
+              <h4>Image &amp; Publication</h4>
+              <p>Permissions, reproduction, and citation guidance.</p>
+            </a>
 
-        <a class="link-item" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">
-          <h4>Item-Level Inventories</h4>
-          <p>Item-level finding aid template for photos, postcards, newsletters, and artifacts.</p>
-        </a>
+            <a class="link-item" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">
+              <h4>Item-Level Inventories</h4>
+              <p>Item-level finding aid template for photos, postcards, newsletters, and artifacts.</p>
+            </a>
+          </div>
+        </div>
       </div>
 
       <aside>
@@ -147,7 +138,10 @@
           <p class="meta">Contact the HARC team to arrange a visit or request forms.</p>
           <div style="margin-top:12px"><div style="font-weight:600">Email</div><div class="meta"><a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div></div>
           <div style="margin-top:12px"><div style="font-weight:600">Phone</div><div class="meta">(574) 678-6155</div></div>
-          <div style="margin-top:14px;display:flex;gap:10px"><a href="#policies">View policies</a><a href="#collection-agreement">Collection Agreement</a></div>
+          <div style="margin-top:14px;display:flex;gap:10px">
+            <a href="#policies">View policies</a>
+            <a href="#collection-agreement">Collection Agreement</a>
+          </div>
         </div>
       </aside>
     </div>
@@ -158,16 +152,16 @@
       <h3 id="preview">Preview files</h3>
 
       <!-- iframe will be shown only when a file is found -->
-      <iframe id="pdfViewer" class="pdf-frame" title="PDF preview" loading="lazy"></iframe>
+      <iframe id="pdfViewer" class="pdf-frame" title="PDF preview" loading="lazy" aria-hidden="true"></iframe>
 
       <!-- friendly error / fallback -->
-      <div id="pdfError" class="error-box">
+      <div id="pdfError" class="error-box" role="status" aria-live="polite">
         <strong>File not found</strong>
         <p class="meta" style="margin:6px 0 8px">The selected preview file couldn't be located. Use the Download button to open the file or browse the donor folder.</p>
         <p><a id="pdfDownloadFallback" class="btn" href="/donor/" target="_blank" rel="noopener">Open donor folder</a></p>
       </div>
 
-      <!-- File lists in the requested order -->
+      <!-- File lists in requested order -->
       <div style="margin-top:12px;display:grid;gap:10px">
 
         <!-- 1) harc-donor-congregation-agreement-draft2.pdf -->
@@ -206,7 +200,7 @@
           </div>
         </div>
 
-        <!-- 4) harc-image-use-agreement-draft1.pdf (placed here instead of duplicate) -->
+        <!-- 4) harc-image-use-agreement-draft1.pdf -->
         <div id="image-use" class="file-row">
           <div>
             <div style="font-weight:600">4 — Image Use Agreement (draft)</div>
@@ -235,7 +229,7 @@
 
     <section class="card" style="margin-top:16px">
       <h3>More Information</h3>
-      <p class="meta">Click the menu buttons for examples of box and item-level inventories.</p>
+      <p class="meta">Click the top menu buttons for examples of box- and item-level inventories. Replace placeholder text and URLs with final assets as needed.</p>
     </section>
   </main>
 
@@ -255,7 +249,7 @@
       }
     });
 
-    // Check file exists then show iframe or error
+    // Check file exists (HEAD) then show iframe or error
     async function checkAndShowPdf(url){
       const iframe = document.getElementById('pdfViewer');
       const err = document.getElementById('pdfError');
@@ -264,6 +258,7 @@
       // reset
       iframe.style.display = 'none';
       iframe.src = '';
+      iframe.setAttribute('aria-hidden', 'true');
       err.style.display = 'none';
       downloadFallback.href = '/donor/';
 
@@ -272,12 +267,11 @@
         if(resp.ok){
           iframe.src = url;
           iframe.style.display = 'block';
+          iframe.setAttribute('aria-hidden', 'false');
           iframe.scrollIntoView({behavior:'smooth'});
           return true;
         } else {
           err.style.display = 'block';
-          // set download fallback to attempted URL
-          document.querySelectorAll('[id^="download"]').forEach(n => {}); // noop
           return false;
         }
       }catch(errFetch){
