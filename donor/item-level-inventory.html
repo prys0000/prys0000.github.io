@@ -17,11 +17,10 @@
     .wrap{max-width:var(--container);margin:0 auto}
     .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
     header.site{margin-bottom:16px}
-    .site-top{display:flex;align-items:center;gap:12px}
     .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#3b82c4);color:#fff;display:inline-grid;place-items:center;font-family:Merriweather;font-weight:700}
     .brand-title{font-weight:700;font-family:Merriweather;font-size:18px}
     .brand-sub{font-size:13px;color:var(--muted)}
-    .hero{display:grid;grid-template-columns:1fr 300px;gap:16px;margin:16px 0}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:16px;margin:16px 0}
     .lead{color:var(--muted);margin-top:6px}
     .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
     .info-field label{display:block;font-weight:600;color:var(--gold);margin-bottom:6px;font-size:0.9rem}
@@ -69,15 +68,16 @@
       .controls, .example-label, .notes, footer.page {display:none}
       tbody td{font-size:11px}
     }
+
     /* make the logo behave as a link and accessible focus state */
     .logo-link { display:inline-block; text-decoration:none; line-height:0; }
     .logo-link:focus { outline: 3px solid rgba(43,111,179,0.18); border-radius:8px; }
-
   </style>
 </head>
 <body>
   <div class="wrap">
 
+    <!-- header -->
     <header class="site">
       <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 14px">
         <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
@@ -86,16 +86,16 @@
 
         <div style="flex:1">
           <div class="brand-title">Heritage & Research Center</div>
-          <div class="brand-sub">Box List Inventory Template — Saint Mary's</div>
+          <div class="brand-sub">Item-level Finding Aid Inventory — Saint Mary's</div>
         </div>
 
         <div style="margin-left:12px">
           <a class="button" href="/donor/#handling">Home</a>
         </div>
       </div>
-
     </header>
 
+    <!-- hero -->
     <section class="hero">
       <div class="card">
         <h2 style="margin:0;font-family:Merriweather">Item-level Inventory</h2>
@@ -121,28 +121,32 @@
         </div>
 
         <div class="note" role="note">
-          <strong>Instructions:</strong> Click any cell to edit. Keep item-level detail concise (title, date, physical dims). Do not remove original order before HARC staff review.
+          <strong>Instructions:</strong> Click any cell to edit. Keep item-level detail concise (title, date, physical dims). Preserve original order; do not remove or discard material before HARC staff review.
         </div>
       </div>
 
-      <!-- OneDrive upload button (place under your instructions / near the box-list controls) -->
-      <div style="margin-top:12px">
-        <p style="margin:0 0 8px;color:var(--muted)">Want to send digital files (photos, scans, spreadsheets)? Upload directly to our OneDrive folder:</p>
-        <a class="btn" href="https://harcsm-my.sharepoint.com/:f:/g/personal/japryse_harcsm_org/Eju8HJkt6AFHhHYgm--6KocBicuIOWP_uFHpF6XEO2wEkw?e=OfSHBa" target="_blank" rel="noopener" id="oneDriveUploadBtn">Upload files to OneDrive</a>
-        <span id="uploadNote" style="display:inline-block;margin-left:12px;color:var(--muted);font-size:0.95rem"></span>
-      </div>
-
-
+      <!-- aside: contact + upload -->
       <aside style="align-self:start">
         <div class="card" style="padding:12px">
           <strong style="display:block;margin-bottom:8px">Need help?</strong>
           <div class="muted">Email: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
           <div class="muted" style="margin-top:8px">Phone: (574) 678-6155</div>
           <div style="margin-top:12px"><a style="color:var(--accent-2)" href="#table">Jump to table</a></div>
+
+          <hr style="border:none;border-top:1px solid rgba(15,23,42,0.04);margin:12px 0">
+
+          <div>
+            <div style="font-weight:700;margin-bottom:8px">Upload digital files</div>
+            <div class="muted" style="margin-bottom:8px">Upload photos, scans, or spreadsheets directly to our OneDrive folder (please include your Item ID or Box # and donor name in file names).</div>
+            <!-- replace the href with your OneDrive Request Files link if needed -->
+            <a class="btn" href="https://harcsm-my.sharepoint.com/:f:/g/personal/japryse_harcsm_org/Eju8HJkt6AFHhHYgm--6KocBicuIOWP_uFHpF6XEO2wEkw?e=OfSHBa" target="_blank" rel="noopener" id="oneDriveUploadBtn">Upload to OneDrive</a>
+            <div id="uploadNote" style="margin-top:8px;color:var(--muted);font-size:0.95rem"></div>
+          </div>
         </div>
       </aside>
     </section>
 
+    <!-- controls -->
     <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0">
       <div class="example-label">EXAMPLE ROWS — edit or delete</div>
       <div class="controls">
@@ -174,7 +178,7 @@
           </tr>
         </thead>
         <tbody id="tableBody">
-          <!-- Example rows based on the data you provided -->
+          <!-- Example rows based on your data (editable) -->
           <tr class="example-row">
             <td contenteditable="true">1</td>
             <td contenteditable="true">1</td>
@@ -196,7 +200,7 @@
             <td contenteditable="true">3</td>
             <td contenteditable="true">Victory Noll postcards</td>
             <td contenteditable="true">Victory Noll west view</td>
-            <td contenteditable="true">1920's</td>
+            <td contenteditable="true">1920s</td>
             <td contenteditable="true">Victory Noll; Our Lady of Victory Missionary Sisters; Society of Missionary Catechists</td>
             <td contenteditable="true">View of Victory Noll from the west, circa 1920s.</td>
             <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
@@ -207,70 +211,7 @@
             <td contenteditable="true"></td>
           </tr>
 
-          <tr class="example-row">
-            <td contenteditable="true">1</td>
-            <td contenteditable="true">5</td>
-            <td contenteditable="true">Victory Noll postcards</td>
-            <td contenteditable="true">Victory Noll Chapel</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">novices; postulants; Victory Noll Chapel</td>
-            <td contenteditable="true">Scene of novices and postulants at prayer in Victory Noll Chapel.</td>
-            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
-            <td contenteditable="true">still image</td>
-            <td contenteditable="true">Indiana - Huntington</td>
-            <td contenteditable="true">3.5" x 5.5"</td>
-            <td contenteditable="true">English</td>
-            <td contenteditable="true"></td>
-          </tr>
-
-          <tr class="example-row">
-            <td contenteditable="true">1</td>
-            <td contenteditable="true">6</td>
-            <td contenteditable="true">Victory Noll postcards</td>
-            <td contenteditable="true">Victory Noll motherhouse Park Street</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">Victory Noll; Motherhouse</td>
-            <td contenteditable="true">View of Victory Noll Motherhouse from the south side (Park Street).</td>
-            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
-            <td contenteditable="true">still image</td>
-            <td contenteditable="true">Indiana - Huntington</td>
-            <td contenteditable="true">3.375" x 5.5"</td>
-            <td contenteditable="true">English</td>
-            <td contenteditable="true"></td>
-          </tr>
-
-          <tr class="example-row">
-            <td contenteditable="true">1</td>
-            <td contenteditable="true">7</td>
-            <td contenteditable="true">Victory Noll postcards</td>
-            <td contenteditable="true">Victory Noll aerial view</td>
-            <td contenteditable="true">post-1970</td>
-            <td contenteditable="true">Victory Noll; aerial view</td>
-            <td contenteditable="true">Aerial view of Victory Noll motherhouse.</td>
-            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
-            <td contenteditable="true">still image</td>
-            <td contenteditable="true">Indiana - Huntington</td>
-            <td contenteditable="true">3.5" x 5.5"</td>
-            <td contenteditable="true">English</td>
-            <td contenteditable="true"></td>
-          </tr>
-
-          <tr class="example-row">
-            <td contenteditable="true">1</td>
-            <td contenteditable="true">110</td>
-            <td contenteditable="true">Redlands post cards</td>
-            <td contenteditable="true">Front View of Queen of Missions Convent</td>
-            <td contenteditable="true">1920's; 5/9/2013</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">Front view of the Queen of Missions Convent in Redlands, California.</td>
-            <td contenteditable="true">Copyright 2013. This material may be protected by U.S. Copyright Law...</td>
-            <td contenteditable="true">postcard</td>
-            <td contenteditable="true">Redlands, California</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">English</td>
-            <td contenteditable="true"></td>
-          </tr>
-
+          <!-- more example rows... -->
           <tr class="example-row">
             <td contenteditable="true">2</td>
             <td contenteditable="true">119</td>
@@ -287,23 +228,7 @@
             <td contenteditable="true">The Missionary Catechist Publishing Company</td>
           </tr>
 
-          <tr class="example-row">
-            <td contenteditable="true">2</td>
-            <td contenteditable="true">130</td>
-            <td contenteditable="true">The Missionary Catechist</td>
-            <td contenteditable="true">The Missionary Catechist 1 Number 1, December, 1924</td>
-            <td contenteditable="true">Dec, 1924</td>
-            <td contenteditable="true">Our Lady of Victory Missionary Sisters; newsletters</td>
-            <td contenteditable="true">An eight page newsletter describing OLVM activities at Victory Noll.</td>
-            <td contenteditable="true">Our Lady of Victory Missionary Sisters</td>
-            <td contenteditable="true">Newsletter</td>
-            <td contenteditable="true">Huntington, Indiana</td>
-            <td contenteditable="true"></td>
-            <td contenteditable="true">English</td>
-            <td contenteditable="true">The Missionary Catechist Publishing Company</td>
-          </tr>
-
-          <!-- five blank editable rows -->
+          <!-- blank editable rows -->
           <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
           <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
           <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
@@ -329,7 +254,7 @@
         <strong>Column definitions:</strong>
         <ul style="margin:8px 0 0 18px">
           <li><strong>Box</strong> — physical container number (e.g., "1", "OS-1").</li>
-          <li><strong>Item ID</strong> — unique identifier within the collection (use sheet/item numbering).</li>
+          <li><strong>Item ID</strong> — unique identifier within the collection.</li>
           <li><strong>Collection Title</strong> — series or group name, if applicable.</li>
           <li><strong>Title</strong> — short descriptive title for the item.</li>
           <li><strong>Date Range</strong> — inclusive date (e.g., 1920s; 5/9/2013).</li>
@@ -480,6 +405,13 @@
 
     // update summary live on input
     document.getElementById('tableBody').addEventListener('input', ()=> updateSummary());
+
+    // OneDrive upload button helper (non-blocking reminder)
+    document.getElementById('oneDriveUploadBtn')?.addEventListener('click', function(){
+      const note = document.getElementById('uploadNote');
+      if(note) note.textContent = 'Tip: include Item ID or Box # and donor name in filenames so staff can match uploads to inventories.';
+      setTimeout(()=> { if(note) note.textContent = ''; }, 10000);
+    });
   </script>
 </body>
 </html>
