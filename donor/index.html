@@ -119,10 +119,14 @@
               <p>Editable box-list template — one row per physical container.</p>
             </a>
 
-            <a class="link-item" href="#images">
+            <a class="link-item" href="#image-use"
+               data-src="/donor/harc-image-use-agreement-draft1.pdf"
+               onclick="previewAndScroll(event)">
               <h4>Image &amp; Publication</h4>
               <p>Permissions, reproduction, and citation guidance.</p>
             </a>
+
+
 
             <a class="link-item" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">
               <h4>Item-Level Inventories</h4>
@@ -286,6 +290,27 @@
       if(!src) return;
       checkAndShowPdf(src);
     }
+
+    <script>
+  function previewAndScroll(e){
+    e.preventDefault();
+    const a = e.currentTarget;
+    const src = a.dataset.src;
+    const href = a.getAttribute('href');
+
+    // Try to preview file in iframe (uses your checkAndShowPdf)
+    if(src){
+      try{ checkAndShowPdf(src); }catch(e){ /* fallback silently */ }
+    }
+
+    // Smooth-scroll to the target file-row
+    if(href && href.startsWith('#')){
+      const el = document.querySelector(href);
+      if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+</script>
+
 
     // auto-preview first item if it exists
     document.addEventListener('DOMContentLoaded', function(){
