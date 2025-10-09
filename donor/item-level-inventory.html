@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC — Item-level Finding Aid Inventory (Editable)</title>
+  <meta name="description" content="Editable item-level finding aid inventory template for donors — Heritage & Research Center at Saint Mary's" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#f6f7f8; --card:#fff; --muted:#6b7280;
+      --accent:#0f172a; --accent-2:#2b6fb3; --gold:#c07a2c;
+      --radius:10px; --container:1200px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--accent);line-height:1.45;padding:18px}
+    .wrap{max-width:var(--container);margin:0 auto}
+    .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+    header.site{margin-bottom:16px}
+    .site-top{display:flex;align-items:center;gap:12px}
+    .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#3b82c4);color:#fff;display:inline-grid;place-items:center;font-family:Merriweather;font-weight:700}
+    .brand-title{font-weight:700;font-family:Merriweather;font-size:18px}
+    .brand-sub{font-size:13px;color:var(--muted)}
+    .hero{display:grid;grid-template-columns:1fr 300px;gap:16px;margin:16px 0}
+    .lead{color:var(--muted);margin-top:6px}
+    .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
+    .info-field label{display:block;font-weight:600;color:var(--gold);margin-bottom:6px;font-size:0.9rem}
+    .info-field input{width:100%;padding:8px;border:1px solid #e6e6e6;border-radius:8px;font-size:0.95rem}
+    .note{background:#fff8e6;border-left:4px solid #ffd16a;padding:12px;border-radius:8px;color:#4a4a4a;margin-top:12px;font-size:0.95rem}
+    .example-label{display:inline-block;background:var(--accent-2);color:#fff;padding:7px 12px;border-radius:6px;font-weight:600;margin:12px 0;font-size:0.9rem}
+    .table-wrap{overflow:auto;margin-top:12px;border-radius:8px}
+    table{width:100%;border-collapse:collapse;min-width:1200px}
+    thead th{position:sticky;top:0;background:linear-gradient(180deg,var(--accent-2),#2e6fae);color:#fff;padding:12px 10px;text-align:left;font-weight:700;font-size:0.85rem}
+    tbody td{padding:10px;border:1px solid #eee;vertical-align:top;font-size:0.9rem;color:#222}
+    tbody tr:nth-child(even){background:#fbfdff}
+    tbody tr.example-row{background:#dff3f8}
+    tbody tr:hover{background:#f1f5f9}
+    .muted{color:var(--muted);font-size:0.92rem}
+    .summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:14px}
+    .summary .item{background:#eef6ff;padding:12px;border-radius:8px;text-align:center}
+    .summary .label{font-size:0.85rem;color:var(--muted)}
+    .summary .value{font-weight:700;font-size:1.25rem;color:var(--gold);margin-top:6px}
+    .notes{margin-top:14px;background:#fbfdff;padding:12px;border-radius:8px;border:1px solid #eef6ff}
+    .notes h3{margin:0 0 8px;color:var(--accent-2);font-size:1rem}
+    .notes p{margin:0;color:var(--muted);font-size:0.95rem}
+    footer.page{margin-top:18px;padding-top:12px;border-top:1px solid #eee;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    /* controls */
+    .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;border:0;cursor:pointer}
+    .btn.secondary{background:#6b7280}
+    .btn.ghost{background:transparent;color:var(--accent-2);border:1px solid rgba(43,111,179,0.12)}
+    .small{padding:6px 8px;font-size:0.9rem}
+
+    td[contenteditable="true"]:focus{outline:2px solid rgba(43,111,179,0.18);background:#fff}
+
+    @media (max-width:1100px){
+      .hero{grid-template-columns:1fr}
+      .info-grid{grid-template-columns:1fr}
+      .summary{grid-template-columns:repeat(2,1fr)}
+      table{min-width:1000px}
+    }
+
+    @media print{
+      body{padding:0}
+      header.site .logo{display:none}
+      .card{box-shadow:none;border-radius:0;padding:6mm}
+      thead th{background:#124a84 !important; -webkit-print-color-adjust:exact}
+      .controls, .example-label, .notes, footer.page {display:none}
+      tbody td{font-size:11px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <header class="site">
+      <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 14px">
+        <div class="logo" aria-hidden="true">H</div>
+        <div>
+          <div class="brand-title">Heritage & Research Center</div>
+          <div class="brand-sub">Item-level Finding Aid Inventory Template</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <div class="card">
+        <h2 style="margin:0;font-family:Merriweather">Item-level Inventory</h2>
+        <div class="lead muted">Record one row per item — good for photographs, postcards, newsletters, and individual artifacts. Edit cells directly and export as CSV.</div>
+
+        <div class="info-grid" aria-label="collection information" style="margin-top:12px">
+          <div class="info-field">
+            <label>Collection / Donor</label>
+            <input id="collectionName" type="text" placeholder="Collection name or donor">
+          </div>
+          <div class="info-field">
+            <label>Date of inventory</label>
+            <input id="inventoryDate" type="date">
+          </div>
+          <div class="info-field">
+            <label>Prepared by</label>
+            <input id="preparedBy" type="text" placeholder="Name and title">
+          </div>
+          <div class="info-field">
+            <label>Contact</label>
+            <input id="contactInfo" type="text" placeholder="Phone / Email">
+          </div>
+        </div>
+
+        <div class="note" role="note">
+          <strong>Instructions:</strong> Click any cell to edit. Keep item-level detail concise (title, date, physical dims). Do not remove original order before HARC staff review.
+        </div>
+      </div>
+
+      <aside style="align-self:start">
+        <div class="card" style="padding:12px">
+          <strong style="display:block;margin-bottom:8px">Need help?</strong>
+          <div class="muted">Email: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
+          <div class="muted" style="margin-top:8px">Phone: (574) 678-6155</div>
+          <div style="margin-top:12px"><a style="color:var(--accent-2)" href="#table">Jump to table</a></div>
+        </div>
+      </aside>
+    </section>
+
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;margin:8px 0">
+      <div class="example-label">EXAMPLE ROWS — edit or delete</div>
+      <div class="controls">
+        <button class="btn" id="addRowBtn">+ Add row</button>
+        <button class="btn ghost small" id="clearExamplesBtn">Clear examples</button>
+        <button class="btn secondary small" id="printBtn">Print</button>
+        <button class="btn" id="exportCsvBtn">Export CSV</button>
+      </div>
+    </div>
+
+    <!-- table -->
+    <div id="table" class="table-wrap card" style="padding:12px">
+      <table aria-labelledby="table-title">
+        <thead>
+          <tr>
+            <th style="width:80px">Box</th>
+            <th style="width:110px">Item ID</th>
+            <th style="width:200px">Collection Title</th>
+            <th style="width:220px">Title</th>
+            <th style="width:120px">Date Range</th>
+            <th style="width:160px">Subject</th>
+            <th style="min-width:260px">Description</th>
+            <th style="width:160px">Rights</th>
+            <th style="width:110px">Type</th>
+            <th style="width:160px">Coverage</th>
+            <th style="width:140px">Physical Dimensions</th>
+            <th style="width:100px">Language</th>
+            <th style="width:160px">Publisher</th>
+          </tr>
+        </thead>
+        <tbody id="tableBody">
+          <!-- Example rows based on the data you provided -->
+          <tr class="example-row">
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">1</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">Father John Joseph Sigstein</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">Father John Joseph Sigstein</td>
+            <td contenteditable="true">Photograph of Father John Joseph Sigstein</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
+            <td contenteditable="true">still image</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true"></td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">3</td>
+            <td contenteditable="true">Victory Noll postcards</td>
+            <td contenteditable="true">Victory Noll west view</td>
+            <td contenteditable="true">1920's</td>
+            <td contenteditable="true">Victory Noll; Our Lady of Victory Missionary Sisters; Society of Missionary Catechists</td>
+            <td contenteditable="true">View of Victory Noll from the west, circa 1920s.</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
+            <td contenteditable="true">postcard / still image</td>
+            <td contenteditable="true">Huntington, Indiana</td>
+            <td contenteditable="true">3.25" x 5.75"</td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true"></td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">5</td>
+            <td contenteditable="true">Victory Noll postcards</td>
+            <td contenteditable="true">Victory Noll Chapel</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">novices; postulants; Victory Noll Chapel</td>
+            <td contenteditable="true">Scene of novices and postulants at prayer in Victory Noll Chapel.</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
+            <td contenteditable="true">still image</td>
+            <td contenteditable="true">Indiana - Huntington</td>
+            <td contenteditable="true">3.5" x 5.5"</td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true"></td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">6</td>
+            <td contenteditable="true">Victory Noll postcards</td>
+            <td contenteditable="true">Victory Noll motherhouse Park Street</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">Victory Noll; Motherhouse</td>
+            <td contenteditable="true">View of Victory Noll Motherhouse from the south side (Park Street).</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
+            <td contenteditable="true">still image</td>
+            <td contenteditable="true">Indiana - Huntington</td>
+            <td contenteditable="true">3.375" x 5.5"</td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true"></td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">7</td>
+            <td contenteditable="true">Victory Noll postcards</td>
+            <td contenteditable="true">Victory Noll aerial view</td>
+            <td contenteditable="true">post-1970</td>
+            <td contenteditable="true">Victory Noll; aerial view</td>
+            <td contenteditable="true">Aerial view of Victory Noll motherhouse.</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters retain all rights.</td>
+            <td contenteditable="true">still image</td>
+            <td contenteditable="true">Indiana - Huntington</td>
+            <td contenteditable="true">3.5" x 5.5"</td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true"></td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">1</td>
+            <td contenteditable="true">110</td>
+            <td contenteditable="true">Redlands post cards</td>
+            <td contenteditable="true">Front View of Queen of Missions Convent</td>
+            <td contenteditable="true">1920's; 5/9/2013</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">Front view of the Queen of Missions Convent in Redlands, California.</td>
+            <td contenteditable="true">Copyright 2013. This material may be protected by U.S. Copyright Law...</td>
+            <td contenteditable="true">postcard</td>
+            <td contenteditable="true">Redlands, California</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true"></td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">2</td>
+            <td contenteditable="true">119</td>
+            <td contenteditable="true">The Missionary Catechist</td>
+            <td contenteditable="true">The Missionary Catechist, December, 1943</td>
+            <td contenteditable="true">December, 1943</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">Newsletter issue: Volume 20:1, December 1943.</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">newsletter</td>
+            <td contenteditable="true">Huntington, Indiana</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true">The Missionary Catechist Publishing Company</td>
+          </tr>
+
+          <tr class="example-row">
+            <td contenteditable="true">2</td>
+            <td contenteditable="true">130</td>
+            <td contenteditable="true">The Missionary Catechist</td>
+            <td contenteditable="true">The Missionary Catechist 1 Number 1, December, 1924</td>
+            <td contenteditable="true">Dec, 1924</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters; newsletters</td>
+            <td contenteditable="true">An eight page newsletter describing OLVM activities at Victory Noll.</td>
+            <td contenteditable="true">Our Lady of Victory Missionary Sisters</td>
+            <td contenteditable="true">Newsletter</td>
+            <td contenteditable="true">Huntington, Indiana</td>
+            <td contenteditable="true"></td>
+            <td contenteditable="true">English</td>
+            <td contenteditable="true">The Missionary Catechist Publishing Company</td>
+          </tr>
+
+          <!-- five blank editable rows -->
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+          <tr><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+        </tbody>
+      </table>
+
+      <div id="status" style="margin-top:12px;color:var(--muted);font-size:0.95rem"></div>
+
+      <div class="summary" aria-hidden="false">
+        <div class="item"><div class="label">Total items</div><div class="value" id="totalItems">___</div></div>
+        <div class="item"><div class="label">Unique boxes</div><div class="value" id="uniqueBoxes">___</div></div>
+        <div class="item"><div class="label">Languages present</div><div class="value" id="languages">___</div></div>
+      </div>
+
+      <div class="notes" style="margin-top:12px">
+        <h3>Additional notes</h3>
+        <p class="muted">Use Special Notes column for handling flags, fragile items, or digitization needs. Export CSV to share with HARC staff.</p>
+      </div>
+
+      <div style="margin-top:12px;font-size:0.9rem;color:var(--muted)">
+        <strong>Column definitions:</strong>
+        <ul style="margin:8px 0 0 18px">
+          <li><strong>Box</strong> — physical container number (e.g., "1", "OS-1").</li>
+          <li><strong>Item ID</strong> — unique identifier within the collection (use sheet/item numbering).</li>
+          <li><strong>Collection Title</strong> — series or group name, if applicable.</li>
+          <li><strong>Title</strong> — short descriptive title for the item.</li>
+          <li><strong>Date Range</strong> — inclusive date (e.g., 1920s; 5/9/2013).</li>
+          <li><strong>Subject</strong> — controlled terms or keywords.</li>
+          <li><strong>Description</strong> — brief description of the item content.</li>
+          <li><strong>Rights</strong> — copyright or usage notes.</li>
+          <li><strong>Type</strong> — still image, postcard, newsletter, audio, etc.</li>
+          <li><strong>Coverage</strong> — place or geographic coverage.</li>
+          <li><strong>Physical Dimensions</strong> — sizes, run times, etc.</li>
+          <li><strong>Language</strong> — language of item.</li>
+          <li><strong>Publisher</strong> — publisher or creator, if relevant.</li>
+        </ul>
+      </div>
+    </div>
+
+    <footer class="page">
+      <div class="muted">Heritage & Research Center at Saint Mary's · Email: <a href="mailto:harc@saintmarys.edu">harc@saintmarys.edu</a> · Location: Notre Dame, IN</div>
+      <div style="margin-top:8px;color:var(--muted)">Submit completed inventory with your Deed of Gift / Transfer Agreement.</div>
+    </footer>
+  </div>
+
+  <script>
+    // Helpers
+    function createCell(text = '') {
+      const td = document.createElement('td');
+      td.contentEditable = 'true';
+      td.innerText = text;
+      return td;
+    }
+
+    function addRow(values = []) {
+      const tbody = document.getElementById('tableBody');
+      const tr = document.createElement('tr');
+      for (let i = 0; i < 13; i++) {
+        tr.appendChild(createCell(values[i] || ''));
+      }
+      tbody.appendChild(tr);
+      updateSummary();
+      return tr;
+    }
+
+    // Add row button
+    document.getElementById('addRowBtn').addEventListener('click', () => {
+      addRow();
+      const tbody = document.getElementById('tableBody');
+      tbody.lastElementChild.querySelector('td').focus();
+    });
+
+    // Clear example rows
+    document.getElementById('clearExamplesBtn').addEventListener('click', () => {
+      const tbody = document.getElementById('tableBody');
+      [...tbody.querySelectorAll('tr.example-row')].forEach(r => r.remove());
+      updateSummary();
+    });
+
+    // Print
+    document.getElementById('printBtn').addEventListener('click', () => window.print());
+
+    // Export CSV
+    document.getElementById('exportCsvBtn').addEventListener('click', () => {
+      const collection = document.getElementById('collectionName').value.trim();
+      const date = document.getElementById('inventoryDate').value;
+      const prepared = document.getElementById('preparedBy').value.trim();
+      const contact = document.getElementById('contactInfo').value.trim();
+
+      const rows = [];
+      rows.push(['Collection', collection || '']);
+      rows.push(['Inventory date', date || '']);
+      rows.push(['Prepared by', prepared || '']);
+      rows.push(['Contact', contact || '']);
+      rows.push([]);
+
+      const header = ['Box','Item ID','Collection Title','Title','Date Range','Subject','Description','Rights','Type','Coverage','Physical Dimensions','Language','Publisher'];
+      rows.push(header);
+
+      const tbody = document.getElementById('tableBody');
+      tbody.querySelectorAll('tr').forEach(tr => {
+        const cells = [...tr.querySelectorAll('td')].map(td => td.innerText.replace(/\r?\n|\r/g, ' ').trim());
+        if (cells.every(c => c === '')) return;
+        rows.push(cells);
+      });
+
+      const csv = rows.map(r => r.map(cell => `"${(cell||'').replace(/"/g,'""')}"`).join(',')).join('\r\n');
+      const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const safe = (collection || 'item-inventory').replace(/\s+/g,'-').toLowerCase();
+      a.download = `item-inventory-${safe}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+      document.getElementById('status').innerText = 'CSV exported.';
+      setTimeout(()=> document.getElementById('status').innerText = '', 2500);
+    });
+
+    // Summary calculation
+    function updateSummary(){
+      const tbody = document.getElementById('tableBody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const filled = rows.filter(r => [...r.querySelectorAll('td')].some(td=>td.innerText.trim() !== ''));
+      document.getElementById('totalItems').innerText = filled.length || '___';
+
+      const boxes = new Set();
+      filled.forEach(r => {
+        const b = r.querySelector('td').innerText.trim();
+        if(b) boxes.add(b);
+      });
+      document.getElementById('uniqueBoxes').innerText = boxes.size || '___';
+
+      // languages
+      const langs = new Set();
+      filled.forEach(r => {
+        const l = r.querySelectorAll('td')[11].innerText.trim();
+        if(l) langs.add(l);
+      });
+      document.getElementById('languages').innerText = (langs.size ? [...langs].join(', ') : '___');
+    }
+    updateSummary();
+
+    // Keyboard helpers: Enter moves to next row; Ctrl/Cmd+S exports
+    document.getElementById('tableBody').addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        const tr = e.target.closest('tr');
+        const next = tr.nextElementSibling;
+        if (next) next.querySelector('td').focus();
+        else addRow();
+      }
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        document.getElementById('exportCsvBtn').click();
+      }
+    });
+
+    // double-click to edit
+    document.getElementById('tableBody').addEventListener('dblclick', (e) => {
+      const td = e.target.closest('td');
+      if (td) td.focus();
+    });
+
+    // focus first editable cell
+    window.addEventListener('load', ()=> {
+      const first = document.querySelector('#tableBody td[contenteditable="true"]');
+      if(first) first.focus();
+    });
+
+    // update summary live on input
+    document.getElementById('tableBody').addEventListener('input', ()=> updateSummary());
+  </script>
+</body>
+</html>
