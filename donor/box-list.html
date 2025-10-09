@@ -17,11 +17,10 @@
     .wrap{max-width:var(--container);margin:0 auto}
     .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
     header.site{margin-bottom:16px}
-    .site-top{display:flex;align-items:center;gap:12px}
     .logo{width:56px;height:56px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#3b82c4);color:#fff;display:inline-grid;place-items:center;font-family:Merriweather;font-weight:700}
     .brand-title{font-weight:700;font-family:Merriweather;font-size:18px}
     .brand-sub{font-size:13px;color:var(--muted)}
-    .hero{display:grid;grid-template-columns:1fr 300px;gap:16px;margin:16px 0}
+    .hero{display:grid;grid-template-columns:1fr 320px;gap:16px;margin:16px 0}
     .lead{color:var(--muted);margin-top:6px}
     .info-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:12px}
     .info-field label{display:block;font-weight:600;color:var(--gold);margin-bottom:6px;font-size:0.9rem}
@@ -71,10 +70,10 @@
       .controls, .example-label, .notes, footer.page {display:none}
       tbody td{font-size:11px}
     }
+
     /* make the logo behave as a link and accessible focus state */
     .logo-link { display:inline-block; text-decoration:none; line-height:0; }
     .logo-link:focus { outline: 3px solid rgba(43,111,179,0.18); border-radius:8px; }
-
   </style>
 </head>
 <body>
@@ -96,7 +95,6 @@
           <a class="button" href="/donor/#handling">Home</a>
         </div>
       </div>
-
     </header>
 
     <!-- hero -->
@@ -129,20 +127,25 @@
         </div>
       </div>
 
-      <!-- OneDrive upload button (place under your instructions / near the box-list controls) -->
-      <div style="margin-top:12px">
-        <p style="margin:0 0 8px;color:var(--muted)">Want to send digital files (photos, scans, spreadsheets)? Upload directly to our OneDrive folder:</p>
-        <a class="btn" href="https://harcsm-my.sharepoint.com/:f:/g/personal/japryse_harcsm_org/Eju8HJkt6AFHhHYgm--6KocBicuIOWP_uFHpF6XEO2wEkw?e=a1mfuX" target="_blank" rel="noopener" id="oneDriveUploadBtn">Upload files to OneDrive</a>
-        <span id="uploadNote" style="display:inline-block;margin-left:12px;color:var(--muted);font-size:0.95rem"></span>
-      </div>
-
-
+      <!-- aside: contact + upload (moved here so layout stays intact) -->
       <aside style="align-self:start">
         <div class="card" style="padding:12px">
           <strong style="display:block;margin-bottom:8px">Need help?</strong>
           <div class="muted">Email: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
           <div class="muted" style="margin-top:8px">Phone: (574) 678-6155</div>
-          <div style="margin-top:12px"><a style="color:var(--accent-2)" href="#table">Jump to table</a></div>
+
+          <div style="margin-top:12px">
+            <a style="color:var(--accent-2)" href="#table">Jump to table</a>
+          </div>
+
+          <hr style="border:none;border-top:1px solid rgba(15,23,42,0.04);margin:12px 0">
+
+          <div>
+            <div style="font-weight:700;margin-bottom:8px">Upload digital files</div>
+            <div class="muted" style="margin-bottom:8px">Upload photos, scans, or spreadsheets directly to our OneDrive folder (please include your Box # and donor name with each file).</div>
+            <a class="btn" href="https://harcsm-my.sharepoint.com/:f:/g/personal/japryse_harcsm_org/Eju8HJkt6AFHhHYgm--6KocBicuIOWP_uFHpF6XEO2wEkw?e=a1mfuX" target="_blank" rel="noopener" id="oneDriveUploadBtn">Upload to OneDrive</a>
+            <div id="uploadNote" style="margin-top:8px;color:var(--muted);font-size:0.95rem"></div>
+          </div>
         </div>
       </aside>
     </section>
@@ -372,6 +375,13 @@
     window.addEventListener('load', ()=> {
       const first = document.querySelector('#tableBody td[contenteditable="true"]');
       if(first) first.focus();
+    });
+
+    // OneDrive upload button helper (non-blocking: just shows a tip)
+    document.getElementById('oneDriveUploadBtn')?.addEventListener('click', function(){
+      const note = document.getElementById('uploadNote');
+      if(note) note.textContent = 'Tip: include your Box # and donor name in file names or the upload form so we can match uploads to inventories.';
+      setTimeout(()=> { if(note) note.textContent = ''; }, 10000);
     });
   </script>
 </body>
