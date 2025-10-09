@@ -54,26 +54,36 @@
       .pdf-frame{height:50vh}
     }
     @media print{header,footer{display:none}.pdf-frame{height:800px;display:block}}
+
+    /* make the logo behave as a link and accessible focus state */
+    .logo-link { display:inline-block; text-decoration:none; line-height:0; }
+    .logo-link:focus { outline: 3px solid rgba(43,111,179,0.18); border-radius:8px; }
+
   </style>
 </head>
 <body>
   <header>
-    <div class="wrap nav" role="banner">
-      <div class="brand">
+  <div class="wrap nav" role="banner">
+    <div class="brand">
+      <!-- logo now links back to donor home (section: handling) -->
+      <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
         <div class="logo" aria-hidden="true">H</div>
-        <div>
-          <div style="font-weight:700">Heritage & Research Center</div>
-          <div style="font-size:13px;color:var(--muted)">Donor & Congregation Resources</div>
-        </div>
-      </div>
-      <nav>
-        <a class="button" href="#resources">Review resources</a>
-        <a class="button" href="/donor/box-list.html" target="_blank" rel="noopener">Box List Inventory</a>
-        <a class="button" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">Item-level Inventory</a>
-      </nav>
+      </a>
 
+      <div>
+        <div style="font-weight:700">Heritage & Research Center</div>
+        <div style="font-size:13px;color:var(--muted)">Donor & Congregation Resources</div>
+      </div>
     </div>
-  </header>
+
+    <nav>
+      <a class="button" href="#resources">Review resources</a>
+      <a class="button" href="/donor/#handling">Home</a>
+      <a class="button" href="/donor/box-list.html" target="_blank" rel="noopener">Box List Inventory</a>
+      <a class="button" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">Item-level Inventory</a>
+    </nav>
+  </div>
+</header>
 
   <section class="hero">
     <div class="wrap hero-grid">
