@@ -312,10 +312,20 @@
       }
     }
 
-    // auto-preview first item if it exists
+    // auto-preview collection policy first; fall back to first data-src found
     document.addEventListener('DOMContentLoaded', function(){
+      const policyUrl = '/donor/harc-collection-policy-2025-draft1.pdf';
+
+      // if that specific file is present in the page, preview it
+      const policyEl = document.querySelector('[data-src="' + policyUrl + '"]');
+      if (policyEl) {
+        checkAndShowPdf(policyUrl);
+        return;
+      }
+
+      // otherwise preview the first element with a data-src attribute
       const first = document.querySelector('[data-src]');
-      if(first) checkAndShowPdf(first.getAttribute('data-src'));
+      if (first) checkAndShowPdf(first.getAttribute('data-src'));
     });
   </script>
 </body>
