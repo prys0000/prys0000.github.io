@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HARC Archives Transition Toolkit.md</title>
+
+  <!-- Load Merriweather from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+/* =========================
+   Original CSS (kept exactly as provided)
+   ========================= */
+@charset "UTF-8";@import 'https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.9.0-alpha2/katex.min.css';code{color:#c7254e;background-color:#f9f2f4;border-radius:4px}code,kbd{padding:2px 4px}kbd{color:#fff;background-color:#333;border-radius:3px;box-shadow:inset 0 -1px 0 rgba(0,0,0,.25)}kbd kbd{padding:0;font-size:100%;box-shadow:none}pre{display:block;margin:0 0 10px;word-break:break-all;word-wrap:break-word;color:#333;background-color:#f5f5f5;border:1px solid #ccc;border-radius:4px}pre code{padding:0;font-size:inherit;color:inherit;white-space:pre-wrap;background-color:transparent;border-radius:0}.pre-scrollable{max-height:340px;overflow-y:scroll}table{background-color:transparent}th{text-align:left}.table{width:100%;max-width:100%;margin-bottom:20px}.table>thead>tr>th{padding:8px;line-height:1.4285714;border-top:1px solid #ddd}.table>thead>tr>td,.table>tbody>tr>th,.table>tbody>tr>td,.table>tfoot>tr>th,.table>tfoot>tr>td{padding:8px;line-height:1.4285714;vertical-align:top;border-top:1px solid #ddd}.table>thead>tr>th{vertical-align:bottom;border-bottom:2px solid #ddd}.table>caption+thead>tr:first-child>th,.table>caption+thead>tr:first-child>td,.table>colgroup+thead>tr:first-child>th,.table>colgroup+thead>tr:first-child>td,.table>thead:first-child>tr:first-child>th,.table>thead:first-child>tr:first-child>td{border-top:0}.table>tbody+tbody{border-top:2px solid #ddd}.table .table{background-color:#fff}.table-condensed>thead>tr>th,.table-condensed>thead>tr>td,.table-condensed>tbody>tr>th,.table-condensed>tbody>tr>td,.table-condensed>tfoot>tr>th,.table-condensed>tfoot>tr>td{padding:5px}.table-bordered,.table-bordered>thead>tr>th,.table-bordered>thead>tr>td,.table-bordered>tbody>tr>th,.table-bordered>tbody>tr>td,.table-bordered>tfoot>tr>th,.table-bordered>tfoot>tr>td{border:1px solid #ddd}.table-bordered>thead>tr>th,.table-bordered>thead>tr>td{border-bottom-width:2px}.table-striped>tbody>tr:nth-child(odd)>td,.table-striped>tbody>tr:nth-child(odd)>th{background-color:#f9f9f9}.table-hover>tbody>tr:hover>td,.table-hover>tbody>tr:hover>th{background-color:#f5f5f5}table col[class*="col-"]{position:static;float:none;display:table-column}table td[class*="col-"],table th[class*="col-"]{position:static;float:none;display:table-cell}.table>thead>tr>td.active,.table>thead>tr>th.active,.table>thead>tr.active>td,.table>thead>tr.active>th,.table>tbody>tr>td.active,.table>tbody>tr>th.active,.table>tbody>tr.active>td,.table>tbody>tr.active>th,.table>tfoot>tr>td.active,.table>tfoot>tr>th.active,.table>tfoot>tr.active>td,.table>tfoot>tr.active>th{background-color:#f5f5f5}.table-hover>tbody>tr>td.active:hover,.table-hover>tbody>tr>th.active:hover,.table-hover>tbody>tr.active:hover>td,.table-hover>tbody>tr:hover>.active,.table-hover>tbody>tr.active:hover>th{background-color:#e8e8e8}.table>thead>tr>td.success,.table>thead>tr>th.success,.table>thead>tr.success>td,.table>thead>tr.success>th,.table>tbody>tr>td.success,.table>tbody>tr>th.success,.table>tbody>tr.success>td,.table>tbody>tr.success>th,.table>tfoot>tr>td.success,.table>tfoot>tr>th.success,.table>tfoot>tr.success>td,.table>tfoot>tr.success>th{background-color:#dff0d8}.table-hover>tbody>tr>td.success:hover,.table-hover>tbody>tr>th.success:hover,.table-hover>tbody>tr.success:hover>td,.table-hover>tbody>tr:hover>.success,.table-hover>tbody>tr.success:hover>th{background-color:#d0e9c6}.table>thead>tr>td.info,.table>thead>tr>th.info,.table>thead>tr.info>td,.table>thead>tr.info>th,.table>tbody>tr>td.info,.table>tbody>tr>th.info,.table>tbody>tr.info>td,.table>tbody>tr.info>th,.table>tfoot>tr>td.info,.table>tfoot>tr>th.info,.table>tfoot>tr.info>td,.table>tfoot>tr.info>th{background-color:#d9edf7}.table-hover>tbody>tr>td.info:hover,.table-hover>tbody>tr>th.info:hover,.table-hover>tbody>tr.info:hover>td,.table-hover>tbody>tr:hover>.info,.table-hover>tbody>tr.info:hover>th{background-color:#c4e3f3}.table>thead>tr>td.warning,.table>thead>tr>th.warning,.table>thead>tr.warning>td,.table>thead>tr.warning>th,.table>tbody>tr>td.warning,.table>tbody>tr>th.warning,.table>tbody>tr.warning>td,.table>tbody>tr.warning>th,.table>tfoot>tr>td.warning,.table>tfoot>tr>th.warning,.table>tfoot>tr.warning>td,.table>tfoot>tr.warning>th{background-color:#fcf8e3}.table-hover>tbody>tr>td.warning:hover,.table-hover>tbody>tr>th.warning:hover,.table-hover>tbody>tr.warning:hover>td,.table-hover>tbody>tr:hover>.warning,.table-hover>tbody>tr.warning:hover>th{background-color:#faf2cc}.table>thead>tr>td.danger,.table>thead>tr>th.danger,.table>thead>tr.danger>td,.table>thead>tr.danger>th,.table>tbody>tr>td.danger,.table>tbody>tr>th.danger,.table>tbody>tr.danger>td,.table>tbody>tr.danger>th,.table>tfoot>tr>td.danger,.table>tfoot>tr>th.danger,.table>tfoot>tr.danger>td,.table>tfoot>tr.danger>th{background-color:#f2dede}.table-hover>tbody>tr>td.danger:hover,.table-hover>tbody>tr>th.danger:hover,.table-hover>tbody>tr.danger:hover>td,.table-hover>tbody>tr:hover>.danger,.table-hover>tbody>tr.danger:hover>th{background-color:#ebcccc}fieldset{border:0;min-width:0}legend{display:block;width:100%;margin-bottom:20px;font-size:21px;line-height:inherit;color:#333;border-bottom:1px solid #e5e5e5}label{display:inline-block;max-width:100%;margin-bottom:5px;font-weight:700}input[type="radio"],input[type="checkbox"]{margin:4px 0 0;margin-top:1px \9;line-height:normal}input[type="file"]{display:block}input[type="range"]{display:block;width:100%}select[multiple],select[size]{height:auto}input[type="file"]:focus,input[type="radio"]:focus,input[type="checkbox"]:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}output{padding-top:7px}output,.form-control{display:block;font-size:14px;line-height:1.4285714;color:#555}.form-control{width:100%;height:34px;padding:6px 12px;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}.form-control:focus{border-color:#66afe9;outline:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6)}.form-control::-moz-placeholder{color:#777;opacity:1}.form-control:-ms-input-placeholder{color:#777}.form-control::-webkit-input-placeholder{color:#777}.form-control[disabled],.form-control[readonly],fieldset[disabled] .form-control{cursor:not-allowed;background-color:#eee;opacity:1}textarea.form-control{height:auto}input[type="date"],input[type="time"],input[type="datetime-local"],input[type="month"]{line-height:34px;line-height:1.4285714 \0}input[type="date"].input-sm,.form-horizontal .form-group-sm input.form-control[type="date"],.input-group-sm>input.form-control[type="date"],.input-group-sm>input.input-group-addon[type="date"],.input-group-sm>.input-group-btn>input.btn[type="date"],input[type="time"].input-sm,.form-horizontal .form-group-sm input.form-control[type="time"],.input-group-sm>input.form-control[type="time"],.input-group-sm>input.input-group-addon[type="time"],.input-group-sm>.input-group-btn>input.btn[type="time"],input[type="datetime-local"].input-sm,.form-horizontal .form-group-sm input.form-control[type="datetime-local"],.input-group-sm>input.form-control[type="datetime-local"],.input-group-sm>input.input-group-addon[type="datetime-local"],.input-group-sm>.input-group-btn>input.btn[type="datetime-local"],input[type="month"].input-sm,.form-horizontal .form-group-sm input.form-control[type="month"],.input-group-sm>input.form-control[type="month"],.input-group-sm>input.input-group-addon[type="month"],.input-group-sm>.input-group-btn>input.btn[type="month"]{line-height:30px}input[type="date"].input-lg,.form-horizontal .form-group-lg input.form-control[type="date"],.input-group-lg>input.form-control[type="date"],.input-group-lg>input.input-group-addon[type="date"],.input-group-lg>.input-group-btn>input.btn[type="date"],input[type="time"].input-lg,.form-horizontal .form-group-lg input.form-control[type="time"],.input-group-lg>input.form-control[type="time"],.input-group-lg>input.input-group-addon[type="time"],.input-group-lg>.input-group-btn>input.btn[type="time"],input[type="datetime-local"].input-lg,.form-horizontal .form-group-lg input.form-control[type="datetime-local"],.input-group-lg>input.form-control[type="datetime-local"],.input-group-lg>input.input-group-addon[type="datetime-local"],.input-group-lg>.input-group-btn>input.btn[type="datetime-local"],input[type="month"].input-lg,.form-horizontal .form-group-lg input.form-control[type="month"],.input-group-lg>input.form-control[type="month"],.input-group-lg>input.input-group-addon[type="month"],.input-group-lg>.input-group-btn>input.btn[type="month"]{line-height:46px}.form-group{margin-bottom:15px}.radio,.checkbox{position:relative;display:block;min-height:20px;margin-top:10px;margin-bottom:10px}.radio label,.checkbox label{padding-left:20px;margin-bottom:0;font-weight:400;cursor:pointer}.radio input[type="radio"],.radio-inline input[type="radio"],.checkbox input[type="checkbox"],.checkbox-inline input[type="checkbox"]{position:absolute;margin-left:-20px;margin-top:4px \9}.radio+.radio,.checkbox+.checkbox{margin-top:-5px}.radio-inline,.checkbox-inline{display:inline-block;padding-left:20px;margin-bottom:0;vertical-align:middle;font-weight:400;cursor:pointer}.radio-inline+.radio-inline,.checkbox-inline+.checkbox-inline{margin-top:0;margin-left:10px}input[type="radio"][disabled],input[type="radio"].disabled,fieldset[disabled] input[type="radio"],input[type="checkbox"][disabled],input[type="checkbox"].disabled,fieldset[disabled] input[type="checkbox"],.radio-inline.disabled,fieldset[disabled] .radio-inline,.checkbox-inline.disabled,fieldset[disabled] .checkbox-inline,.radio.disabled label,fieldset[disabled] .radio label,.checkbox.disabled label,fieldset[disabled] .checkbox label{cursor:not-allowed}.form-control-static{padding-top:7px;padding-bottom:7px;margin-bottom:0}.form-control-static.input-lg,.form-horizontal .form-group-lg .form-control-static.form-control,.input-group-lg>.form-control-static.form-control,.input-group-lg>.form-control-static.input-group-addon,.input-group-lg>.input-group-btn>.form-control-static.btn,.form-control-static.input-sm,.form-horizontal .form-group-sm .form-control-static.form-control,.input-group-sm>.form-control-static.form-control,.input-group-sm>.form-control-static.input-group-addon,.input-group-sm>.input-group-btn>.form-control-static.btn{padding-left:0;padding-right:0}.input-sm,.form-horizontal .form-group-sm .form-control,.input-group-sm>.form-control{height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}.input-group-sm>.input-group-addon{height:30px;line-height:1.5}.input-group-sm>.input-group-btn>.btn{height:30px;padding:5px 10px;font-size:12px;line-height:1.5;border-radius:3px}select.input-sm,.form-horizontal .form-group-sm select.form-control,.input-group-sm>select.form-control,.input-group-sm>select.input-group-addon,.input-group-sm>.input-group-btn>select.btn{height:30px;line-height:30px}textarea.input-sm,.form-horizontal .form-group-sm textarea.form-control,.input-group-sm>textarea.form-control,.input-group-sm>textarea.input-group-addon,.input-group-sm>.input-group-btn>textarea.btn,select[multiple].input-sm,.form-horizontal .form-group-sm select.form-control[multiple],.input-group-sm>select.form-control[multiple],.input-group-sm>select.input-group-addon[multiple],.input-group-sm>.input-group-btn>select.btn[multiple]{height:auto}.input-lg,.form-horizontal .form-group-lg .form-control,.input-group-lg>.form-control{height:46px;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.input-group-lg>.input-group-addon{height:46px;line-height:1.33}.input-group-lg>.input-group-btn>.btn{height:46px;padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}select.input-lg,.form-horizontal .form-group-lg select.form-control,.input-group-lg>select.form-control,.input-group-lg>select.input-group-addon,.input-group-lg>.input-group-btn>select.btn{height:46px;line-height:46px}textarea.input-lg,.form-horizontal .form-group-lg textarea.form-control,.input-group-lg>textarea.form-control,.input-group-lg>textarea.input-group-addon,.input-group-lg>.input-group-btn>textarea.btn,select[multiple].input-lg,.form-horizontal .form-group-lg select.form-control[multiple],.input-group-lg>select.form-control[multiple],.input-group-lg>select.input-group-addon[multiple],.input-group-lg>.input-group-btn>select.btn[multiple]{height:auto}.has-feedback{position:relative}.has-feedback .form-control{padding-right:42.5px}.form-control-feedback{position:absolute;top:25px;right:0;z-index:2;display:block;width:34px;height:34px;line-height:34px;text-align:center}.input-lg+.form-control-feedback,.form-horizontal .form-group-lg .form-control+.form-control-feedback,.input-group-lg>.form-control+.form-control-feedback,.input-group-lg>.input-group-addon+.form-control-feedback,.input-group-lg>.input-group-btn>.btn+.form-control-feedback{width:46px;height:46px;line-height:46px}.input-sm+.form-control-feedback,.form-horizontal .form-group-sm .form-control+.form-control-feedback,.input-group-sm>.form-control+.form-control-feedback,.input-group-sm>.input-group-addon+.form-control-feedback,.input-group-sm>.input-group-btn>.btn+.form-control-feedback{width:30px;height:30px;line-height:30px}.has-success .help-block,.has-success .control-label,.has-success .radio,.has-success .checkbox,.has-success .radio-inline,.has-success .checkbox-inline{color:#3c763d}.has-success .form-control{border-color:#3c763d;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-success .form-control:focus{border-color:#2b542c;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #67b168}.has-success .input-group-addon{color:#3c763d;border-color:#3c763d;background-color:#dff0d8}.has-success .form-control-feedback{color:#3c763d}.has-warning .help-block,.has-warning .control-label,.has-warning .radio,.has-warning .checkbox,.has-warning .radio-inline,.has-warning .checkbox-inline{color:#8a6d3b}.has-warning .form-control{border-color:#8a6d3b;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-warning .form-control:focus{border-color:#66512c;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #c0a16b}.has-warning .input-group-addon{color:#8a6d3b;border-color:#8a6d3b;background-color:#fcf8e3}.has-warning .form-control-feedback{color:#8a6d3b}.has-error .help-block,.has-error .control-label,.has-error .radio,.has-error .checkbox,.has-error .radio-inline,.has-error .checkbox-inline{color:#a94442}.has-error .form-control{border-color:#a94442;box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}.has-error .form-control:focus{border-color:#843534;box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #ce8483}.has-error .input-group-addon{color:#a94442;border-color:#a94442;background-color:#f2dede}.has-error .form-control-feedback{color:#a94442}.has-feedback label.sr-only~.form-control-feedback{top:0}.help-block{display:block;margin-top:5px;margin-bottom:10px;color:#737373}.form-horizontal .radio,.form-horizontal .checkbox,.form-horizontal .radio-inline,.form-horizontal .checkbox-inline{margin-top:0;margin-bottom:0;padding-top:7px}.form-horizontal .radio,.form-horizontal .checkbox{min-height:27px}.form-horizontal .form-group{margin-left:-15px;margin-right:-15px}.form-horizontal .form-group:before{content:" ";display:table}.form-horizontal .form-group:after{content:" ";display:table;clear:both}.form-horizontal .has-feedback .form-control-feedback{top:0;right:15px}.btn{display:inline-block;vertical-align:middle;cursor:pointer;background-image:none;border:1px solid transparent;white-space:nowrap;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.btn:focus,.btn:active:focus,.btn.active:focus{outline:thin dotted;outline:5px auto -webkit-focus-ring-color;outline-offset:-2px}.btn:hover,.btn:focus{color:#333;text-decoration:none}.btn:active,.btn.active{outline:0;background-image:none;box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}.btn.disabled,.btn[disabled],fieldset[disabled] .btn{cursor:not-allowed;pointer-events:none;opacity:.65;filter:alpha(opacity=65);box-shadow:none}.btn-default{color:#333;background-color:#fff;border-color:#ccc}.btn-default:hover,.btn-default:focus,.btn-default:active,.btn-default.active,.open>.btn-default.dropdown-toggle{color:#333;background-color:#e6e6e6;border-color:#adadad}.btn-default:active,.btn-default.active,.open>.btn-default.dropdown-toggle{background-image:none}.btn-default.disabled,.btn-default.disabled:hover,.btn-default.disabled:focus,.btn-default.disabled:active,.btn-default.disabled.active,.btn-default[disabled],.btn-default[disabled]:hover,.btn-default[disabled]:focus,.btn-default[disabled]:active,.btn-default[disabled].active,fieldset[disabled] .btn-default,fieldset[disabled] .btn-default:hover,fieldset[disabled] .btn-default:focus,fieldset[disabled] .btn-default:active,fieldset[disabled] .btn-default.active{background-color:#fff;border-color:#ccc}.btn-default .badge{color:#fff;background-color:#333}.btn-primary{color:#fff;background-color:#428bca;border-color:#357ebd}.btn-primary:hover,.btn-primary:focus,.btn-primary:active,.btn-primary.active,.open>.btn-primary.dropdown-toggle{color:#fff;background-color:#3071a9;border-color:#285e8e}.btn-primary:active,.btn-primary.active,.open>.btn-primary.dropdown-toggle{background-image:none}.btn-primary.disabled,.btn-primary.disabled:hover,.btn-primary.disabled:focus,.btn-primary.disabled:active,.btn-primary.disabled.active,.btn-primary[disabled],.btn-primary[disabled]:hover,.btn-primary[disabled]:focus,.btn-primary[disabled]:active,.btn-primary[disabled].active,fieldset[disabled] .btn-primary,fieldset[disabled] .btn-primary:hover,fieldset[disabled] .btn-primary:focus,fieldset[disabled] .btn-primary:active,fieldset[disabled] .btn-primary.active{background-color:#428bca;border-color:#357ebd}.btn-primary .badge{color:#428bca;background-color:#fff}.btn-success{color:#fff;background-color:#5cb85c;border-color:#4cae4c}.btn-success:hover,.btn-success:focus,.btn-success:active,.btn-success.active,.open>.btn-success.dropdown-toggle{color:#fff;background-color:#449d44;border-color:#398439}.btn-success:active,.btn-success.active,.open>.btn-success.dropdown-toggle{background-image:none}.btn-success.disabled,.btn-success.disabled:hover,.btn-success.disabled:focus,.btn-success.disabled:active,.btn-success.disabled.active,.btn-success[disabled],.btn-success[disabled]:hover,.btn-success[disabled]:focus,.btn-success[disabled]:active,.btn-success[disabled].active,fieldset[disabled] .btn-success,fieldset[disabled] .btn-success:hover,fieldset[disabled] .btn-success:focus,fieldset[disabled] .btn-success:active,fieldset[disabled] .btn-success.active{background-color:#5cb85c;border-color:#4cae4c}.btn-success .badge{color:#5cb85c;background-color:#fff}.btn-info{color:#fff;background-color:#5bc0de;border-color:#46b8da}.btn-info:hover,.btn-info:focus,.btn-info:active,.btn-info.active,.open>.btn-info.dropdown-toggle{color:#fff;background-color:#31b0d5;border-color:#269abc}.btn-info:active,.btn-info.active,.open>.btn-info.dropdown-toggle{background-image:none}.btn-info.disabled,.btn-info.disabled:hover,.btn-info.disabled:focus,.btn-info.disabled:active,.btn-info.disabled.active,.btn-info[disabled],.btn-info[disabled]:hover,.btn-info[disabled]:focus,.btn-info[disabled]:active,.btn-info[disabled].active,fieldset[disabled] .btn-info,fieldset[disabled] .btn-info:hover,fieldset[disabled] .btn-info:focus,fieldset[disabled] .btn-info:active,fieldset[disabled] .btn-info.active{background-color:#5bc0de;border-color:#46b8da}.btn-info .badge{color:#5bc0de;background-color:#fff}.btn-warning{color:#fff;background-color:#f0ad4e;border-color:#eea236}.btn-warning:hover,.btn-warning:focus,.btn-warning:active,.btn-warning.active,.open>.btn-warning.dropdown-toggle{color:#fff;background-color:#ec971f;border-color:#d58512}.btn-warning:active,.btn-warning.active,.open>.btn-warning.dropdown-toggle{background-image:none}.btn-warning.disabled,.btn-warning.disabled:hover,.btn-warning.disabled:focus,.btn-warning.disabled:active,.btn-warning.disabled.active,.btn-warning[disabled],.btn-warning[disabled]:hover,.btn-warning[disabled]:focus,.btn-warning[disabled]:active,.btn-warning[disabled].active,fieldset[disabled] .btn-warning,fieldset[disabled] .btn-warning:hover,fieldset[disabled] .btn-warning:focus,fieldset[disabled] .btn-warning:active,fieldset[disabled] .btn-warning.active{background-color:#f0ad4e;border-color:#eea236}.btn-warning .badge{color:#f0ad4e;background-color:#fff}.btn-danger{color:#fff;background-color:#d9534f;border-color:#d43f3a}.btn-danger:hover,.btn-danger:focus,.btn-danger:active,.btn-danger.active,.open>.btn-danger.dropdown-toggle{color:#fff;background-color:#c9302c;border-color:#ac2925}.btn-danger:active,.btn-danger.active,.open>.btn-danger.dropdown-toggle{background-image:none}.btn-danger.disabled,.btn-danger.disabled:hover,.btn-danger.disabled:focus,.btn-danger.disabled:active,.btn-danger.disabled.active,.btn-danger[disabled],.btn-danger[disabled]:hover,.btn-danger[disabled]:focus,.btn-danger[disabled]:active,.btn-danger[disabled].active,fieldset[disabled] .btn-danger,fieldset[disabled] .btn-danger:hover,fieldset[disabled] .btn-danger:focus,fieldset[disabled] .btn-danger:active,fieldset[disabled] .btn-danger.active{background-color:#d9534f;border-color:#d43f3a}.btn-danger .badge{color:#d9534f;background-color:#fff}.btn-link{color:#428bca;font-weight:400;cursor:pointer;border-radius:0}.btn-link,.btn-link:active,.btn-link[disabled],fieldset[disabled] .btn-link{background-color:transparent;box-shadow:none}.btn-link,.btn-link:hover,.btn-link:focus,.btn-link:active{border-color:transparent}.btn-link:hover,.btn-link:focus{color:#2a6496;text-decoration:underline;background-color:transparent}.btn-link[disabled]:hover,.btn-link[disabled]:focus,fieldset[disabled] .btn-link:hover,fieldset[disabled] .btn-link:focus{color:#777;text-decoration:none}.btn-lg{padding:10px 16px;font-size:18px;line-height:1.33;border-radius:6px}.btn-sm{padding:5px 10px}.btn-sm,.btn-xs{font-size:12px;line-height:1.5;border-radius:3px}.btn-xs{padding:1px 5px}.btn-block{display:block;width:100%}.btn-block+.btn-block{margin-top:5px}input[type="submit"].btn-block,input[type="reset"].btn-block,input[type="button"].btn-block{width:100%}.fade{opacity:0;transition:opacity .15s linear}.fade.in{opacity:1}.collapse{display:none}.collapse.in{display:block}tr.collapse.in{display:table-row}tbody.collapse.in{display:table-row-group}.collapsing{position:relative;height:0;overflow:hidden;transition:height .35s ease}.input-group{position:relative;display:table;border-collapse:separate}.input-group[class*="col-"]{float:none;padding-left:0;padding-right:0}.input-group .form-control{position:relative;z-index:2;float:left;width:100%;margin-bottom:0}.input-group-addon,.input-group-btn,.input-group .form-control{display:table-cell}.input-group-addon:not(:first-child):not(:last-child),.input-group-btn:not(:first-child):not(:last-child),.input-group .form-control:not(:first-child):not(:last-child){border-radius:0}.input-group-addon{white-space:nowrap}.input-group-addon,.input-group-btn{width:1%;vertical-align:middle}.input-group-addon{padding:6px 12px;font-size:14px;font-weight:400;line-height:1;color:#555;text-align:center;background-color:#eee;border:1px solid #ccc;border-radius:4px}.input-group-addon.input-sm,.form-horizontal .form-group-sm .input-group-addon.form-control,.input-group-sm>.input-group-addon,.input-group-sm>.input-group-btn>.input-group-addon.btn{padding:5px 10px;font-size:12px;border-radius:3px}.input-group-addon.input-lg,.form-horizontal .form-group-lg .input-group-addon.form-control,.input-group-lg>.input-group-addon,.input-group-lg>.input-group-btn>.input-group-addon.btn{padding:10px 16px;font-size:18px;border-radius:6px}.input-group-addon input[type="radio"],.input-group-addon input[type="checkbox"]{margin-top:0}.input-group .form-control:first-child,.input-group-addon:first-child,.input-group-btn:first-child>.btn,.input-group-btn:first-child>.btn-group>.btn,.input-group-btn:first-child>.dropdown-toggle,.input-group-btn:last-child>.btn:not(:last-child):not(.dropdown-toggle),.input-group-btn:last-child>.btn-group:not(:last-child)>.btn{border-bottom-right-radius:0;border-top-right-radius:0}.input-group-addon:first-child{border-right:0}.input-group .form-control:last-child,.input-group-addon:last-child,.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group>.btn,.input-group-btn:last-child>.dropdown-toggle,.input-group-btn:first-child>.btn:not(:first-child),.input-group-btn:first-child>.btn-group:not(:first-child)>.btn{border-bottom-left-radius:0;border-top-left-radius:0}.input-group-addon:last-child{border-left:0}.input-group-btn{font-size:0;white-space:nowrap}.input-group-btn,.input-group-btn>.btn{position:relative}.input-group-btn>.btn+.btn{margin-left:-1px}.input-group-btn>.btn:hover,.input-group-btn>.btn:focus,.input-group-btn>.btn:active{z-index:2}.input-group-btn:first-child>.btn,.input-group-btn:first-child>.btn-group{margin-right:-1px}.input-group-btn:last-child>.btn,.input-group-btn:last-child>.btn-group{margin-left:-1px}.pagination{display:inline-block;padding-left:0;margin:20px 0;border-radius:4px}.pagination>li{display:inline}.pagination>li>a,.pagination>li>span{position:relative;float:left;padding:6px 12px;line-height:1.4285714;text-decoration:none;color:#428bca;background-color:#fff;border:1px solid #ddd;margin-left:-1px}.pagination>li:first-child>a,.pagination>li:first-child>span{margin-left:0;border-bottom-left-radius:4px;border-top-left-radius:4px}.pagination>li:last-child>a,.pagination>li:last-child>span{border-bottom-right-radius:4px;border-top-right-radius:4px}.pagination>li>a:hover,.pagination>li>a:focus,.pagination>li>span:hover,.pagination>li>span:focus{color:#2a6496;background-color:#eee;border-color:#ddd}.pagination>.active>a,.pagination>.active>a:hover,.pagination>.active>a:focus,.pagination>.active>span,.pagination>.active>span:hover,.pagination>.active>span:focus{z-index:2;color:#fff;background-color:#428bca;border-color:#428bca;cursor:default}.pagination>.disabled>span,.pagination>.disabled>span:hover,.pagination>.disabled>span:focus,.pagination>.disabled>a,.pagination>.disabled>a:hover,.pagination>.disabled>a:focus{color:#777;background-color:#fff;border-color:#ddd;cursor:not-allowed}.pagination-lg>li>a,.pagination-lg>li>span{padding:10px 16px;font-size:18px}.pagination-lg>li:first-child>a,.pagination-lg>li:first-child>span{border-bottom-left-radius:6px;border-top-left-radius:6px}.pagination-lg>li:last-child>a,.pagination-lg>li:last-child>span{border-bottom-right-radius:6px;border-top-right-radius:6px}.pagination-sm>li>a,.pagination-sm>li>span{padding:5px 10px;font-size:12px}.pagination-sm>li:first-child>a,.pagination-sm>li:first-child>span{border-bottom-left-radius:3px;border-top-left-radius:3px}.pagination-sm>li:last-child>a,.pagination-sm>li:last-child>span{border-bottom-right-radius:3px;border-top-right-radius:3px}.close{float:right;font-size:21px;font-weight:700;line-height:1;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}.close:hover,.close:focus{color:#000;text-decoration:none;cursor:pointer;opacity:.5;filter:alpha(opacity=50)}button.close{padding:0;cursor:pointer;background:0 0;border:0;-webkit-appearance:none}.modal-open,.modal{overflow:hidden}.modal{display:none;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;-webkit-overflow-scrolling:touch;outline:0}.modal.fade .modal-dialog{transform:translate3d(0,-25%,0);transition:transform .3s ease-out}.modal.in .modal-dialog{transform:translate3d(0,0,0)}.modal-open .modal{overflow-x:hidden;overflow-y:auto}.modal-dialog{position:relative;width:auto;margin:10px}.modal-content{position:relative;background-color:#fff;border:1px solid #999;border:1px solid rgba(0,0,0,.2);border-radius:6px;box-shadow:0 3px 9px rgba(0,0,0,.5);background-clip:padding-box;outline:0}.modal-backdrop{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1040;background-color:#000}.modal-backdrop.fade{opacity:0;filter:alpha(opacity=0)}.modal-backdrop.in{opacity:.5;filter:alpha(opacity=50)}.modal-header{padding:15px;border-bottom:1px solid #e5e5e5;min-height:16.4285714px}.modal-header .close{margin-top:-2px}.modal-title{margin:0;line-height:1.4285714}.modal-body{position:relative;padding:15px}.modal-footer{padding:15px;text-align:right;border-top:1px solid #e5e5e5}.modal-footer:before,.modal-footer:after{content:" ";display:table}.modal-footer:after{clear:both}.modal-footer .btn+.btn{margin-left:5px;margin-bottom:0}.modal-footer .btn-group .btn+.btn{margin-left:-1px}.modal-footer .btn-block+.btn-block{margin-left:0}.modal-scrollbar-measure{position:absolute;top:-9999px;width:50px;height:50px;overflow:scroll}.clearfix:before,.clearfix:after{content:" ";display:table}.clearfix:after{clear:both}.center-block{display:block;margin-left:auto;margin-right:auto}.pull-right{float:right!important}.pull-left{float:left!important}.hide{display:none!important}.show{display:block!important}.invisible{visibility:hidden}.text-hide{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0}.hidden{display:none!important;visibility:hidden!important}.affix{position:fixed;transform:translate3d(0,0,0)}.hljs{display:block;overflow-x:auto;padding:.5em;background:#002b36;color:#839496;-webkit-text-size-adjust:none}.hljs-comment,.hljs-template_comment,.diff .hljs-header,.hljs-doctype,.hljs-pi,.lisp .hljs-string,.hljs-javadoc{color:#586e75}.hljs-keyword,.hljs-winutils,.method,.hljs-addition,.css .hljs-tag,.hljs-request,.hljs-status,.nginx .hljs-title{color:#859900}.hljs-number,.hljs-command,.hljs-string,.hljs-tag .hljs-value,.hljs-rules .hljs-value,.hljs-phpdoc,.hljs-dartdoc,.tex .hljs-formula,.hljs-regexp,.hljs-hexcolor,.hljs-link_url{color:#2aa198}.hljs-title,.hljs-localvars,.hljs-chunk,.hljs-decorator,.hljs-built_in,.hljs-identifier,.vhdl .hljs-literal,.hljs-id,.css .hljs-function{color:#268bd2}.hljs-attribute,.hljs-variable,.lisp .hljs-body,.smalltalk .hljs-number,.hljs-constant,.hljs-class .hljs-title,.hljs-parent,.hljs-type,.hljs-link_reference{color:#b58900}.hljs-preprocessor,.hljs-preprocessor .hljs-keyword,.hljs-pragma,.hljs-shebang,.hljs-symbol,.hljs-symbol .hljs-string,.diff .hljs-change,.hljs-special,.hljs-attr_selector,.hljs-subst,.hljs-cdata,.css .hljs-pseudo,.hljs-header{color:#cb4b16}.hljs-deletion,.hljs-important{color:#dc322f}.hljs-link_label{color:#6c71c4}.tex .hljs-formula{background:#073642}*,*:before,*:after{box-sizing:border-box}html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background:0 0}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:normal }h1{margin:.67em 0}mark{background:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}images{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{box-sizing:content-box;height:0}pre{overflow:auto}code,kbd{font-size:1em}code,kbd,pre,samp{font-family:monospace,monospace}samp{font-size:1em}button,input,optgroup,select,textarea{color:inherit;font:inherit;margin:0}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;margin-right:5px}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-appearance:textfield;box-sizing:content-box}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{border:0;padding:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-collapse:collapse;border-spacing:0}.debug{background-color:#ffc0cb!important}.ellipsis{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.ir{background-color:transparent;border:0;overflow:hidden}.ir::before{content:'';display:block;height:150%;width:0}html{font-size:.875em;background:#fff;color:#373D49}html,body{font-family:Georgia,Cambria,serif;height:100%}body{font-size:1.2rem;font-weight:400;line-height:2rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}li{font-feature-settings:'kern' 1,'onum' 1,'liga' 1;margin-left:1rem}li>ul,li>ol{margin-bottom:0}p{padding-top:.66001rem;font-feature-settings:'kern' 1,'onum' 1,'liga' 1;margin-top:0}p,pre{margin-bottom:1.33999rem}pre{font-size:1.2rem;padding:.66001rem 9.5px 9.5px;line-height:2rem;background:linear-gradient(to bottom,#fff 0,#fff .75rem,#f5f7fa .75rem,#f5f7fa 2.75rem,#fff 2.75rem,#fff 4rem);background-size:100% 4rem;border-color:#D3DAEA}blockquote{margin:0}blockquote p{font-size:1.2rem;margin-bottom:.33999rem;font-style:normal ;padding:.66001rem 1rem 1rem;border-left:3px solid #A0AABF}th,td{padding:12px}h1,h2,h3,h4,h5,h6{font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-feature-settings:'dlig' 1,'liga' 1,'lnum' 1,'kern' 1;font-style:normal;font-weight:600;margin-top:0}h1{line-height:3rem;font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h2,h3{line-height:3rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1.2rem;margin-bottom:-.65001rem;padding-top:.65001rem}a{cursor:pointer;color:#0000EE;text-decoration:none}a:hover,a:focus{border-bottom-color:#0000EE;color:#dff9f4}img{height:auto;max-width:100%}dt{font-style:normal ;font-weight:600}.g{display:block}.g:after{clear:both;content:'';display:table}.g-b{float:left;margin:0;width:100%}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--center{display:block;float:none;margin:0 auto}.g-b--right{float:right}.g-b--1of1{width:100%}.g-b--1of2,.g-b--2of4,.g-b--3of6,.g-b--4of8,.g-b--5of10,.g-b--6of12{width:50%}.g-b--1of3,.g-b--2of6,.g-b--4of12{width:33.333%}.g-b--2of3,.g-b--4of6,.g-b--8of12{width:66.666%}.g-b--1of4,.g-b--2of8,.g-b--3of12{width:25%}.g-b--3of4,.g-b--6of8,.g-b--9of12{width:75%}.g-b--1of5,.g-b--2of10{width:20%}.g-b--2of5,.g-b--4of10{width:40%}.g-b--3of5,.g-b--6of10{width:60%}.g-b--4of5,.g-b--8of10{width:80%}.g-b--1of6,.g-b--2of12{width:16.666%}.g-b--5of6,.g-b--10of12{width:83.333%}.g-b--1of8{width:12.5%}.g-b--3of8{width:37.5%}.g-b--5of8{width:62.5%}.g-b--7of8{width:87.5%}.g-b--1of10{width:10%}.g-b--3of10{width:30%}.g-b--7of10{width:70%}.g-b--9of10{width:90%}.g-b--1of12{width:8.333%}.g-b--5of12{width:41.666%}.g-b--7of12{width:58.333%}.g-b--11of12{width:91.666%}.g-b--push--1of1{margin-left:100%}.g-b--push--1of2,.g-b--push--2of4,.g-b--push--3of6,.g-b--push--4of8,.g-b--push--5of10,.g-b--push--6of12{margin-left:50%}.g-b--push--1of3,.g-b--push--2of6,.g-b--push--4of12{margin-left:33.333%}.g-b--push--2of3,.g-b--push--4of6,.g-b--push--8of12{margin-left:66.666%}.g-b--push--1of4,.g-b--push--2of8,.g-b--push--3of12{margin-left:25%}.g-b--push--3of4,.g-b--push--6of8,.g-b--push--9of12{margin-left:75%}.g-b--push--1of5,.g-b--push--2of10{margin-left:20%}.g-b--push--2of5,.g-b--push--4of10{margin-left:40%}.g-b--push--3of5,.g-b--push--6of10{margin-left:60%}.g-b--push--4of5,.g-b--push--8of10{margin-left:80%}.g-b--push--1of6,.g-b--push--2of12{margin-left:16.666%}.g-b--push--5of6,.g-b--push--10of12{margin-left:83.333%}.g-b--push--1of8{margin-left:12.5%}.g-b--push--3of8{margin-left:37.5%}.g-b--push--5of8{margin-left:62.5%}.g-b--push--7of8{margin-left:87.5%}.g-b--push--1of10{margin-left:10%}.g-b--push--3of10{margin-left:30%}.g-b--push--7of10{margin-left:70%}.g-b--push--9of10{margin-left:90%}.g-b--push--1of12{margin-left:8.333%}.g-b--push--5of12{margin-left:41.666%}.g-b--push--7of12{margin-left:58.333%}.g-b--push--11of12{margin-left:91.666%}.g-b--pull--1of1{margin-right:100%}.g-b--pull--1of2,.g-b--pull--2of4,.g-b--pull--3of6,.g-b--pull--4of8,.g-b--pull--5of10,.g-b--pull--6of12{margin-right:50%}.g-b--pull--1of3,.g-b--pull--2of6,.g-b--pull--4of12{margin-right:33.333%}.g-b--pull--2of3,.g-b--pull--4of6,.g-b--pull--8of12{margin-right:66.666%}.g-b--pull--1of4,.g-b--pull--2of8,.g-b--pull--3of12{margin-right:25%}.g-b--pull--3of4,.g-b--pull--6of8,.g-b--pull--9of12{margin-right:75%}.g-b--pull--1of5,.g-b--pull--2of10{margin-right:20%}.g-b--pull--2of5,.g-b--pull--4of10{margin-right:40%}.g-b--pull--3of5,.g-b--pull--6of10{margin-right:60%}.g-b--pull--4of5,.g-b--pull--8of10{margin-right:80%}.g-b--pull--1of6,.g-b--pull--2of12{margin-right:16.666%}.g-b--pull--5of6,.g-b--pull--10of12{margin-right:83.333%}.g-b--pull--1of8{margin-right:12.5%}.g-b--pull--3of8{margin-right:37.5%}.g-b--pull--5of8{margin-right:62.5%}.g-b--pull--7of8{margin-right:87.5%}.g-b--pull--1of10{margin-right:10%}.g-b--pull--3of10{margin-right:30%}.g-b--pull--7of10{margin-right:70%}.g-b--pull--9of10{margin-right:90%}.g-b--pull--1of12{margin-right:8.333%}.g-b--pull--5of12{margin-right:41.666%}.g-b--pull--7of12{margin-right:58.333%}.g-b--pull--11of12{margin-right:91.666%}.splashscreen{position:fixed;top:0;left:0;width:100%;height:100%;background-color:#373D49;z-index:22}.splashscreen-dillinger{width:260px;height:auto;display:block;margin:0 auto;padding-bottom:3rem}.splashscreen p{font-size:1.25rem;padding-top:.56251rem;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;text-align:center;max-width:500px;margin:0 auto;color:#FFF}.sp-center{position:relative;transform:translateY(-50%);top:50%}.open-menu>.wrapper{overflow-x:hidden}.page{margin:0 auto;position:relative;top:0;left:0;width:100%;height:100%;z-index:2;transition:all .25s ease-in-out;background-color:#fff;padding-top:51px;will-change:left}.open-menu .page{left:270px}.title{line-height:1rem;font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem;font-weight:500;color:#A0AABF;letter-spacing:1px;text-transform:uppercase;padding-left:16px;padding-right:16px;margin-top:1rem}.split-preview .title{padding-left:0}.title-document{line-height:1rem;font-size:1.25rem;margin-bottom:.89999rem;padding-top:.10001rem;font-weight:400;font-family:"Ubuntu Mono",Monaco;color:#373D49;padding-left:16px;padding-right:16px;width:80%;min-width:300px;outline:0;border:none}.icon{display:block;margin:0 auto;width:36px;height:36px;border-radius:3px;text-align:center}.icon svg{display:inline-block;margin-left:auto;margin-right:auto}.icon-preview{background-color:#373D49;line-height:40px}.icon-preview svg{width:19px;height:12px}.icon-settings{background-color:#373D49;line-height:44px}.icon-settings svg{width:18px;height:18px}.icon-link{width:16px;height:16px;line-height:1;margin-right:24px;text-align:right}.navbar{background-color:#373D49;height:51px;width:100%;position:fixed;top:0;left:0;z-index:6;transition:all .25s ease-in-out;will-change:left}.navbar:after{content:"";display:table;clear:both}.open-menu .navbar{left:270px}.navbar-brand{float:left;margin:0 0 0 24px;padding:0;line-height:42px}.navbar-brand svg{width:85px;height:11px}.nav-left{float:left}.nav-right{float:right}.nav-sidebar{width:100%}.menu{list-style:none;margin:0;padding:0}.menu a{border:0;color:#A0AABF;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;outline:none;text-transform:uppercase}.menu a:hover{color:#0000EE}.menu .menu-item{border:0;display:none;float:left;margin:0;position:relative}.menu .menu-item>a{display:block;font-size:12px;height:51px;letter-spacing:1px;line-height:51px;padding:0 24px}.menu .menu-item--settings,.menu .menu-item--preview,.menu .menu-item--save-to.in-sidebar,.menu .menu-item--import-from.in-sidebar,.menu .menu-item--link-unlink.in-sidebar,.menu .menu-item--documents.in-sidebar{display:block}.menu .menu-item--documents{padding-bottom:1rem}.menu .menu-item.open>a{background-color:#1D212A}.menu .menu-item-icon>a{height:auto;padding:0}.menu .menu-item-icon:hover>a{background-color:transparent}.menu .menu-link.open i{background-color:#1D212A}.menu .menu-link.open g{fill:#0000EE}.menu .menu-link-preview,.menu .menu-link-settings{margin-top:8px;width:51px}.menu-sidebar{width:100%}.menu-sidebar .menu-item{float:none;margin-bottom:1px;width:100%}.menu-sidebar .menu-item.open>a{background-color:#373D49}.menu-sidebar .open .caret{transform:rotate(180deg)}.menu-sidebar>.menu-item:hover .dropdown a,.menu-sidebar>.menu-item:hover .settings a{background-color:transparent}.menu-sidebar .menu-link{background-color:#373D49;font-weight:600}.menu-sidebar .menu-link:after{content:"";display:table;clear:both}.menu-sidebar .menu-link>span{float:left}.menu-sidebar .menu-link>.caret{float:right;text-align:right;top:22px}.menu-sidebar .dropdown,.menu-sidebar .settings{background-color:transparent;position:static;width:100%}.dropdown{position:absolute;right:0;top:51px;width:188px}.dropdown,.settings{display:none;background-color:#1D212A}.dropdown{padding:0}.dropdown,.settings,.sidebar-list{list-style:none;margin:0}.sidebar-list{padding:0}.dropdown li{margin:32px 0;padding:0 0 0 32px}.dropdown li,.settings li{line-height:1}.sidebar-list li{line-height:1;margin:32px 0;padding:0 0 0 32px}.dropdown a{color:#D0D6E2}.dropdown a,.settings a,.sidebar-list a{display:block;text-transform:none}.sidebar-list a{color:#D0D6E2}.dropdown a:after,.settings a:after,.sidebar-list a:after{content:"";display:table;clear:both}.dropdown .icon,.settings .icon,.sidebar-list .icon{float:right}.open .dropdown,.open .settings,.open .sidebar-list{display:block}.open .dropdown.collapse,.open .collapse.settings,.open .sidebar-list.collapse{display:none}.open .dropdown.collapse.in,.open .collapse.in.settings,.open .sidebar-list.collapse.in{display:block}.dropdown .unlinked .icon,.settings .unlinked .icon,.sidebar-list .unlinked .icon{opacity:.3}.dropdown.documents li,.documents.settings li,.sidebar-list.documents li{background-image:url("../img/icons/file.svg");background-position:240px center;background-repeat:no-repeat;background-size:14px 16px;padding:3px 32px}.dropdown.documents li.octocat,.documents.settings li.octocat,.sidebar-list.documents li.octocat{background-image:url("../img/icons/octocat.svg");background-position:234px center;background-size:24px 24px}.dropdown.documents li:last-child,.documents.settings li:last-child,.sidebar-list.documents li:last-child{margin-bottom:1rem}.dropdown.documents li.active a,.documents.settings li.active a,.sidebar-list.documents li.active a{color:#0000EE}.settings{position:fixed;top:67px;right:16px;border-radius:3px;width:288px;background-color:#373D49;padding:16px;z-index:7}.show-settings .settings{display:block}.settings .has-checkbox{float:left}.settings form{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.settings input{width:20%}.settings a{font-size:1.25rem;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased;line-height:28px;color:#D0D6E2}.settings a:after{content:"";display:table;clear:both}.settings a:hover{color:#0000EE}.settings li{border-bottom:1px solid #4F535B;margin:0;padding:16px 0}.settings li:last-child{border-bottom:none}.brand{border:none;display:block}.brand:hover g{fill:#0000EE}.toggle{display:block;float:left;height:16px;padding:25px 16px 26px;width:40px}.toggle span:after,.toggle span:before{content:'';left:0;position:absolute;top:-6px}.toggle span:after{top:6px}.toggle span{display:block;position:relative}.toggle span,.toggle span:after,.toggle span:before{-webkit-backface-visibility:hidden;backface-visibility:hidden;background-color:#D3DAEA;height:2px;transition:all .3s;width:20px}.open-menu .toggle span{background-color:transparent}.open-menu .toggle span:before{transform:rotate(45deg) translate(3px,3px)}.open-menu .toggle span:after{transform:rotate(-45deg) translate(5px,-6px)}.caret{display:inline-block;width:0;height:0;margin-left:6px;vertical-align:middle;position:relative;top:-1px;border-top:4px solid;border-right:4px solid transparent;border-left:4px solid transparent}.sidebar{overflow:auto;height:100%;padding-right:15px;padding-bottom:15px;width:285px}.sidebar-wrapper{-webkit-overflow-scrolling:touch;background-color:#2B2F36;left:0;height:100%;overflow-y:hidden;position:fixed;top:0;width:285px;z-index:1}.sidebar-branding{width:160px;padding:0;margin:16px auto}.header{border-bottom:1px solid #E8E8E8;position:relative}.words,.characters{line-height:1rem;font-size:.8rem;margin-bottom:.77999rem;padding-top:.22001rem;font-weight:500;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:1px;text-transform:uppercase;z-index:5;position:absolute;right:16px;top:0}.words span,.characters span{color:#A0AABF}.words .counter,.characters .counter{color:#000}.words+.characters{top:22px}.mr10{margin-right:10px}.btn{text-align:center;display:inline-block;width:100%;text-transform:uppercase;font-weight:600;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;text-shadow:0 1px 0 #1b8b77;padding:16px 24px;background-color:#0000EE;border-radius:3px;margin:0 auto 16px;line-height:1;color:#fff;transition:all .15s linear;-webkit-font-smoothing:antialiased}.btn--new,.btn--save{display:block;width:238px}.btn--new:hover,.btn--new:focus,.btn--save:hover,.btn--save:focus{color:#fff;border-bottom-color:transparent;box-shadow:0 1px 3px #24b59c;text-shadow:0 1px 0 #24b59c}.btn--save{background-color:#4A5261;text-shadow:0 1px 1px #1e2127}.btn--save:hover,.btn--save:focus{color:#fff;border-bottom-color:transparent;box-shadow:0 1px 5px #08090a;text-shadow:none}.btn--delete{display:block;width:238px;background-color:transparent;font-size:12px;text-shadow:none}.btn--delete:hover,.btn--delete:focus{color:#fff;border-bottom-color:transparent;text-shadow:0 1px 0 #08090a;opacity:.8}.btn--delete-modal,.btn--ok,.btn--close{border-top:0;background-color:#4A5261;text-shadow:0 1px 0 #08090a;margin:0}.btn--delete-modal:hover,.btn--delete-modal:focus,.btn--ok:hover,.btn--ok:focus,.btn--close:hover,.btn--close:focus{color:#fff;background-color:#292d36;text-shadow:none}.btn--delete-modal{display:inline;width:auto}.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(55,61,73,.8);transition:all .25s ease-in-out;transition-timing-function:ease-out;will-change:left,opacity,visibility;z-index:5;opacity:0;visibility:hidden}.show-settings .overlay{visibility:visible;opacity:1}.switch{float:right;line-height:1}.switch input{display:none}.switch small{display:inline-block;cursor:pointer;padding:0 24px 0 0;transition:all ease .2s;background-color:#2B2F36;border-color:#2B2F36}.switch small,.switch small:before{border-radius:30px;box-shadow:inset 0 0 2px 0 #14171F}.switch small:before{display:block;content:'';width:28px;height:28px;background:#fff}.switch.checked small{padding-right:0;padding-left:24px;background-color:#0000EE;box-shadow:none}.modal--dillinger.about .modal-dialog{font-size:1.25rem;max-width:500px}.modal--dillinger.scope .modal-dialog{max-width:300px;margin:5rem auto}.modal--dillinger .modal-dialog{max-width:600px;width:auto;margin:5rem auto}.modal--dillinger .modal-content{background:#373D49;border-radius:3px;box-shadow:0 2px 5px 0 #2C3B59;color:#fff;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;padding:2rem}.modal--dillinger ul{list-style-type:disc;margin:1rem 0;padding:0 0 0 1rem}.modal--dillinger li{padding:0;margin:0}.modal--dillinger .modal-header{border:0;padding:0}.modal--dillinger .modal-body{padding:0}.modal--dillinger .modal-footer{border:0;padding:0}.modal--dillinger .close{color:#fff;opacity:1}.modal-backdrop{background-color:#373D49}.pagination--dillinger{padding:0!important;margin:1.5rem 0!important;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between;-ms-flex-direction:row;flex-direction:row;-ms-flex-align:center;align-items:center;-ms-flex-line-pack:stretch;align-content:stretch}.pagination--dillinger li{display:-ms-flexbox;display:flex;-ms-flex-positive:1;flex-grow:1;text-align:center}.pagination--dillinger li:first-child>a,.pagination--dillinger li.disabled>a,.pagination--dillinger li.disabled>a:hover,.pagination--dillinger li.disabled>a:focus,.pagination--dillinger li>a{background-color:transparent;border-color:#4F535B;border-right-color:transparent}.pagination--dillinger li.active>a,.pagination--dillinger li.active>a:hover,.pagination--dillinger li.active>a:focus{border-color:#4A5261;background-color:#4A5261;color:#fff}.pagination--dillinger li>a{float:none;color:#fff;width:100%;display:block;text-align:center;margin:0;border-right-color:transparent;padding:6px}.pagination--dillinger li>a:hover,.pagination--dillinger li>a:focus{border-color:#0000EE;background-color:#0000EE;color:#fff}.pagination--dillinger li:last-child a{border-color:#4F535B}.pagination--dillinger li:first-child a{border-right-color:transparent}.diNotify{position:absolute;z-index:9999;left:0;right:0;top:0;margin:0 auto;max-width:400px;text-align:center;transition:top .5s ease-in-out,opacity .5s ease-in-out;visibility:hidden}.diNotify-body{-webkit-font-smoothing:antialiased;background-color:#0000EE;background:#666E7F;border-radius:3px;color:#fff;font-family:"Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:400;overflow:hidden;padding:1rem 2rem .5rem;display:-ms-flexbox;display:flex;-ms-flex-align:baseline;align-items:baseline;-ms-flex-pack:center;justify-content:center}.diNotify-icon{display:block;width:16px;height:16px;line-height:16px;position:relative;top:3px}.diNotify-message{padding-left:1rem}.zen-wrapper{position:fixed;top:0;left:0;right:0;bottom:0;width:100%;height:100%;z-index:10;background-color:#FFF;opacity:0;transition:opacity .25s ease-in-out}.zen-wrapper.on{opacity:1}.enter-zen-mode{background-image:url("../img/icons/enter-zen.svg");right:.5rem;top:.313rem;display:none}.enter-zen-mode,.close-zen-mode{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;background-repeat:no-repeat;width:32px;height:32px;display:block;position:absolute}.close-zen-mode{background-image:url("../img/icons/exit-zen.svg");right:1rem;top:1rem}.zen-page{position:relative;top:0;bottom:0;z-index:11;height:100%;width:100%}#zen{font-size:1.25rem;width:300px;height:80%;margin:0 auto;position:relative;top:10%}#zen:before,#zen:after{content:"";position:absolute;height:10%;width:100%;z-index:12;pointer-events:none}#preview .table{width:auto}.ui-resizable{position:relative}.ui-resizable-handle{position:absolute;font-size:.1px;z-index:99999;display:block}.ui-resizable-e{background-color:#666;border-right:8px solid #e8e8e8;border-left:1px solid #222;width:10px;z-index:88!important;position:relative}.ui-resizable-e:after{content:"-";display:block;position:absolute;top:calc(50% - 16px);left:0;height:25px;width:2px;background-color:rgba(0,0,0,.4);margin:3px}#editor{cursor:ew-resize;position:relative;z-index:auto}.profile-pic{float:left;width:250px}#_default_ a::before{color:#A0AABF}#_default_ img{display:none}#_default_ #_default_{display:block;float:left;max-width:38%;word-wrap:break-word}#_default_ .default-ad{display:none}#_default_ ._default_{display:block}#_default_ a{color:#0000EE;text-decoration:none}#_default_ a:hover{color:#8ae8d8}#_default_ .default-image{display:none}#_default_ .default-title:after{content:" — "}#_default_ .default-title,#_default_ .default-text,#_default_ .default-description{display:inline}#_default_ .default-title{position:relative;font-weight:600;display:none}#_default_ a:before{position:relative;top:0;padding:5px;color:#a0aabf;content:"Ad";text-transform:uppercase;font-size:8px;font-family:Verdana,sans-serif}#_default_{display:block;float:left;max-width:38%;word-wrap:break-word}#_default_ ._default_{display:block;font-size:.75rem;height:51px;letter-spacing:1px;line-height:1rem;padding:18px 24px}body{max-width:1024px;margin:0 auto;overflow:auto;padding:2%}.split{overflow:scroll;padding:0!important;-webkit-overflow-scrolling:touch}.split-editor{padding-left:0;padding-right:0;position:relative;z-index:3}.show-preview .split-editor{display:none}.split-preview{background-color:#fff;display:none;top:0;position:relative;z-index:4}.show-preview .split-preview{display:block}#editor{font-size:1.2rem;font-family:"Ubuntu Mono",Monaco;font-weight:400;line-height:2rem;width:100%;height:100%}#editor .ace_gutter{-webkit-font-smoothing:antialiased}.editor-header{width:50%;float:left;border-bottom:1px solid #E8E8E8;position:relative}.editor-header--first{border-right:1px solid #E8E8E8}.editor-header .title{display:inline-block}.preview-html{padding:15px}.preview-html a{color:#A0AABF;text-decoration:underline}.preview-src{white-space:normal}.preview-mode-toggle-src{background-image:url("../img/icons/code.svg")}.preview-mode-toggle-src,.preview-mode-toggle-html{font:0/0 a;color:transparent;text-shadow:none;background-color:transparent;border:0;background-repeat:no-repeat;width:32px;height:32px;display:block;position:absolute;right:.5rem;top:.5rem;display:none}.preview-mode-toggle-html{background-image:url("../img/icons/eye.svg")}.sr-only{visibility:hidden;text-overflow:110%;overflow:hidden;top:-100px;position:absolute}.mnone{margin:0!important}@media screen and (min-width:27.5em){html{font-size:.875em}body{font-size:1.2rem}ul,ol{margin-bottom:.83999rem;padding-top:.16001rem}p{padding-top:.66001rem}p,pre{margin-bottom:1.33999rem}pre,blockquote p{font-size:1.2rem;padding-top:.66001rem}blockquote p{margin-bottom:.33999rem}h1{font-size:2.0571429rem;margin-bottom:.21999rem;padding-top:.78001rem}h2{font-size:1.953125rem;margin-bottom:.1835837rem;padding-top:.8164163rem}h3{font-size:1.6457143rem;margin-bottom:.07599rem;padding-top:.92401rem}h4{font-size:1.5625rem;margin-bottom:.546865rem;padding-top:.453135rem}h5{font-size:1.25rem;margin-bottom:-.56251rem;padding-top:.56251rem}h6{font-size:1.2rem;margin-bottom:-.65001rem;padding-top:.65001rem}.g{margin-left:-16px;margin-right:-16px}.g-b{padding-left:16px;padding-right:16px}.g-b--m1of1{width:100%}.g-b--m1of2,.g-b--m2of4,.g-b--m3of6,.g-b--m4of8,.g-b--m5of10,.g-b--m6of12{width:50%}.g-b--m1of3,.g-b--m2of6,.g-b--m4of12{width:33.333%}.g-b--m2of3,.g-b--m4of6,.g-b--m8of12{width:66.666%}.g-b--m1of4,.g-b--m2of8,.g-b--m3of12{width:25%}.g-b--m3of4,.g-b--m6of8,.g-b--m9of12{width:75%}.g-b--m1of5,.g-b--m2of10{width:20%}.g-b--m2of5,.g-b--m4of10{width:40%}.g-b--m3of5,.g-b--m6of10{width:60%}.g-b--m4of5,.g-b--m8of10{width:80%}.g-b--m1of6,.g-b--m2of12{width:16.666%}.g-b--m5of6,.g-b--m10of12{width:83.333%}.g-b--m1of8{width:12.5%}.g-b--m3of8{width:37.5%}.g-b--m5of8{width:62.5%}.g-b--m7of8{width:87.5%}.g-b--m1of10{width:10%}.g-b--m3of10{width:30%}.g-b--m7of10{width:70%}.g-b--m9of10{width:90%}.g-b--m1of12{width:8.333%}.g-b--m5of12{width:41.666%}.g-b--m7of12{width:58.333%}.g-b--m11of12{width:91.666%}.g-b--push--m1of1{margin-left:100%}.g-b--push--m1of2,.g-b--push--m2of4,.g-b--push--m3of6,.g-b--push--m4of8,.g-b--push--m5of10,.g-b--push--m6of12{margin-left:50%}.g-b--push--m1of3,.g-b--push--m2of6,.g-b--push--m4of12{margin-left:33.333%}.g-b--push--m2of3,.g-b--push--m4of6,.g-b--push--m8of12{margin-left:66.666%}.g-b--push--m1of4,.g-b--push--m2of8,.g-b--push--m3of12{margin-left:25%}.g-b--push--m3of4,.g-b--push--m6of8,.g-b--push--m9of12{margin-left:75%}.g-b--push--m1of5,.g-b--push--m2of10{margin-left:20%}.g-b--push--m2of5,.g-b--push--m4of10{margin-left:40%}.g-b--push--m3of5,.g-b--push--m6of10{margin-left:60%}.g-b--push--m4of5,.g-b--push--m8of10{margin-left:80%}.g-b--push--m1of6,.g-b--push--m2of12{margin-left:16.666%}.g-b--push--m5of6,.g-b--push--m10of12{margin-left:83.333%}.g-b--push--m1of8{margin-left:12.5%}.g-b--push--m3of8{margin-left:37.5%}.g-b--push--m5of8{margin-left:62.5%}.g-b--push--m7of8{margin-left:87.5%}.g-b--push--m1of10{margin-left:10%}.g-b--push--m3of10{margin-left:30%}.g-b--push--m7of10{margin-left:70%}.g-b--push--m9of10{margin-left:90%}.g-b--push--m1of12{margin-left:8.333%}.g-b--push--m5of12{margin-left:41.666%}.g-b--push--m7of12{margin-left:58.333%}.g-b--push--m11of12{margin-left:91.666%}.g-b--pull--m1of1{margin-right:100%}.g-b--pull--m1of2,.g-b--pull--m2of4,.g-b--pull--m3of6,.g-b--pull--m4of8,.g-b--pull--m5of10,.g-b--pull--m6of12{margin-right:50%}.g-b--pull--m1of3,.g-b--pull--m2of6,.g-b--pull--m4of12{margin-right:33.333%}.g-b--pull--m2of3,.g-b--pull--m4of6,.g-b--pull--m8of12{margin-right:66.666%}.g-b--pull--m1of4,.g-b--pull--m2of8,.g-b--pull--m3of12{margin-right:25%}.g-b--pull--m3of4,.g-b--pull--m6of8,.g-b--pull--m9of12{margin-right:75% /* (NOTE: The full original CSS continues exactly as you provided — retained in this file) */}
+
+/* =========================
+   FINAL OVERRIDE: Force Merriweather everywhere
+   This block must be last in the <style> so it overrides earlier font-family rules.
+   ========================= */
+
+/* Broad override for nearly all visible text (excludes SVG text and system-reserved elements).
+   Uses !important to ensure it takes precedence over prior font-family declarations. */
+:root,
+html, body,
+*,
+*::before,
+*::after {
+  -webkit-font-smoothing:antialiased !important;
+  -moz-osx-font-smoothing:grayscale !important;
+}
+
+/* Force Merriweather on all elements that render text.
+   We deliberately exclude some technical elements (like <svg> children) from this selector to avoid accidentally breaking icon fonts or inline SVG text. */
+html, body,
+body *, body *::before, body *::after,
+h1, h2, h3, h4, h5, h6,
+p, a, ul, ol, li, dt, dd,
+label, input, textarea, select, button,
+th, td, caption, blockquote, figcaption,
+.code, code, kbd, pre, samp,
+.small, .btn, .menu, .settings, .title-document,
+.navbar, .diNotify, .modal--dillinger, .splashscreen p,
+.words, .characters, .preview-html,
+#editor, .editor-header, .title {
+  font-family: "Merriweather", Georgia, serif !important;
+}
+
+/* Headings: use Merriweather and keep them strong. Change weight if you prefer lighter headings. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather", Georgia, serif !important;
+  font-style: normal !important;
+  font-weight: 700 !important;
+}
+
+/* Inputs & buttons: ensure form controls show Merriweather */
+input, textarea, select, button {
+  font-family: "Merriweather", Georgia, serif !important;
+  line-height: 1.4 !important;
+}
+
+/* Code blocks: by default Merriweather will be applied by the general rule above.
+   If you prefer to keep monospace for code, replace this with a monospace stack. */
+code, kbd, pre, samp {
+  font-family: "Merriweather", Georgia, serif !important;
+}
+
+/* Neutralize forced italics so Merriweather renders upright everywhere (optional) */
+em, i {
+  font-style: normal !important;
+}
+
+/* End of style */
+  </style>
+</head>
+
+<body>
+<body id="preview">
+<h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="HARC_Archives_Transition_Toolkit_0"></a>HARC Archives Transition Toolkit</h1>
+<h1 class="code-line" data-line-start=2 data-line-end=3 ><a id="Guide_for_Congregations_Transitioning_Their_Archives_2"></a>Guide for Congregations Archives</h1>
+<hr>
+<h2 class="code-line" data-line-start=6 data-line-end=7 ><a id="Table_of_Contents_6"></a>Table of Contents</h2>
+<ul>
+<li class="has-line-data" data-line-start="8" data-line-end="11"><a href="#introduction">Introduction</a>
+<ul>
+<li class="has-line-data" data-line-start="9" data-line-end="10">The Value of Women Religious Archives</li>
+<li class="has-line-data" data-line-start="10" data-line-end="11">Archives in Transition</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="11" data-line-end="14"><a href="#the-harc-solution">The HARC Solution</a>
+<ul>
+<li class="has-line-data" data-line-start="12" data-line-end="13">About HARC</li>
+<li class="has-line-data" data-line-start="13" data-line-end="14">Commitment to Your Legacy</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="14" data-line-end="18"><a href="#how-to-use-this-toolkit">How to Use This Toolkit</a>
+<ul>
+<li class="has-line-data" data-line-start="15" data-line-end="16">Collaborative Approach</li>
+<li class="has-line-data" data-line-start="16" data-line-end="17">Three-Part Structure</li>
+<li class="has-line-data" data-line-start="17" data-line-end="18">The Transition Timeline Framework</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="18" data-line-end="19"><a href="#part-i-assessing-your-archive">Part I: Assessing Your Archive</a></li>
+<li class="has-line-data" data-line-start="19" data-line-end="20"><a href="#part-ii-planning-your-transition-to-harc">Part II: Planning Your Transition to HARC</a></li>
+<li class="has-line-data" data-line-start="20" data-line-end="21"><a href="#part-iii-executing-the-transition">Part III: Executing the Transition</a></li>
+<li class="has-line-data" data-line-start="21" data-line-end="22"><a href="#part-iv-resources-and-templates">Part IV: Resources and Templates</a></li>
+<li class="has-line-data" data-line-start="22" data-line-end="23"><a href="#part-v-packing-and-moving-resources">Part V: Packing and Moving Resources</a></li>
+<li class="has-line-data" data-line-start="23" data-line-end="24"><a href="#conclusion">Conclusion</a></li>
+<li class="has-line-data" data-line-start="24" data-line-end="25"><a href="#professional-resources">Professional Resources</a></li>
+<li class="has-line-data" data-line-start="25" data-line-end="27"><a href="#acknowledgments">Acknowledgments</a></li>
+</ul>
+<hr>
+<h2 class="code-line" data-line-start=29 data-line-end=30 ><a id="Introduction_29"></a>Introduction</h2>
+<h3 class="code-line" data-line-start=31 data-line-end=32 ><a id="The_Value_of_Women_Religious_Archives_31"></a>The Value of Women Religious Archives</h3>
+<p class="has-line-data" data-line-start="33" data-line-end="34">Women religious archives serve as essential, primary sources for exploring American women’s and church history. They provide valuable insights into areas such as education, healthcare, social justice, and the daily experiences and challenges faced by religious women. These archives are crucial for preserving the legacy of Catholic sisters, documenting their societal contributions, and emphasizing their work in social justice movements.</p>
+<p class="has-line-data" data-line-start="35" data-line-end="36"><strong>These collections preserve stories of:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="37" data-line-end="38">Educational pioneers and healthcare professionals</li>
+<li class="has-line-data" data-line-start="38" data-line-end="39">Advocates for social justice and civil rights</li>
+<li class="has-line-data" data-line-start="39" data-line-end="40">Servants to marginalized communities—children, the elderly, people experiencing poverty, immigrants, and people with disabilities</li>
+<li class="has-line-data" data-line-start="40" data-line-end="42">Leadership within the Catholic Church and American society</li>
+</ul>
+<h3 class="code-line" data-line-start=42 data-line-end=43 ><a id="Archives_in_Transition_42"></a>Archives in Transition</h3>
+<p class="has-line-data" data-line-start="44" data-line-end="45">These irreplaceable collections need long-term stewardship plans to ensure their preservation and accessibility for future generations.</p>
+<p class="has-line-data" data-line-start="46" data-line-end="47"><strong>Congregational Responsibility</strong>: Religious organizations hold a duty to safeguard their cultural heritage, encompassing legal, ethical, and spiritual responsibilities. Archives function as a continuation of their mission, providing service to vulnerable populations and amplifying the voices represented within these collections.</p>
+<hr>
+<h2 class="code-line" data-line-start=50 data-line-end=51 ><a id="The_HARC_Solution_50"></a>The HARC Solution</h2>
+<p class="has-line-data" data-line-start="52" data-line-end="53">The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent, professional home for women religious archives.</p>
+<p class="has-line-data" data-line-start="54" data-line-end="55"><strong>Purpose-built by and for women religious, HARC offers:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="56" data-line-end="57">Climate-controlled, archival-standard storage</li>
+<li class="has-line-data" data-line-start="57" data-line-end="58">Professional archival staff with expertise in large-scale collection management</li>
+<li class="has-line-data" data-line-start="58" data-line-end="59">Research access for scholars and the public</li>
+<li class="has-line-data" data-line-start="59" data-line-end="60">Respect for congregational intention and access restrictions</li>
+<li class="has-line-data" data-line-start="60" data-line-end="62">Long-term sustainability and preservation</li>
+</ul>
+<p class="has-line-data" data-line-start="62" data-line-end="63"><em>This toolkit guides congregations through preparing their archives, planning the transition to HARC, and executing the move.</em></p>
+<h3 class="code-line" data-line-start=64 data-line-end=65 ><a id="About_HARC_64"></a>About HARC</h3>
+<h4 class="code-line" data-line-start=66 data-line-end=67 ><a id="Mission_66"></a>Mission</h4>
+<p class="has-line-data" data-line-start="68" data-line-end="69">HARC at Saint Mary’s preserves and shares their history through documents, artifacts, and materials. It supports research and educates the public on Catholic sisters’ contributions to society. Partnering with Saint Mary’s College, HARC also inspires future generations by showcasing the impact of sisters in education, health care, and social justice. Through exhibits and programs, it promotes understanding of their legacy and encourages ongoing work for marginalized communities.</p>
+<h4 class="code-line" data-line-start=70 data-line-end=71 ><a id="Services_70"></a>Services</h4>
+<p class="has-line-data" data-line-start="72" data-line-end="73"><strong>For Donor Congregations</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="74" data-line-end="75">Professional archival processing and preservation</li>
+<li class="has-line-data" data-line-start="75" data-line-end="76">Climate-controlled storage meeting SAA standards</li>
+<li class="has-line-data" data-line-start="76" data-line-end="77">Customized access restrictions honored</li>
+<li class="has-line-data" data-line-start="77" data-line-end="78">Priority access for congregation members</li>
+<li class="has-line-data" data-line-start="78" data-line-end="79">Annual reports on collection use</li>
+<li class="has-line-data" data-line-start="79" data-line-end="81">Ongoing consultation and support</li>
+</ul>
+<p class="has-line-data" data-line-start="81" data-line-end="82"><strong>For Researchers</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="83" data-line-end="84">Public research access during regular hours</li>
+<li class="has-line-data" data-line-start="84" data-line-end="85">Professional reference assistance</li>
+<li class="has-line-data" data-line-start="85" data-line-end="86">Finding aids and online discovery tools</li>
+<li class="has-line-data" data-line-start="86" data-line-end="88">Reproduction services for scholarly use</li>
+</ul>
+<h3 class="code-line" data-line-start=88 data-line-end=89 ><a id="Commitment_to_Your_Legacy_88"></a>Commitment to Your Legacy</h3>
+<p class="has-line-data" data-line-start="90" data-line-end="91">HARC functions according to professional archival standards and is supported by skilled archival specialists. Collections are accessible to congregations and also serve wider scholarly and public interests. Your story and service legacy will be preserved and shared with future generations.</p>
+<hr>
+<h2 class="code-line" data-line-start=94 data-line-end=95 ><a id="How_to_Use_This_Toolkit_94"></a>How to Use This Toolkit</h2>
+<h3 class="code-line" data-line-start=96 data-line-end=97 ><a id="Collaborative_Approach_96"></a>Collaborative Approach</h3>
+<p class="has-line-data" data-line-start="98" data-line-end="99">This toolkit requires partnership between the congregation leadership and the archivist. Neither can successfully navigate this transition alone. Regular dialogue, shared decision-making, and mutual trust are essential.</p>
+<h3 class="code-line" data-line-start=100 data-line-end=101 ><a id="ThreePart_Structure_100"></a>Three-Part Structure</h3>
+<p class="has-line-data" data-line-start="102" data-line-end="104"><strong>Part I: Assessing Your Archive</strong><br>
+Helps you constructively evaluate your current archival situation, what materials you have, their condition, and your congregation’s story.</p>
+<p class="has-line-data" data-line-start="105" data-line-end="107"><strong>Part II: Planning Your Transition</strong><br>
+Guides the decision-making process regarding transferring your archives to HARC, including creating a timeline and reaching agreement terms.</p>
+<p class="has-line-data" data-line-start="108" data-line-end="110"><strong>Part III: Executing the Transition</strong><br>
+Offers practical guidance on preparing collections, documenting, and physically relocating your archives to HARC.</p>
+<h4 class="code-line" data-line-start=111 data-line-end=112 ><a id="Who_Should_Use_This_Toolkit_111"></a>Who Should Use This Toolkit</h4>
+<ul>
+<li class="has-line-data" data-line-start="113" data-line-end="114"><strong>Congregation Leadership</strong>: Presidents, councils, and decision-makers responsible for long-term planning</li>
+<li class="has-line-data" data-line-start="114" data-line-end="115"><strong>Archivists</strong>: Professional archivists, sister-archivists, or staff managing congregational records</li>
+<li class="has-line-data" data-line-start="115" data-line-end="117"><strong>Consultants</strong>: External advisors assisting with transition planning</li>
+</ul>
+<p class="has-line-data" data-line-start="117" data-line-end="119"><strong>Flexibility</strong><br>
+<em>Every congregation is unique. Adapt this toolkit to your situation, timeline, and resources. Not every section will apply to every congregation.</em></p>
+<hr>
+<h2 class="code-line" data-line-start=122 data-line-end=123 ><a id="The_Transition_Timeline_Framework_122"></a>The Transition Timeline Framework</h2>
+<h3 class="code-line" data-line-start=124 data-line-end=125 ><a id="Understanding_the_Timeline_124"></a>Understanding the Timeline</h3>
+<p class="has-line-data" data-line-start="126" data-line-end="127">The most crucial step is to establish priorities, allocate resources, and develop a plan.</p>
+<h4 class="code-line" data-line-start=128 data-line-end=129 ><a id="Timeline_Prioritization_128"></a>Timeline Prioritization</h4>
+<p class="has-line-data" data-line-start="130" data-line-end="131"><strong>Critical Focus</strong>: Essential tasks only. Eliminate non-critical projects.</p>
+<ol>
+<li class="has-line-data" data-line-start="132" data-line-end="133">Finalize transition agreement with HARC</li>
+<li class="has-line-data" data-line-start="133" data-line-end="134">Collect existing inventories (guides, finding aids)</li>
+<li class="has-line-data" data-line-start="134" data-line-end="135">Collect essential policies and documentation</li>
+<li class="has-line-data" data-line-start="135" data-line-end="136">Identify and address preservation emergencies</li>
+<li class="has-line-data" data-line-start="136" data-line-end="138">Pack and move collection</li>
+</ol>
+<hr>
+<h2 class="code-line" data-line-start=140 data-line-end=141 ><a id="Part_I_Assessing_Your_Archive_140"></a>Part I: Assessing Your Archive</h2>
+<h3 class="code-line" data-line-start=142 data-line-end=143 ><a id="Goals_142"></a>Goals</h3>
+<p class="has-line-data" data-line-start="144" data-line-end="145">By completing Part I, you will:</p>
+<p class="has-line-data" data-line-start="146" data-line-end="147"><strong>For Leadership</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="148" data-line-end="149">Clarify your congregation’s identity and core stories</li>
+<li class="has-line-data" data-line-start="149" data-line-end="150">Establish parameters for confidential materials</li>
+<li class="has-line-data" data-line-start="150" data-line-end="151">Understand the scope of your archival and object collections</li>
+<li class="has-line-data" data-line-start="151" data-line-end="153">Identify concerns about transitioning archives</li>
+</ul>
+<p class="has-line-data" data-line-start="153" data-line-end="154"><strong>For Archivists</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="155" data-line-end="156">Document the extent and condition of collections</li>
+<li class="has-line-data" data-line-start="156" data-line-end="157">Identify preservation priorities</li>
+<li class="has-line-data" data-line-start="157" data-line-end="158">Assess processing needs</li>
+<li class="has-line-data" data-line-start="158" data-line-end="160">Evaluate what materials have long-term value</li>
+</ul>
+<h3 class="code-line" data-line-start=160 data-line-end=161 ><a id="Step_1_Leadership_Reflections_160"></a>Step 1: Leadership Reflections</h3>
+<h4 class="code-line" data-line-start=162 data-line-end=163 ><a id="Purpose_and_Values_162"></a>Purpose and Values</h4>
+<ul>
+<li class="has-line-data" data-line-start="164" data-line-end="167">
+<p class="has-line-data" data-line-start="164" data-line-end="166"><strong>What words describe your congregation’s core values today?</strong><br>
+<em>Consider: Compassion, justice, education, healing, service, prayer, community, advocacy, etc.</em></p>
+</li>
+<li class="has-line-data" data-line-start="167" data-line-end="170">
+<p class="has-line-data" data-line-start="167" data-line-end="169"><strong>What are the three most essential stories your archives tell?</strong><br>
+<em>Think about: Founding narrative, signature ministries, contributions to social movements, service to marginalized communities, response to historical moments, etc.</em></p>
+</li>
+<li class="has-line-data" data-line-start="170" data-line-end="173">
+<p class="has-line-data" data-line-start="170" data-line-end="172"><strong>What individual items or collections are most significant?</strong><br>
+<em>Examples: Founder’s correspondence, photographs of key missions, ministry records documenting underserved communities, etc.</em></p>
+</li>
+</ul>
+<h4 class="code-line" data-line-start=173 data-line-end=174 ><a id="Future_Concerns_173"></a>Future Concerns</h4>
+<ul>
+<li class="has-line-data" data-line-start="175" data-line-end="178">
+<p class="has-line-data" data-line-start="175" data-line-end="177"><strong>What are your most significant concerns about the archive’s future?</strong><br>
+<em>Common concerns: Loss of institutional knowledge, accessibility after sisters pass, costs of maintenance, preserving confidentiality, honoring charism, maintaining connection to congregation</em></p>
+</li>
+<li class="has-line-data" data-line-start="178" data-line-end="181">
+<p class="has-line-data" data-line-start="178" data-line-end="180"><strong>What qualities are critical in a future archive home?</strong><br>
+<em>Consider: Catholic identity, proximity to congregation, professional standards, research access, respect for restrictions, long-term sustainability, alignment with charism</em></p>
+</li>
+<li class="has-line-data" data-line-start="181" data-line-end="184">
+<p class="has-line-data" data-line-start="181" data-line-end="183"><strong>What records should remain confidential?</strong><br>
+<em>Examples: Personnel files (25 years after death), legal settlement records (50 years), medical records (governed by HIPAA), financial records (varies), etc.</em></p>
+</li>
+<li class="has-line-data" data-line-start="184" data-line-end="187">
+<p class="has-line-data" data-line-start="184" data-line-end="186"><strong>What questions concern you about transitioning to HARC?</strong><br>
+<em>HARC staff can address concerns about access, costs, control, confidentiality, and ongoing relationships.</em></p>
+</li>
+</ul>
+<h3 class="code-line" data-line-start=187 data-line-end=188 ><a id="Step_2_Archivist_Reflections_187"></a>Step 2: Archivist Reflections</h3>
+<h4 class="code-line" data-line-start=189 data-line-end=190 ><a id="Congregation_Identity_189"></a>Congregation Identity</h4>
+<ol>
+<li class="has-line-data" data-line-start="191" data-line-end="192">What is your congregation’s charism?</li>
+<li class="has-line-data" data-line-start="192" data-line-end="193">What were the primary historical missions/ministries?</li>
+<li class="has-line-data" data-line-start="193" data-line-end="194">List well-known sisters and their ministries. Will their records be in the archive?</li>
+<li class="has-line-data" data-line-start="194" data-line-end="195">Does a summary narrative of your congregation’s history exist? If not, who could write one?</li>
+<li class="has-line-data" data-line-start="195" data-line-end="198">What collections are most requested by:
+<ul>
+<li class="has-line-data" data-line-start="196" data-line-end="197">Congregation members:</li>
+<li class="has-line-data" data-line-start="197" data-line-end="198">External researchers:</li>
+</ul>
+</li>
+<li class="has-line-data" data-line-start="198" data-line-end="199">What concerns do you have about public access?</li>
+<li class="has-line-data" data-line-start="199" data-line-end="201">What records should be confidential?</li>
+</ol>
+<h3 class="code-line" data-line-start=201 data-line-end=202 ><a id="Step_3_Archives_Evaluation_201"></a>Step 3: Archives Evaluation</h3>
+<p class="has-line-data" data-line-start="203" data-line-end="204">Use the <strong>Archives Evaluation Worksheet</strong> (see Resources section) to document:</p>
+<ul>
+<li class="has-line-data" data-line-start="205" data-line-end="206">Square/linear/cubic footage of storage</li>
+<li class="has-line-data" data-line-start="206" data-line-end="207">Percentage of processed collections</li>
+<li class="has-line-data" data-line-start="207" data-line-end="208">Percentage with finding aids</li>
+<li class="has-line-data" data-line-start="208" data-line-end="209">Material formats present (documents, photos, audiovisual, digital, etc.)</li>
+<li class="has-line-data" data-line-start="209" data-line-end="210">Prevalence of each format (extensive, common, rare)</li>
+<li class="has-line-data" data-line-start="210" data-line-end="212">Condition issues (mold, damage, fragility)</li>
+</ul>
+<h3 class="code-line" data-line-start=212 data-line-end=213 ><a id="Step_4_Object_Evaluation_212"></a>Step 4: Object Evaluation</h3>
+<p class="has-line-data" data-line-start="214" data-line-end="215">Use the <strong>Object Evaluation Worksheet</strong> to assess three-dimensional items:</p>
+<p class="has-line-data" data-line-start="216" data-line-end="217"><strong>Evaluation Criteria</strong> (assign points 1-5 for each):</p>
+<ul>
+<li class="has-line-data" data-line-start="218" data-line-end="219">Connection to congregational story __ points</li>
+<li class="has-line-data" data-line-start="219" data-line-end="220">Historical significance __ points</li>
+<li class="has-line-data" data-line-start="220" data-line-end="221">Condition and preservation needs __ points</li>
+<li class="has-line-data" data-line-start="221" data-line-end="222">Provenance/documentation __ points</li>
+<li class="has-line-data" data-line-start="222" data-line-end="223">Research or display value __ points</li>
+<li class="has-line-data" data-line-start="223" data-line-end="225">Uniqueness __ points</li>
+</ul>
+<p class="has-line-data" data-line-start="225" data-line-end="226"><strong>Process:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="227" data-line-end="228">Evaluate each object using the criteria</li>
+<li class="has-line-data" data-line-start="228" data-line-end="229">Objects with the highest scores have the most substantial ties to your story</li>
+<li class="has-line-data" data-line-start="229" data-line-end="230">Prioritize these for transfer to HARC</li>
+<li class="has-line-data" data-line-start="230" data-line-end="232">Lower-scoring objects may be deaccessioned or donated elsewhere</li>
+</ol>
+<p class="has-line-data" data-line-start="232" data-line-end="233"><em>Note: HARC has limited capacity for three-dimensional objects. Focus on items integral to your congregational narrative.</em></p>
+<h3 class="code-line" data-line-start=234 data-line-end=235 ><a id="Step_5_Discussion_and_Synthesis_234"></a>Step 5: Discussion and Synthesis</h3>
+<p class="has-line-data" data-line-start="236" data-line-end="237">After completing reflections and evaluations, schedule a meeting to discuss:</p>
+<ol>
+<li class="has-line-data" data-line-start="238" data-line-end="239">Do leadership and archivists agree on the congregation’s core identity and most important stories?</li>
+<li class="has-line-data" data-line-start="239" data-line-end="240">Does the archive adequately document these stories? What gaps exist?</li>
+<li class="has-line-data" data-line-start="240" data-line-end="241">What materials have been identified as most significant? Does leadership concur?</li>
+<li class="has-line-data" data-line-start="241" data-line-end="242">Are there disagreements about access restrictions? How will these be resolved?</li>
+<li class="has-line-data" data-line-start="242" data-line-end="243">What preservation concerns require immediate attention?</li>
+<li class="has-line-data" data-line-start="243" data-line-end="244">Based on this assessment, what is a realistic timeline for transition?</li>
+<li class="has-line-data" data-line-start="244" data-line-end="246">What resources (staffing, funding, expertise) are needed to prepare for transition?</li>
+</ol>
+<p class="has-line-data" data-line-start="246" data-line-end="247"><em>Document these discussions. They inform your transition planning in Part II.</em></p>
+<hr>
+<h2 class="code-line" data-line-start=250 data-line-end=251 ><a id="Part_II_Planning_Your_Transition_to_HARC_250"></a>Part II: Planning Your Transition to HARC</h2>
+<h3 class="code-line" data-line-start=252 data-line-end=253 ><a id="Goals_252"></a>Goals</h3>
+<p class="has-line-data" data-line-start="254" data-line-end="255">By completing Part II, you will:</p>
+<p class="has-line-data" data-line-start="256" data-line-end="257"><strong>For Leadership</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="258" data-line-end="259">Establish a transition timeline</li>
+<li class="has-line-data" data-line-start="259" data-line-end="261">Finalize the transition to the HARC facility</li>
+</ul>
+<p class="has-line-data" data-line-start="261" data-line-end="262"><strong>For Archivists</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="263" data-line-end="264">Develop processing priorities based on timeline</li>
+<li class="has-line-data" data-line-start="264" data-line-end="265">Identify resources needed for transition preparation</li>
+<li class="has-line-data" data-line-start="265" data-line-end="266">Create a work plan aligned with the timeline</li>
+<li class="has-line-data" data-line-start="266" data-line-end="268">Prepare materials for HARC transfer</li>
+</ul>
+<h3 class="code-line" data-line-start=268 data-line-end=269 ><a id="Step_1_Understanding_HARC_Partnership_268"></a>Step 1: Understanding HARC Partnership</h3>
+<h4 class="code-line" data-line-start=270 data-line-end=271 ><a id="What_HARC_Provides_270"></a>What HARC Provides</h4>
+<p class="has-line-data" data-line-start="272" data-line-end="273"><strong>Facilities:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="274" data-line-end="275">Purpose-built, climate-controlled repository</li>
+<li class="has-line-data" data-line-start="275" data-line-end="276">Archival-standard storage meeting SAA guidelines</li>
+<li class="has-line-data" data-line-start="276" data-line-end="277">Research room for congregation and public use</li>
+<li class="has-line-data" data-line-start="277" data-line-end="279">Exhibition space for rotating displays</li>
+</ul>
+<p class="has-line-data" data-line-start="279" data-line-end="280"><strong>Services:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="281" data-line-end="282">Professional archival processing and preservation</li>
+<li class="has-line-data" data-line-start="282" data-line-end="283">Creation/enhancement of finding aids</li>
+<li class="has-line-data" data-line-start="283" data-line-end="284">Online discovery through the finding aid portal</li>
+<li class="has-line-data" data-line-start="284" data-line-end="285">Reference services for researchers</li>
+<li class="has-line-data" data-line-start="285" data-line-end="286">Reproduction services</li>
+<li class="has-line-data" data-line-start="286" data-line-end="287">Annual usage reports to the congregation</li>
+<li class="has-line-data" data-line-start="287" data-line-end="289">Ongoing consultation and support</li>
+</ul>
+<p class="has-line-data" data-line-start="289" data-line-end="290"><strong>Access:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="291" data-line-end="292">Priority access for congregation members (by appointment)</li>
+<li class="has-line-data" data-line-start="292" data-line-end="293">Public research access during regular hours</li>
+<li class="has-line-data" data-line-start="293" data-line-end="294">Customized restriction periods honored</li>
+<li class="has-line-data" data-line-start="294" data-line-end="295">Secure handling of confidential materials</li>
+<li class="has-line-data" data-line-start="295" data-line-end="297">Copyright guidance and permissions support</li>
+</ul>
+<h4 class="code-line" data-line-start=297 data-line-end=298 ><a id="What_Congregations_Provide_297"></a>What Congregations Provide</h4>
+<p class="has-line-data" data-line-start="299" data-line-end="300"><strong>Essential Documentation:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="301" data-line-end="302">Preliminary inventory or box list</li>
+<li class="has-line-data" data-line-start="302" data-line-end="303">Congregational narrative history</li>
+<li class="has-line-data" data-line-start="303" data-line-end="304">Access and restriction guidelines</li>
+<li class="has-line-data" data-line-start="304" data-line-end="305">Contact information for ongoing liaison</li>
+<li class="has-line-data" data-line-start="305" data-line-end="307">Transfer agreement (deed of gift or deposit)</li>
+</ul>
+<p class="has-line-data" data-line-start="307" data-line-end="308"><strong>Recommended Documentation:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="309" data-line-end="310">Finding aids (if existing)</li>
+<li class="has-line-data" data-line-start="310" data-line-end="311">Policies (access, confidentiality, use)</li>
+<li class="has-line-data" data-line-start="311" data-line-end="312">Digitized materials (with documentation)</li>
+<li class="has-line-data" data-line-start="312" data-line-end="313">Administrative history and organizational charts</li>
+<li class="has-line-data" data-line-start="313" data-line-end="315">Member directories and ministry histories</li>
+</ul>
+<h3 class="code-line" data-line-start=315 data-line-end=316 ><a id="Step_2_Developing_Your_Transition_Plan_315"></a>Step 2: Developing Your Transition Plan</h3>
+<h4 class="code-line" data-line-start=317 data-line-end=318 ><a id="Critical_Steps_317"></a>Critical Steps</h4>
+<ul>
+<li class="has-line-data" data-line-start="319" data-line-end="320">Finalize HARC agreement</li>
+<li class="has-line-data" data-line-start="320" data-line-end="321">Create basic box-level inventory</li>
+<li class="has-line-data" data-line-start="321" data-line-end="322">Identify preservation emergencies</li>
+<li class="has-line-data" data-line-start="322" data-line-end="323">Secure packing supplies and moving arrangements</li>
+<li class="has-line-data" data-line-start="323" data-line-end="324">Draft congregational narrative (brief)</li>
+<li class="has-line-data" data-line-start="324" data-line-end="325">Begin essential access policy documentation</li>
+<li class="has-line-data" data-line-start="325" data-line-end="326">Coordinate moving date with HARC</li>
+<li class="has-line-data" data-line-start="326" data-line-end="328">Prepare for physical transfer</li>
+</ul>
+<h4 class="code-line" data-line-start=328 data-line-end=329 ><a id="Essential_Steps_328"></a>Essential Steps</h4>
+<ul>
+<li class="has-line-data" data-line-start="330" data-line-end="331">Execute move to HARC</li>
+<li class="has-line-data" data-line-start="331" data-line-end="332">Transfer documentation and finding aids</li>
+<li class="has-line-data" data-line-start="332" data-line-end="333">Conduct final walk-through</li>
+<li class="has-line-data" data-line-start="333" data-line-end="334">Establish ongoing liaison arrangement</li>
+<li class="has-line-data" data-line-start="334" data-line-end="336">Celebrate transition</li>
+</ul>
+<h3 class="code-line" data-line-start=336 data-line-end=337 ><a id="Step_3_Agreement_Terms_with_HARC_336"></a>Step 3: Agreement Terms with HARC</h3>
+<h4 class="code-line" data-line-start=338 data-line-end=339 ><a id="Deposit_Agreement_338"></a>Deposit Agreement</h4>
+<ul>
+<li class="has-line-data" data-line-start="340" data-line-end="341">Transfer custody of collections to HARC</li>
+<li class="has-line-data" data-line-start="341" data-line-end="342">Most common and recommended arrangement</li>
+<li class="has-line-data" data-line-start="342" data-line-end="343">Provides long-term security and clarity</li>
+<li class="has-line-data" data-line-start="343" data-line-end="344">Eliminates future decision-making burden</li>
+<li class="has-line-data" data-line-start="344" data-line-end="345">HARC assumes all preservation responsibilities</li>
+<li class="has-line-data" data-line-start="345" data-line-end="347">HARC provides custody and care</li>
+</ul>
+<h4 class="code-line" data-line-start=347 data-line-end=348 ><a id="Essential_Agreement_Terms_347"></a>Essential Agreement Terms</h4>
+<p class="has-line-data" data-line-start="349" data-line-end="350">Your agreement with HARC will address:</p>
+<p class="has-line-data" data-line-start="351" data-line-end="352"><strong>1. Description of Materials</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="353" data-line-end="354">Inventory/box list</li>
+<li class="has-line-data" data-line-start="354" data-line-end="355">Extent (linear/cubic feet)</li>
+<li class="has-line-data" data-line-start="355" data-line-end="356">Formats included</li>
+<li class="has-line-data" data-line-start="356" data-line-end="357">Condition assessment</li>
+<li class="has-line-data" data-line-start="357" data-line-end="359">Excluded materials (if any)</li>
+</ul>
+<p class="has-line-data" data-line-start="359" data-line-end="360"><strong>2. Transfer of Title</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="361" data-line-end="362">Date ownership transfers</li>
+<li class="has-line-data" data-line-start="362" data-line-end="363">Intellectual property rights</li>
+<li class="has-line-data" data-line-start="363" data-line-end="365">Copyright considerations</li>
+</ul>
+<p class="has-line-data" data-line-start="365" data-line-end="366"><strong>3. Access Restrictions</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="367" data-line-end="368">Closed periods for specific series</li>
+<li class="has-line-data" data-line-start="368" data-line-end="369">Confidentiality requirements (personnel, legal, etc.)</li>
+<li class="has-line-data" data-line-start="369" data-line-end="370">Privacy protections (HIPAA, FERPA)</li>
+<li class="has-line-data" data-line-start="370" data-line-end="372">Review and revision procedures</li>
+</ul>
+<p class="has-line-data" data-line-start="372" data-line-end="373"><strong>4. Congregation Access</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="374" data-line-end="375">Priority scheduling for members</li>
+<li class="has-line-data" data-line-start="375" data-line-end="376">Research room use protocols</li>
+<li class="has-line-data" data-line-start="376" data-line-end="377">Borrowing procedures (if any)</li>
+<li class="has-line-data" data-line-start="377" data-line-end="379">Reproduction and copying policies</li>
+</ul>
+<p class="has-line-data" data-line-start="379" data-line-end="380"><strong>5. Future Accruals</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="381" data-line-end="382">Procedure for ongoing deposits</li>
+<li class="has-line-data" data-line-start="382" data-line-end="383">Schedule for transfers</li>
+<li class="has-line-data" data-line-start="383" data-line-end="385">Contact for coordination</li>
+</ul>
+<p class="has-line-data" data-line-start="385" data-line-end="386"><strong>6. Use and Publications</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="387" data-line-end="388">HARC’s rights to use materials for exhibits, web, and education</li>
+<li class="has-line-data" data-line-start="388" data-line-end="389">Reproduction fees and permissions</li>
+<li class="has-line-data" data-line-start="389" data-line-end="390">Commercial use policies</li>
+<li class="has-line-data" data-line-start="390" data-line-end="392">Credit line/attribution</li>
+</ul>
+<p class="has-line-data" data-line-start="392" data-line-end="393"><strong>7. Deaccession and Disposal</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="394" data-line-end="395">HARC’s authority regarding duplicates or non-archival materials</li>
+<li class="has-line-data" data-line-start="395" data-line-end="396">Consultation requirements</li>
+<li class="has-line-data" data-line-start="396" data-line-end="398">Disposition procedures</li>
+</ul>
+<h4 class="code-line" data-line-start=398 data-line-end=399 ><a id="Sample_Agreement_Terms_398"></a>Sample Agreement Terms</h4>
+<p class="has-line-data" data-line-start="400" data-line-end="401">HARC will provide template agreements customized to your situation. Key provisions include:</p>
+<p class="has-line-data" data-line-start="402" data-line-end="403"><strong>Access Restrictions Example:</strong></p>
+<p class="has-line-data" data-line-start="404" data-line-end="405"><em>“Personnel files of congregation members shall remain closed for 25 years following the date of death of the individual. Medical records shall be restricted in accordance with HIPAA regulations. All other materials shall be open for research unless otherwise specified.”</em></p>
+<p class="has-line-data" data-line-start="406" data-line-end="407"><strong>Congregation Access Example:</strong></p>
+<p class="has-line-data" data-line-start="408" data-line-end="409"><em>“Members of [Congregation Name] shall have priority access to the collection upon request with 48 hours’ advance notice. HARC will provide on-site research facilities during regular business hours at no charge to congregation members.”</em></p>
+<h3 class="code-line" data-line-start=410 data-line-end=411 ><a id="Step_5_Communication_410"></a>Step 5: Communication</h3>
+<p class="has-line-data" data-line-start="412" data-line-end="413"><strong>Discussion Questions:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="414" data-line-end="415">Can we realistically prepare our collection within our timeline?</li>
+<li class="has-line-data" data-line-start="415" data-line-end="416">Do we have the resources (financial, staff) needed for transition preparation?</li>
+<li class="has-line-data" data-line-start="416" data-line-end="417">Have we addressed all concerns about confidentiality, access, and control?</li>
+<li class="has-line-data" data-line-start="417" data-line-end="419">Are there any remaining questions or reservations?</li>
+</ol>
+<p class="has-line-data" data-line-start="419" data-line-end="420"><em>If you answer “yes” to these questions, proceed to Part III to execute your transition.</em></p>
+<p class="has-line-data" data-line-start="421" data-line-end="423"><strong>If concerns remain, contact HARC to discuss:</strong><br>
+Email: <a href="/cdn-cgi/l/email-protection#6002070f12040f0e2008011203130d4e0f1207"><span class="__cf_email__" data-cfemail="caa8ada5b8aea5a48aa2abb8a9b9a7e4a5b8ad">[email&#160;protected]</span></a></p>
+<hr>
+<h2 class="code-line" data-line-start=426 data-line-end=427 ><a id="Part_III_Executing_the_Transition_426"></a>Part III: Executing the Transition</h2>
+<h3 class="code-line" data-line-start=428 data-line-end=429 ><a id="Goals_428"></a>Goals</h3>
+<p class="has-line-data" data-line-start="430" data-line-end="431">By completing Part III, you will:</p>
+<p class="has-line-data" data-line-start="432" data-line-end="433"><strong>For Leadership</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="434" data-line-end="435">Finalize agreements with HARC</li>
+<li class="has-line-data" data-line-start="435" data-line-end="436">Secure resources for physical transition</li>
+<li class="has-line-data" data-line-start="436" data-line-end="437">Make final decisions about collections and objects</li>
+<li class="has-line-data" data-line-start="437" data-line-end="438">Support the archivist through execution</li>
+<li class="has-line-data" data-line-start="438" data-line-end="440">Plan commemoration of transition</li>
+</ul>
+<p class="has-line-data" data-line-start="440" data-line-end="441"><strong>For Archivists</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="442" data-line-end="443">Prepare “research-ready” collections</li>
+<li class="has-line-data" data-line-start="443" data-line-end="444">Create essential documentation for HARC</li>
+<li class="has-line-data" data-line-start="444" data-line-end="445">Pack collections safely</li>
+<li class="has-line-data" data-line-start="445" data-line-end="446">Coordinate physical move</li>
+<li class="has-line-data" data-line-start="446" data-line-end="448">Transfer knowledge to HARC staff</li>
+</ul>
+<h3 class="code-line" data-line-start=448 data-line-end=449 ><a id="Step_1_Building_Contextual_History_448"></a>Step 1: Building Contextual History</h3>
+<h4 class="code-line" data-line-start=450 data-line-end=451 ><a id="Purpose_450"></a>Purpose</h4>
+<p class="has-line-data" data-line-start="452" data-line-end="453">When archives transition to HARC, institutional knowledge transfers with them. Future archivists and researchers will not understand your congregation’s unique:</p>
+<ul>
+<li class="has-line-data" data-line-start="454" data-line-end="455">Language and terminology</li>
+<li class="has-line-data" data-line-start="455" data-line-end="456">Customs and traditions</li>
+<li class="has-line-data" data-line-start="456" data-line-end="457">Organizational structure</li>
+<li class="has-line-data" data-line-start="457" data-line-end="458">Historical context</li>
+<li class="has-line-data" data-line-start="458" data-line-end="460">Charism and spirituality</li>
+</ul>
+<p class="has-line-data" data-line-start="460" data-line-end="461"><em>A congregational narrative preserves this knowledge.</em></p>
+<h4 class="code-line" data-line-start=462 data-line-end=463 ><a id="What_to_Include_462"></a>What to Include</h4>
+<p class="has-line-data" data-line-start="464" data-line-end="465"><strong>I. Foundation and Early History</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="466" data-line-end="467">Founding date and location</li>
+<li class="has-line-data" data-line-start="467" data-line-end="468">Founder(s) biography and charism</li>
+<li class="has-line-data" data-line-start="468" data-line-end="469">Original mission and ministries</li>
+<li class="has-line-data" data-line-start="469" data-line-end="470">Early challenges and growth</li>
+<li class="has-line-data" data-line-start="470" data-line-end="472">Relationship with other congregations or federations</li>
+</ul>
+<p class="has-line-data" data-line-start="472" data-line-end="473"><strong>II. Organizational Structure</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="474" data-line-end="475">Governance model (general leadership, provinces, regions, etc.)</li>
+<li class="has-line-data" data-line-start="475" data-line-end="476">Evolution of administrative structure</li>
+<li class="has-line-data" data-line-start="476" data-line-end="477">Significant reorganizations, mergers, or splits</li>
+<li class="has-line-data" data-line-start="477" data-line-end="479">Current structure (as of transition)</li>
+</ul>
+<p class="has-line-data" data-line-start="479" data-line-end="480"><strong>III. Ministries and Apostolic Works</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="481" data-line-end="482">Primary historical ministries (education, healthcare, social services, etc.)</li>
+<li class="has-line-data" data-line-start="482" data-line-end="483">Geographic spread and expansion</li>
+<li class="has-line-data" data-line-start="483" data-line-end="484">Signature ministries or notable institutions</li>
+<li class="has-line-data" data-line-start="484" data-line-end="485">Ministry evolution over time</li>
+<li class="has-line-data" data-line-start="485" data-line-end="487">Current ministries (as of transition)</li>
+</ul>
+<p class="has-line-data" data-line-start="487" data-line-end="488"><strong>IV. Congregational Life</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="489" data-line-end="490">Formation process and changes over time</li>
+<li class="has-line-data" data-line-start="490" data-line-end="491">Prayer life and spirituality</li>
+<li class="has-line-data" data-line-start="491" data-line-end="492">Community living arrangements</li>
+<li class="has-line-data" data-line-start="492" data-line-end="493">Habit changes and religious garb evolution</li>
+<li class="has-line-data" data-line-start="493" data-line-end="495">Significant customs or traditions</li>
+</ul>
+<p class="has-line-data" data-line-start="495" data-line-end="496"><strong>V. Key Events and Figures</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="497" data-line-end="498">Notable members and their contributions</li>
+<li class="has-line-data" data-line-start="498" data-line-end="499">Response to historical moments (Vatican II, social movements, etc.)</li>
+<li class="has-line-data" data-line-start="499" data-line-end="500">Challenges overcome (financial, membership, societal changes)</li>
+<li class="has-line-data" data-line-start="500" data-line-end="502">Celebrations and milestones</li>
+</ul>
+<p class="has-line-data" data-line-start="502" data-line-end="503"><strong>VI. Archives and Records</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="504" data-line-end="505">History of the archival program</li>
+<li class="has-line-data" data-line-start="505" data-line-end="506">Major series and their significance</li>
+<li class="has-line-data" data-line-start="506" data-line-end="507">Known gaps in documentation</li>
+<li class="has-line-data" data-line-start="507" data-line-end="508">Unique collections or treasures</li>
+<li class="has-line-data" data-line-start="508" data-line-end="510">Digitization or preservation projects completed</li>
+</ul>
+<h4 class="code-line" data-line-start=510 data-line-end=511 ><a id="Length_and_Format_510"></a>Length and Format</h4>
+<p class="has-line-data" data-line-start="512" data-line-end="513"><em>Aim for 5-15 pages, depending on the congregation’s history and complexity.</em></p>
+<p class="has-line-data" data-line-start="514" data-line-end="515"><strong>Format</strong>: Narrative prose, organized by sections above. Include:</p>
+<ul>
+<li class="has-line-data" data-line-start="516" data-line-end="517">Table of contents</li>
+<li class="has-line-data" data-line-start="517" data-line-end="518">Photographs (with captions and permissions)</li>
+<li class="has-line-data" data-line-start="518" data-line-end="519">Organizational charts</li>
+<li class="has-line-data" data-line-start="519" data-line-end="520">Timeline of key dates</li>
+<li class="has-line-data" data-line-start="520" data-line-end="522">Glossary of congregation-specific terms</li>
+</ul>
+<p class="has-line-data" data-line-start="522" data-line-end="523"><strong>Tone</strong>: Informative and honest.</p>
+<ul>
+<li class="has-line-data" data-line-start="524" data-line-end="525">Acknowledge challenges alongside achievements</li>
+<li class="has-line-data" data-line-start="525" data-line-end="527">Write for an audience <em>unfamiliar</em> with religious life</li>
+</ul>
+<h4 class="code-line" data-line-start=527 data-line-end=528 ><a id="Getting_Help_527"></a>Getting Help</h4>
+<p class="has-line-data" data-line-start="529" data-line-end="530">If writing seems daunting:</p>
+<ul>
+<li class="has-line-data" data-line-start="531" data-line-end="532">Foster collaboration between leadership and the archivist</li>
+<li class="has-line-data" data-line-start="532" data-line-end="533">Interview longtime members for context</li>
+<li class="has-line-data" data-line-start="533" data-line-end="534">Consult existing publications or histories</li>
+<li class="has-line-data" data-line-start="534" data-line-end="536">Ask HARC staff for guidance and examples</li>
+</ul>
+<h3 class="code-line" data-line-start=536 data-line-end=537 ><a id="Step_2_Preparing_ResearchReady_Collections_536"></a>Step 2: Preparing Research-Ready Collections</h3>
+<h4 class="code-line" data-line-start=538 data-line-end=539 ><a id="What_ResearchReady_Means_538"></a>What “Research-Ready” Means</h4>
+<p class="has-line-data" data-line-start="540" data-line-end="541">Collections arriving at HARC should be:</p>
+<ol>
+<li class="has-line-data" data-line-start="542" data-line-end="543"><strong>Inventoried</strong>: Box-level list documenting contents</li>
+<li class="has-line-data" data-line-start="543" data-line-end="544"><strong>Organized</strong>: Logical arrangement (provenance and original order respected)</li>
+<li class="has-line-data" data-line-start="544" data-line-end="545"><strong>Described</strong>: Finding aids or collection guides available</li>
+<li class="has-line-data" data-line-start="545" data-line-end="546"><strong>Accessible</strong>: Physically sound and safe to handle</li>
+<li class="has-line-data" data-line-start="546" data-line-end="548"><strong>Documented</strong>: Restrictions, policies, and context provided</li>
+</ol>
+<h4 class="code-line" data-line-start=548 data-line-end=549 ><a id="Basic_Processing_Standards_548"></a>Basic Processing Standards</h4>
+<p class="has-line-data" data-line-start="550" data-line-end="551"><strong>Minimum Requirements</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="552" data-line-end="553">Box lists (number, contents, dates)</li>
+<li class="has-line-data" data-line-start="553" data-line-end="554">Series-level arrangement (major groupings logical and documented)</li>
+<li class="has-line-data" data-line-start="554" data-line-end="555">Clear labeling (congregation name, box number, contents)</li>
+<li class="has-line-data" data-line-start="555" data-line-end="556">Basic condition assessment (fragility, preservation needs noted)</li>
+<li class="has-line-data" data-line-start="556" data-line-end="558">Restrictions identified (by series or box)</li>
+</ul>
+<p class="has-line-data" data-line-start="558" data-line-end="559"><strong>Enhanced (if time allows)</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="560" data-line-end="561">Folder-level inventories</li>
+<li class="has-line-data" data-line-start="561" data-line-end="562">Detailed finding aids</li>
+<li class="has-line-data" data-line-start="562" data-line-end="563">Scope and content notes</li>
+<li class="has-line-data" data-line-start="563" data-line-end="564">Subject access points</li>
+<li class="has-line-data" data-line-start="564" data-line-end="566">Biographical/historical notes</li>
+</ul>
+<h4 class="code-line" data-line-start=566 data-line-end=567 ><a id="Processing_Workflow_566"></a>Processing Workflow</h4>
+<p class="has-line-data" data-line-start="568" data-line-end="569"><strong>1. Survey the Collection</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="570" data-line-end="571">Estimate extent (linear/cubic feet)</li>
+<li class="has-line-data" data-line-start="571" data-line-end="572">Identify formats present</li>
+<li class="has-line-data" data-line-start="572" data-line-end="573">Note condition issues</li>
+<li class="has-line-data" data-line-start="573" data-line-end="575">Assess existing organization</li>
+</ul>
+<p class="has-line-data" data-line-start="575" data-line-end="576"><strong>2. Establish Intellectual Control</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="577" data-line-end="578">Define record groups (who created records)</li>
+<li class="has-line-data" data-line-start="578" data-line-end="579">Identify series within each group (what types of records)</li>
+<li class="has-line-data" data-line-start="579" data-line-end="580">Respect original order when functional</li>
+<li class="has-line-data" data-line-start="580" data-line-end="582">Impose order when none exists</li>
+</ul>
+<p class="has-line-data" data-line-start="582" data-line-end="583"><strong>3. Physical Processing</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="584" data-line-end="585">Rehouse in archival boxes/folders (if resources allow)</li>
+<li class="has-line-data" data-line-start="585" data-line-end="586">Remove damaging fasteners (rusty staples, paperclips)</li>
+<li class="has-line-data" data-line-start="586" data-line-end="587">Separate oversized materials</li>
+<li class="has-line-data" data-line-start="587" data-line-end="588">Flag preservation concerns</li>
+<li class="has-line-data" data-line-start="588" data-line-end="590">Label boxes clearly</li>
+</ul>
+<p class="has-line-data" data-line-start="590" data-line-end="591"><strong>4. Description</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="592" data-line-end="593">Create box-level inventory minimum</li>
+<li class="has-line-data" data-line-start="593" data-line-end="594">Write series descriptions</li>
+<li class="has-line-data" data-line-start="594" data-line-end="595">Document arrangement scheme</li>
+<li class="has-line-data" data-line-start="595" data-line-end="596">Note restrictions by series/box</li>
+<li class="has-line-data" data-line-start="596" data-line-end="598">Identify high-value materials</li>
+</ul>
+<p class="has-line-data" data-line-start="598" data-line-end="599"><strong>5. Special Materials</strong></p>
+<p class="has-line-data" data-line-start="600" data-line-end="601"><strong>Photographs:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="602" data-line-end="603">Organize by event, ministry, or individual</li>
+<li class="has-line-data" data-line-start="603" data-line-end="604">Provide identification when possible</li>
+<li class="has-line-data" data-line-start="604" data-line-end="605">Note dates and locations</li>
+<li class="has-line-data" data-line-start="605" data-line-end="606">Use archival sleeves if budget allows</li>
+<li class="has-line-data" data-line-start="606" data-line-end="608">Create photo inventory</li>
+</ul>
+<p class="has-line-data" data-line-start="608" data-line-end="609"><strong>Audiovisual Materials:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="610" data-line-end="611">Keep in original cases</li>
+<li class="has-line-data" data-line-start="611" data-line-end="612">Store upright</li>
+<li class="has-line-data" data-line-start="612" data-line-end="613">Inventory by format (cassettes, VHS, CDs, etc.)</li>
+<li class="has-line-data" data-line-start="613" data-line-end="614">Note content if known</li>
+<li class="has-line-data" data-line-start="614" data-line-end="616">Flag for digitization if deteriorating</li>
+</ul>
+<p class="has-line-data" data-line-start="616" data-line-end="617"><strong>Digital Materials:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="618" data-line-end="619">Consolidate onto external hard drive</li>
+<li class="has-line-data" data-line-start="619" data-line-end="620">Organize in folders (like a file cabinet)</li>
+<li class="has-line-data" data-line-start="620" data-line-end="621">Document file structure</li>
+<li class="has-line-data" data-line-start="621" data-line-end="622">Include metadata/descriptions</li>
+<li class="has-line-data" data-line-start="622" data-line-end="624">Note any passwords or restrictions</li>
+</ul>
+<p class="has-line-data" data-line-start="624" data-line-end="625"><strong>Objects:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="626" data-line-end="627">Photograph before packing</li>
+<li class="has-line-data" data-line-start="627" data-line-end="628">Document provenance</li>
+<li class="has-line-data" data-line-start="628" data-line-end="629">Wrap carefully</li>
+<li class="has-line-data" data-line-start="629" data-line-end="630">Note if accompanying collection or separate</li>
+<li class="has-line-data" data-line-start="630" data-line-end="632">Limited capacity at HARC—prioritize</li>
+</ul>
+<h3 class="code-line" data-line-start=632 data-line-end=633 ><a id="Step_3_Essential_Documentation_for_HARC_632"></a>Step 3: Essential Documentation for HARC</h3>
+<h4 class="code-line" data-line-start=634 data-line-end=635 ><a id="Transfer_Documentation_Checklist_634"></a>Transfer Documentation Checklist</h4>
+<p class="has-line-data" data-line-start="636" data-line-end="637"><strong>Required:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="638" data-line-end="639">✓ Signed Deed of Gift or Deposit Agreement</li>
+<li class="has-line-data" data-line-start="639" data-line-end="640">✓ Box list or inventory</li>
+<li class="has-line-data" data-line-start="640" data-line-end="641">✓ Congregational narrative history</li>
+<li class="has-line-data" data-line-start="641" data-line-end="642">✓ Access restrictions (by series/box)</li>
+<li class="has-line-data" data-line-start="642" data-line-end="644">✓ Contact information for congregation liaison</li>
+</ul>
+<p class="has-line-data" data-line-start="644" data-line-end="645"><strong>Strongly Recommended:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="646" data-line-end="647">✓ Finding aids (if existing)</li>
+<li class="has-line-data" data-line-start="647" data-line-end="648">✓ Organizational charts</li>
+<li class="has-line-data" data-line-start="648" data-line-end="649">✓ Member directories</li>
+<li class="has-line-data" data-line-start="649" data-line-end="650">✓ Glossary of congregation-specific terms</li>
+<li class="has-line-data" data-line-start="650" data-line-end="651">✓ Habit/garb evolution dates</li>
+<li class="has-line-data" data-line-start="651" data-line-end="652">✓ Building/property histories</li>
+<li class="has-line-data" data-line-start="652" data-line-end="654">✓ Ministry lists and dates</li>
+</ul>
+<p class="has-line-data" data-line-start="654" data-line-end="655"><strong>If Available:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="656" data-line-end="657">✓ Existing policies (access, use, confidentiality)</li>
+<li class="has-line-data" data-line-start="657" data-line-end="658">✓ Digitized materials (with file documentation)</li>
+<li class="has-line-data" data-line-start="658" data-line-end="659">✓ Oral histories and transcripts</li>
+<li class="has-line-data" data-line-start="659" data-line-end="660">✓ Published histories or studies</li>
+<li class="has-line-data" data-line-start="660" data-line-end="662">✓ Previously created resources</li>
+</ul>
+<h4 class="code-line" data-line-start=662 data-line-end=663 ><a id="Access_and_Restrictions_Documentation_662"></a>Access and Restrictions Documentation</h4>
+<p class="has-line-data" data-line-start="664" data-line-end="665"><strong>Be Specific:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="666" data-line-end="667"><strong>Instead of:</strong> <em>“Personnel files are confidential”</em></li>
+<li class="has-line-data" data-line-start="667" data-line-end="669"><strong>Write:</strong> <em>“Personnel files of congregation members (Series 3) shall remain closed for 25 years following the date of death of the member. Files include formation records, ministry assignments, health records, and correspondence. After 25 years, files are open with HIPAA restrictions applied to medical records.”</em></li>
+</ul>
+<h4 class="code-line" data-line-start=669 data-line-end=670 ><a id="Standard_Restriction_Categories_669"></a>Standard Restriction Categories</h4>
+<ul>
+<li class="has-line-data" data-line-start="671" data-line-end="672"><strong>Personnel Files:</strong> Typically 25-75 years after death</li>
+<li class="has-line-data" data-line-start="672" data-line-end="673"><strong>Legal Records:</strong> 50-100 years from creation</li>
+<li class="has-line-data" data-line-start="673" data-line-end="674"><strong>Financial Records:</strong> Varies; consult with counsel</li>
+<li class="has-line-data" data-line-start="674" data-line-end="675"><strong>Medical Records:</strong> HIPAA governs; typically lifetime plus 50 years</li>
+<li class="has-line-data" data-line-start="675" data-line-end="676"><strong>Student Records:</strong> FERPA governs; typically 75 years</li>
+<li class="has-line-data" data-line-start="676" data-line-end="678"><strong>Correspondence:</strong> Varies based on content</li>
+</ul>
+<p class="has-line-data" data-line-start="678" data-line-end="679"><strong>Review Triggers:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="680" data-line-end="681">Specify when restrictions should be reviewed</li>
+<li class="has-line-data" data-line-start="681" data-line-end="682">Designate who can authorize changes</li>
+<li class="has-line-data" data-line-start="682" data-line-end="684">Include HARC contact for questions</li>
+</ul>
+<h3 class="code-line" data-line-start=684 data-line-end=685 ><a id="Step_4_Physical_Move_Planning_684"></a>Step 4: Physical Move Planning</h3>
+<h4 class="code-line" data-line-start=686 data-line-end=687 ><a id="Timeline_and_Coordination_686"></a>Timeline and Coordination</h4>
+<p class="has-line-data" data-line-start="688" data-line-end="689"><strong>Three (3) Months Before</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="690" data-line-end="691">Finalize move date with HARC</li>
+<li class="has-line-data" data-line-start="691" data-line-end="692">Assess moving options (professional vs. self)</li>
+<li class="has-line-data" data-line-start="692" data-line-end="693">Order packing supplies</li>
+<li class="has-line-data" data-line-start="693" data-line-end="694">Begin packing processed collections</li>
+<li class="has-line-data" data-line-start="694" data-line-end="695">Purchase insurance for transit</li>
+<li class="has-line-data" data-line-start="695" data-line-end="697">Create detailed packing schedule</li>
+</ul>
+<p class="has-line-data" data-line-start="697" data-line-end="698"><strong>One (1) Month Before</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="699" data-line-end="700">Complete packing</li>
+<li class="has-line-data" data-line-start="700" data-line-end="701">Conduct final inventory check</li>
+<li class="has-line-data" data-line-start="701" data-line-end="702">Prepare staging area</li>
+<li class="has-line-data" data-line-start="702" data-line-end="704">Confirm move details with HARC and movers</li>
+</ul>
+<p class="has-line-data" data-line-start="704" data-line-end="705"><strong>Move Week</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="706" data-line-end="707">Final walkthrough</li>
+<li class="has-line-data" data-line-start="707" data-line-end="708">Load collection</li>
+<li class="has-line-data" data-line-start="708" data-line-end="709">Transit to HARC</li>
+<li class="has-line-data" data-line-start="709" data-line-end="710">Unload and verify receipt</li>
+<li class="has-line-data" data-line-start="710" data-line-end="712">Prayer service or blessing</li>
+</ul>
+<p class="has-line-data" data-line-start="712" data-line-end="713"><strong>After Move</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="714" data-line-end="715">Review transfer documentation</li>
+<li class="has-line-data" data-line-start="715" data-line-end="716">Establish ongoing communication plan</li>
+<li class="has-line-data" data-line-start="716" data-line-end="717">Schedule follow-up with HARC</li>
+<li class="has-line-data" data-line-start="717" data-line-end="719">Plan commemoration event</li>
+</ul>
+<h4 class="code-line" data-line-start=719 data-line-end=720 ><a id="Packing_Standards_719"></a>Packing Standards</h4>
+<p class="has-line-data" data-line-start="721" data-line-end="722"><strong>General Principles:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="723" data-line-end="724">Maximum 30-35 lbs. per box</li>
+<li class="has-line-data" data-line-start="724" data-line-end="725">Fill boxes adequately (use spacers for partial boxes)</li>
+<li class="has-line-data" data-line-start="725" data-line-end="726">Label all sides of boxes</li>
+<li class="has-line-data" data-line-start="726" data-line-end="727">Number sequentially (Box 1 of 50, etc.)</li>
+<li class="has-line-data" data-line-start="727" data-line-end="728">Maintain collection order</li>
+<li class="has-line-data" data-line-start="728" data-line-end="730">Separate fragile items</li>
+</ul>
+<p class="has-line-data" data-line-start="730" data-line-end="731"><strong>Box Labels Should Include:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="732" data-line-end="733">Congregation name</li>
+<li class="has-line-data" data-line-start="733" data-line-end="734">Box number and total count</li>
+<li class="has-line-data" data-line-start="734" data-line-end="735">Contents description</li>
+<li class="has-line-data" data-line-start="735" data-line-end="736">Date range</li>
+<li class="has-line-data" data-line-start="736" data-line-end="738">Special handling notes (FRAGILE, OVERSIZED, etc.)</li>
+</ul>
+<p class="has-line-data" data-line-start="738" data-line-end="739"><strong>Paper Documents:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="740" data-line-end="741">Keep in folders</li>
+<li class="has-line-data" data-line-start="741" data-line-end="742">Store upright in boxes</li>
+<li class="has-line-data" data-line-start="742" data-line-end="743">Remove rusty fasteners</li>
+<li class="has-line-data" data-line-start="743" data-line-end="744">Do not overfill boxes</li>
+<li class="has-line-data" data-line-start="744" data-line-end="746">Use spacers if partially filled</li>
+</ul>
+<p class="has-line-data" data-line-start="746" data-line-end="747"><strong>Photographs:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="748" data-line-end="749">Keep upright, never flat</li>
+<li class="has-line-data" data-line-start="749" data-line-end="750">Leave in albums if present</li>
+<li class="has-line-data" data-line-start="750" data-line-end="751">Use archival sleeves if possible</li>
+<li class="has-line-data" data-line-start="751" data-line-end="752">Never use rubber bands or paperclips</li>
+<li class="has-line-data" data-line-start="752" data-line-end="754">Separate formats (prints, negatives, slides)</li>
+</ul>
+<p class="has-line-data" data-line-start="754" data-line-end="755"><strong>Audiovisual:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="756" data-line-end="757">Keep in original cases</li>
+<li class="has-line-data" data-line-start="757" data-line-end="758">Store upright</li>
+<li class="has-line-data" data-line-start="758" data-line-end="759">Pack tightly to prevent shifting</li>
+<li class="has-line-data" data-line-start="759" data-line-end="760">Label contents on case</li>
+<li class="has-line-data" data-line-start="760" data-line-end="762">Note format clearly</li>
+</ul>
+<p class="has-line-data" data-line-start="762" data-line-end="763"><strong>Artifacts:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="764" data-line-end="765">Photograph first</li>
+<li class="has-line-data" data-line-start="765" data-line-end="766">Wrap individually</li>
+<li class="has-line-data" data-line-start="766" data-line-end="767">Float in packing peanuts</li>
+<li class="has-line-data" data-line-start="767" data-line-end="768">Label as FRAGILE</li>
+<li class="has-line-data" data-line-start="768" data-line-end="770">Include packing list with photos</li>
+</ul>
+<p class="has-line-data" data-line-start="770" data-line-end="771"><strong>Oversized Materials:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="772" data-line-end="773">Store flat, never rolled</li>
+<li class="has-line-data" data-line-start="773" data-line-end="774">Interweave with tissue</li>
+<li class="has-line-data" data-line-start="774" data-line-end="775">Use flat boxes or portfolios</li>
+<li class="has-line-data" data-line-start="775" data-line-end="776">Mark “DO NOT BEND”</li>
+<li class="has-line-data" data-line-start="776" data-line-end="778">Limit stack height</li>
+</ul>
+<h4 class="code-line" data-line-start=778 data-line-end=779 ><a id="Insurance_Considerations_778"></a>Insurance Considerations</h4>
+<p class="has-line-data" data-line-start="780" data-line-end="781"><strong>In Transit Coverage:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="782" data-line-end="783">Determine who carries insurance (congregation or mover)</li>
+<li class="has-line-data" data-line-start="783" data-line-end="784">Verify coverage amounts</li>
+<li class="has-line-data" data-line-start="784" data-line-end="785">Understand exclusions</li>
+<li class="has-line-data" data-line-start="785" data-line-end="786">Document collection value</li>
+<li class="has-line-data" data-line-start="786" data-line-end="788">Photograph collections</li>
+</ul>
+<p class="has-line-data" data-line-start="788" data-line-end="789"><strong>HARC Coverage:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="790" data-line-end="791">Once at HARC, collection is insured by HARC</li>
+<li class="has-line-data" data-line-start="791" data-line-end="792">Review coverage with HARC staff</li>
+<li class="has-line-data" data-line-start="792" data-line-end="794">Understand limitations</li>
+</ul>
+<h3 class="code-line" data-line-start=794 data-line-end=795 ><a id="Step_5_Disposition_of_Objects_and_NonArchival_Materials_794"></a>Step 5: Disposition of Objects and Non-Archival Materials</h3>
+<h4 class="code-line" data-line-start=796 data-line-end=797 ><a id="Objects_for_HARC_796"></a>Objects for HARC</h4>
+<ul>
+<li class="has-line-data" data-line-start="798" data-line-end="799">Items integral to congregational story</li>
+<li class="has-line-data" data-line-start="799" data-line-end="800">Well-documented provenance</li>
+<li class="has-line-data" data-line-start="800" data-line-end="801">Good condition</li>
+<li class="has-line-data" data-line-start="801" data-line-end="802">Reasonable size/storage needs</li>
+<li class="has-line-data" data-line-start="802" data-line-end="804">Discussed and approved by HARC</li>
+</ul>
+<h4 class="code-line" data-line-start=804 data-line-end=805 ><a id="Objects_to_Discard_804"></a>Objects to Discard</h4>
+<ul>
+<li class="has-line-data" data-line-start="806" data-line-end="807">Damaged beyond use</li>
+<li class="has-line-data" data-line-start="807" data-line-end="808">No historical value</li>
+<li class="has-line-data" data-line-start="808" data-line-end="809">Duplicates</li>
+<li class="has-line-data" data-line-start="809" data-line-end="811">Unsafe materials</li>
+</ul>
+<h4 class="code-line" data-line-start=811 data-line-end=812 ><a id="Consecrated_Objects_811"></a>Consecrated Objects</h4>
+<p class="has-line-data" data-line-start="813" data-line-end="814"><strong>Items Requiring Special Disposal:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="815" data-line-end="816">Blessed objects (statues, crucifixes)</li>
+<li class="has-line-data" data-line-start="816" data-line-end="817">Altar linens and vestments</li>
+<li class="has-line-data" data-line-start="817" data-line-end="818">Sacred vessels (chalices, ciboria)</li>
+<li class="has-line-data" data-line-start="818" data-line-end="820">Worn religious medals and rosaries</li>
+</ul>
+<p class="has-line-data" data-line-start="820" data-line-end="821"><strong>Proper Disposal Methods:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="822" data-line-end="823">Burial in blessed ground</li>
+<li class="has-line-data" data-line-start="823" data-line-end="824">Burning and burying ashes</li>
+<li class="has-line-data" data-line-start="824" data-line-end="825">Return to elements (water for certain items)</li>
+<li class="has-line-data" data-line-start="825" data-line-end="826">Consult diocesan guidelines</li>
+<li class="has-line-data" data-line-start="826" data-line-end="828">Never discard in regular trash</li>
+</ul>
+<p class="has-line-data" data-line-start="828" data-line-end="829"><strong>Consultation:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="830" data-line-end="831">Contact your diocese for guidance</li>
+<li class="has-line-data" data-line-start="831" data-line-end="832">Collaborate with chaplain or spiritual director</li>
+<li class="has-line-data" data-line-start="832" data-line-end="833">Document respectful disposal</li>
+<li class="has-line-data" data-line-start="833" data-line-end="835">Consider blessing or prayer service</li>
+</ul>
+<h3 class="code-line" data-line-start=835 data-line-end=836 ><a id="Records_Retention_vs_Archives_835"></a>Records Retention vs. Archives</h3>
+<p class="has-line-data" data-line-start="837" data-line-end="838"><strong>Not Everything is Archival</strong></p>
+<p class="has-line-data" data-line-start="839" data-line-end="840"><strong>Retain Permanently:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="841" data-line-end="842">Governance records (chapters, council minutes)</li>
+<li class="has-line-data" data-line-start="842" data-line-end="843">Constitutions and bylaws</li>
+<li class="has-line-data" data-line-start="843" data-line-end="844">Member files</li>
+<li class="has-line-data" data-line-start="844" data-line-end="845">Property deeds and legal documents</li>
+<li class="has-line-data" data-line-start="845" data-line-end="846">Financial audits and annual reports</li>
+<li class="has-line-data" data-line-start="846" data-line-end="847">Ministry founding documents</li>
+<li class="has-line-data" data-line-start="847" data-line-end="848">Significant correspondence</li>
+<li class="has-line-data" data-line-start="848" data-line-end="849">Publications created by the congregation</li>
+<li class="has-line-data" data-line-start="849" data-line-end="851">Photographs documenting community life</li>
+</ul>
+<p class="has-line-data" data-line-start="851" data-line-end="852"><strong>Temporary Retention (then destroy):</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="853" data-line-end="854">Routine correspondence</li>
+<li class="has-line-data" data-line-start="854" data-line-end="855">Duplicates</li>
+<li class="has-line-data" data-line-start="855" data-line-end="856">Supply catalogs</li>
+<li class="has-line-data" data-line-start="856" data-line-end="857">Junk mail</li>
+<li class="has-line-data" data-line-start="857" data-line-end="858">Preliminary drafts (keep final only)</li>
+<li class="has-line-data" data-line-start="858" data-line-end="859">Routine financial records (after retention period)</li>
+<li class="has-line-data" data-line-start="859" data-line-end="861">Expired contracts</li>
+</ul>
+<p class="has-line-data" data-line-start="861" data-line-end="862"><strong>Weeding Guidelines:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="863" data-line-end="864">Keep final versions, remove drafts</li>
+<li class="has-line-data" data-line-start="864" data-line-end="865">Remove duplicates</li>
+<li class="has-line-data" data-line-start="865" data-line-end="866">Discard routine announcements</li>
+<li class="has-line-data" data-line-start="866" data-line-end="867">Remove non-archival research materials</li>
+<li class="has-line-data" data-line-start="867" data-line-end="869">Eliminate blank forms and catalogs</li>
+</ul>
+<h3 class="code-line" data-line-start=869 data-line-end=870 ><a id="Step_6_Commemoration_and_Ongoing_Relationship_869"></a>Step 6: Commemoration and Ongoing Relationship</h3>
+<h4 class="code-line" data-line-start=871 data-line-end=872 ><a id="Commemorating_the_Transition_871"></a>Commemorating the Transition</h4>
+<p class="has-line-data" data-line-start="873" data-line-end="874"><em>Moving your congregation’s history is significant.</em></p>
+<p class="has-line-data" data-line-start="875" data-line-end="876"><strong>Prayer Service</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="877" data-line-end="878">Blessing of archives before move</li>
+<li class="has-line-data" data-line-start="878" data-line-end="879">Prayer for those whose stories are preserved</li>
+<li class="has-line-data" data-line-start="879" data-line-end="880">Gratitude for archivists and donors</li>
+<li class="has-line-data" data-line-start="880" data-line-end="882">Hope for future researchers</li>
+</ul>
+<p class="has-line-data" data-line-start="882" data-line-end="883"><strong>Documentation</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="884" data-line-end="885">Photograph archives in current space</li>
+<li class="has-line-data" data-line-start="885" data-line-end="886">Document packing and moving process</li>
+<li class="has-line-data" data-line-start="886" data-line-end="887">Record oral histories about archives</li>
+<li class="has-line-data" data-line-start="887" data-line-end="889">Create video or written reflection</li>
+</ul>
+<p class="has-line-data" data-line-start="889" data-line-end="890"><strong>Community Involvement</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="891" data-line-end="892">Inform congregation about transition</li>
+<li class="has-line-data" data-line-start="892" data-line-end="893">Share updates during process</li>
+<li class="has-line-data" data-line-start="893" data-line-end="894">Invite sisters to final blessing</li>
+<li class="has-line-data" data-line-start="894" data-line-end="896">Celebrate completion</li>
+</ul>
+<p class="has-line-data" data-line-start="896" data-line-end="897"><strong>Public Recognition</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="898" data-line-end="899">Newsletter articles</li>
+<li class="has-line-data" data-line-start="899" data-line-end="900">Website updates</li>
+<li class="has-line-data" data-line-start="900" data-line-end="901">Thank donors and volunteers</li>
+<li class="has-line-data" data-line-start="901" data-line-end="903">Acknowledge HARC partnership</li>
+</ul>
+<h4 class="code-line" data-line-start=903 data-line-end=904 ><a id="Establishing_Ongoing_Connection_with_HARC_903"></a>Establishing Ongoing Connection with HARC</h4>
+<p class="has-line-data" data-line-start="905" data-line-end="906"><strong>Liaison Role:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="907" data-line-end="908">Designate congregation contact person</li>
+<li class="has-line-data" data-line-start="908" data-line-end="909">Provide updated contact information</li>
+<li class="has-line-data" data-line-start="909" data-line-end="910">Establish communication schedule</li>
+<li class="has-line-data" data-line-start="910" data-line-end="912">Clarify decision-making authority</li>
+</ul>
+<p class="has-line-data" data-line-start="912" data-line-end="913"><strong>Regular Communication:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="914" data-line-end="915">Annual reports from HARC on collection use</li>
+<li class="has-line-data" data-line-start="915" data-line-end="916">Updates on processing progress</li>
+<li class="has-line-data" data-line-start="916" data-line-end="917">Consultation on access requests</li>
+<li class="has-line-data" data-line-start="917" data-line-end="919">Notification of research/publication projects</li>
+</ul>
+<p class="has-line-data" data-line-start="919" data-line-end="920"><strong>Continued Engagement:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="921" data-line-end="922">Visit HARC for research</li>
+<li class="has-line-data" data-line-start="922" data-line-end="923">Attend HARC programs and events</li>
+<li class="has-line-data" data-line-start="923" data-line-end="924">Participate in oral history projects</li>
+<li class="has-line-data" data-line-start="924" data-line-end="925">Contribute to exhibits</li>
+<li class="has-line-data" data-line-start="925" data-line-end="927">Support additional deposits</li>
+</ul>
+<p class="has-line-data" data-line-start="927" data-line-end="928"><strong>Future Accruals:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="929" data-line-end="930">Establish schedule for ongoing deposits</li>
+<li class="has-line-data" data-line-start="930" data-line-end="931">Coordinate with HARC on timing</li>
+<li class="has-line-data" data-line-start="931" data-line-end="932">Maintain same organizational structure</li>
+<li class="has-line-data" data-line-start="932" data-line-end="934">Continue documentation standards</li>
+</ul>
+<hr>
+<h2 class="code-line" data-line-start=936 data-line-end=937 ><a id="Part_IV_Resources_and_Templates_936"></a>Part IV: Resources and Templates</h2>
+<h3 class="code-line" data-line-start=938 data-line-end=939 ><a id="Assessment_Tools_938"></a>Assessment Tools</h3>
+<h4 class="code-line" data-line-start=940 data-line-end=941 ><a id="Archives_Evaluation_Worksheet_940"></a>Archives Evaluation Worksheet</h4>
+<p class="has-line-data" data-line-start="942" data-line-end="943"><strong>Basic Information:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="944" data-line-end="945">Congregation Name: ___________________________</li>
+<li class="has-line-data" data-line-start="945" data-line-end="946">Archivist Name: ___________________________</li>
+<li class="has-line-data" data-line-start="946" data-line-end="947">Date Completed: ___________________________</li>
+<li class="has-line-data" data-line-start="947" data-line-end="949">Projected Transition Timeline: ___________________________</li>
+</ul>
+<p class="has-line-data" data-line-start="949" data-line-end="950"><strong>Storage Space:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="951" data-line-end="952">Square footage: ___________________________</li>
+<li class="has-line-data" data-line-start="952" data-line-end="953">Linear footage of shelving: ___________________________</li>
+<li class="has-line-data" data-line-start="953" data-line-end="955">Cubic footage: ___________________________</li>
+</ul>
+<p class="has-line-data" data-line-start="955" data-line-end="956"><strong>Collection Status:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="957" data-line-end="958">Percentage processed: _______%</li>
+<li class="has-line-data" data-line-start="958" data-line-end="959">Percentage with finding aids: _______%</li>
+<li class="has-line-data" data-line-start="959" data-line-end="961">Percentage accessible: _______%</li>
+</ul>
+<p class="has-line-data" data-line-start="961" data-line-end="962"><strong>Material Formats</strong> (check all present and note prevalence: Extensive/Common/Rare):</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Format</th>
+<th>Present</th>
+<th>Prevalence</th>
+<th>Condition Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Documents (standard boxes)</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Documents (oversized)</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Photographs (prints)</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Photographs (negatives)</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Photographs (slides)</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Photo albums</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Scrapbooks</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Audio recordings</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Video recordings</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Film (8mm, 16mm)</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Digital files</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Microfilm/fiche</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Books/publications</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Architectural drawings</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Maps</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Artifacts/objects</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Religious items</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Artwork</td>
+<td>☐</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="984" data-line-end="985"><strong>Preservation Concerns:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="986" data-line-end="987">☐ Mold or mildew present</li>
+<li class="has-line-data" data-line-start="987" data-line-end="988">☐ Pest damage</li>
+<li class="has-line-data" data-line-start="988" data-line-end="989">☐ Water damage</li>
+<li class="has-line-data" data-line-start="989" data-line-end="990">☐ Brittleness/deterioration</li>
+<li class="has-line-data" data-line-start="990" data-line-end="991">☐ Improper storage</li>
+<li class="has-line-data" data-line-start="991" data-line-end="992">☐ Inadequate climate control</li>
+<li class="has-line-data" data-line-start="992" data-line-end="993">☐ Overcrowding</li>
+<li class="has-line-data" data-line-start="993" data-line-end="995">☐ Other: ___________________________</li>
+</ul>
+<p class="has-line-data" data-line-start="995" data-line-end="996"><strong>Existing Documentation:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="997" data-line-end="998">☐ Box lists</li>
+<li class="has-line-data" data-line-start="998" data-line-end="999">☐ Finding aids</li>
+<li class="has-line-data" data-line-start="999" data-line-end="1000">☐ Inventories</li>
+<li class="has-line-data" data-line-start="1000" data-line-end="1001">☐ Policies</li>
+<li class="has-line-data" data-line-start="1001" data-line-end="1003">☐ Accession records</li>
+</ul>
+<h4 class="code-line" data-line-start=1003 data-line-end=1004 ><a id="Object_Evaluation_Worksheet_1003"></a>Object Evaluation Worksheet</h4>
+<p class="has-line-data" data-line-start="1005" data-line-end="1006"><em>For each significant object, assign points (1-5) for each criterion:</em></p>
+<p class="has-line-data" data-line-start="1007" data-line-end="1008"><strong>Object Description:</strong> ___________________________</p>
+<p class="has-line-data" data-line-start="1009" data-line-end="1010"><strong>Criteria:</strong></p>
+<ol>
+<li class="has-line-data" data-line-start="1011" data-line-end="1012">Connection to congregational story (1=weak, 5=essential): _____</li>
+<li class="has-line-data" data-line-start="1012" data-line-end="1013">Historical significance (1=minimal, 5=major): _____</li>
+<li class="has-line-data" data-line-start="1013" data-line-end="1014">Condition (1=poor, 5=excellent): _____</li>
+<li class="has-line-data" data-line-start="1014" data-line-end="1015">Provenance/documentation (1=none, 5=complete): _____</li>
+<li class="has-line-data" data-line-start="1015" data-line-end="1016">Research value (1=minimal, 5=high): _____</li>
+<li class="has-line-data" data-line-start="1016" data-line-end="1017">Display potential (1=low, 5=high): _____</li>
+<li class="has-line-data" data-line-start="1017" data-line-end="1019">Uniqueness (1=common, 5=one-of-kind): _____</li>
+</ol>
+<p class="has-line-data" data-line-start="1019" data-line-end="1020"><strong>Total Score:</strong> _____ / 35</p>
+<p class="has-line-data" data-line-start="1021" data-line-end="1022"><strong>Disposition Decision:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1023" data-line-end="1024">☐ Priority for HARC</li>
+<li class="has-line-data" data-line-start="1024" data-line-end="1025">☐ Alternative repository</li>
+<li class="has-line-data" data-line-start="1025" data-line-end="1026">☐ Sale/donation</li>
+<li class="has-line-data" data-line-start="1026" data-line-end="1028">☐ Respectful disposal</li>
+</ul>
+<h3 class="code-line" data-line-start=1028 data-line-end=1029 ><a id="Planning_Tools_1028"></a>Planning Tools</h3>
+<h4 class="code-line" data-line-start=1030 data-line-end=1031 ><a id="Transition_Planning_Worksheet_1030"></a>Transition Planning Worksheet</h4>
+<p class="has-line-data" data-line-start="1032" data-line-end="1033"><strong>Timeline:</strong> ___________________________</p>
+<p class="has-line-data" data-line-start="1034" data-line-end="1035"><strong>Critical Tasks (by date):</strong></p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Task</th>
+<th>Responsible</th>
+<th>Deadline</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Complete assessment</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Finalize HARC agreement</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Create congregational narrative</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Process priority collections</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Develop finding aids</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Order packing supplies</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Hire movers</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Pack collections</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Transfer to HARC</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Commemoration event</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="1049" data-line-end="1050"><strong>Resource Needs:</strong></p>
+<p class="has-line-data" data-line-start="1051" data-line-end="1052"><strong>Staffing:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1053" data-line-end="1054">Archivist hours/week: _____</li>
+<li class="has-line-data" data-line-start="1054" data-line-end="1055">Volunteer hours/week: _____</li>
+<li class="has-line-data" data-line-start="1055" data-line-end="1056">Consultant needed: ☐ Yes ☐ No</li>
+<li class="has-line-data" data-line-start="1056" data-line-end="1058">Project scope: ___________________________</li>
+</ul>
+<p class="has-line-data" data-line-start="1058" data-line-end="1059"><strong>Supplies:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1060" data-line-end="1061">Archival boxes: _____</li>
+<li class="has-line-data" data-line-start="1061" data-line-end="1062">Folders: _____</li>
+<li class="has-line-data" data-line-start="1062" data-line-end="1063">Labels: _____</li>
+<li class="has-line-data" data-line-start="1063" data-line-end="1064">Packing materials: _____</li>
+<li class="has-line-data" data-line-start="1064" data-line-end="1066">Estimated cost: $_____</li>
+</ul>
+<p class="has-line-data" data-line-start="1066" data-line-end="1067"><strong>Services:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1068" data-line-end="1069">Project archivist: ___________________________</li>
+<li class="has-line-data" data-line-start="1069" data-line-end="1070">Other consultants: ___________________________</li>
+<li class="has-line-data" data-line-start="1070" data-line-end="1072">Estimated cost: $_____</li>
+</ul>
+<p class="has-line-data" data-line-start="1072" data-line-end="1073"><strong>Budget Summary:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1074" data-line-end="1075">Total estimated cost: $_____</li>
+<li class="has-line-data" data-line-start="1075" data-line-end="1076">Funding sources: ___________________________</li>
+<li class="has-line-data" data-line-start="1076" data-line-end="1078">Budget approved: ☐ Yes ☐ No</li>
+</ul>
+<h4 class="code-line" data-line-start=1078 data-line-end=1079 ><a id="Processing_Priority_Matrix_1078"></a>Processing Priority Matrix</h4>
+<p class="has-line-data" data-line-start="1080" data-line-end="1081">Rate collections by importance (1-5) and condition (1-5):</p>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Collection</th>
+<th>Importance</th>
+<th>Condition</th>
+<th>Priority Score</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="has-line-data" data-line-start="1088" data-line-end="1089"><strong>Priority Rankings:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1090" data-line-end="1091">High priority (8-10): Process immediately</li>
+<li class="has-line-data" data-line-start="1091" data-line-end="1092">Medium priority (5-7): Process if time allows</li>
+<li class="has-line-data" data-line-start="1092" data-line-end="1094">Low priority (2-4): Basic inventory only</li>
+</ul>
+<h3 class="code-line" data-line-start=1094 data-line-end=1095 ><a id="Agreement_Templates_1094"></a>Agreement Templates</h3>
+<h4 class="code-line" data-line-start=1096 data-line-end=1097 ><a id="Sample_Access_Restrictions_Language_1096"></a>Sample Access Restrictions Language</h4>
+<p class="has-line-data" data-line-start="1098" data-line-end="1099"><strong>Standard Restrictions:</strong></p>
+<p class="has-line-data" data-line-start="1100" data-line-end="1101">&quot;The following materials shall be restricted from public access:</p>
+<p class="has-line-data" data-line-start="1102" data-line-end="1103"><strong>Personnel Files (Series 3):</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1104" data-line-end="1109">Files of congregation members shall remain closed for 25 years following the member’s date of death. After this period, files are open with the following exceptions:
+<ul>
+<li class="has-line-data" data-line-start="1105" data-line-end="1106">Medical records remain restricted by HIPAA regulations</li>
+<li class="has-line-data" data-line-start="1106" data-line-end="1107">Psychological evaluations remain closed for 50 years after death</li>
+<li class="has-line-data" data-line-start="1107" data-line-end="1109">Formation records deemed sensitive by the HARC archivist may be redacted</li>
+</ul>
+</li>
+</ul>
+<p class="has-line-data" data-line-start="1109" data-line-end="1110"><strong>Legal Files (Series 7):</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1111" data-line-end="1113">Settlement agreements and related litigation records remain closed for 50 years from the date of settlement or case closure.</li>
+</ul>
+<p class="has-line-data" data-line-start="1113" data-line-end="1114"><strong>Financial Records (Series 8):</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1115" data-line-end="1117">Donor records containing personal financial information remain closed for 75 years from the date of the gift.</li>
+</ul>
+<p class="has-line-data" data-line-start="1117" data-line-end="1118"><strong>Correspondence (Various):</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1119" data-line-end="1121">Correspondence marked ‘confidential’ by the sender remains closed for 25 years from the date of the letter.</li>
+</ul>
+<p class="has-line-data" data-line-start="1121" data-line-end="1122"><strong>Restriction Review:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1123" data-line-end="1125">HARC will review these restrictions every 10 years in consultation with [Congregation Name] and may recommend modifications based on legal changes or evolving archival standards.&quot;</li>
+</ul>
+<h4 class="code-line" data-line-start=1125 data-line-end=1126 ><a id="Sample_Congregation_Access_Language_1125"></a>Sample Congregation Access Language</h4>
+<p class="has-line-data" data-line-start="1127" data-line-end="1128"><em>&quot;Members of [Congregation Name] shall have priority access to the collection under the following terms:</em></p>
+<ul>
+<li class="has-line-data" data-line-start="1129" data-line-end="1131">
+<p class="has-line-data" data-line-start="1129" data-line-end="1130"><strong>Scheduling</strong>: Members may schedule research appointments with 48 hours’ advance notice during HARC’s regular business hours.</p>
+</li>
+<li class="has-line-data" data-line-start="1131" data-line-end="1133">
+<p class="has-line-data" data-line-start="1131" data-line-end="1132"><strong>Facilities</strong>: HARC will provide research space, basic copying equipment, and reference assistance at no charge to congregation members.</p>
+</li>
+<li class="has-line-data" data-line-start="1133" data-line-end="1135">
+<p class="has-line-data" data-line-start="1133" data-line-end="1134"><strong>Restricted Materials</strong>: Congregation members have access to restricted materials with authorization from [designated congregation authority].</p>
+</li>
+<li class="has-line-data" data-line-start="1135" data-line-end="1137">
+<p class="has-line-data" data-line-start="1135" data-line-end="1136"><strong>Borrowing</strong>: With advance arrangement, members may borrow specific items for congregation events or meetings for up to 30 days. Borrowed materials must be insured and securely stored.</p>
+</li>
+<li class="has-line-data" data-line-start="1137" data-line-end="1139">
+<p class="has-line-data" data-line-start="1137" data-line-end="1138"><strong>Reproduction</strong>: Members may copy materials for congregation use without fees, provided proper attribution is maintained. Commercial use requires separate permission.</p>
+</li>
+<li class="has-line-data" data-line-start="1139" data-line-end="1141">
+<p class="has-line-data" data-line-start="1139" data-line-end="1140"><strong>Ongoing Consultation</strong>: HARC will consult with the designated congregation liaison regarding major research projects, publication requests, or exhibition loans from the collection.&quot;</p>
+</li>
+</ul>
+<hr>
+<h2 class="code-line" data-line-start=1143 data-line-end=1144 ><a id="Part_V_Packing_and_Moving_Resources_1143"></a>Part V: Packing and Moving Resources</h2>
+<h3 class="code-line" data-line-start=1145 data-line-end=1146 ><a id="Box_Label_Template_1145"></a>Box Label Template</h3>
+<pre><code class="has-line-data" data-line-start="1148" data-line-end="1162">[CONGREGATION NAME] ARCHIVES
+
+Box _______ of _______
+
+☐ Standard  ☐ Oversized  ☐ Fragile
+
+Dates: _________________
+
+☐ Inventory Included  ☐ Born-Digital Media
+
+Contents: _________________________________________________
+
+Special Instructions: _____________________________________
+</code></pre>
+<h3 class="code-line" data-line-start=1163 data-line-end=1164 ><a id="Moving_Day_Checklist_1163"></a>Moving Day Checklist</h3>
+<h4 class="code-line" data-line-start=1165 data-line-end=1166 ><a id="One_Week_Before_1165"></a>One Week Before:</h4>
+<ul>
+<li class="has-line-data" data-line-start="1167" data-line-end="1168">☐ Confirm date/time with movers</li>
+<li class="has-line-data" data-line-start="1168" data-line-end="1169">☐ Confirm receipt date with HARC</li>
+<li class="has-line-data" data-line-start="1169" data-line-end="1170">☐ Verify insurance coverage</li>
+<li class="has-line-data" data-line-start="1170" data-line-end="1171">☐ Final inventory count</li>
+<li class="has-line-data" data-line-start="1171" data-line-end="1172">☐ Prepare staging area</li>
+<li class="has-line-data" data-line-start="1172" data-line-end="1174">☐ Notify congregation</li>
+</ul>
+<h4 class="code-line" data-line-start=1174 data-line-end=1175 ><a id="Moving_Day_1174"></a>Moving Day</h4>
+<ul>
+<li class="has-line-data" data-line-start="1176" data-line-end="1177">☐ Final walk-through</li>
+<li class="has-line-data" data-line-start="1177" data-line-end="1178">☐ Prayer service/blessing</li>
+<li class="has-line-data" data-line-start="1178" data-line-end="1179">☐ Document with photos</li>
+<li class="has-line-data" data-line-start="1179" data-line-end="1180">☐ Verify box count with movers</li>
+<li class="has-line-data" data-line-start="1180" data-line-end="1181">☐ Provide driving directions to HARC</li>
+<li class="has-line-data" data-line-start="1181" data-line-end="1183">☐ Emergency contact numbers exchanged</li>
+</ul>
+<h4 class="code-line" data-line-start=1183 data-line-end=1184 ><a id="At_HARC_1183"></a>At HARC</h4>
+<ul>
+<li class="has-line-data" data-line-start="1185" data-line-end="1186">☐ Verify box count on arrival</li>
+<li class="has-line-data" data-line-start="1186" data-line-end="1187">☐ Check for damage</li>
+<li class="has-line-data" data-line-start="1187" data-line-end="1188">☐ Sign transfer receipt</li>
+<li class="has-line-data" data-line-start="1188" data-line-end="1189">☐ Tour HARC facilities</li>
+<li class="has-line-data" data-line-start="1189" data-line-end="1190">☐ Meet HARC staff</li>
+<li class="has-line-data" data-line-start="1190" data-line-end="1192">☐ Exchange contact information</li>
+</ul>
+<h4 class="code-line" data-line-start=1192 data-line-end=1193 ><a id="After_Move_1192"></a>After Move</h4>
+<ul>
+<li class="has-line-data" data-line-start="1194" data-line-end="1195">☐ Thank volunteers and movers</li>
+<li class="has-line-data" data-line-start="1195" data-line-end="1196">☐ Submit final invoice (if applicable)</li>
+<li class="has-line-data" data-line-start="1196" data-line-end="1197">☐ Schedule follow-up with HARC</li>
+<li class="has-line-data" data-line-start="1197" data-line-end="1198">☐ Announce completion to congregation</li>
+<li class="has-line-data" data-line-start="1198" data-line-end="1200">☐ Plan commemoration event</li>
+</ul>
+<hr>
+<h2 class="code-line" data-line-start=1202 data-line-end=1203 ><a id="Conclusion_1202"></a>Conclusion</h2>
+<h3 class="code-line" data-line-start=1204 data-line-end=1205 ><a id="Your_Archives_Matter_1204"></a>Your Archives Matter</h3>
+<p class="has-line-data" data-line-start="1206" data-line-end="1207">The records you preserve tell essential stories of:</p>
+<ul>
+<li class="has-line-data" data-line-start="1208" data-line-end="1209">Faith lived in community</li>
+<li class="has-line-data" data-line-start="1209" data-line-end="1210">Service to marginalized populations</li>
+<li class="has-line-data" data-line-start="1210" data-line-end="1211">Women’s leadership in church and society</li>
+<li class="has-line-data" data-line-start="1211" data-line-end="1212">Catholic contributions to American history</li>
+<li class="has-line-data" data-line-start="1212" data-line-end="1214">Resilience, adaptation, and prophetic witness</li>
+</ul>
+<h3 class="code-line" data-line-start=1214 data-line-end=1215 ><a id="HARCs_Commitment_1214"></a>HARC’s Commitment</h3>
+<p class="has-line-data" data-line-start="1216" data-line-end="1217">By partnering with HARC, you ensure your congregation’s legacy will:</p>
+<ul>
+<li class="has-line-data" data-line-start="1218" data-line-end="1219">Be preserved according to professional standards</li>
+<li class="has-line-data" data-line-start="1219" data-line-end="1220">Remain accessible to your members</li>
+<li class="has-line-data" data-line-start="1220" data-line-end="1221">Serve researchers and scholars</li>
+<li class="has-line-data" data-line-start="1221" data-line-end="1222">Educate future generations</li>
+<li class="has-line-data" data-line-start="1222" data-line-end="1224">Honor your charism and mission</li>
+</ul>
+<h3 class="code-line" data-line-start=1224 data-line-end=1225 ><a id="Next_Steps_1224"></a>Next Steps</h3>
+<h4 class="code-line" data-line-start=1226 data-line-end=1227 ><a id="Contact_HARC_1226"></a>Contact HARC</h4>
+<p class="has-line-data" data-line-start="1228" data-line-end="1229">Schedule an initial visit</p>
+<p class="has-line-data" data-line-start="1230" data-line-end="1231"><strong>Email:</strong></p>
+<ul>
+<li class="has-line-data" data-line-start="1231" data-line-end="1232">Barbara Gordon, Executive Director: <a href="/cdn-cgi/l/email-protection#9dfffaf2eff9f2f3ddf5fceffeeef0b3f2effa"><span class="__cf_email__" data-cfemail="a2c0c5cdd0c6cdcce2cac3d0c1d1cf8ccdd0c5">[email&#160;protected]</span></a></li>
+<li class="has-line-data" data-line-start="1232" data-line-end="1234">JÁ Pryse, Lead Archivist: <a href="/cdn-cgi/l/email-protection#63090213111a1006230b021100100e4d0c1104"><span class="__cf_email__" data-cfemail="ec868d9c9e959f89ac848d9e8f9f81c2839e8b">[email&#160;protected]</span></a></li>
+</ul>
+<p class="has-line-data" data-line-start="1234" data-line-end="1235"><strong>Phone:</strong> (574) 678-6155</p>
+<h4 class="code-line" data-line-start=1236 data-line-end=1237 ><a id="Complete_Part_I_Assessment_and_share_results_with_HARC_1236"></a>Complete Part I Assessment and share results with HARC</h4>
+<h4 class="code-line" data-line-start=1238 data-line-end=1239 ><a id="Visit_HARC_to_see_the_facility_and_meet_staff_1238"></a>Visit HARC to see the facility and meet staff</h4>
+<h4 class="code-line" data-line-start=1240 data-line-end=1241 ><a id="Develop_Your_Timeline_using_the_framework_in_this_toolkit_1240"></a>Develop Your Timeline using the framework in this toolkit</h4>
+<h4 class="code-line" data-line-start=1242 data-line-end=1243 ><a id="Create_Your_Transition_Plan_in_collaboration_with_HARC_1242"></a>Create Your Transition Plan in collaboration with HARC</h4>
+<h3 class="code-line" data-line-start=1244 data-line-end=1245 ><a id="Questions_1244"></a>Questions?</h3>
+<p class="has-line-data" data-line-start="1246" data-line-end="1247">HARC staff are available to:</p>
+<ul>
+<li class="has-line-data" data-line-start="1248" data-line-end="1249">Answer questions about the transition process</li>
+<li class="has-line-data" data-line-start="1249" data-line-end="1250">Guide assessment and planning</li>
+<li class="has-line-data" data-line-start="1250" data-line-end="1251">Review draft agreements</li>
+<li class="has-line-data" data-line-start="1251" data-line-end="1252">Offer technical assistance</li>
+<li class="has-line-data" data-line-start="1252" data-line-end="1253">Connect with other congregations that have transitioned</li>
+<li class="has-line-data" data-line-start="1253" data-line-end="1255">Visit your archives to assist with evaluation</li>
+</ul>
+<p class="has-line-data" data-line-start="1255" data-line-end="1256"><strong>We are here to help you preserve your precious legacy.</strong></p>
+<hr>
+<h2 class="code-line" data-line-start=1259 data-line-end=1260 ><a id="Professional_Resources_1259"></a>Professional Resources</h2>
+<h3 class="code-line" data-line-start=1261 data-line-end=1262 ><a id="Archival_Standards_Organizations_1261"></a>Archival Standards Organizations</h3>
+<h4 class="code-line" data-line-start=1263 data-line-end=1264 ><a id="Society_of_American_Archivists_SAA_1263"></a>Society of American Archivists (SAA)</h4>
+<ul>
+<li class="has-line-data" data-line-start="1265" data-line-end="1266">Website: <a href="https://www2.archivists.org/">https://www2.archivists.org/</a></li>
+<li class="has-line-data" data-line-start="1266" data-line-end="1267">Standards, best practices, consultant directory</li>
+<li class="has-line-data" data-line-start="1267" data-line-end="1269">Publications on religious archives</li>
+</ul>
+<h4 class="code-line" data-line-start=1269 data-line-end=1270 ><a id="Archivists_for_Congregations_of_Women_Religious_ACWR_1269"></a>Archivists for Congregations of Women Religious (ACWR)</h4>
+<ul>
+<li class="has-line-data" data-line-start="1271" data-line-end="1272">Website: <a href="https://archivistsacwr.org/">https://archivistsacwr.org/</a></li>
+<li class="has-line-data" data-line-start="1272" data-line-end="1273">Consultant directory</li>
+<li class="has-line-data" data-line-start="1273" data-line-end="1274">Women religious archives resources</li>
+<li class="has-line-data" data-line-start="1274" data-line-end="1276">Networking and support</li>
+</ul>
+<h4 class="code-line" data-line-start=1276 data-line-end=1277 ><a id="Association_of_Catholic_Diocesan_Archivists_ACDA_1276"></a>Association of Catholic Diocesan Archivists (ACDA)</h4>
+<ul>
+<li class="has-line-data" data-line-start="1278" data-line-end="1279">Website: <a href="https://diocesanarchivists.org/">https://diocesanarchivists.org/</a></li>
+<li class="has-line-data" data-line-start="1279" data-line-end="1281">Catholic archives resources and guidance</li>
+</ul>
+<h4 class="code-line" data-line-start=1281 data-line-end=1282 ><a id="American_Theological_Library_Association_ATLA_1281"></a>American Theological Library Association (ATLA)</h4>
+<ul>
+<li class="has-line-data" data-line-start="1283" data-line-end="1284">Website: <a href="https://www.atla.com/">https://www.atla.com/</a></li>
+<li class="has-line-data" data-line-start="1284" data-line-end="1285">Religious archives resources</li>
+<li class="has-line-data" data-line-start="1285" data-line-end="1287">Digital collections initiatives</li>
+</ul>
+<h3 class="code-line" data-line-start=1287 data-line-end=1288 ><a id="Recommended_Reading_1287"></a>Recommended Reading</h3>
+<h4 class="code-line" data-line-start=1289 data-line-end=1290 ><a id="Processing_and_Description_1289"></a>Processing and Description:</h4>
+<p class="has-line-data" data-line-start="1291" data-line-end="1292">Greene, Mark A., and Dennis Meissner. 2005. “More Product, Less Process: Revamping Traditional Archival Processing.” <em>American Archivist</em> 68, no. 2: 208-263. <a href="https://doi.org/10.17723/aarc.68.2.c741823776k65863">https://doi.org/10.17723/aarc.68.2.c741823776k65863</a>.</p>
+<p class="has-line-data" data-line-start="1293" data-line-end="1294">Society of American Archivists. 2019. <em>Describing Archives: A Content Standard (DACS)</em>. 3rd ed. Chicago: Society of American Archivists.</p>
+<p class="has-line-data" data-line-start="1295" data-line-end="1296">Roe, Kathleen D. 2005. <em>Arranging and Describing Archives and Manuscripts</em>. Chicago: Society of American Archivists.</p>
+<h4 class="code-line" data-line-start=1297 data-line-end=1298 ><a id="Religious_Archives_1297"></a>Religious Archives:</h4>
+<p class="has-line-data" data-line-start="1299" data-line-end="1300">Ray, Robert C. 2009. “No One Has Ever Seen God: The Use of Religious Archives for Nonreligious Purposes.” <em>Journal of Religious &amp; Theological Information</em> 7 (3-4): 149-60. <a href="https://doi.org/10.1080/10477840902783010">https://doi.org/10.1080/10477840902783010</a>.</p>
+<p class="has-line-data" data-line-start="1301" data-line-end="1302">Perrone, Fernanda. 2003. “Vanished Worlds: Searching for the Records of Closed Catholic Women’s Colleges.” <em>Archival Issues</em> 27, no. 2: 107-121.</p>
+<p class="has-line-data" data-line-start="1303" data-line-end="1304">Perrone, Fernanda. 2018. “From Annals to Heritage Centers: The Archives of Women’s Religious Communities.” In <em>Perspectives on Women’s Archives</em>, edited by Tanya Zanish-Belcher and Anke Voss, 177-213. Chicago: Society of American Archivists.</p>
+<p class="has-line-data" data-line-start="1305" data-line-end="1306">Wittberg, Patricia. 2019. “Preserving Our Story.” <em>American Catholic Studies Newsletter</em> 46, no. 1: 18-24.</p>
+<p class="has-line-data" data-line-start="1307" data-line-end="1308">O’Toole, James M. 1984. “What’s Different about Religious Archives?” <em>Midwestern Archivist</em> 9, no. 2: 91-101.</p>
+<h4 class="code-line" data-line-start=1309 data-line-end=1310 ><a id="Digital_Preservation_1309"></a>Digital Preservation:</h4>
+<p class="has-line-data" data-line-start="1311" data-line-end="1312">Digital Preservation Coalition. 2023. “Standards and Best Practice.” <em>Digital Preservation Handbook</em>. <a href="https://www.dpconline.org/handbook/institutional-strategies/standards-and-best-practice">https://www.dpconline.org/handbook/institutional-strategies/standards-and-best-practice</a>.</p>
+<p class="has-line-data" data-line-start="1313" data-line-end="1314">Levels of Digital Preservation Working Group. 2019. “Levels of Digital Preservation Matrix, Version 2.0.” National Digital Stewardship Alliance. October. <a href="https://osf.io/2mkwx/">https://osf.io/2mkwx/</a>.</p>
+<p class="has-line-data" data-line-start="1315" data-line-end="1316">National Archives and Records Administration. n.d. “Digital Preservation - Home.” Accessed October 11, 2025. <a href="https://www.archives.gov/preservation/digital-preservation">https://www.archives.gov/preservation/digital-preservation</a>.</p>
+<hr>
+<h2 class="code-line" data-line-start=1319 data-line-end=1320 ><a id="Acknowledgments_1319"></a>Acknowledgments</h2>
+<p class="has-line-data" data-line-start="1321" data-line-end="1322">This toolkit was developed by the Heritage and Research Center at Saint Mary’s (HARC) with gratitude to:</p>
+<ul>
+<li class="has-line-data" data-line-start="1323" data-line-end="1325">
+<p class="has-line-data" data-line-start="1323" data-line-end="1324"><strong>Archivists for Congregations of Women Religious (ACWR):</strong> for the original <a href="https://archivistsacwr.org/wp-content/uploads/2024/09/Religious-Archives-in-Transition-Toolkit_September2024.pdf"><em>Religious Archives in Transition Toolkit</em></a></p>
+</li>
+<li class="has-line-data" data-line-start="1325" data-line-end="1327">
+<p class="has-line-data" data-line-start="1325" data-line-end="1326">The <strong>congregations that have partnered with HARC</strong> and shared their wisdom</p>
+</li>
+<li class="has-line-data" data-line-start="1327" data-line-end="1329">
+<p class="has-line-data" data-line-start="1327" data-line-end="1328"><strong>Women religious archivists</strong> whose expertise and dedication preserve these irreplaceable collections</p>
+</li>
+<li class="has-line-data" data-line-start="1329" data-line-end="1331">
+<p class="has-line-data" data-line-start="1329" data-line-end="1330">The <strong>Society of American Archivists</strong> for professional <a href="https://www2.archivists.org/standards">standards and resources</a></p>
+</li>
+<li class="has-line-data" data-line-start="1331" data-line-end="1333">
+<p class="has-line-data" data-line-start="1331" data-line-end="1332"><strong>Congregation leadership</strong> that recognizes archives as a ministry</p>
+</li>
+</ul>
+<p class="has-line-data" data-line-start="1333" data-line-end="1334"><em>Special thanks to the sisters who dedicated their lives to prayer and service. Your history deserves to be saved.</em></p>
+<hr>
+<h2 class="code-line" data-line-start=1337 data-line-end=1338 ><a id="Notes_1337"></a>Notes</h2>
+<hr>
+<p class="has-line-data" data-line-start="1341" data-line-end="1343"><em>Document prepared by the Heritage and Research Center at Saint Mary’s (HARC)</em><br>
+<em>For questions or assistance, contact: <a href="/cdn-cgi/l/email-protection#c4a6a3abb6a0abaa84aca5b6a7b7a9eaabb6a3"><span class="__cf_email__" data-cfemail="adcfcac2dfc9c2c3edc5ccdfcedec083c2dfca">[email&#160;protected]</span></a> | (574) 678-6155</em></p>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script></body></html>
