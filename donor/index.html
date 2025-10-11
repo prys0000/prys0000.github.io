@@ -8,14 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#F5F7F9;
-      --card:#fff;
-      --muted:#6b7280;
-      --accent:#2F4B2E;
-      --accent-2:#205072;
-      --radius:10px;
-      --container:1100px;
+      /* ORIGINAL VARIABLE NAMES KEPT — values updated to your chosen palette */
+      --bg: #F5F7F9;        /* page background */
+      --card: #FFFFFF;      /* card / surface */
+      --muted: #6B7280;     /* muted text */
+      --accent: #2F4B2E;    /* primary (olive) - used where original used --accent */
+      --accent-2: #205072;  /* secondary (navy) - used where original used --accent-2 */
+      --radius: 10px;
+      --container: 1100px;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--accent);background:var(--bg);line-height:1.5}
@@ -54,35 +56,7 @@
     .pdf-frame{width:100%;height:64vh;border:0;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04);display:none}
     .file-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd);gap:12px}
     .file-row .meta{color:var(--muted);font-size:13px}
-    /* replace or add to your .button and .btn rules */
-.button, .btn {
-  background: linear-gradient(180deg,#a0ab8c 0%, #205072 100%); /* stronger two-tone */
-  border: 2px solid #333;            /* darker, crisper border */
-  box-shadow:
-    0 7px 15px rgba(0,0,0,0.18),
-    inset 0 1px 0 rgba(255,255,255,0.12),
-    inset 0 31px 8px rgba(0,0,0,0.08); /* heavier inner contrast for beveled edge */
-  border-radius: 8px;
-  padding: 9px 14px;
-  color:#fff;
-  font-weight:700;
-  transition: all .12s ease;
-}
-.button:hover, .btn:hover { transform: translateY(-2px); }
-.button:active, .btn:active {
-  transform: translateY(1px);
-  box-shadow: 0 3px 8px rgba(0,0,0,0.12), inset 0 2px 6px rgba(0,0,0,0.2);
-}
-
-
-/* keyboard focus (accessibility) */
-.button:focus, .btn:focus {
-  outline: none;
-  box-shadow:
-    0 10px 24px rgba(15,23,42,0.14),
-    0 0 0 4px rgba(43,111,179,0.12); /* visible focus ring */
-}
-
+    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
 
     .error-box{display:none;padding:14px;border-radius:8px;background:#fff;border:1px solid rgba(15,23,42,0.04);margin-top:10px}
     footer{padding:28px 18px;text-align:center;color:var(--muted);font-size:14px}
