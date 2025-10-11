@@ -1,0 +1,776 @@
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<!-- Paste this into an Omeka S Page using an HTML block -->
+<section aria-label="ArchivesSpace Complete Workflow Guide" class="archivesspace-guide">
+<style type="text/css">.archivesspace-guide {
+      font-family: inherit;
+      line-height: 1.6;
+      color: #333;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .archivesspace-guide h1 {
+      color: #1e3c72;
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #1e3c72;
+      padding-bottom: 0.5rem;
+    }
+    
+    .archivesspace-guide h2 {
+      color: #1e3c72;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 2rem 0 1rem 0;
+      border-left: 4px solid #1e3c72;
+      padding-left: 1rem;
+    }
+    
+    .archivesspace-guide h3 {
+      color: #2a5298;
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem 0;
+    }
+    
+    /* Header section */
+    .archivesspace-guide .header-info {
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: white;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border-radius: 0.75rem;
+      text-align: center;
+    }
+    
+    .archivesspace-guide .access-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.2);
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      transition: all 0.2s ease;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+    
+    .archivesspace-guide .access-link:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateY(-1px);
+    }
+    
+    /* Workflow overview */
+    .archivesspace-guide .workflow-overview {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .archivesspace-guide .workflow-steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+    
+    .archivesspace-guide .workflow-step {
+      background: white;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+    
+    .archivesspace-guide .workflow-step::after {
+      content: '→';
+      position: absolute;
+      right: -0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #1e3c72;
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+    
+    .archivesspace-guide .workflow-step:last-child::after {
+      display: none;
+    }
+    
+    .archivesspace-guide .workflow-step-number {
+      background: #1e3c72;
+      color: white;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      margin: 0 auto 0.5rem auto;
+    }
+    
+    /* Navigation TOC */
+    .archivesspace-guide .toc {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    
+    .archivesspace-guide .toc h3 {
+      margin-top: 0;
+      color: #1e3c72;
+    }
+    
+    .archivesspace-guide .toc ol {
+      margin: 0;
+      padding-left: 1.5rem;
+    }
+    
+    .archivesspace-guide .toc a {
+      color: #2a5298;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.25rem 0;
+      display: block;
+    }
+    
+    .archivesspace-guide .toc a:hover {
+      color: #1e3c72;
+      text-decoration: underline;
+    }
+    
+    /* Phase sections */
+    .archivesspace-guide .phase-section {
+      background: #ffffff;
+      border: 2px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      position: relative;
+    }
+    
+    .archivesspace-guide .phase-section::before {
+      content: attr(data-phase);
+      position: absolute;
+      top: -12px;
+      left: 2rem;
+      background: #1e3c72;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    
+    /* Step sections */
+    .archivesspace-guide .step-section {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    
+    .archivesspace-guide .step-number {
+      background: #1e3c72;
+      color: white;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-right: 1rem;
+    }
+    
+    .archivesspace-guide .step-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.5rem;
+    }
+    
+    .archivesspace-guide .step-header h3 {
+      margin: 0;
+      color: #1e3c72;
+    }
+    
+    /* Field groups */
+    .archivesspace-guide .field-group {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      padding: 1.5rem;
+      margin: 1rem 0;
+    }
+    
+    .archivesspace-guide .field-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+    
+    .archivesspace-guide .field-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid #e5e7eb;
+      position: relative;
+      padding-left: 2rem;
+    }
+    
+    .archivesspace-guide .field-list li:last-child {
+      border-bottom: none;
+    }
+    
+    .archivesspace-guide .field-list li::before {
+      content: '▶';
+      color: #1e3c72;
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+      top: 0.6rem;
+    }
+    
+    .archivesspace-guide .field-name {
+      font-weight: 600;
+      color: #1e3c72;
+    }
+    
+    /* Code and examples */
+    .archivesspace-guide code {
+      background: #f1f5f9;
+      padding: 0.2rem 0.4rem;
+      border-radius: 0.25rem;
+      font-family: 'Monaco', 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+    }
+    
+    .archivesspace-guide .example-box {
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border: 1px solid #bbf7d0;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    
+    .archivesspace-guide .example-box::before {
+      content: '📝 Example';
+      position: absolute;
+      top: -12px;
+      left: 1rem;
+      background: #16a34a;
+      color: white;
+      padding: 0.25rem 0.75rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    
+    .archivesspace-guide .warning-box {
+      background: linear-gradient(135deg, #fffbeb, #fef3c7);
+      border: 1px solid #fbbf24;
+      border-left: 4px solid #f59e0b;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .archivesspace-guide .warning-box::before {
+      content: '⚠️ ';
+      font-size: 1.2rem;
+    }
+    
+    .archivesspace-guide .success-box {
+      background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+      border: 1px solid #bbf7d0;
+      border-left: 4px solid #10b981;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .archivesspace-guide .success-box::before {
+      content: '✅ ';
+      font-size: 1.2rem;
+    }
+    
+    .archivesspace-guide .info-box {
+      background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+      border: 1px solid #bfdbfe;
+      border-left: 4px solid #3b82f6;
+      border-radius: 0.5rem;
+      padding: 1rem;
+      margin: 1rem 0;
+    }
+    
+    .archivesspace-guide .info-box::before {
+      content: 'ℹ️ ';
+      font-size: 1.2rem;
+    }
+    
+    /* Navigation between sections */
+    .archivesspace-guide .section-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 0;
+      border-top: 1px solid #e5e7eb;
+      margin-top: 2rem;
+    }
+    
+    .archivesspace-guide .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #1e3c72;
+      color: white;
+      text-decoration: none;
+      padding: 0.75rem 1.25rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .archivesspace-guide .nav-link:hover {
+      background: #2a5298;
+      transform: translateY(-1px);
+    }
+
+    /* Easy Steps collapsibles */
+    .easy-steps details {margin: 1rem 0; border:1px solid #e2e8f0; border-radius:0.5rem; background:#fff}
+    .easy-steps summary {cursor:pointer; list-style:none; padding:0.85rem 1rem; font-weight:700; color:#1e3c72}
+    .easy-steps summary::-webkit-details-marker {display:none}
+    .easy-steps .body {padding:1rem 1.25rem 1.25rem}
+    .easy-steps ol {margin:0; padding-left:1.25rem}
+    .easy-steps li {margin:0.5rem 0}
+    .easy-steps .sub {margin-top:0.25rem; padding-left:1.25rem}
+    .easy-steps code {background:#f1f5f9; border:1px solid #cbd5e1; padding:0.15rem 0.35rem; border-radius:0.25rem}
+    .easy-steps .note {background:linear-gradient(135deg,#f0f9ff,#e0f2fe); border-left:4px solid #3b82f6; padding:0.75rem 1rem; margin-top:0.75rem}
+    .easy-steps .warn {background:linear-gradient(135deg,#fffbeb,#fef3c7); border-left:4px solid #f59e0b; padding:0.75rem 1rem; margin-top:0.75rem}
+    .easy-steps .ok {background:linear-gradient(135deg,#f0fdf4,#dcfce7); border-left:4px solid #10b981; padding:0.75rem 1rem; margin-top:0.75rem}
+    
+    /* Responsive */
+    @media (max-width: 768px) {
+      .archivesspace-guide .workflow-steps {
+        grid-template-columns: 1fr;
+      }
+      
+      .archivesspace-guide .workflow-step::after {
+        content: '↓';
+        right: 50%;
+        top: auto;
+        bottom: -0.75rem;
+        transform: translateX(50%);
+      }
+      
+      .archivesspace-guide .step-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+      
+      .archivesspace-guide .step-number {
+        margin-right: 0;
+        margin-bottom: 0.5rem;
+      }
+      
+      .archivesspace-guide .section-nav {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+</style>
+<header class="header-info">
+<h1 style="margin:0; color:white">ArchivesSpace Complete Workflow Guide</h1>
+
+<p style="margin:0.5rem 0; opacity:0.9">From accession to digital object creation and publication</p>
+
+<p style="margin:0; font-size:0.9rem; opacity:0.8">Version 4.1.1+ Compatible</p>
+<a class="access-link" draggable="false" href="https://sandbox.archivesspace.org/staff" target="_blank">🗄️ Access ArchivesSpace Admin (Example Log-In Screen) </a></header>
+
+<div class="workflow-overview">
+<h3 style="margin-top:0; color:#1e3c72; text-align:center">📋 Complete Workflow Overview</h3>
+
+<p style="text-align:center; margin-bottom:2rem">Follow this sequence for proper archival processing in ArchivesSpace:</p>
+
+<div class="workflow-steps">
+<div class="workflow-step">
+<div class="workflow-step-number">1</div>
+<strong>Create Accession</strong>
+
+<p style="margin:0.5rem 0 0 0; font-size:0.9rem; color:#6b7280">Initial intake record</p>
+</div>
+
+<div class="workflow-step">
+<div class="workflow-step-number">2</div>
+<strong>Create Resource</strong>
+
+<p style="margin:0.5rem 0 0 0; font-size:0.9rem; color:#6b7280">Collection-level description</p>
+</div>
+
+<div class="workflow-step">
+<div class="workflow-step-number">3</div>
+<strong>Bulk Upload</strong>
+
+<p style="margin:0.5rem 0 0 0; font-size:0.9rem; color:#6b7280">Mass import digital objects</p>
+</div>
+
+<div class="workflow-step">
+<div class="workflow-step-number">4</div>
+<strong>Digital Objects</strong>
+
+<p style="margin:0.5rem 0 0 0; font-size:0.9rem; color:#6b7280">Individual item processing</p>
+</div>
+
+<div class="workflow-step">
+<div class="workflow-step-number">5</div>
+<strong>Omeka-S Integration</strong>
+
+<p style="margin:0.5rem 0 0 0; font-size:0.9rem; color:#6b7280">Public access platform</p>
+</div>
+</div>
+
+<div class="info-box"><strong>Important:</strong> Digital object creation (the detailed workflow originally shown) can only be done AFTER steps 1-3 are completed. Each step builds upon the previous one.</div>
+</div>
+
+<div class="toc">
+<h3>📋 Guide Navigation</h3>
+
+<ol>
+	<li><a draggable="false" href="#phase-1">Phase 1: Create Accession Record</a></li>
+	<li><a draggable="false" href="#phase-2">Phase 2: Create Resource Record</a></li>
+	<li><a draggable="false" href="#phase-3">Phase 3: Bulk Upload Digital Objects</a></li>
+	<li><a draggable="false" href="#phase-4">Phase 4: Individual Digital Object Processing</a></li>
+	<li><a draggable="false" href="#phase-5">Phase 5: Omeka-S Integration &amp; Maintenance</a></li>
+</ol>
+</div>
+<!-- PHASE 1: ACCESSION -->
+
+<section class="phase-section" data-phase="Phase 1" id="phase-1">
+<h2>Create Accession Record</h2>
+
+<p>The accession is the first step - it documents the initial transfer of materials to the archives before any processing begins.</p>
+
+<h3>📥 Accession Creation Workflow</h3>
+
+<p>Detailed steps for creating accession records, including:</p>
+
+<ul>
+	<li>Basic accession information and identifiers</li>
+	<li>Acquisition details and donor information</li>
+	<li>Initial extent and condition assessment</li>
+	<li>Access and use restrictions</li>
+	<li>Processing priorities and notes</li>
+</ul>
+
+<div class="info-box">This section will provide step-by-step instructions for creating the initial accession record that serves as the foundation for all subsequent processing.</div>
+</section>
+<!-- PHASE 2: RESOURCE -->
+
+<section class="phase-section" data-phase="Phase 2" id="phase-2">
+<h2>Create Resource Record</h2>
+
+<p>The resource record provides a collection-level description and serves as the parent for all digital objects within the collection.</p>
+
+<h3>📚 Resource Creation Workflow</h3>
+
+<p>Complete instructions for building resource records, covering:</p>
+
+<ul>
+	<li>Collection-level metadata and identifiers</li>
+	<li>Biographical/historical notes</li>
+	<li>Scope and contents descriptions</li>
+	<li>Series and arrangement information</li>
+	<li>Finding aid publication settings</li>
+</ul>
+
+<div class="info-box">The resource record must exist before you can attach individual digital objects to the collection.</div>
+</section>
+<!-- PHASE 3: BULK UPLOAD -->
+
+<section class="phase-section" data-phase="Phase 3" id="phase-3">
+<h2>Bulk Upload Digital Objects</h2>
+
+<p>Mass import allows you to create multiple digital object records at once using spreadsheet data.</p>
+
+<div class="easy-steps">
+<details><summary>➤&nbsp; Bulk Upload &mdash; click to expand for step-by-step (using the <a draggable="false" href="https://harcsm-my.sharepoint.com/:x:/g/personal/japryse_harcsm_org/EdP1N2mlj45Jq_ZaZqG9itABcBb-MGaajOPMcz9z3K5AoA?e=yg8ENa" style="color:#0000ee;text-decoration:underline;">CSV template</a>)</summary>
+
+<div class="body">
+<ol>
+	<li>Open your CSV <em>template</em> and fill the required columns:
+
+	<ul class="sub">
+		<li><code>digital_object_id</code> (stable + unique), e.g., <code>DO-HARC_2025_1_0000</code></li>
+		<li><code>title</code> (from spreadsheet)</li>
+		<li><code>level</code> = <code>item</code></li>
+		<li>Link target (one): <code>linked_resource_ref</code> <em>or</em> <code>linked_instance_ref</code> (paste staff UI URI like <code>/repositories/1/resources/#####</code> or <code>/repositories/1/archival_objects/#####</code>)</li>
+		<li>Two file versions:
+		<ul class="sub">
+			<li><strong>Preservation</strong>: <code>file_version_1_file_uri</code> = &ldquo;Digital Preservation Staff System&rdquo; URL, <code>file_version_1_publish</code> = <code>TRUE</code></li>
+			<li><strong>Public Access</strong>: <code>file_version_2_file_uri</code> = &ldquo;Electronic Record Access System&rdquo; URL, <code>file_version_2_publish</code> = <code>TRUE</code>, <code>file_version_2_is_representative</code> = <code>TRUE</code></li>
+		</ul>
+		</li>
+		<li>(Optional but recommended) <code>dates</code>, <code>agents</code>, <code>subjects</code>, and <code>notes</code> per your importer profile.</li>
+	</ul>
+	</li>
+	<li>In ArchivesSpace Staff &rarr; <strong>Create ▸ Job ▸ Import CSV</strong> (or your plugin&rsquo;s import), upload the CSV, and run.</li>
+	<li>Open the job log. Fix any <em>warnings/errors</em> and re‑run if needed.
+	<div class="note"><strong>Tip:</strong> If you see <em>duplicate digital_object_id</em>, increment the suffix (<code>-0002</code>, <code>-0003</code>&hellip;). If you see <em>404 on linked_instance_ref</em>, verify the target AO/Resource URI exists and is correct.</div>
+	</li>
+	<li>Spot‑check a few imported Digital Objects before moving on to Phase 4.</li>
+</ol>
+
+<div class="ok">Bulk upload complete! Continue with the post‑import edits below.</div>
+</div>
+</details>
+</div>
+<!-- /Easy Workflow block --></section>
+<!-- PHASE 4: DIGITAL OBJECTS -->
+
+<section class="phase-section" data-phase="Phase 4" id="phase-4">
+<h2>Individual Digital Object Processing</h2>
+
+<p><strong>This phase begins AFTER accession, resource, and bulk upload are complete.</strong> Here you&#39;ll enhance the basic digital object records created in the bulk upload with detailed metadata.</p>
+
+<div class="warning-box"><strong>Prerequisites Required:</strong> You must have completed Phases 1-3 before beginning this detailed digital object processing workflow.</div>
+<!-- Post-Import DO Edit block inserted -->
+
+<div class="easy-steps">
+<details><summary>➤&nbsp; Post‑Import: Edit Each Digital Object (from your spreadsheet)</summary>
+
+<div class="body">
+<ol>
+	<li><strong>Search by HARC ID</strong> &rarr; Copy the <strong>HARC ID</strong> from your sheet and paste into ArchivesSpace <em>Search</em>.</li>
+	<li><strong>Open the Digital Object</strong> &rarr; choose the correct record &rarr; click <strong>Edit</strong>.</li>
+	<li><strong>Basic Information</strong>
+	<ul class="sub">
+		<li>Copy and paste the <strong>Title</strong> from the spreadsheet</li>
+		<li>Click <strong>Publish</strong></li>
+		<li>Change <strong>Level</strong> from <em>work</em> to <code>item</code></li>
+		<li><strong>Language</strong>: select <code>English</code></li>
+	</ul>
+	</li>
+	<li><strong>File Versions</strong>
+	<ul class="sub">
+		<li><em>Version 1:</em> set the &ldquo;<strong>Digital Preservation Staff System</strong>&rdquo; URL; <strong>unpublish</strong> (deselect <em>Publish</em> if needed)</li>
+		<li><em>Version 2:</em> set the &ldquo;<strong>Electronic Record Access System</strong>&rdquo; URL; click <strong>Make Representative</strong> and <strong>Publish</strong></li>
+	</ul>
+	</li>
+	<li><strong>Dates</strong>
+	<ul class="sub">
+		<li><em>First Date Entry</em> (already present; just edit values):
+		<ul class="sub">
+			<li><strong>Label</strong>: <code>Creation</code></li>
+			<li><strong>Expression</strong>: copy <strong>DATE</strong> from sheet</li>
+			<li><strong>Type</strong>: <code>Single</code></li>
+			<li><strong>Begin</strong>: copy <strong>CALENDAR DATE</strong> from sheet</li>
+		</ul>
+		</li>
+		<li>Click <strong>Add Date</strong> and enter:
+		<ul class="sub">
+			<li><strong>Label</strong>: <code>Creation</code></li>
+			<li><strong>Expression</strong>: copy the <strong>Congress</strong> (e.g., <code>93rd Congress (1973-1975)</code>)</li>
+			<li><strong>Type</strong>: <code>Inclusive</code></li>
+			<li><strong>Begin</strong>: start of congress (year)</li>
+			<li><strong>End</strong>: end of congress (year)</li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li><strong>Agent Links</strong>
+	<ul class="sub">
+		<li><strong>Role</strong>: <code>Source</code></li>
+		<li><strong>Agents</strong>: type <code>Brennan</code> and select <em>Brennan, Suzanne, 1950-</em> (type last name only; copy‑paste of full name won&rsquo;t work)</li>
+	</ul>
+	</li>
+	<li><strong>Subjects</strong>
+	<ul class="sub">
+		<li>Copy/paste <em>one subject at a time</em> from the sheet; choose the matching suggestion that appears</li>
+	</ul>
+	</li>
+	<li><strong>Notes</strong>
+	<ul class="sub">
+		<li><em>Add Note ▸ Note Type: Summary</em>
+		<ul class="sub">
+			<li><strong>Label</strong>: <em>Scope and Contents</em></li>
+			<li>Copy/paste the <strong>Scope and Contents</strong> from the spreadsheet</li>
+			<li>Click <strong>Publish</strong></li>
+		</ul>
+		</li>
+		<li><em>Add Note ▸ Note Type: General Note</em>
+		<ul class="sub">
+			<li><strong>Label</strong>: <em>Creator(s)</em></li>
+			<li>Copy/paste from sheet (include creator and recipients)</li>
+			<li>Click <strong>Publish</strong></li>
+			<li>If no creators are listed, <em>skip</em> this sub‑step</li>
+		</ul>
+		</li>
+		<li><em>Add Note ▸ Note Type: General Note</em>
+		<ul class="sub">
+			<li><strong>Label</strong>: <em>Custom Note (1):</em></li>
+			<li>Copy/paste all areas from sheet</li>
+			<li>Click <strong>Publish</strong></li>
+		</ul>
+		</li>
+		<li><em>Add Note ▸ Note Type: General Note</em>
+		<ul class="sub">
+			<li><strong>Label</strong>: <em>Custom Note (2)</em></li>
+			<li>Copy/paste from sheet</li>
+			<li>Click <strong>Publish</strong></li>
+		</ul>
+		</li>
+		<li><em>Add Note ▸ Note Type: General Note</em>
+		<ul class="sub">
+			<li><strong>Label</strong>: <em>Custom Note (3):</em></li>
+			<li>Copy/paste from sheet</li>
+			<li>Click <strong>Publish</strong></li>
+		</ul>
+		</li>
+	</ul>
+	</li>
+	<li><strong>Save</strong> the Digital Object.</li>
+</ol>
+
+<div class="warn"><strong>QA Tip:</strong> Open the public view to verify the representative file displays and that dates, notes, agents, and subjects appear as expected.</div>
+</div>
+</details>
+</div>
+<!-- /Post-Import DO Edit block -->
+
+<section class="step-section" id="basic-info">
+<div class="step-header"><span class="step-number">4.1</span>
+
+<h3>Basic Information Setup</h3>
+</div>
+
+<p>Enhance the basic information for your digital object records.</p>
+
+<div class="field-group">
+<h4 style="margin-top:0; color:#1e3c72">Required Fields:</h4>
+
+<ul class="field-list">
+	<li><span class="field-name">Title:</span> Copy and paste the Title from the spreadsheet</li>
+	<li><span class="field-name">Publish:</span> Check the Publish button ✅</li>
+	<li><span class="field-name">Level:</span> Change &#39;work&#39; to <code>item</code></li>
+	<li><span class="field-name">Language:</span> Select <code>English</code></li>
+</ul>
+</div>
+
+<div class="warning-box"><strong>Important:</strong> Always copy titles exactly as they appear in the spreadsheet to maintain consistency.</div>
+</section>
+
+<section class="step-section" id="file-versions">
+<div class="step-header"><span class="step-number">4.2</span>
+
+<h3>File Versions Configuration</h3>
+</div>
+
+<p>Configure two file versions: one for preservation and one for public access.</p>
+
+<div class="field-group">
+<h4 style="margin-top:0; color:#1e3c72">First Version - Digital Preservation:</h4>
+
+<ul class="field-list">
+	<li>Enter the <strong>&quot;Digital Preservation Staff System&quot;</strong> URL</li>
+	<li>⚠️ <strong>Deselect Publish</strong> (this should remain unpublished)</li>
+</ul>
+</div>
+
+<div class="field-group">
+<h4 style="margin-top:0; color:#1e3c72">Second Version - Public Access:</h4>
+
+<ul class="field-list">
+	<li>Enter the <strong>&quot;Electronic Record Access System&quot;</strong> URL</li>
+	<li>✅ Click <strong>Make Representative</strong></li>
+	<li>✅ Click <strong>Publish</strong></li>
+</ul>
+</div>
+
+<div class="success-box">The public access version should be both representative and published for user access.</div>
+</section>
+
+<section class="step-section" id="dates">
+<div class="step-header"><span class="step-number">4.3</span>
+
+<h3>Date Entries</h3>
+</div>
+
+<p>Add two date entries: one for the specific creation date and one for the Congressional session.</p>
+
+<div class="field-group">
+<h4 style="margin-top:0; color:#1e3c72">First Date Entry:</h4>
+
+<ul class="field-list">
+	<li><span class="field-name">Label:</span> <code>Creation</code></li>
+	<li><span class="field-name">Expression:</span> Copy DATE from spreadsheet</li>
+	<li><span class="field-name">Type:</span> <code>Single</code></li>
+	<li><span class="field-name">Begin:</span> Copy CALENDAR DATE from spreadsheet</li>
+</ul>
+
+<p><strong>Then click &quot;Add Date&quot; to create the second entry.</strong></p>
+</div>
+
+<div class="field-group">
+<h4 style="margin-top:0; color:#1e3c72">Second Date Entry:</h4>
+
+<ul class="field-list">
+	<li><span class="field-name">Label:</span> <code>Creation</code></li>
+	<li><span class="field-name">Expression:</span> Copy the dates from the worksheet</li>
+	<li><span class="field-name">Type:</span> <code>Inclusive</code></li>
+	<li><span class="field-name">Begin:</span> Start yeare</li>
+	<li><span class="field-name">End:</span> End year</li>
+</ul>
+</div>
+
+<div class="example-box"><strong>Example:</strong><br />
+Expression: <code>January 17, 1977 - January 22, 1978</code><br />
+Begin: <code>1977-01-17</code><br />
+End: <code>1978-01-22</code></div>
+
+<div class="info-box"><strong>Additional Processing Steps:</strong> Agent Links, Subject Headings, and detailed Notes sections follow the same pattern established in the original workflow. Each step builds upon the foundation created in the earlier phases.</div>
+</section>
+</section>
+<!-- PHASE 5: OMEKA-S -->
+
+<section class="phase-section" data-phase="Phase 5" id="phase-5">
+<h2><em>Website</em> Integration &amp; Maintenance</h2>
+
+<p>Final phase connects your ArchivesSpace records to the public-facing <em>Website</em> for researcher access.</p>
+
+<div class="info-box"><strong>Separate Guide Required:</strong> Due to the complexity and different platform requirements, <em>Website</em> integration and maintenance procedures are covered in a separate dedicated guide.</div>
+
+<h3>🌐 <em>Website</em> Integration Topics</h3>
+
+<p>The separate <em>Website</em> guide will cover:</p>
+
+<ul>
+	<li>Connecting ArchivesSpace to <em>Website</em></li>
+	<li>Digital link creation and validation</li>
+	<li>Public access interface maintenance</li>
+	<li>Search optimization and metadata enhancement</li>
+	<li>User experience monitoring and improvements</li>
+</ul>
+
+<div class="section-nav"><span style="color:#6b7280; font-style:italic"><em>Website</em> Integration Guide</span> <a class="nav-link" draggable="false" href="#phase-1"> &uarr; Return to Phase 1 </a></div>
+</section>
+</section>
