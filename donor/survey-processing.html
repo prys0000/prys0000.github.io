@@ -9,22 +9,32 @@
   <style>
     :root{
       --bg:#f6f7f8; --card:#fff; --muted:#6b7280;
-      --accent:#383716; --accent-2:#4a4829;
+      --accent:#383716; --accent-2:#4a4829; --gold:#c07a2c;
       --radius:10px; --container:1100px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;color:var(--accent);background:var(--bg);line-height:1.45;padding:18px}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:var(--accent);line-height:1.45;padding:18px}
     a{color:var(--accent-2);text-decoration:none}
     .wrap{max-width:var(--container);margin:0 auto}
-    header.site{margin-bottom:16px}
-    .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
+    header{background:rgba(255,255,255,0.7);backdrop-filter:blur(4px);border-bottom:1px solid rgba(15,23,42,0.04);position:sticky;top:0;z-index:10}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 18px}
     .brand{display:flex;gap:12px;align-items:center}
-    .logo-img{height:72px;width:auto;display:block;border-radius:6px}
-    .brand-title{font-weight:700;font-family:Merriweather;font-size:18px}
-    .brand-sub{font-size:13px;color:var(--muted)}
-    .hero{display:grid;grid-template-columns:1fr 320px;gap:16px;margin:16px 0}
-    @media (max-width:980px){ .hero{grid-template-columns:1fr} .logo-img{height:56px} }
+    .logo-link{display:inline-block;line-height:0}
+    .logo-link:focus{outline:3px solid rgba(74,72,41,0.12);border-radius:8px}
+    .logo-img{height:79px;width:auto;display:block;border-radius:0px}
+    .logo-fallback{ width:79px;height:79px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#c7b19d);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather }
+    .button{background:var(--accent-2);color:#fff;padding:9px 14px;border-radius:8px;font-weight:600;border:0}
+
+    .hero{padding:20px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr 340px;gap:16px;align-items:start}
+    @media (max-width:980px){ .hero-grid{grid-template-columns:1fr} .logo-img{height:56px} }
+
+    h1,h2{font-family:Merriweather;margin:0}
+    h2{font-size:20px}
+    .lead{color:var(--muted);margin:6px 0 14px}
+
+    .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 8px 24px rgba(15,23,42,0.06)}
     label{display:block;font-weight:600;margin-bottom:6px;color:var(--accent-2)}
     input[type="text"], input[type="date"], select, textarea{
       width:100%;padding:8px;border:1px solid #e6e6e6;border-radius:8px;font-size:0.95rem;background:#fff;
@@ -41,176 +51,238 @@
     table{width:100%;border-collapse:collapse}
     th, td{padding:8px;border:1px solid #eee;text-align:left}
     th{background:#fbfbfb;font-weight:700}
-    .sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+    .summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}
+    .summary .item{background:#f6f5f2;padding:12px;border-radius:8px;text-align:center}
+    .summary .label{font-size:0.85rem;color:var(--muted)}
+    .summary .value{font-weight:700;font-size:1.25rem;color:var(--gold);margin-top:6px}
+
+    footer.page{margin-top:18px;padding-top:12px;border-top:1px solid #eee;color:var(--muted);font-size:0.9rem;text-align:center}
+
+    @media print{
+      body{padding:0}
+      header .logo-img{display:none}
+      .card{box-shadow:none;border-radius:0;padding:6mm}
+      .controls, footer.page {display:none}
+    }
+
+    /* visually hidden helper */
+    .sr-only { position: absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    < class="site">
-      <div class="card" style="display:flex;align-items:center;gap:12px;padding:12px 14px">
+  <header>
+    <div class="wrap nav" role="banner">
+      <div class="brand">
         <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
-          <img src="/donor/harc-logo-2.jpg" alt="Heritage & Research Center logo" class="logo-img"
+          <img src="/donor/harc-logo-2.jpg" alt="Heritage & Research Center" class="logo-img"
                onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline-grid';" />
+          <div id="logoFallback" class="logo-fallback" style="display:none" aria-hidden="true">H</div>
         </a>
-
-        <div style="flex:1">
+        <div>
           <div class="brand-title">Heritage & Research Center</div>
           <div class="brand-sub">Survey & Processing Worksheet — interactive</div>
         </div>
-
-        <div>
-          <a class="btn" href="/donor/#handling">Home</a>
-        </div>
       </div>
-    </header>
 
+      <nav>
+        <a class="button" href="/donor/#handling">Home</a>
+        <a class="button" href="/donor/box-list.html" target="_blank" rel="noopener">Box List</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
     <section class="hero">
-      <div class="card">
-        <h2 style="margin:0;font-family:Merriweather">Survey & Processing Worksheet (condensed)</h2>
-        <p class="small muted" style="margin:6px 0 12px">Fill the key fields below. Export as CSV to share with HARC staff or print for records.</p>
+      <div class="hero-grid">
+        <div>
+          <div class="card" aria-labelledby="main-title">
+            <h2 id="main-title">Survey & Processing Worksheet (condensed)</h2>
+            <div class="lead">Fill the key fields below. Export as CSV to share with HARC staff or print for records.</div>
 
-        <div class="grid-2" aria-label="collection info">
-          <div>
-            <label>Collection title</label>
-            <input id="collectionTitle" type="text" placeholder="Collection title or congregation">
-          </div>
-          <div>
-            <label>Collection number / Accession #</label>
-            <input id="collectionNumber" type="text" placeholder="(optional)">
-          </div>
-          <div>
-            <label>Dates (range)</label>
-            <input id="dateRange" type="text" placeholder="e.g. 1920–1975">
-          </div>
-          <div>
-            <label>Survey date</label>
-            <input id="surveyDate" type="date">
-          </div>
-          <div>
-            <label>Surveyor / Prepared by</label>
-            <input id="surveyor" type="text" placeholder="Name and title">
-          </div>
-          <div>
-            <label>Contact</label>
-            <input id="contact" type="text" placeholder="Phone / email">
+            <div class="grid-2" aria-label="collection info">
+              <div>
+                <label for="collectionTitle">Collection title</label>
+                <input id="collectionTitle" type="text" placeholder="Collection title or congregation">
+              </div>
+              <div>
+                <label for="collectionNumber">Collection number / Accession #</label>
+                <input id="collectionNumber" type="text" placeholder="(optional)">
+              </div>
+              <div>
+                <label for="dateRange">Dates (range)</label>
+                <input id="dateRange" type="text" placeholder="e.g. 1920–1975">
+              </div>
+              <div>
+                <label for="surveyDate">Survey date</label>
+                <input id="surveyDate" type="date">
+              </div>
+              <div>
+                <label for="surveyor">Surveyor / Prepared by</label>
+                <input id="surveyor" type="text" placeholder="Name and title">
+              </div>
+              <div>
+                <label for="contact">Contact</label>
+                <input id="contact" type="text" placeholder="Phone / email">
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="linearFeet">Initial size (linear feet or counts)</label>
+              <div class="grid-2" style="gap:8px;margin-top:6px">
+                <input id="linearFeet" type="text" placeholder="Linear feet (e.g., 4.5)">
+                <input id="numBoxes" type="text" placeholder="# boxes / cartons">
+              </div>
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="scopeNote">Brief description / scope (one paragraph)</label>
+              <textarea id="scopeNote" placeholder="One-paragraph scope and contents note"></textarea>
+            </div>
+
+            <div style="margin-top:12px">
+              <label for="restrictions">Restrictions / Rights (short)</label>
+              <input id="restrictions" type="text" placeholder="e.g., None; Closed until 2030; Copyright retained by ...">
+            </div>
+
+            <div style="margin-top:12px" class="card" aria-labelledby="preserve-title">
+              <div id="preserve-title" style="font-weight:700">Preservation concerns</div>
+              <div class="small muted" style="margin:6px 0 8px">Check any that apply</div>
+              <div class="check-grid" id="preservationChecks" role="group" aria-label="Preservation concerns">
+                <label><input type="checkbox" value="Acidic housing"> Acidic housing</label>
+                <label><input type="checkbox" value="Mold"> Mold</label>
+                <label><input type="checkbox" value="Water damage"> Water damage</label>
+                <label><input type="checkbox" value="Brittle paper"> Brittle paper</label>
+                <label><input type="checkbox" value="Photographs"> Photographs</label>
+                <label><input type="checkbox" value="Audio/Visual"> Audio/Visual</label>
+                <label><input type="checkbox" value="Metal fasteners"> Metal fasteners</label>
+                <label><input type="checkbox" value="Pests"> Live pests</label>
+                <label><input type="checkbox" value="Other"> Other (use notes)</label>
+              </div>
+
+              <div style="margin-top:8px">
+                <label for="preservationNotes">Preservation notes / actions needed (short)</label>
+                <textarea id="preservationNotes" placeholder="Recommended actions, when, who..."></textarea>
+              </div>
+            </div>
+
+            <div style="margin-top:12px" class="card" aria-labelledby="formats-title">
+              <div id="formats-title" style="font-weight:700">Special formats / electronic media</div>
+              <div class="small muted" style="margin:6px 0 8px">Check any that apply</div>
+              <div class="check-grid" id="specialFormats" role="group" aria-label="Special formats">
+                <label><input type="checkbox" value="Photographs"> Photographs</label>
+                <label><input type="checkbox" value="Film/Negatives"> Film / negatives</label>
+                <label><input type="checkbox" value="Architectural drawings"> Architectural drawings</label>
+                <label><input type="checkbox" value="Artifacts"> Artifacts</label>
+                <label><input type="checkbox" value="External drive / USB"> External drive / USB</label>
+                <label><input type="checkbox" value="Upload to server"> Upload to server</label>
+                <label><input type="checkbox" value="Other"> Other</label>
+              </div>
+
+              <div style="margin-top:8px">
+                <label for="electronicNotes">Electronic records notes</label>
+                <textarea id="electronicNotes" placeholder="File types, transfer instructions, restricted files, etc."></textarea>
+              </div>
+            </div>
+
+            <!-- Processing activities (dynamic rows) -->
+            <div style="margin-top:12px">
+              <strong>Processing activities / daily log (condensed)</strong>
+              <div class="small muted" style="margin:6px 0 8px">Add activity rows with date, activity, and hours</div>
+              <div class="table-wrap">
+                <table id="activitiesTable" aria-label="Processing activities">
+                  <thead><tr><th style="width:120px">Date</th><th>Activity</th><th style="width:100px">Hours</th><th style="width:80px">Actions</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td><input type="date" class="act-date" aria-label="Activity date"></td>
+                      <td><input type="text" class="act-desc" placeholder="Foldering, labeling, scope note..." aria-label="Activity description"></td>
+                      <td><input type="text" class="act-hours" placeholder="0.5" aria-label="Hours spent"></td>
+                      <td><button class="btn ghost small removeRow" type="button" aria-label="Remove row">Remove</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="controls" style="margin-top:8px">
+                <button id="addActivity" class="btn" type="button">+ Add activity</button>
+                <button id="clearActivities" class="btn ghost" type="button">Clear activities</button>
+              </div>
+            </div>
+
+            <!-- OneDrive upload -->
+            <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+              <div>
+                <p class="small muted" style="margin:0 0 6px">Send digital files (photos, scans, spreadsheets):</p>
+                <a class="btn" id="oneDriveUploadBtn" href="https://harcsm-my.sharepoint.com/:f:/g/personal/japryse_harcsm_org/Eju8HJkt6AFHhHYgm--6KocBicuIOWP_uFHpF6XEO2wEkw?e=OfSHBa" target="_blank" rel="noopener">Upload to OneDrive</a>
+              </div>
+              <div class="muted small">Tip: include collection name and item/box numbers in filenames.</div>
+            </div>
+
+            <!-- controls -->
+            <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+              <button id="exportCsvBtn" class="btn" type="button">Export CSV</button>
+              <button id="printBtn" class="btn ghost" type="button">Print</button>
+              <div id="status" class="small muted" style="margin-left:12px"></div>
+            </div>
+
+            <div class="summary" aria-hidden="false" style="margin-top:16px">
+              <div class="item"><div class="label">Total activities</div><div class="value" id="totalActs">___</div></div>
+              <div class="item"><div class="label">Linear feet</div><div class="value" id="sumLinearFeet">___</div></div>
+              <div class="item"><div class="label">Boxes</div><div class="value" id="sumBoxes">___</div></div>
+              <div class="item"><div class="label">Special formats</div><div class="value" id="specialCount">___</div></div>
+            </div>
           </div>
         </div>
 
-        <div style="margin-top:12px">
-          <label>Initial size (linear feet or counts)</label>
-          <div class="grid-2" style="gap:8px;margin-top:6px">
-            <input id="linearFeet" type="text" placeholder="Linear feet (e.g., 4.5)">
-            <input id="numBoxes" type="text" placeholder="# boxes / cartons">
-          </div>
-        </div>
+        <aside>
+          <div class="card" role="complementary" aria-label="Contact & links">
+            <div style="font-weight:700;margin-bottom:8px">Contact HARC</div>
+            <div class="muted">Email: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
+            <div class="muted" style="margin-top:8px">Phone: (574) 678-6155</div>
 
-        <div style="margin-top:12px">
-          <label>Brief description / scope (one paragraph)</label>
-          <textarea id="scopeNote" placeholder="One-paragraph scope and contents note"></textarea>
-        </div>
+            <hr style="border:none;border-top:1px solid rgba(15,23,42,0.04);margin:12px 0">
 
-        <div style="margin-top:12px">
-          <label>Restrictions / Rights (short)</label>
-          <input id="restrictions" type="text" placeholder="e.g., None; Closed until 2030; Copyright retained by ...">
-        </div>
+            <div style="margin-top:8px">
+              <div style="font-weight:700;margin-bottom:6px">Templates</div>
+              <div style="margin-bottom:6px"><a href="/donor/box-list.html">Box List template</a></div>
+              <div><a href="/donor/item-level-inventory.html">Item-level template</a></div>
+            </div>
 
-        <div style="margin-top:12px" class="card">
-          <strong>Preservation concerns</strong>
-          <div class="small muted" style="margin:6px 0 8px">Check any that apply</div>
-          <div class="check-grid" id="preservationChecks">
-            <label><input type="checkbox" value="Acidic housing"> Acidic housing</label>
-            <label><input type="checkbox" value="Mold"> Mold</label>
-            <label><input type="checkbox" value="Water damage"> Water damage</label>
-            <label><input type="checkbox" value="Brittle paper"> Brittle paper</label>
-            <label><input type="checkbox" value="Photographs"> Photographs</label>
-            <label><input type="checkbox" value="Audio/Visual"> Audio/Visual</label>
-            <label><input type="checkbox" value="Metal fasteners"> Metal fasteners</label>
-            <label><input type="checkbox" value="Pests"> Live pests</label>
-            <label><input type="checkbox" value="Other"> Other (use notes)</label>
+            <div style="margin-top:12px">
+              <div style="font-weight:700;margin-bottom:8px">Instructions</div>
+              <div class="muted small">Complete key fields here, upload files to OneDrive, then export CSV to share. Preserve original order where possible; do not discard materials before HARC review.</div>
+            </div>
           </div>
-
-          <div style="margin-top:8px">
-            <label>Preservation notes / actions needed (short)</label>
-            <textarea id="preservationNotes" placeholder="Recommended actions, when, who..."></textarea>
-          </div>
-        </div>
-
-        <div style="margin-top:12px" class="card">
-          <strong>Special formats / electronic media</strong>
-          <div class="small muted" style="margin:6px 0 8px">Check any that apply</div>
-          <div class="check-grid" id="specialFormats">
-            <label><input type="checkbox" value="Photographs"> Photographs</label>
-            <label><input type="checkbox" value="Film/Negatives"> Film / negatives</label>
-            <label><input type="checkbox" value="Architectural drawings"> Architectural drawings</label>
-            <label><input type="checkbox" value="Artifacts"> Artifacts</label>
-            <label><input type="checkbox" value="External drive / USB"> External drive / USB</label>
-            <label><input type="checkbox" value="Upload to server"> Upload to server</label>
-            <label><input type="checkbox" value="Other"> Other</label>
-          </div>
-          <div style="margin-top:8px">
-            <label>Electronic records notes</label>
-            <textarea id="electronicNotes" placeholder="File types, transfer instructions, restricted files, etc."></textarea>
-          </div>
-        </div>
-
-        <!-- Processing activities (dynamic rows) -->
-        <div style="margin-top:12px">
-          <strong>Processing activities / daily log (condensed)</strong>
-          <div class="small muted" style="margin:6px 0 8px">Add activity rows with date, activity, and hours</div>
-          <div class="table-wrap">
-            <table id="activitiesTable" aria-label="Processing activities">
-              <thead><tr><th style="width:120px">Date</th><th>Activity</th><th style="width:100px">Hours</th><th style="width:80px">Actions</th></tr></thead>
-              <tbody>
-                <tr><td><input type="date" class="act-date"></td><td><input type="text" class="act-desc" placeholder="Foldering, labeling, scope note..."></td><td><input type="text" class="act-hours" placeholder="0.5"></td><td><button class="btn ghost small removeRow">Remove</button></td></tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="controls" style="margin-top:8px">
-            <button id="addActivity" class="btn">+ Add activity</button>
-            <button id="clearActivities" class="btn ghost">Clear activities</button>
-          </div>
-        </div>
-
-        <!-- OneDrive upload -->
-        <div style="margin-top:12px;display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-          <div>
-            <p class="small muted" style="margin:0 0 6px">Send digital files (photos, scans, spreadsheets):</p>
-            <a class="btn" id="oneDriveUploadBtn" href="https://harcsm-my.sharepoint.com/:f:/g/personal/japryse_harcsm_org/Eju8HJkt6AFHhHYgm--6KocBicuIOWP_uFHpF6XEO2wEkw?e=OfSHBa" target="_blank" rel="noopener">Upload to OneDrive</a>
-          </div>
-          <div class="muted small">Tip: include collection name and item/box numbers in filenames.</div>
-        </div>
-
-        <!-- controls -->
-        <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
-          <button id="exportCsvBtn" class="btn">Export CSV</button>
-          <button id="printBtn" class="btn ghost">Print</button>
-          <div id="status" class="small muted" style="margin-left:12px"></div>
-        </div>
+        </aside>
       </div>
-
-      <!-- sidebar card (optional condensed contact) -->
-      <aside style="align-self:start">
-        <div class="card" role="complementary" aria-label="Contact">
-          <strong style="display:block;margin-bottom:8px">Contact HARC</strong>
-          <div class="muted">Email: <a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div>
-          <div class="muted" style="margin-top:8px">Phone: (574) 678-6155</div>
-          <div style="margin-top:12px"><a href="/donor/box-list.html">Box List template</a></div>
-          <div style="margin-top:6px"><a href="/donor/item-level-inventory.html">Item-level template</a></div>
-        </div>
-      </aside>
     </section>
 
-    <footer class="page" style="margin-top:10px;text-align:center;color:var(--muted)"><small>Heritage &amp; Research Center at Saint Mary's</small></footer>
-  </div>
+    <footer class="page">
+      <div class="muted">Heritage &amp; Research Center at Saint Mary's · Email: <a href="mailto:harc@saintmarys.edu">harc@saintmarys.edu</a> · Location: Notre Dame, IN</div>
+      <div style="margin-top:8px;color:var(--muted)">Submit completed survey with your Deed of Gift / Transfer Agreement.</div>
+    </footer>
+  </main>
 
   <script>
-    // Add / remove activity rows
-    document.getElementById('addActivity').addEventListener('click', function(e){
-      e.preventDefault();
+    // Activity row helpers
+    function addActivityRow(date = '', desc = '', hours = '') {
       const tbody = document.querySelector('#activitiesTable tbody');
       const tr = document.createElement('tr');
-      tr.innerHTML = '<td><input type="date" class="act-date"></td><td><input type="text" class="act-desc" placeholder="Activity description"></td><td><input type="text" class="act-hours" placeholder="0.5"></td><td><button class="btn ghost small removeRow">Remove</button></td>';
+      tr.innerHTML = `
+        <td><input type="date" class="act-date" value="${date}"></td>
+        <td><input type="text" class="act-desc" placeholder="Activity description" value="${desc.replace(/"/g,'&quot;')}"></td>
+        <td><input type="text" class="act-hours" placeholder="0.5" value="${hours}"></td>
+        <td><button class="btn ghost small removeRow" type="button">Remove</button></td>
+      `;
       tbody.appendChild(tr);
+      updateSummary();
+      return tr;
+    }
+
+    document.getElementById('addActivity').addEventListener('click', function(e){
+      e.preventDefault();
+      addActivityRow();
+      // focus the last added activity description
+      const last = document.querySelector('#activitiesTable tbody tr:last-child .act-desc');
+      if(last) last.focus();
     });
 
     document.querySelector('#activitiesTable tbody').addEventListener('click', function(e){
@@ -218,13 +290,15 @@
         e.preventDefault();
         const tr = e.target.closest('tr');
         tr.remove();
+        updateSummary();
       }
     });
 
     document.getElementById('clearActivities').addEventListener('click', function(e){
       e.preventDefault();
       const tbody = document.querySelector('#activitiesTable tbody');
-      tbody.innerHTML = '<tr><td><input type="date" class="act-date"></td><td><input type="text" class="act-desc"></td><td><input type="text" class="act-hours"></td><td><button class="btn ghost small removeRow">Remove</button></td></tr>';
+      tbody.innerHTML = '<tr><td><input type="date" class="act-date"></td><td><input type="text" class="act-desc" placeholder="Activity description"></td><td><input type="text" class="act-hours" placeholder="0.5"></td><td><button class="btn ghost small removeRow" type="button">Remove</button></td></tr>';
+      updateSummary();
     });
 
     // Export CSV
@@ -240,6 +314,7 @@
       rows.push(['Linear feet', get('linearFeet')]);
       rows.push(['Number of boxes', get('numBoxes')]);
       rows.push([]);
+
       rows.push(['Scope Note', get('scopeNote')]);
       rows.push(['Restrictions / Rights', get('restrictions')]);
       rows.push([]);
@@ -263,7 +338,7 @@
       rows.push(['Date','Activity','Hours']);
       document.querySelectorAll('#activitiesTable tbody tr').forEach(tr=>{
         const d = tr.querySelector('.act-date')?.value || '';
-        const a = tr.querySelector('.act-desc')?.value?.replace(/"/g,'""') || '';
+        const a = (tr.querySelector('.act-desc')?.value || '').replace(/"/g,'""');
         const h = tr.querySelector('.act-hours')?.value || '';
         // skip empty rows
         if(!d && !a && !h) return;
@@ -293,14 +368,48 @@
     // OneDrive tip notice
     document.getElementById('oneDriveUploadBtn').addEventListener('click', function(){
       const st = document.getElementById('status');
-      st.textContent = 'Tip: include collection name and item/box numbers in filenames.';
-      setTimeout(()=> st.textContent = '', 8000);
+      if(st) st.textContent = 'Tip: include collection name and item/box numbers in filenames.';
+      setTimeout(()=> { if(st) st.textContent = ''; }, 8000);
     });
 
-    // minor accessibility: focus first field on load
-    window.addEventListener('load', ()=> { document.getElementById('collectionTitle')?.focus(); });
+    // Summary update (counts)
+    function updateSummary(){
+      const tbody = document.querySelector('#activitiesTable tbody');
+      const rows = Array.from(tbody.querySelectorAll('tr'));
+      const filled = rows.filter(r => {
+        const d = r.querySelector('.act-date')?.value || '';
+        const a = r.querySelector('.act-desc')?.value || '';
+        const h = r.querySelector('.act-hours')?.value || '';
+        return d || a || h;
+      }).length;
+      document.getElementById('totalActs').innerText = filled || '0';
+
+      const lf = (document.getElementById('linearFeet')?.value || '').trim();
+      document.getElementById('sumLinearFeet').innerText = lf || '___';
+      const boxes = (document.getElementById('numBoxes')?.value || '').trim();
+      document.getElementById('sumBoxes').innerText = boxes || '___';
+
+      const special = [...document.querySelectorAll('#specialFormats input[type="checkbox"]')].filter(cb=>cb.checked).length;
+      document.getElementById('specialCount').innerText = special || '0';
+    }
+
+    // update summary on changes
+    document.addEventListener('input', updateSummary);
+    document.addEventListener('change', updateSummary);
+
+    // accessibility: focus first field on load
+    window.addEventListener('load', ()=> {
+      document.getElementById('collectionTitle')?.focus();
+      updateSummary();
+    });
+
+    // keyboard shortcut: Ctrl/Cmd+S -> export CSV
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 's') {
+        e.preventDefault();
+        document.getElementById('exportCsvBtn').click();
+      }
+    });
   </script>
 </body>
 </html>
-
-
