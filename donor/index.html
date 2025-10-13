@@ -163,19 +163,30 @@
   </div>
 </section>
 
-      <aside>
-        <div class="card" role="complementary" aria-label="Contact">
-          <strong style="display:block;margin-bottom:8px">Connect With Us</strong>
-          <p class="meta">Contact the HARC team to arrange a visit or request forms.</p>
-          <div style="margin-top:12px"><div style="font-weight:600">Email</div><div class="meta"><a href="mailto:bgordon@harcsm.org">bgordon@harcsm.org</a></div></div>
-          <div style="margin-top:12px"><div style="font-weight:600">Phone</div><div class="meta">(574) 678-6155</div></div>
-          <div style="margin-top:14px;display:flex;gap:10px">
-            <a href="#policies">View policies</a>
-            <a href="#collection-agreement">Collection Agreement</a>
-          </div>
-        </div>
-      </aside>
-    </div>
+          <!-- aside / connect with us -->
+    <aside class="connect" aria-labelledby="connect-heading">
+      <h3 id="connect-heading">Connect with Us</h3>
+      <p class="meta">Questions about transfers, tours, or assessments? Reach out — we're happy to help.</p>
+
+      <div class="quicklinks-mini" aria-hidden="false">
+        <a class="contact-btn" href="tel:+15746786155">(574) 678-6155</a>
+
+        <!-- mailto: replace with your real address or obfuscated script -->
+        <a class="contact-btn" style="background:#2c7be5" href="mailto:japryse@harcsm.org">Email HARC</a>
+
+        <div class="small"><strong>Visit / Resources</strong></div>
+        <a class="muted" href="/donor/storage-environment-chart.html" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a>
+        <a class="muted" href="/donor/harc-archives-toolkit.html" title="Open HARC Transition Toolkit">Open HARC Transition Toolkit</a>
+      </div>
+
+      <hr style="margin:12px 0;border:none;border-top:1px solid #e7eefb">
+
+      <div>
+        <h4 style="margin:0 0 6px 0">Office Hours</h4>
+        <p class="small">Mon–Fri, 9:00am–4:00pm (by appointment)</p>
+      </div>
+    </aside>
+  </div>
   </section>
 
   <main class="wrap" id="resources" role="main">
@@ -252,31 +263,7 @@
 
       </div>
     </section>
-    <script>
-  // Auto-open the HARC Transition Toolkit in your preview on first load.
-  // Defensive: only triggers if previewAndScroll exists and toolkit-link is present.
-  (function() {
-    function tryOpenToolkit() {
-      var link = document.getElementById('toolkit-link');
-      if (!link) return;
-      // If previewAndScroll is defined on the page, trigger a real click so the same handler executes.
-      if (typeof previewAndScroll === 'function') {
-        // Slight delay to allow any preview container or scripts to initialize.
-        setTimeout(function() { link.click(); }, 250);
-      } else {
-        // If previewAndScroll isn't available, optionally open the toolkit in a new tab as a fallback.
-        // Comment out the next line if you do NOT want the fallback behavior.
-        // window.open(link.getAttribute('data-src') || link.href, '_blank');
-      }
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', tryOpenToolkit);
-    } else {
-      tryOpenToolkit();
-    }
-  })();
-</script>
+    
 
     <section class="card" style="margin-top:16px">
       <h3>More Information</h3>
