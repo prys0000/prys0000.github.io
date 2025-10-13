@@ -8,35 +8,32 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet">
   <style>
     :root{
-      /* ORIGINAL VARIABLE NAMES KEPT — values updated to your chosen palette */
-      --bg: #F5F7F9;        /* page background */
-      --card: #FFFFFF;      /* card / surface */
-      --muted: #6B7280;     /* muted text */
-      --accent: #1c1b19;    /* primary (olive) - used where original used --accent */
-      --accent-2: #205072;  /* secondary (navy) - used where original used --accent-2 */
+      --bg: #F5F7F9;
+      --card: #FFFFFF;
+      --muted: #6B7280;
+      --accent: #1c1b19;
+      --accent-2: #205072;
       --radius: 10px;
       --container: 1100px;
     }
-
     *{box-sizing:border-box}
     html,body{height:100%}
-    body{margin:0;font-family: Merriweather;color:var(--accent);background:var(--bg);line-height:1.5}
+    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,-apple-system,Helvetica,Arial;color:var(--accent);background:var(--bg);line-height:1.5}
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:var(--container);margin:0 auto;padding:18px}
     header{background:rgba(255,255,255,0.7);backdrop-filter:blur(4px);border-bottom:1px solid rgba(15,23,42,0.04);position:sticky;top:0;z-index:10}
     .nav{display:flex;align-items:center;justify-content:space-between;gap:12px}
     .brand{display:flex;gap:12px;align-items:center}
     .logo-link{display:inline-block;line-height:0}
-    .logo-link:focus{outline:3px solid rgba(43,111,179,0.18);border-radius:8px}
-    .logo-img{height:106px;width:auto;display:block}
-    .logo-fallback{ width:auto;height:106px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#c7b19d);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather }
+    .logo-img{height:64px;width:auto;display:block}
+    .logo-fallback{ width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,var(--accent-2),#c7b19d);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather }
     .button{background:var(--accent);color:#fff;padding:9px 14px;border-radius:8px;font-weight:600;border:0}
 
-    .hero{padding:36px 0}
+    .hero{padding:28px 0}
     .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
     @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} }
 
-    h1{font-family:Merriweather;font-size:26px;margin:0 0 8px}
+    h1{font-family:Merriweather,serif;font-size:26px;margin:0 0 8px}
     .lead{color:var(--muted);margin:0 0 14px}
 
     .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.05)}
@@ -48,7 +45,6 @@
     .link-item p{margin:0;color:var(--muted);font-size:13px}
 
     main{max-width:var(--container);margin:18px auto;padding:0 18px}
-    .two-col{display:grid;grid-template-columns:1fr 320px;gap:20px}
     .meta{color:var(--muted);font-size:14px}
 
     /* PDF viewer and file list */
@@ -61,8 +57,15 @@
     .error-box{display:none;padding:14px;border-radius:8px;background:#fff;border:1px solid rgba(15,23,42,0.04);margin-top:10px}
     footer{padding:28px 18px;text-align:center;color:var(--muted);font-size:14px}
 
+    /* Connect aside styles */
+    aside.connect { display:block; background:linear-gradient(180deg,#fbfdff,#f6f9ff); padding:16px; border-radius:10px; border:1px solid #e7f1ff; box-shadow:0 8px 20px rgba(11,87,164,0.03); }
+    aside.connect img.thumb { width:100%; border-radius:8px; object-fit:cover; margin-bottom:10px; display:block }
+    aside.connect .muted { color:var(--accent-2); display:inline-block; margin:6px 0; text-decoration:underline; font-size:14px }
+    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:8px; margin-top:12px }
+    .gallery-grid img { width:100%; height:84px; object-fit:cover; border-radius:8px; border:1px solid rgba(15,23,42,0.04) }
+
     @media print{
-      header,footer{display:none}
+      header,footer,aside{display:none}
       .pdf-frame{height:800px;display:block}
     }
 
@@ -73,19 +76,13 @@
   <header>
     <div class="wrap nav" role="banner">
       <div class="brand">
-        <!-- logo links back to donor home (section: handling) -->
         <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
-          <!-- Use the new logo file placed in donor/ -->
-          <img
-            src="/donor/harc-logo-2.jpg"
-            alt="Heritage & Research Center at Saint Mary's"
-            class="logo-img"
-            onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline-grid';"
-          />
-          <!-- fallback shown only if image fails -->
+          <img src="/donor/harc-logo-2.jpg"
+               alt="Heritage & Research Center at Saint Mary's"
+               class="logo-img"
+               onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline-grid';" />
           <div id="logoFallback" class="logo-fallback" style="display:none" aria-hidden="true">H</div>
         </a>
-
         <div>
           <div style="font-weight:700">Heritage &amp; Research Center</div>
           <div style="font-size:13px;color:var(--muted)">Resources for Congregations &amp; Staff</div>
@@ -101,111 +98,116 @@
   </header>
 
   <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <h1>Welcome — Resources for Congregations &amp; Staff</h1>
-      <p class="lead">A hub to review collection policies, intake/transfer agreements, image &amp; publication guidance, handling instructions, and the donor packet.</p>
-
-      <div class="card" aria-labelledby="quicklinks">
-        <div style="display:flex;justify-content:space-between;align-items:center">
-          <div>
-            <strong id="quicklinks" style="font-size:1.35rem;font-family:Merriweather;font-weight:900">
-              Quick Links
-            </strong>
-            <div class="meta">Click any item below to preview or download the document.</div>
-          </div>
-          <div></div>
-        </div>
-
-        <div class="links-grid" style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
-
-          <!-- NEW: HARC Transition Toolkit (top item) -->
-          <a class="link-item" href="#harc-toolkit"
-             data-src="/donor/harc-archives-toolkit.html"
-             id="toolkit-link"
-             onclick="previewAndScroll(event)"
-             style="display:block;padding:12px;border-radius:6px;background:#fff;text-decoration:none;">
-            <h4 style="margin:0 0 6px 0">HARC Transition Toolkit</h4>
-            <p style="margin:0;color:#555">Comprehensive guidance for assessing, planning, and executing archives transfers to HARC. Preview or open the full toolkit.</p>
-          </a>
-
-          <a class="link-item" href="#collection-agreement" onclick="previewAndScroll(event)" data-src="/donor/collection-agreement-draft.html" style="display:block;padding:12px;border-radius:6px;text-decoration:none;">
-            <h4 style="margin:0 0 6px 0">Collection Agreement</h4>
-            <p style="margin:0;color:#555">Collections Transfer Agreement (draft) — terms and next steps.</p>
-          </a>
-
-          <a class="link-item" href="#policies" onclick="previewAndScroll(event)" data-src="/donor/collection-policies.html" style="display:block;padding:12px;border-radius:6px;text-decoration:none;">
-            <h4 style="margin:0 0 6px 0">Collection Policies</h4>
-            <p style="margin:0;color:#555">Accessioning, access, retention, and restrictions.</p>
-          </a>
-
-          <a class="link-item" href="/donor/box-list.html" target="_blank" rel="noopener" style="display:block;padding:12px;border-radius:6px;text-decoration:none;">
-            <h4 style="margin:0 0 6px 0">Box-Level Inventories</h4>
-            <p style="margin:0;color:#555">Editable box-list template — one row per physical container.</p>
-          </a>
-
-          <a class="link-item" href="#image-use"
-             data-src="/donor/harc-image-use-agreement-draft1.pdf"
-             onclick="previewAndScroll(event)"
-             style="display:block;padding:12px;border-radius:6px;text-decoration:none;">
-            <h4 style="margin:0 0 6px 0">Image &amp; Publication</h4>
-            <p style="margin:0;color:#555">Permissions, reproduction, and citation guidance.</p>
-          </a>
-
-          <a class="link-item" href="/donor/item-level-inventory.html" target="_blank" rel="noopener" style="display:block;padding:12px;border-radius:6px;text-decoration:none;">
-            <h4 style="margin:0 0 6px 0">Item-Level Inventories</h4>
-            <p style="margin:0;color:#555">Item-level finding aid template for photos, postcards, newsletters, and artifacts.</p>
-          </a>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-          <!-- aside / connect with us -->
-    <aside class="connect" aria-labelledby="connect-heading">
-      <h3 id="connect-heading">Connect with Us</h3>
-      <p class="meta">Questions about transfers, tours, or assessments? Reach out — we're happy to help.</p>
-
-      <div class="quicklinks-mini" aria-hidden="false">
-        <a class="contact-btn" href="tel:+15746786155">(574) 678-6155</a>
-
-        <!-- mailto: replace with your real address or obfuscated script -->
-        <a class="contact-btn" style="background:#2c7be5" href="mailto:japryse@harcsm.org">Email HARC</a>
-
-        <div class="small"><strong>Visit / Resources</strong></div>
-        <a class="muted" href="/donor/storage-environment-chart.html" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a>
-        <a class="muted" href="/donor/harc-archives-toolkit.html" title="Open HARC Transition Toolkit">Open HARC Transition Toolkit</a>
-      </div>
-
-      <hr style="margin:12px 0;border:none;border-top:1px solid #e7eefb">
-
+    <div class="wrap hero-grid">
+      <!-- main column -->
       <div>
-        <h4 style="margin:0 0 6px 0">Office Hours</h4>
-        <p class="small">Mon–Fri, 9:00am–4:00pm (by appointment)</p>
+        <h1>Welcome — Resources for Congregations &amp; Staff</h1>
+        <p class="lead">A hub to review collection policies, intake/transfer agreements, image &amp; publication guidance, handling instructions, and the donor packet.</p>
+
+        <div class="card" aria-labelledby="quicklinks">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <div>
+              <strong id="quicklinks" style="font-size:1.35rem;font-family:Merriweather;font-weight:900">Quick Links</strong>
+              <div class="meta">Click any item below to preview or download the document.</div>
+            </div>
+            <div></div>
+          </div>
+
+          <div class="links-grid" style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+            <!-- TOP ITEM: HARC Transition Toolkit -->
+            <a class="link-item" href="#harc-toolkit"
+               data-src="/donor/harc-archives-toolkit.html"
+               id="toolkit-link"
+               onclick="previewAndScroll(event)"
+               title="Preview HARC Transition Toolkit">
+              <h4>HARC Transition Toolkit</h4>
+              <p>Comprehensive guidance for assessing, planning, and executing archives transfers to HARC. Preview or open the full toolkit.</p>
+            </a>
+
+            <a class="link-item" href="#collection-agreement" data-src="/donor/harc-donor-congregation-agreement-draft2.pdf" onclick="previewAndScroll(event)">
+              <h4>Collection Agreement</h4>
+              <p>Collections Transfer Agreement (draft) — terms and next steps.</p>
+            </a>
+
+            <a class="link-item" href="#policies" data-src="/donor/harc-collection-policy-2025-draft1.pdf" onclick="previewAndScroll(event)">
+              <h4>Collection Policies</h4>
+              <p>Accessioning, access, retention, and restrictions.</p>
+            </a>
+
+            <a class="link-item" href="/donor/box-list.html" target="_blank" rel="noopener">
+              <h4>Box-Level Inventories</h4>
+              <p>Editable box-list template — one row per physical container.</p>
+            </a>
+
+            <a class="link-item" href="#image-use" data-src="/donor/harc-image-use-agreement-draft1.pdf" onclick="previewAndScroll(event)">
+              <h4>Image &amp; Publication</h4>
+              <p>Permissions, reproduction, and citation guidance.</p>
+            </a>
+
+            <a class="link-item" href="/donor/item-level-inventory.html" target="_blank" rel="noopener">
+              <h4>Item-Level Inventories</h4>
+              <p>Item-level finding aid template for photos, postcards, newsletters, and artifacts.</p>
+            </a>
+          </div>
+
+          <!-- small gallery to preview the vault image(s) -->
+          <div style="margin-top:14px">
+            <h4 style="margin:0 0 8px 0">HARC — Inside the Vault</h4>
+            <div class="gallery-grid" aria-hidden="false">
+              <a href="/donor/vault-1.jpg" target="_blank" rel="noopener">
+                <img src="/donor/vault-1.jpg" alt="HARC archival vault with shelving and boxes" onerror="this.replaceWith(createImageFallback())">
+              </a>
+              <!-- if you add more images, duplicate the <a><img/></a> here -->
+            </div>
+            <div class="meta" style="margin-top:8px">Climate-controlled shelving and boxed collections. Click an image to open full size.</div>
+            <div style="margin-top:10px"><a class="btn" href="/donor/harc-archives-toolkit.html" target="_blank" rel="noopener">Open Toolkit</a></div>
+          </div>
+        </div>
       </div>
-    </aside>
-  </div>
+
+      <!-- aside / connect with us -->
+      <aside class="connect" aria-labelledby="connect-heading">
+        <h3 id="connect-heading">Connect with Us</h3>
+        <p class="meta">Questions about transfers, tours, or assessments? Reach out — we're happy to help.</p>
+
+        <!-- thumbnail with fallback -->
+        <img class="thumb" src="/donor/vault-1.jpg" alt="HARC archival vault with shelving and boxes" onerror="this.style.display='none'">
+
+        <div style="margin-top:8px">
+          <a class="btn" href="tel:+15746786155">(574) 678-6155</a>
+          <a class="btn" style="background:#2c7be5;margin-left:8px" href="mailto:japryse@harcsm.org">Email HARC</a>
+        </div>
+
+        <div style="margin-top:12px">
+          <div class="small" style="font-weight:700;margin-bottom:6px">Visit / Resources</div>
+          <a class="muted" href="/donor/storage-environment-chart.html" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a><br>
+          <a class="muted" href="/donor/harc-archives-toolkit.html" title="Open HARC Transition Toolkit">Open HARC Transition Toolkit</a>
+        </div>
+
+        <hr style="margin:12px 0;border:none;border-top:1px solid #e7eefb">
+
+        <div>
+          <h4 style="margin:0 0 6px 0">Office Hours</h4>
+          <p class="small">Mon–Fri, 9:00am–4:00pm (by appointment)</p>
+          <a class="btn" href="#request-visit" style="background:#0b57a4">Request Visit</a>
+        </div>
+      </aside>
+    </div>
   </section>
 
   <main class="wrap" id="resources" role="main">
     <section class="card pdf-wrap" aria-labelledby="preview">
       <h3 id="preview">Preview files</h3>
 
-      <!-- iframe will be shown only when a file is found -->
       <iframe id="pdfViewer" class="pdf-frame" title="PDF preview" loading="lazy" aria-hidden="true"></iframe>
 
-      <!-- friendly error / fallback -->
       <div id="pdfError" class="error-box" role="status" aria-live="polite">
         <strong>File not found</strong>
         <p class="meta" style="margin:6px 0 8px">The selected preview file couldn't be located. Use the Download button to open the file or browse the donor folder.</p>
         <p><a id="pdfDownloadFallback" class="btn" href="/donor/" target="_blank" rel="noopener">Open donor folder</a></p>
       </div>
 
-      <!-- File lists in requested order -->
       <div style="margin-top:12px;display:grid;gap:10px">
-
         <div id="collection-agreement" class="file-row">
           <div>
             <div style="font-weight:600">1 — Collection Transfer Agreement (draft)</div>
@@ -263,7 +265,6 @@
 
       </div>
     </section>
-    
 
     <section class="card" style="margin-top:16px">
       <h3>More Information</h3>
@@ -276,33 +277,60 @@
   </footer>
 
   <script>
-    // smooth scroll for internal hash links
+    // Create an inline SVG fallback element when images fail
+    function createImageFallback() {
+      var wrapper = document.createElement('div');
+      wrapper.style.width = '100%';
+      wrapper.style.height = '84px';
+      wrapper.style.display = 'grid';
+      wrapper.style.placeItems = 'center';
+      wrapper.style.background = '#f8fafc';
+      wrapper.style.borderRadius = '8px';
+      wrapper.style.border = '1px solid rgba(15,23,42,0.04)';
+      wrapper.innerHTML = '<svg width="56" height="56" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><rect width="24" height="24" rx="4" fill="#e6eefb"/><path d="M4 17l4-6 3 4 3-5 5 8" stroke="#9fb8e6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+      return wrapper;
+    }
+
+    // Smooth scroll for internal hash links (preserve simple hash behavior)
     document.addEventListener('click', function(e){
-      const a = e.target.closest('a');
+      var a = e.target.closest('a');
       if(!a) return;
-      const href = a.getAttribute('href') || '';
+      var href = a.getAttribute('href') || '';
       if(href.startsWith('#')){
-        const el = document.querySelector(href);
+        var el = document.querySelector(href);
         if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
       }
     });
 
-    // Check file exists (HEAD) then show iframe or error
+    // Attempt HEAD check and then show iframe; show error fallback if not found.
     async function checkAndShowPdf(url){
-      const iframe = document.getElementById('pdfViewer');
-      const err = document.getElementById('pdfError');
-      const downloadFallback = document.getElementById('pdfDownloadFallback');
+      var iframe = document.getElementById('pdfViewer');
+      var err = document.getElementById('pdfError');
+      var downloadFallback = document.getElementById('pdfDownloadFallback');
 
-      // reset
       iframe.style.display = 'none';
       iframe.src = '';
       iframe.setAttribute('aria-hidden', 'true');
       err.style.display = 'none';
       downloadFallback.href = '/donor/';
 
-      try{
-        const resp = await fetch(url, { method: 'HEAD' });
-        if(resp.ok){
+      try {
+        // HEAD requests can be blocked by some hosts — fall back to a simple GET if HEAD fails with CORS.
+        let headOk = false;
+        try {
+          let headResp = await fetch(url, { method: 'HEAD' });
+          headOk = headResp.ok;
+        } catch (hx) {
+          // HEAD failed (possible CORS). Try a lightweight fetch for the first bytes, but don't download large bodies.
+          try {
+            let resp = await fetch(url, { method: 'GET', headers: { Range: 'bytes=0-0' } });
+            headOk = resp.ok;
+          } catch (gx) {
+            headOk = false;
+          }
+        }
+
+        if (headOk) {
           iframe.src = url;
           iframe.style.display = 'block';
           iframe.setAttribute('aria-hidden', 'false');
@@ -312,7 +340,7 @@
           err.style.display = 'block';
           return false;
         }
-      }catch(errFetch){
+      } catch (errFetch) {
         err.style.display = 'block';
         return false;
       }
@@ -320,7 +348,7 @@
 
     function previewPDF(e){
       e.preventDefault();
-      const src = e.currentTarget.getAttribute('data-src');
+      var src = e.currentTarget.getAttribute('data-src');
       if(!src) return;
       checkAndShowPdf(src);
     }
@@ -328,34 +356,29 @@
     // Combined preview + scroll for tiles
     function previewAndScroll(e){
       e.preventDefault();
-      const a = e.currentTarget;
-      const src = a.dataset.src;
-      const href = a.getAttribute('href');
+      var a = e.currentTarget;
+      var src = a.dataset.src;
+      var href = a.getAttribute('href');
 
-      if(src){
-        try{ checkAndShowPdf(src); }catch(err){ /* silently continue */ }
-      }
-
+      if(src) checkAndShowPdf(src);
       if(href && href.startsWith('#')){
-        const el = document.querySelector(href);
+        var el = document.querySelector(href);
         if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else if (href && href !== '#') {
+        // if link points to an external page, open it
+        window.open(href, '_blank', 'noopener');
       }
     }
 
-    // auto-preview collection policy first; fall back to first data-src found
+    // Auto-preview: prefer toolkit tile if present; otherwise the first data-src found.
     document.addEventListener('DOMContentLoaded', function(){
-      const policyUrl = '/donor/harc-collection-policy-2025-draft1.pdf';
-
-      // if that specific file is present in the page, preview it
-      const policyEl = document.querySelector('[data-src="' + policyUrl + '"]');
-      if (policyEl) {
-        checkAndShowPdf(policyUrl);
+      var toolkit = document.getElementById('toolkit-link');
+      if(toolkit && toolkit.dataset && toolkit.dataset.src){
+        checkAndShowPdf(toolkit.dataset.src);
         return;
       }
-
-      // otherwise preview the first element with a data-src attribute
-      const first = document.querySelector('[data-src]');
-      if (first) checkAndShowPdf(first.getAttribute('data-src'));
+      var first = document.querySelector('[data-src]');
+      if(first) checkAndShowPdf(first.getAttribute('data-src'));
     });
   </script>
 </body>
