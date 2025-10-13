@@ -36,6 +36,35 @@
     table{width:100%; border-collapse:collapse; margin:8px 0}
     table th, table td{border:1px solid #ddd; padding:6px; text-align:left}
     pre{background:#f6f6f6; padding:8px; overflow:auto}
+
+    :root {
+  --muted-line: rgba(0,0,0,0.10); /* change opacity for darker/lighter */
+}
+
+/* thin, muted horizontal rule */
+.hr-muted {
+  border: 0;
+  height: 1px;
+  background: var(--muted-line);
+  margin: 1.25rem 0;     /* space above/below */
+  border-radius: 1px;
+}
+
+/* slightly thicker, more prominent */
+.hr-muted-lg {
+  height: 2px;
+  background: rgba(0,0,0,0.14);
+  margin: 1.5rem 0;
+}
+
+/* accessible separator alternative (if it conveys structure) */
+.hr-sep {
+  border: 0;
+  height: 1px;
+  background: var(--muted-line);
+  margin: 1rem 0;
+}
+
   </style>
 </head>
 <body>
@@ -81,6 +110,8 @@
           <p>Irreplaceable collections need long-term stewardship. Congregations have legal, ethical, and spiritual responsibilities to safeguard their cultural heritage. Thoughtful transition planning ensures preservation and accessibility for future generations.</p>
         </section>
 
+        <hr class="hr-muted" aria-hidden="true">
+
         <!-- HARC Solution -->
         <section id="the-harc-solution">
           <h2>The HARC Solution</h2>
@@ -94,6 +125,8 @@
           </ul>
           <p><em>This toolkit guides congregations through preparing, planning, and executing a transition to HARC.</em></p>
         </section>
+        
+        <hr class="hr-muted" aria-hidden="true">
 
         <!-- About HARC + Gallery -->
         <section id="about-harc">
