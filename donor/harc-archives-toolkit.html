@@ -5,100 +5,217 @@
   <title>HARC Archives Transition Toolkit</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+
   <style>
-    html,body{font-family:"Merriweather", Georgia, serif; margin:0; padding:18px; color:#222; line-height:1.6}
-    h1,h2,h3,h4,h5{margin:.5rem 0}
+    :root{
+      --accent:#0b57a4;
+      --bg:#f7f7f7;
+      --max-width:1024px;
+      --content-pad:18px;
+      --muted:#666;
+    }
+    html,body{font-family:"Merriweather", Georgia, serif; margin:0; padding:0; color:#222; line-height:1.6; background:white}
+    .wrap{max-width:var(--max-width); margin:0 auto; padding:var(--content-pad)}
+    h1,h2,h3,h4{margin:.25rem 0 .75rem}
     hr{margin:1rem 0}
+    nav.toc{background:var(--bg); padding:1rem; border-radius:8px; margin-bottom:1.25rem}
+    nav.toc a{color:var(--accent); text-decoration:none}
+    nav.toc a:hover{text-decoration:underline}
     ul,ol{margin:0 0 1rem 1.25rem}
-    .toc { margin-bottom:1.25rem; padding:0.5rem 1rem; border-radius:6px; background:#f7f7f7 }
-    .toc a { color:#0b57a4; text-decoration:none }
-    .toc a:hover { text-decoration:underline }
-    pre{background:#fafafa;padding:12px;border-radius:6px;overflow:auto}
-    table{border-collapse:collapse;width:100%;margin:0 0 1rem 0}
-    table th, table td{border:1px solid #ddd;padding:6px;text-align:left}
-    .small{font-size:.95rem;color:#444}
+    .grid{display:grid; gap:12px}
+    /* responsive columns for main layout */
+    .two-col{display:grid; grid-template-columns: 1fr 300px; gap:24px}
+    @media (max-width:900px){ .two-col{grid-template-columns:1fr} .sidebar{order:2} }
+    /* gallery styles */
+    .gallery{display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin:12px 0}
+    .gallery figure{background:#fff; border:1px solid #eee; padding:6px; border-radius:6px; margin:0}
+    .gallery img{width:100%; height:auto; display:block; border-radius:4px}
+    .caption{font-size:.95rem; color:var(--muted); margin-top:.4rem}
+    .debug{font-size:.9rem; color:#b00; margin-top:.4rem}
+    a.button{display:inline-block; background:var(--accent); color:white; padding:.4rem .6rem; border-radius:6px; text-decoration:none}
+    table{width:100%; border-collapse:collapse; margin:8px 0}
+    table th, table td{border:1px solid #ddd; padding:6px; text-align:left}
+    pre{background:#f6f6f6; padding:8px; overflow:auto}
   </style>
 </head>
-<body id="preview">
+<body>
+  <div class="wrap">
+    <h1 id="harc-archives-transition-toolkit">HARC Archives Transition Toolkit</h1>
+    <h2 id="guide">Guide for Congregations Transitioning Their Archives</h2>
+    <hr>
 
-  <h1 id="harc-archives-transition-toolkit">HARC Archives Transition Toolkit</h1>
-  <h2 id="guide-for-congregations">Guide for Congregations Transitioning Their Archives</h2>
-  <hr>
+    <div class="two-col">
+      <main>
+        <h2 id="table-of-contents">Table of Contents</h2>
+        <nav class="toc" aria-label="Table of contents">
+          <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#the-harc-solution">The HARC Solution</a></li>
+            <li><a href="#about-harc">About HARC</a></li>
+            <li><a href="#how-to-use">How to Use This Toolkit</a></li>
+            <li><a href="#part-i">Part I: Assessing Your Archive</a></li>
+            <li><a href="#part-ii">Part II: Planning Your Transition</a></li>
+            <li><a href="#part-iii">Part III: Executing the Transition</a></li>
+            <li><a href="#part-iv">Part IV: Resources and Templates</a></li>
+            <li><a href="#part-v">Part V: Packing & Moving Resources</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#acknowledgments">Acknowledgments</a></li>
+          </ul>
+        </nav>
 
-  <h2 id="table-of-contents">Table of Contents</h2>
-  <nav class="toc" aria-label="Table of contents">
-    <ul>
-      <li><a href="#introduction">Introduction</a>
-        <ul>
-          <li><a href="#value-of-women-religious-archives">The Value of Women Religious Archives</a></li>
-          <li><a href="#archives-in-transition">Archives in Transition</a></li>
-        </ul>
-      </li>
-      <li><a href="#the-harc-solution">The HARC Solution</a>
-        <ul>
-          <li><a href="#about-harc">About HARC</a></li>
-          <li><a href="#services">Services</a></li>
-        </ul>
-      </li>
-      <li><a href="#how-to-use-this-toolkit">How to Use This Toolkit</a></li>
-      <li><a href="#transition-timeline-framework">The Transition Timeline Framework</a></li>
-      <li><a href="#part-i-assessing-your-archive">Part I: Assessing Your Archive</a></li>
-      <li><a href="#part-ii-planning-your-transition-to-harc">Part II: Planning Your Transition to HARC</a></li>
-      <li><a href="#part-iii-executing-the-transition">Part III: Executing the Transition</a></li>
-      <li><a href="#part-iv-resources-and-templates">Part IV: Resources and Templates</a></li>
-      <li><a href="#part-v-packing-and-moving-resources">Part V: Packing and Moving Resources</a></li>
-      <li><a href="#conclusion">Conclusion</a></li>
-      <li><a href="#acknowledgments">Acknowledgments</a></li>
-    </ul>
-  </nav>
-<hr>
-<h2 id="introduction">Introduction</h2>
-<h3 id="the-value-of-women-religious-archives">The Value of Women Religious Archives</h3>
-<p>Women religious archives serve as essential, primary sources for exploring American women&#39;s and church history. They provide valuable insights into areas such as education, healthcare, social justice, and the daily experiences and challenges faced by religious women. These archives are crucial for preserving the legacy of Catholic sisters, documenting their societal contributions, and emphasizing their work in social justice movements.</p>
-<p><strong>These collections preserve stories of:</strong></p>
-<ul>
-<li>Educational pioneers and healthcare professionals</li>
-<li>Advocates for social justice and civil rights</li>
-<li>Servants to marginalized communities—children, the elderly, people experiencing poverty, immigrants, and people with disabilities</li>
-<li>Leadership within the Catholic Church and American society</li>
-</ul>
-<h3 id="archives-in-transition">Archives in Transition</h3>
-<p>These irreplaceable collections need long-term stewardship plans to ensure their preservation and accessibility for future generations.</p>
-<p><strong>Congregational Responsibility</strong>: Religious organizations hold a duty to safeguard their cultural heritage, encompassing legal, ethical, and spiritual responsibilities. Archives function as a continuation of their mission, providing service to vulnerable populations and amplifying the voices represented within these collections.</p>
-<hr>
-<h2 id="the-harc-solution">The HARC Solution</h2>
-<p>The Heritage and Research Center at Saint Mary&#39;s (HARC) provides a permanent, professional home for women religious archives.</p>
-<p><strong>Purpose-built by and for women religious, HARC offers:</strong></p>
-<ul>
-<li>Climate-controlled, archival-standard storage</li>
-<li>Professional archival staff with expertise in large-scale collection management</li>
-<li>Research access for scholars and the public</li>
-<li>Respect for congregational intention and access restrictions</li>
-<li>Long-term sustainability and preservation</li>
-</ul>
-<p><em>This toolkit guides congregations through preparing their archives, planning the transition to HARC, and executing the move.</em></p>
-<h3 id="about-harc">About HARC</h3>
-<h4 id="mission">Mission</h4>
-<p>HARC at Saint Mary&#39;s preserves and shares their history through documents, artifacts, and materials. It supports research and educates the public on Catholic sisters&#39; contributions to society. Partnering with Saint Mary&#39;s College, HARC also inspires future generations by showcasing the impact of sisters in education, health care, and social justice. Through exhibits and programs, it promotes understanding of their legacy and encourages ongoing work for marginalized communities.</p>
-<h4 id="services">Services</h4>
-<p><strong>For Donor Congregations</strong></p>
-<ul>
-<li>Professional archival processing and preservation</li>
-<li>Climate-controlled storage meeting SAA standards</li>
-<li>Customized access restrictions honored</li>
-<li>Priority access for congregation members</li>
-<li>Annual reports on collection use</li>
-<li>Ongoing consultation and support</li>
-</ul>
-<p><strong>For Researchers</strong></p>
-<ul>
-<li>Public research access during regular hours</li>
-<li>Professional reference assistance</li>
-<li>Finding aids and online discovery tools</li>
-<li>Reproduction services for scholarly use</li>
-</ul>
-<h3 id="commitment-to-your-legacy">Commitment to Your Legacy</h3>
-<p>HARC functions according to professional archival standards and is supported by skilled archival specialists. Collections are accessible to congregations and also serve wider scholarly and public interests. Your story and service legacy will be preserved and shared with future generations.</p>
+        <!-- Introduction -->
+        <section id="introduction">
+          <h2>Introduction</h2>
+          <h3>The Value of Women Religious Archives</h3>
+          <p>Women religious archives are primary sources for American women’s and church history. They document education, healthcare, social justice work, leadership, and daily life. These collections preserve the legacy of Catholic sisters and provide essential material for scholarship, teaching, and community memory.</p>
+
+          <p><strong>These collections preserve stories of:</strong></p>
+          <ul>
+            <li>Educational pioneers and healthcare professionals</li>
+            <li>Advocates for social justice and civil rights</li>
+            <li>Service to marginalized communities</li>
+            <li>Leadership within the Church and broader society</li>
+          </ul>
+
+          <h3>Archives in Transition</h3>
+          <p>Irreplaceable collections need long-term stewardship. Congregations have legal, ethical, and spiritual responsibilities to safeguard their cultural heritage. Thoughtful transition planning ensures preservation and accessibility for future generations.</p>
+        </section>
+
+        <!-- HARC Solution -->
+        <section id="the-harc-solution">
+          <h2>The HARC Solution</h2>
+          <p>The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent professional home for women religious archives.</p>
+          <p><strong>HARC offers:</strong></p>
+          <ul>
+            <li>Climate-controlled, archival-standard storage</li>
+            <li>Professional archival staff and long-term preservation</li>
+            <li>Research access and online discovery tools</li>
+            <li>Respect for donor restrictions and congregational intent</li>
+          </ul>
+          <p><em>This toolkit guides congregations through preparing, planning, and executing a transition to HARC.</em></p>
+        </section>
+
+        <!-- About HARC + Gallery -->
+        <section id="about-harc">
+          <h2>About HARC</h2>
+
+          <h3 id="mission">Mission</h3>
+          <p>HARC at Saint Mary’s preserves and shares congregational history through documents, artifacts, and materials. Partnering with Saint Mary’s College, HARC supports research, exhibits, and outreach that highlight the contributions of sisters in education, health care, and social justice.</p>
+
+          <h3 id="services">Services</h3>
+          <p><strong>For Donor Congregations</strong></p>
+          <ul>
+            <li>Professional archival processing and preservation</li>
+            <li>Climate-controlled storage meeting SAA standards</li>
+            <li>Customized access restrictions honored</li>
+            <li>Priority access for congregation members</li>
+            <li>Annual usage reports and ongoing consultation</li>
+          </ul>
+
+          <p><a href="storage-environment-chart.html" class="button" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a></p>
+
+          <h3>HARC: Inside the Facility (Gallery)</h3>
+          <p>Below: a small gallery with images of HARC's archival storage — if your `vault-1.jpg` file is not loading this page will attempt several common fallback paths and — if none succeed — display a placeholder and show the last-tried path for debugging.</p>
+
+          <div class="gallery" id="harc-gallery" aria-live="polite">
+            <figure>
+              <a href="#" id="vault-link" target="_blank" rel="noopener">
+                <img id="vault-img" src="vault-1.jpg" alt="HARC archival vault with shelving and boxes" loading="lazy">
+              </a>
+              <figcaption class="caption"><strong>Vault — archival storage area</strong><br>Climate-controlled shelving and boxed collections.</figcaption>
+              <div id="vault-debug" class="debug" style="display:none">
+                <span id="vault-debug-text"></span>
+                &nbsp;(<a id="vault-debug-open" href="#" target="_blank" rel="noopener">open tried path</a>)
+              </div>
+            </figure>
+
+            <!-- You can add additional images here, e.g. shelving-1.jpg, reading-room.jpg, etc. -->
+          </div>
+
+          <!-- small JS to try fallback paths and display debug info -->
+          <script>
+            (function(){
+              const img = document.getElementById('vault-img');
+              const link = document.getElementById('vault-link');
+              const debugWrap = document.getElementById('vault-debug');
+              const debugText = document.getElementById('vault-debug-text');
+              const debugOpen = document.getElementById('vault-debug-open');
+
+              // Candidate paths to try (edit/add based on your site structure)
+              const candidatePaths = [
+                'vault-1.jpg',
+                './vault-1.jpg',
+                'vault-1.jpeg',
+                'vault-1.JPG',
+                'vault-1.JPEG',
+                'vault-1.png',
+                'images/vault-1.jpg',
+                'assets/images/vault-1.jpg',
+                '/images/vault-1.jpg',
+                '/assets/images/vault-1.jpg'
+              ];
+
+              // Inline SVG placeholder (data URI)
+              const placeholder = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">'
+                +'<rect width="100%" height="100%" fill="#f6f6f6"/>'
+                +'<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" fill="#999" font-size="22">Image not available</text>'
+                +'</svg>'
+              );
+
+              let attempt = 0;
+              let lastTried = '';
+
+              function tryNext() {
+                if (attempt >= candidatePaths.length) {
+                  // show placeholder + debug
+                  img.src = placeholder;
+                  debugWrap.style.display = 'inline';
+                  debugText.textContent = 'Image not found. Checked ' + candidatePaths.length + ' paths.';
+                  debugOpen.href = lastTried || '#';
+                  link.href = '#';
+                  console.warn('[HARC gallery] no image found. attempts:', candidatePaths);
+                  return;
+                }
+                const path = candidatePaths[attempt++];
+                lastTried = path;
+                console.log('[HARC gallery] trying image path:', path);
+                // set the image src to attempt path (browser will fire load/error)
+                img.src = path;
+                link.href = path;
+                debugOpen.href = path;
+              }
+
+              img.addEventListener('load', function onLoad(){
+                // success if image has natural width
+                if (img.naturalWidth && img.naturalWidth > 10 && img.src !== placeholder) {
+                  debugWrap.style.display = 'none';
+                  console.log('[HARC gallery] image loaded successfully:', img.src);
+                } else {
+                  // sometimes a server returns a small 1px image or something odd; treat as error:
+                  onError();
+                }
+              });
+
+              function onError(){
+                console.log('[HARC gallery] failed loading:', img.src);
+                // try the next candidate after a tiny delay so browser can update
+                setTimeout(tryNext, 80);
+              }
+
+              img.addEventListener('error', onError);
+
+              // start attempts
+              attempt = 0;
+              tryNext();
+
+              // debug link handler: leave it as raw link to let browser show 404 if path incorrect
+              debugOpen.addEventListener('click', function(){ /* noop - opens in new tab */ });
+
+            })();
+          </script>
+
+        </section>
 <hr>
 <h2 id="how-to-use-this-toolkit">How to Use This Toolkit</h2>
 <h3 id="collaborative-approach">Collaborative Approach</h3>
