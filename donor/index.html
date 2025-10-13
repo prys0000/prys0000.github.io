@@ -126,6 +126,34 @@
   border: 1px dashed rgba(15,23,42,0.03);
 }
 
+:root {
+  --muted-line: rgba(0,0,0,0.10); /* change opacity for darker/lighter */
+}
+
+/* thin, muted horizontal rule */
+.hr-muted {
+  border: 0;
+  height: 1px;
+  background: var(--muted-line);
+  margin: 1.25rem 0;     /* space above/below */
+  border-radius: 1px;
+}
+
+/* slightly thicker, more prominent */
+.hr-muted-lg {
+  height: 2px;
+  background: rgba(0,0,0,0.14);
+  margin: 1.5rem 0;
+}
+
+/* accessible separator alternative (if it conveys structure) */
+.hr-sep {
+  border: 0;
+  height: 1px;
+  background: var(--muted-line);
+  margin: 1rem 0;
+}
+
   </style>
 </head>
 <body>
@@ -205,6 +233,8 @@
               <p>Item-level finding aid template for photos, postcards, newsletters, and artifacts.</p>
             </a>
           </div>
+
+          <hr class="hr-muted" aria-hidden="true">
 
           <!-- small gallery to preview the vault image(s) -->
           <div style="margin-top:14px">
