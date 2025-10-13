@@ -38,53 +38,32 @@
     pre{background:#f6f6f6; padding:8px; overflow:auto}
 
     :root {
-      --muted-line: rgba(0,0,0,0.10); /* change opacity for darker/lighter */
-    }
+  --muted-line: rgba(0,0,0,0.10); /* change opacity for darker/lighter */
+}
 
-    /* thin, muted horizontal rule */
-    .hr-muted {
-      border: 0;
-      height: 1px;
-      background: var(--muted-line);
-      margin: 1.25rem 0;     /* space above/below */
-      border-radius: 1px;
-    }
+/* thin, muted horizontal rule */
+.hr-muted {
+  border: 0;
+  height: 1px;
+  background: var(--muted-line);
+  margin: 1.25rem 0;     /* space above/below */
+  border-radius: 1px;
+}
 
-    /* slightly thicker, more prominent */
-    .hr-muted-lg {
-      height: 2px;
-      background: rgba(0,0,0,0.14);
-      margin: 1.5rem 0;
-    }
+/* slightly thicker, more prominent */
+.hr-muted-lg {
+  height: 2px;
+  background: rgba(0,0,0,0.14);
+  margin: 1.5rem 0;
+}
 
-    /* accessible separator alternative (if it conveys structure) */
-    .hr-sep {
-      border: 0;
-      height: 1px;
-      background: var(--muted-line);
-      margin: 1rem 0;
-    }
-
-    /* -------------------------
-       TOC specific styles
-       - top-level items: no bullet for a cleaner look
-       - nested lists (ul inside li): have bullets and indentation
-       ------------------------- */
-    .toc ul { list-style: none; margin: 0; padding: 0; }
-    .toc > ul > li { margin: 0.45rem 0; /* top-level spacing */ }
-
-    /* nested lists (sub-items) */
-    .toc ul ul {
-      list-style: disc;         /* show bullets */
-      margin-left: 1.2rem;      /* indent */
-      margin-top: 0.1rem;
-      padding-left: 1rem;       /* give space for the bullet */
-    }
-    .toc ul ul li { margin: 0.15rem 0; font-size: 0.98em; color: #333; }
-
-    /* Small visual tweak so nested anchors line up nicely */
-    .toc a { color: var(--accent); text-decoration: none; }
-    .toc a:hover { text-decoration: underline; }
+/* accessible separator alternative (if it conveys structure) */
+.hr-sep {
+  border: 0;
+  height: 1px;
+  background: var(--muted-line);
+  margin: 1rem 0;
+}
 
   </style>
 </head>
@@ -97,93 +76,21 @@
     <div class="two-col">
       <main>
         <h2 id="table-of-contents">Table of Contents</h2>
-
-        <!-- CORRECTED: proper nested list structure so sub-items are indented and show bullets -->
         <nav class="toc" aria-label="Table of contents">
           <ul>
             <li><a href="#introduction">Introduction</a></li>
-
-            <li>
-              <a href="#the-harc-solution">The HARC Solution</a>
-              <ul>
-                <li><a href="#about-harc">About HARC</a></li>
-                <li><a href="#mission">Mission</a></li>
-                <li><a href="#services">Services</a></li>
-              </ul>
-            </li>
-
-            <li>
-              <a href="#how-to-use">How to Use This Toolkit</a>
-              <ul>
-                <li><a href="#collaborative-approach">Collaborative Approach</a></li>
-                <li><a href="#timeline-framework">Transition Timeline Framework</a></li>
-              </ul>
-            </li>
-
+            <li><a href="#the-harc-solution">The HARC Solution</a></li>
+            <li><a href="#about-harc">About HARC</a></li>
+            <li><a href="#how-to-use">How to Use This Toolkit</a></li>
             <li><a href="#part-i">Part I: Assessing Your Archive</a></li>
             <li><a href="#part-ii">Part II: Planning Your Transition</a></li>
             <li><a href="#part-iii">Part III: Executing the Transition</a></li>
             <li><a href="#part-iv">Part IV: Resources and Templates</a></li>
-            <li><a href="#part-v">Part V: Packing &amp; Moving Resources</a></li>
+            <li><a href="#part-v">Part V: Packing & Moving Resources</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
             <li><a href="#acknowledgments">Acknowledgments</a></li>
           </ul>
         </nav>
-
-        <!-- example content sections -->
-        <section id="introduction">
-          <h2>Introduction</h2>
-          <h3>The Value of Women Religious Archives</h3>
-          <p>Women religious archives are primary sources for American women’s and church history. They document education, healthcare, social justice work, leadership, and daily life. These collections preserve the legacy of Catholic sisters and provide essential material for scholarship, teaching, and community memory.</p>
-
-          <p><strong>These collections preserve stories of:</strong></p>
-          <ul>
-            <li>Educational pioneers and healthcare professionals</li>
-            <li>Advocates for social justice and civil rights</li>
-            <li>Service to marginalized communities</li>
-            <li>Leadership within the Church and broader society</li>
-          </ul>
-
-          <h3>Archives in Transition</h3>
-          <p>Irreplaceable collections need long-term stewardship. Congregations have legal, ethical, and spiritual responsibilities to safeguard their cultural heritage. Thoughtful transition planning ensures preservation and accessibility for future generations.</p>
-        </section>
-
-        <hr class="hr-muted">
-
-        <!-- HARC Solution -->
-        <section id="the-harc-solution">
-          <h2>The HARC Solution</h2>
-          <p>The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent professional home for women religious archives.</p>
-          <p><strong>HARC offers:</strong></p>
-          <ul>
-            <li>Climate-controlled, archival-standard storage</li>
-            <li>Professional archival staff and long-term preservation</li>
-            <li>Research access and online discovery tools</li>
-            <li>Respect for donor restrictions and congregational intent</li>
-          </ul>
-          <p><em>This toolkit guides congregations through preparing, planning, and executing a transition to HARC.</em></p>
-        </section>
-
-        <!-- Additional content would go here... -->
-
-      </main>
-
-      <!-- Sidebar placeholder -->
-      <aside class="sidebar">
-        <div class="card" style="padding:12px;background:#fff;border-radius:8px;border:1px solid #eee">
-          <h4 style="margin-top:0">Connect</h4>
-          <p class="meta">Questions about transfers, tours, or assessments? Reach out — we're happy to help.</p>
-          <p><a class="button" href="tel:+15746786155">(574) 678-6155</a></p>
-          <p style="margin:.5rem 0"><a href="/donor/storage-environment-chart.html">Archival Storage Environment Standards</a></p>
-          <p style="margin:.5rem 0"><a href="/donor/harc-archives-toolkit.html" target="_blank">Open HARC Transition Toolkit</a></p>
-        </div>
-      </aside>
-    </div>
-
-  </div>
-</body>
-</html>
-
 
         <!-- Introduction -->
         <section id="introduction">
