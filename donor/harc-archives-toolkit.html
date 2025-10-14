@@ -1,3 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC Archives Transition Toolkit</title>
+
+  <!-- Styles: paste the CSS here -->
+  <style>
+    /* ===== HARC Toolkit — Styles =====
+       Paste into <head> as below or external CSS file.
+    */
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
+
+    :root{
+      --accent: #2a5298;
+      --accent-2: #1f416f;
+      --muted: #6b7280;
+      --bg: #ffffff;
+      --panel: #fbfdff;
+      --hr: #e6e9ee;
+      --text: #222831;
+      --radius: 10px;
+      --max-width: 1100px;
+      --content-gap: 28px;
+      --shadow: 0 6px 18px rgba(20,30,50,0.06);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+    }
+
+    .wrap{
+      max-width: var(--max-width);
+      margin: 36px auto;
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,252,0.98));
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      color: var(--text);
+      font-family: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.55;
+      font-size: 16px;
+    }
+
+    h1#harc-archives-transition-toolkit{
+      font-size: 1.9rem;
+      margin: 0 0 12px;
+      color: var(--accent-2);
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    h2 { color: var(--accent); font-weight: 600; margin: 22px 0 10px; }
+    h3 { font-weight: 600; margin: 14px 0 8px; }
+    h4 { font-weight: 600; margin: 12px 0 6px; font-size: 0.98rem; }
+
+    hr { border: none; height: 1px; background: var(--hr); margin: 28px 0; }
+    hr.hr-muted { opacity: 0.65; }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 28px;
+      align-items: start;
+      margin-top: 10px;
+    }
+
+    main{ min-width: 0; }
+
+    nav.toc{
+      position: sticky;
+      top: 22px;
+      align-self: start;
+      padding: 18px;
+      background: var(--panel);
+      border: 1px solid var(--hr);
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(20,30,50,0.04);
+      font-size: 0.95rem;
+    }
+
+    nav.toc ul{ list-style: none; padding-left: 0; margin: 8px 0; max-height: 70vh; overflow:auto; }
+    nav.toc li{ margin: 6px 0; }
+    nav.toc a{
+      color: var(--accent-2);
+      text-decoration: none;
+      transition: color .12s, transform .08s;
+    }
+    nav.toc a:hover, nav.toc a:focus{ color: var(--accent); text-decoration: underline; outline: none; }
+    nav.toc ul ul{ margin-left: 14px; font-size: 0.95rem; color: var(--muted); }
+
+    p { margin: 0 0 12px; }
+    ul, ol { margin: 0 0 14px 1.2rem; }
+    li { margin: 6px 0; }
+
+    a.button{
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 8px;
+      background: linear-gradient(180deg,var(--accent),var(--accent-2));
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      box-shadow: 0 4px 10px rgba(42,82,152,0.12);
+      transition: transform .08s, box-shadow .12s;
+    }
+    a.button:hover, a.button:focus{ transform: translateY(-2px); box-shadow: 0 6px 18px rgba(42,82,152,0.14); outline: none; }
+
+    .gallery { margin: 12px 0; }
+    .gallery figure{ margin: 0; }
+    .gallery img{
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      object-fit: cover;
+      box-shadow: 0 6px 16px rgba(10,20,40,0.04);
+      background: #f6f7f9;
+    }
+    figcaption.caption { font-size: 0.95rem; color: var(--muted); margin-top: 8px; line-height:1.35; }
+
+    .debug { font-size: 0.9rem; color: #666; margin-top: 8px; }
+
+    .figure.table { width: 100%; overflow:auto; }
+    .table table{
+      width: 100%;
+      border-collapse: collapse;
+      margin: 10px 0 18px;
+      font-size: 0.95rem;
+    }
+    .table th, .table td{
+      padding: 8px 10px;
+      border: 1px solid var(--hr);
+      vertical-align: top;
+    }
+    .table thead th{
+      background: linear-gradient(180deg,#f5f7fb,#ffffff);
+      font-weight: 600;
+      color: var(--accent-2);
+    }
+
+    pre { background: #0b1220; color: #e6eef8; padding: 12px; border-radius: 8px; overflow:auto; font-family: var(--mono); font-size: 0.95rem; }
+    code.language-plaintext { white-space: pre-wrap; }
+
+    a:focus, button:focus, a.button:focus { outline: 3px solid rgba(42,82,152,0.18); outline-offset: 2px; }
+
+    .wrap span[style*="✅"]{ display:inline-flex; align-items:center; gap:8px; }
+
+    @media print {
+      .wrap { box-shadow: none; border-radius: 0; margin: 0; padding: 12mm; }
+      nav.toc { display: none; }
+      a.button, .debug { display: none; }
+      pre { font-size: 10pt; }
+    }
+
+    @media (max-width: 980px){
+      :root{ --content-gap: 18px; }
+      .two-col { grid-template-columns: 1fr; }
+      nav.toc{
+        position: relative;
+        top: 0;
+        margin-bottom: 12px;
+        padding: 12px;
+        display: block;
+        max-height: none;
+      }
+    }
+
+    .wrap [style*="margin-left"]{ margin-left: 0 !important; }
+
+    .small { font-size: 0.92rem; color: var(--muted); }
+    .center { text-align: center; }
+  </style>
+</head>
+<body>
+
 <div class="wrap">
     <h1 id="harc-archives-transition-toolkit">
         HARC Archives Transition Toolkit
@@ -2938,3 +3111,42 @@ Special Instructions: _____________________________________
         <i>For questions or assistance, contact: bgordon@harcsm.org | (574) 678-6155</i>
     </p>
 </div>
+<script>
+    (function(){
+      function makeTocToggle(){
+        const toc = document.querySelector('nav.toc');
+        if(!toc) return;
+        if(document.getElementById('toc-toggle')) return;
+        const btn = document.createElement('button');
+        btn.id = 'toc-toggle';
+        btn.type = 'button';
+        btn.innerText = 'Contents ▾';
+        btn.style.cssText = 'display:none; margin-bottom:10px; background:var(--panel); border:1px solid var(--hr); padding:8px 12px; border-radius:8px; font-weight:600; cursor:pointer;';
+        btn.setAttribute('aria-expanded','true');
+        toc.parentNode.insertBefore(btn, toc);
+        function update(){
+          if(window.innerWidth <= 980){
+            btn.style.display = 'inline-block';
+            if(!btn._bound){
+              btn.addEventListener('click', function(){
+                const expanded = btn.getAttribute('aria-expanded') === 'true';
+                btn.setAttribute('aria-expanded', String(!expanded));
+                toc.style.display = expanded ? 'none' : 'block';
+                btn.innerText = expanded ? 'Contents ▸' : 'Contents ▾';
+              });
+              btn._bound = true;
+            }
+          } else {
+            btn.style.display = 'none';
+            toc.style.display = 'block';
+            btn.setAttribute('aria-expanded','true');
+          }
+        }
+        update();
+        window.addEventListener('resize', update);
+      }
+      document.addEventListener('DOMContentLoaded', makeTocToggle);
+    })();
+  </script>
+</body>
+</html>
