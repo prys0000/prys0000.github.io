@@ -7,9 +7,6 @@
 
   <!-- Styles: paste the CSS here -->
   <style>
-    /* ===== HARC Toolkit — Styles =====
-       Paste into <head> as below or external CSS file.
-    */
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap");
 
     :root{
@@ -54,9 +51,10 @@
     hr { border: none; height: 1px; background: var(--hr); margin: 28px 0; }
     hr.hr-muted { opacity: 0.65; }
 
+    /* three-column layout: left TOC, main content, right resources */
     .two-col {
       display: grid;
-      grid-template-columns: 320px 1fr;
+      grid-template-columns: 300px 1fr 300px;
       gap: 28px;
       align-items: start;
       margin-top: 10px;
@@ -64,7 +62,8 @@
 
     main{ min-width: 0; }
 
-    nav.toc{
+    /* left TOC panel */
+    aside.left-panel {
       position: sticky;
       top: 22px;
       align-self: start;
@@ -74,9 +73,10 @@
       border-radius: 10px;
       box-shadow: 0 3px 10px rgba(20,30,50,0.04);
       font-size: 0.95rem;
+      max-height: 80vh;
+      overflow:auto;
     }
-
-    nav.toc ul{ list-style: none; padding-left: 0; margin: 8px 0; max-height: 70vh; overflow:auto; }
+    nav.toc ul{ list-style: none; padding-left: 0; margin: 8px 0; }
     nav.toc li{ margin: 6px 0; }
     nav.toc a{
       color: var(--accent-2);
@@ -85,6 +85,27 @@
     }
     nav.toc a:hover, nav.toc a:focus{ color: var(--accent); text-decoration: underline; outline: none; }
     nav.toc ul ul{ margin-left: 14px; font-size: 0.95rem; color: var(--muted); }
+
+    /* right resources panel */
+    aside.right-panel{
+      padding: 14px;
+      background: var(--panel);
+      border: 1px solid var(--hr);
+      border-radius: 10px;
+      box-shadow: 0 3px 10px rgba(20,30,50,0.04);
+      font-size: 0.95rem;
+      position: sticky;
+      top: 22px;
+      align-self: start;
+      max-height: 80vh;
+      overflow:auto;
+    }
+    aside.right-panel h2 { margin: 0 0 8px; color: var(--accent-2); font-size: 1rem; }
+    aside.right-panel ul { list-style:none; padding-left:0; margin:0; }
+    aside.right-panel li { padding:8px 0; border-bottom:1px dashed #eef3fb; }
+    aside.right-panel li:last-child{ border-bottom:none; }
+    aside.right-panel a { color: var(--accent-2); text-decoration:none; }
+    aside.right-panel a:hover, aside.right-panel a:focus { text-decoration: underline; }
 
     p { margin: 0 0 12px; }
     ul, ol { margin: 0 0 14px 1.2rem; }
@@ -145,22 +166,17 @@
 
     @media print {
       .wrap { box-shadow: none; border-radius: 0; margin: 0; padding: 12mm; }
-      nav.toc { display: none; }
+      aside.left-panel, aside.right-panel { display: none; }
       a.button, .debug { display: none; }
       pre { font-size: 10pt; }
     }
 
-    @media (max-width: 980px){
-      :root{ --content-gap: 18px; }
+    @media (max-width: 1100px){
       .two-col { grid-template-columns: 1fr; }
-      nav.toc{
-        position: relative;
-        top: 0;
-        margin-bottom: 12px;
-        padding: 12px;
-        display: block;
-        max-height: none;
-      }
+      aside.left-panel, aside.right-panel { position: relative; top: 0; max-height: none; overflow: visible; }
+      aside.left-panel { order: 1; margin-bottom: 12px; }
+      main { order: 2; }
+      aside.right-panel { order: 3; margin-top: 12px; }
     }
 
     .wrap [style*="margin-left"]{ margin-left: 0 !important; }
@@ -179,91 +195,52 @@
         Guide for Congregations Transitioning Their Archives
     </h2>
     <hr>
+
     <div class="two-col">
-        <main>
-            <h2 id="table-of-contents">
-                Table of Contents
-            </h2>
-            <nav class="toc" aria-label="Table of contents">
-                <ul>
-                    <li data-list-item-id="e053c67ae6cc363319771b64fc212c34c">
-                        <a href="#introduction">Introduction</a>
-                    </li>
-                    <li data-list-item-id="e0868b3abdb9a7e43fef2fb76c10a7d7f">
-                        <a href="#the-harc-solution">The HARC Solution</a>
-                        <ul>
-                            <li data-list-item-id="ee31ec97f7837f428462882a308815eab">
-                                <a href="#about-harc">About HARC</a>
-                            </li>
-                            <li data-list-item-id="eec259e65d91c757cdbdeaeb5f1367ee3">
-                                <a href="#how-to-use-this-toolkit">How to Use This Toolkit</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li data-list-item-id="e59a6b21202d5417bcfb589d10b4a2776">
-                        <a href="#part-i-assessing-your-archive">Part I: Assessing Your Archive</a>
-                        <ul>
-                            <li data-list-item-id="e0103649dc5e6025f1d96fdb5e6673fba">
-								<a href="purpose-and-values">Purpose and Values</a>
-                            </li>
-                            <li data-list-item-id="e96df4ad64a9063ef4656cc57c773586f">
-								<a href="#step-3-archives-evaluation">Archives Evaluation</a>
-								(
-								<a href="donor/harc_assessment_templates_form.html"
-									target="_blank"
-									rel="noopener noreferrer"
-									title="Opens the Archives Evaluation interactive form in a new tab"
-									aria-label="Open Archives Evaluation interactive form (opens in new tab)">
-									Quick link to interactive form
-								</a>
-								)
-							</li>
-                            
-                        </ul>
-                    </li>
-                    <li data-list-item-id="e9ab112a63496678eb815e85dc06f18c6">
-                        <a href=""part-ii-planning-your-transition-to-harc">Part II: Planning Your Transition</a>
-                    </li>
-                    <li data-list-item-id="eb961b903650c5a39b61810f8816a9dcb">
-                        <a href="#part-iii-executing-the-transition">Part III: Executing the Transition</a>
-                        <ul>
-                            <li data-list-item-id="ee42418e93fec8181ee2fe0d25d4968fe">
-							<a href="#step-1-building-contextual-history">Building Contextual History</a>
-                            </li>
-                            <li data-list-item-id="e8a8607402abb8caabf8e42c904b1622d">
-							<a href="#step-2-preparing-research-ready-collections">Preparing Research-Ready Collections</a>
-                            </li>
-                            <li data-list-item-id="e909c6d6b8113f8decf1bc762dd63f0d3">
-							<a href="#step-3-essential-documentation-for-harc">Essential Documentation for HARC (Quick link to checklist)</a>	
-                            </li>
-                            <li data-list-item-id="e2c2631adb1272cec87d634902a5c44c9">
-							<a href="step-4-physical-move-planning">Physical Move Planning</a>		
-                            </li>
-                            <li data-list-item-id="e3991bd1ec5527b62d46c31055efc27e9">
-							<a href="step-5-disposition-of-objects-and-non-archival-materialsg">Disposition of Objects and Non-Archival Materials</a>		
-                            </li>
-                        </ul>
-                    </li>
-                    <li data-list-item-id="ebb4bc5ae6c8185d38e744e32a2fb2c33">
-                        <a href="#part-iv-resources-and-templates">Part IV: Resources and Templates</a>
-                    </li>
-                    <li data-list-item-id="e1cad9c64509d0539df3e6d519bf3b860">
-                        <a href="#part-v-packing-and-moving-resources">Part V: Packing &amp; Moving Resources</a>
-                    </li>
-                    <li data-list-item-id="e380874e64d054c4e107f15a59dfc69bd">
-                        <a href="#conclusion">Conclusion</a>
-                    </li>
-                    <li data-list-item-id="e4514fbe3c965f6f6b56fe0b55b7856f3">
-                        <a href="#acknowledgments">Acknowledgments</a>
-                    </li>
-                </ul>
-                <hr>
-                <p>
-                    &nbsp;
-                </p>
-            </nav>
-        </main>
-    </div>
+      <!-- LEFT: Table of Contents -->
+      <aside class="left-panel" aria-label="Table of contents">
+        <h2 style="margin-top:0;">Table of Contents</h2>
+        <nav class="toc" aria-label="Table of contents">
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+
+                <li>
+                  <a href="#the-harc-solution">The HARC Solution</a>
+                  <ul>
+                    <li><a href="#about-harc">About HARC</a></li>
+                    <li><a href="#how-to-use-this-toolkit">How to Use This Toolkit</a></li>
+                  </ul>
+                </li>
+
+                <li>
+                  <a href="#part-i-assessing-your-archive">Part I: Assessing Your Archive</a>
+                  <ul>
+                    <li><a href="#purpose-and-values">Purpose and Values</a></li>
+                    <li><a href="#step-3-archives-evaluation">Archives Evaluation (Quick link to interactive form)</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="#part-ii-planning-your-transition-to-harc">Part II: Planning Your Transition</a></li>
+
+                <li>
+                  <a href="#part-iii-executing-the-transition">Part III: Executing the Transition</a>
+                  <ul>
+                    <li><a href="#step-1-building-contextual-history">Building Contextual History</a></li>
+                    <li><a href="#step-2-preparing-research-ready-collections">Preparing Research-Ready Collections</a></li>
+                    <li><a href="#step-3-essential-documentation-for-harc">Essential Documentation for HARC (Quick link to checklist)</a></li>
+                    <li><a href="#step-4-physical-move-planning">Physical Move Planning</a></li>
+                    <li><a href="#step-5-disposition-of-objects-and-non-archival-materials">Disposition of Objects and Non-Archival Materials</a></li>
+                  </ul>
+                </li>
+
+                <li><a href="#part-iv-resources-and-templates">Part IV: Resources and Templates</a></li>
+                <li><a href="#part-v-packing-and-moving-resources">Part V: Packing &amp; Moving Resources</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+                <li><a href="#acknowledgments">Acknowledgments</a></li>
+            </ul>
+        </nav>
+      </aside>
+<main>	  
     <section id="introduction">
         <h2>
             Introduction
@@ -299,13 +276,9 @@
         </p>
     </section>
     <hr class="hr-muted" aria-hidden="true">
-    <section id="the-harc-solution">
-        <h2>
-            The HARC Solution
-        </h2>
-        <p>
-            The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent professional home for women religious archives.
-        </p>
+	<section id="the-harc-solution">
+            <h2>The HARC Solution</h2>
+            <p>The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent professional home for women religious archives.</p>
         <p>
             <strong>HARC offers:</strong>
         </p>
@@ -476,7 +449,7 @@
         </li>
     </ul>
     <p>
-        <span style="background-color:rgb(255,255,255);color:rgb(42,82,152);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>📐 </strong></span></span><strong>Part II: Planning Your Transition</strong>
+        <span style="background-color:rgb(255,255,255);color:rgb(42,82,152);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>📐 </strong></span></span>        <h2 id="part-ii-planning-your-transition-to-harc">Part II: Planning Your Transition to HARC</h2>
     </p>
     <ul>
         <li data-list-item-id="ea45dbc7def9f454a3c8f3e53b5f5d41a">
@@ -484,8 +457,8 @@
         </li>
     </ul>
     <p>
-        <span style="background-color:rgb(255,255,255);color:rgb(42,82,152);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>📦 </strong></span></span><strong>Part III: Executing the Transition</strong>
-    </p>
+        <span style="background-color:rgb(255,255,255);color:rgb(42,82,152);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>📦 </strong></span></span></p><h2 id="part-iii-executing-the-transition">Part III: Executing the Transition</h2>
+    
     <ul>
         <li data-list-item-id="eac30a3f10a1a388a5c3607beaa3d24ed">
             Offers practical guidance on preparing collections, documenting, and physically relocating your archives to HARC.
@@ -722,7 +695,7 @@
     <h2 id="part-ii-planning-your-transition-to-harc">
         Part II: Planning Your Transition to HARC
     </h2>
-    <h3 id="goals">
+    <h3 id="planning-goals">
         Goals
     </h3>
     <ul>
@@ -957,9 +930,7 @@
         </li>
     </ul>
     <hr>
-    <h3 id="step-1-building-contextual-history">
-        Step 1: Building Contextual History
-    </h3>
+    <h3 id="step-1-building-contextual-history">Step 1: Building Contextual History</h3>
     <h4 id="purpose">
         Purpose
     </h4>
@@ -1088,9 +1059,7 @@
         </li>
     </ul>
     <hr>
-    <h3 id="step-2-preparing-research-ready-collections">
-        Step 2: Preparing Research-Ready Collections
-    </h3>
+    <h3 id="step-2-preparing-research-ready-collections">Step 2: Preparing Research-Ready Collections</h3>
     
     <h4 id="processing-workflow">
         Processing Workflow
@@ -1224,9 +1193,7 @@
         </li>
     </ul>
     <hr>
-    <h3 id="step-3-essential-documentation-for-harc">
-        Step 3: Essential Documentation for HARC
-    </h3>
+    <h3 id="step-3-essential-documentation-for-harc">Step 3: Essential Documentation for HARC</h3>
     <h4 id="transfer-documentation-checklist">
 	<a href="transfer-documentation-checklist.html">Transfer Documentation Checklist</a>
     </h4>
@@ -1301,9 +1268,7 @@
         </li>
     </ul>
     <hr>
-    <h3 id="step-4-physical-move-planning">
-        Step 4: Physical Move Planning
-    </h3>
+    <h3 id="step-4-physical-move-planning">Step 4: Physical Move Planning</h3>
     <h4 id="timeline-and-coordination">
         Timeline and Coordination
     </h4>
@@ -1557,9 +1522,7 @@
         </li>
     </ul>
     <hr>
-    <h3 id="step-5-disposition-of-objects-and-non-archival-materials">
-        Step 5: Disposition of Objects and Non-Archival Materials
-    </h3>
+    <h3 id="step-5-disposition-of-objects-and-non-archival-materials">Step 5: Disposition of Objects and Non-Archival Materials</h3>
     <h4 id="objects-for-harc">
         Objects for HARC
     </h4>
@@ -1733,9 +1696,7 @@
         </li>
     </ul>
     <hr>
-    <h2 id="part-iv-resources-and-templates">
-        Part IV: Resources and Templates
-    </h2>
+    <h2 id="part-iv-resources-and-templates">Part IV: Resources and Templates</h2>
     <h3 id="assessment-tools">
         Assessment Tools
     </h3>
@@ -2587,9 +2548,7 @@
         </li>
     </ul>
     <hr>
-    <h2 id="part-v-packing-and-moving-resources">
-        Part V: Packing and Moving Resources
-    </h2>
+    <h2 id="part-v-packing-and-moving-resources">Part V: Packing and Moving Resources</h2>
     <h3 id="box-label-template">
         Box Label Template
     </h3>
@@ -2653,9 +2612,7 @@ Special Instructions: _____________________________________
         </li>
     </ul>
     <hr>
-    <h2 id="conclusion">
-        Conclusion
-    </h2>
+    <h2 id="conclusion">Conclusion</h2>
     <h3 id="your-archives-matter">
         Your Archives Matter
     </h3>
@@ -2860,9 +2817,7 @@ Special Instructions: _____________________________________
         National Archives and Records Administration. n.d. "Digital Preservation - Home." Accessed October 11, 2025. <a target="_blank" rel="noopener noreferrer" href="https://www.archives.gov/preservation/digital-preservation">https://www.archives.gov/preservation/digital-preservation</a>.
     </p>
     <hr>
-    <h2 id="acknowledgments">
-        Acknowledgments
-    </h2>
+    <h2 id="acknowledgments">Acknowledgments</h2>
     <p>
         This toolkit was developed by the Heritage and Research Center at Saint Mary's (HARC) with gratitude to:
     </p>
@@ -2886,6 +2841,71 @@ Special Instructions: _____________________________________
     <p>
         <i>Special thanks to the sisters who dedicated their lives to prayer and service. Your history deserves to be saved.</i>
     </p>
+	</main>
+
+      <!-- RIGHT: Resources & Forms -->
+      <aside class="right-panel" aria-label="Resources and forms">
+        <h2>Resources &amp; Forms</h2>
+        <nav>
+          <ul>
+            <li><a href="harc-aspace-guide-v1.html">HARC Aspace Guide (harc-aspace-guide-v1.html)</a></li>
+            <li><a href="harc-collection-policy-2025-draft1.pdf" target="_blank" rel="noopener">Collection Policy (PDF)</a></li>
+            <li><a href="harc-donor-congregation-agreement-Version2.html">Donor Congregation Agreement</a></li>
+            <li><a href="harc-publication-loan-agreement-draft1.pdf" target="_blank" rel="noopener">Publication / Loan Agreement (PDF)</a></li>
+            <li><a href="harc-stacks-readingroom-agreement-draft1.pdf" target="_blank" rel="noopener">Stacks / Reading Room Agreement (PDF)</a></li>
+            <li><a href="harc_assessment_templates_form.html">Assessment Templates (interactive form)</a></li>
+            <li><a href="item-level-inventory.html">Item-level Inventory</a></li>
+            <li><a href="scanning.html">Scanning Guidance</a></li>
+            <li><a href="storage-environment-chart.html">Storage Environment Chart</a></li>
+            <li><a href="survey-processing.html">Survey &amp; Processing</a></li>
+            <li><a href="transfer-documentation-checklist.html">Transfer Documentation Checklist</a></li>
+          </ul>
+        </nav>
+      </aside>
+    </div>
+
+    <!-- Your gallery script & other inline scripts remain unchanged; include them here as you had them -->
+    <script>
+      (function(){
+        function makeTocToggle(){
+          const toc = document.querySelector('nav.toc');
+          if(!toc) return;
+          if(document.getElementById('toc-toggle')) return;
+          const btn = document.createElement('button');
+          btn.id = 'toc-toggle';
+          btn.type = 'button';
+          btn.innerText = 'Contents ▾';
+          btn.style.cssText = 'display:none; margin-bottom:10px; background:var(--panel); border:1px solid var(--hr); padding:8px 12px; border-radius:8px; font-weight:600; cursor:pointer;';
+          btn.setAttribute('aria-expanded','true');
+          toc.parentNode.insertBefore(btn, toc);
+          function update(){
+            if(window.innerWidth <= 980){
+              btn.style.display = 'inline-block';
+              if(!btn._bound){
+                btn.addEventListener('click', function(){
+                  const expanded = btn.getAttribute('aria-expanded') === 'true';
+                  btn.setAttribute('aria-expanded', String(!expanded));
+                  toc.style.display = expanded ? 'none' : 'block';
+                  btn.innerText = expanded ? 'Contents ▸' : 'Contents ▾';
+                });
+                btn._bound = true;
+              }
+            } else {
+              btn.style.display = 'none';
+              toc.style.display = 'block';
+              btn.setAttribute('aria-expanded','true');
+            }
+          }
+          update();
+          window.addEventListener('resize', update);
+        }
+        document.addEventListener('DOMContentLoaded', makeTocToggle);
+      })();
+    </script>
+
+	</div>
+	</body>
+</html>
     <hr>
     <h2 id="notes">
         Notes
@@ -2894,44 +2914,6 @@ Special Instructions: _____________________________________
     <p>
         <i>Document prepared by the Heritage and Research Center at Saint Mary's (HARC)</i><br>
         <i>For questions or assistance, contact: bgordon@harcsm.org | (574) 678-6155</i>
-    </p>
-</div>
-<script>
-    (function(){
-      function makeTocToggle(){
-        const toc = document.querySelector('nav.toc');
-        if(!toc) return;
-        if(document.getElementById('toc-toggle')) return;
-        const btn = document.createElement('button');
-        btn.id = 'toc-toggle';
-        btn.type = 'button';
-        btn.innerText = 'Contents ▾';
-        btn.style.cssText = 'display:none; margin-bottom:10px; background:var(--panel); border:1px solid var(--hr); padding:8px 12px; border-radius:8px; font-weight:600; cursor:pointer;';
-        btn.setAttribute('aria-expanded','true');
-        toc.parentNode.insertBefore(btn, toc);
-        function update(){
-          if(window.innerWidth <= 980){
-            btn.style.display = 'inline-block';
-            if(!btn._bound){
-              btn.addEventListener('click', function(){
-                const expanded = btn.getAttribute('aria-expanded') === 'true';
-                btn.setAttribute('aria-expanded', String(!expanded));
-                toc.style.display = expanded ? 'none' : 'block';
-                btn.innerText = expanded ? 'Contents ▸' : 'Contents ▾';
-              });
-              btn._bound = true;
-            }
-          } else {
-            btn.style.display = 'none';
-            toc.style.display = 'block';
-            btn.setAttribute('aria-expanded','true');
-          }
-        }
-        update();
-        window.addEventListener('resize', update);
-      }
-      document.addEventListener('DOMContentLoaded', makeTocToggle);
-    })();
-  </script>
-</body>
-</html>
+    </p>	
+
+
