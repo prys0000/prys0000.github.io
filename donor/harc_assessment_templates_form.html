@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC — Assessment Tools & Templates</title>
+  <style>
+    :root{--bg:#f6f7f8;--card:#ffffff;--muted:#6b7280;--accent:#1e3c72;--accent-2:#2a5298;--radius:10px;--container:1000px}
+    *{box-sizing:border-box}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial; background:var(--bg); color:#111;margin:0;padding:24px}
+    .container{max-width:var(--container);margin:0 auto}
+    header{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+    header h1{font-size:20px;margin:0}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(16,24,40,0.06);margin-bottom:16px}
+    fieldset{border:1px solid #e6e9ef;padding:12px;border-radius:8px;margin-bottom:12px}
+    legend{font-weight:600;color:var(--accent)}
+    label{display:block;font-size:14px;margin-bottom:6px;color:#0b1020}
+    .row{display:flex;gap:12px;flex-wrap:wrap}
+    .col{flex:1 1 240px;min-width:180px}
+    input[type=text],input[type=date],input[type=number],select,textarea{width:100%;padding:8px;border-radius:6px;border:1px solid #d1d5db;font-size:14px}
+    textarea{min-height:80px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:8px;border-bottom:1px solid #eef2f6;text-align:left;font-size:14px}
+    th{background:#fbfdff;font-weight:600}
+    .small{font-size:13px;color:var(--muted)}
+    .actions{display:flex;gap:8px;flex-wrap:wrap}
+    button{background:var(--accent);color:#fff;border:none;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.secondary{background:#eef2ff;color:var(--accent)}
+    .muted{color:var(--muted)}
+    .inline{display:inline-flex;gap:8px;align-items:center}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    @media (max-width:780px){.grid-3{grid-template-columns:1fr}}
+    .checkbox-grid{display:flex;flex-wrap:wrap;gap:8px}
+    .task-table td input{width:100%}
+    .note{font-size:13px;color:var(--muted);margin-top:6px}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .badge{background:#eef3ff;color:var(--accent);padding:4px 8px;border-radius:999px;font-weight:600}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">HARC</div>
+      <h1>Part IV: Resources &amp; Templates — Assessment Tools</h1>
+    </header>
+
+    <div class="card">
+      <div class="controls" style="justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div class="small muted">Interactive form: fill, export JSON/CSV, print, or save locally to your browser.</div>
+        <div class="actions">
+          <button id="saveBtn">Save (local)</button>
+          <button id="loadBtn" class="secondary">Load</button>
+          <button id="exportJsonBtn" class="secondary">Export JSON</button>
+          <button id="exportCsvBtn" class="secondary">Export CSV</button>
+          <button id="printBtn" class="secondary">Print</button>
+        </div>
+      </div>
+
+      <form id="assessmentForm">
+        <fieldset>
+          <legend>Basic Information</legend>
+          <div class="row">
+            <div class="col"><label>Congregation Name<input type="text" name="congregation" /></label></div>
+            <div class="col"><label>Archivist Name<input type="text" name="archivist" /></label></div>
+            <div class="col"><label>Date Completed<input type="date" name="dateCompleted" /></label></div>
+          </div>
+          <div class="row" style="margin-top:8px">
+            <div class="col"><label>Projected Transition Timeline<input type="text" name="timeline" placeholder="e.g., Spring 2026"/></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Storage Space</legend>
+          <div class="row">
+            <div class="col"><label>Square footage<input type="number" name="sqft" min="0" /></label></div>
+            <div class="col"><label>Linear footage of shelving<input type="number" name="linearft" min="0" /></label></div>
+            <div class="col"><label>Cubic footage<input type="number" name="cubicft" min="0" /></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Collection Status</legend>
+          <div class="row">
+            <div class="col"><label>Percentage processed<input type="number" name="pctProcessed" min="0" max="100" /></label></div>
+            <div class="col"><label>Percentage with finding aids<input type="number" name="pctFindingAids" min="0" max="100" /></label></div>
+            <div class="col"><label>Percentage accessible<input type="number" name="pctAccessible" min="0" max="100" /></label></div>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Material Formats (check all present and note prevalence &amp; condition)</legend>
+          <table id="formatsTable">
+            <thead>
+              <tr><th>Format</th><th>Present</th><th>Prevalence</th><th>Condition Notes</th></tr>
+            </thead>
+            <tbody>
+              <!-- rows inserted by JS -->
+            </tbody>
+          </table>
+        </fieldset>
+
+        <fieldset>
+          <legend>Preservation Concerns</legend>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="presMold"/> Mold or mildew present</label>
+            <label><input type="checkbox" name="presPest"/> Pest damage</label>
+            <label><input type="checkbox" name="presWater"/> Water damage</label>
+            <label><input type="checkbox" name="presBrittle"/> Brittleness/deterioration</label>
+            <label><input type="checkbox" name="presStorage"/> Improper storage</label>
+            <label><input type="checkbox" name="presClimate"/> Inadequate climate control</label>
+            <label><input type="checkbox" name="presCrowd"/> Overcrowding</label>
+            <label style="display:flex;gap:6px;align-items:center">Other: <input type="text" name="presOther" style="width:220px"/></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Existing Documentation</legend>
+          <div class="checkbox-grid">
+            <label><input type="checkbox" name="docBoxLists"/> Box lists</label>
+            <label><input type="checkbox" name="docFindingAids"/> Finding aids</label>
+            <label><input type="checkbox" name="docInventories"/> Inventories</label>
+            <label><input type="checkbox" name="docPolicies"/> Policies</label>
+            <label><input type="checkbox" name="docAccessions"/> Accession records</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Object Evaluation Worksheet (repeatable)</legend>
+          <div id="objectsContainer"></div>
+          <div style="margin-top:8px"><button type="button" id="addObjectBtn" class="secondary">+ Add Object</button></div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Transition Planning Worksheet</legend>
+          <div class="row">
+            <div class="col"><label>Timeline<input type="text" name="planTimeline" placeholder="e.g., May 2026 - Aug 2026"/></label></div>
+          </div>
+
+          <div style="margin-top:8px">
+            <table class="task-table" id="tasksTable">
+              <thead><tr><th>Task</th><th>Responsible</th><th>Deadline</th><th>Status</th><th></th></tr></thead>
+              <tbody></tbody>
+            </table>
+            <div style="margin-top:8px"><button type="button" id="addTaskBtn" class="secondary">+ Add Task</button></div>
+          </div>
+
+        </fieldset>
+
+        <fieldset>
+          <legend>Resource Needs</legend>
+          <div class="grid-3">
+            <div>
+              <h4 class="small">Staffing</h4>
+              <label>Archivist hours/week<input type="number" name="staffArchivistHrs" min="0"/></label>
+              <label>Volunteer hours/week<input type="number" name="staffVolunteerHrs" min="0"/></label>
+              <label style="display:flex;gap:8px;align-items:center">Consultant needed: <label><input type="radio" name="consultant" value="yes"/> Yes</label> <label><input type="radio" name="consultant" value="no" checked/> No</label></label>
+              <label>Project scope<textarea name="projectScope"></textarea></label>
+            </div>
+            <div>
+              <h4 class="small">Supplies</h4>
+              <label>Archival boxes<input type="number" name="supplyBoxes" min="0"/></label>
+              <label>Folders<input type="number" name="supplyFolders" min="0"/></label>
+              <label>Labels<input type="number" name="supplyLabels" min="0"/></label>
+              <label>Packing materials<input type="number" name="supplyPacking" min="0"/></label>
+              <label>Estimated cost<input type="number" name="supplyCost" min="0" step="0.01"/></label>
+            </div>
+            <div>
+              <h4 class="small">Services</h4>
+              <label>Project archivist<input type="text" name="serviceArchivist"/></label>
+              <label>Other consultants<input type="text" name="serviceOther"/></label>
+              <label>Estimated cost<input type="number" name="serviceCost" min="0" step="0.01"/></label>
+            </div>
+          </div>
+
+          <div style="margin-top:10px">
+            <label>Total estimated cost<input type="number" name="totalCost" min="0" step="0.01"/></label>
+            <label>Funding sources<input type="text" name="fundingSources"/></label>
+            <label style="display:flex;gap:8px;align-items:center">Budget approved: <input type="checkbox" name="budgetApproved"/></label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Processing Priority Matrix</legend>
+          <table id="priorityTable">
+            <thead><tr><th>Collection</th><th>Importance (1-5)</th><th>Condition (1-5)</th><th>Priority Score</th><th>Notes</th></tr></thead>
+            <tbody></tbody>
+          </table>
+          <div style="margin-top:8px"><button type="button" id="addPriorityBtn" class="secondary">+ Add Collection</button></div>
+          <p class="note">Priority Score = Importance + Condition (higher = prompt action). Use ranking: High (8-10), Medium (5-7), Low (2-4).</p>
+        </fieldset>
+
+        <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px">
+          <button type="button" id="exportFillBtn">Export Filled Form (JSON)</button>
+          <button type="reset" class="secondary">Reset</button>
+        </div>
+
+      </form>
+
+    </div>
+
+    <footer class="small muted">Tip: Use the Save button to keep the form in your browser, and Export to share with colleagues.</footer>
+
+  </div>
+
+  <script>
+    // Initial datasets
+    const formats = [
+      'Documents (standard boxes)','Documents (oversized)','Photographs (prints)','Photographs (negatives)','Photographs (slides)','Photo albums','Scrapbooks','Audio recordings','Video recordings','Film (8mm, 16mm)','Digital files','Microfilm/fiche','Books/publications','Architectural drawings','Maps','Artifacts/objects','Religious items','Artwork'
+    ];
+
+    function $(sel, root=document) { return root.querySelector(sel); }
+    function create(tag, attrs={}, text='') { const el=document.createElement(tag); for(const k in attrs) el.setAttribute(k, attrs[k]); if(text) el.textContent=text; return el }
+
+    // populate formats table
+    const formatsTbody = $('#formatsTable tbody');
+    formats.forEach(f=>{
+      const tr=document.createElement('tr');
+      tr.innerHTML = `<td>${f}</td>`+
+                     `<td><input type="checkbox" name="format_present_${f}"/></td>`+
+                     `<td><select name="format_prev_${f}"><option value="">--</option><option>Extensive</option><option>Common</option><option>Rare</option></select></td>`+
+                     `<td><input type="text" name="format_note_${f}"/></td>`;
+      formatsTbody.appendChild(tr);
+    });
+
+    // objects container with add/remove
+    const objectsContainer = $('#objectsContainer');
+    function addObject(data={}){
+      const id = 'obj_'+Date.now();
+      const field = document.createElement('div'); field.className='card';
+      field.innerHTML = `
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+          <strong>Object</strong>
+          <div><button type="button" class="secondary removeObj">Remove</button></div>
+        </div>
+        <label>Description<input type="text" name="desc"/></label>
+        <div class="grid-3" style="margin-top:6px">
+          <label>Connection to story (1-5)<input type="number" name="conn" min="1" max="5"/></label>
+          <label>Historical significance (1-5)<input type="number" name="hist" min="1" max="5"/></label>
+          <label>Condition (1-5)<input type="number" name="cond" min="1" max="5"/></label>
+          <label>Provenance (1-5)<input type="number" name="prov" min="1" max="5"/></label>
+          <label>Research value (1-5)<input type="number" name="res" min="1" max="5"/></label>
+          <label>Display potential (1-5)<input type="number" name="disp" min="1" max="5"/></label>
+          <label>Uniqueness (1-5)<input type="number" name="uniq" min="1" max="5"/></label>
+        </div>
+        <div style="margin-top:8px;display:flex;gap:12px;align-items:center">
+          <div class="small muted">Total Score: <span class="total">0</span> / 35</div>
+          <label style="margin-left:auto">Disposition:
+            <select name="disposition">
+              <option>Priority for HARC</option>
+              <option>Alternative repository</option>
+              <option>Sale/donation</option>
+              <option>Respectful disposal</option>
+            </select>
+          </label>
+        </div>
+      `;
+      // fill values
+      if(data.desc) field.querySelector('input[name=desc]').value = data.desc;
+      ['conn','hist','cond','prov','res','disp','uniq'].forEach(k=>{
+        if(data[k]) field.querySelector(`input[name=${k}]`).value = data[k];
+      });
+      if(data.disposition) field.querySelector('select[name=disposition]').value = data.disposition;
+
+      // calc
+      function recalc(){
+        const vals=['conn','hist','cond','prov','res','disp','uniq'].map(k=>Number(field.querySelector(`input[name=${k}]`).value)||0);
+        const total=vals.reduce((a,b)=>a+b,0);
+        field.querySelector('.total').textContent=total;
+      }
+      field.addEventListener('input',recalc);
+
+      field.querySelector('.removeObj').addEventListener('click',()=>{ field.remove(); });
+      objectsContainer.appendChild(field);
+      recalc();
+    }
+
+    $('#addObjectBtn').addEventListener('click',()=>addObject());
+    // add one by default
+    addObject();
+
+    // tasks
+    const tasksTbody = $('#tasksTable tbody');
+    function addTask(task={}){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><input type="text" name="task_name" value="${task.name||''}" /></td>
+                      <td><input type="text" name="task_resp" value="${task.resp||''}" /></td>
+                      <td><input type="date" name="task_dead" value="${task.dead||''}" /></td>
+                      <td><input type="text" name="task_status" value="${task.status||''}" /></td>
+                      <td><button type="button" class="secondary removeTask">Remove</button></td>`;
+      tr.querySelector('.removeTask').addEventListener('click',()=>tr.remove());
+      tasksTbody.appendChild(tr);
+    }
+    $('#addTaskBtn').addEventListener('click',()=>addTask());
+
+    // priority table
+    const priorityTbody = $('#priorityTable tbody');
+    function addPriority(row={}){
+      const tr = document.createElement('tr');
+      tr.innerHTML = `<td><input type="text" name="col_name" value="${row.name||''}"/></td>
+                      <td><input type="number" name="col_imp" min="1" max="5" value="${row.imp||''}"/></td>
+                      <td><input type="number" name="col_cond" min="1" max="5" value="${row.cond||''}"/></td>
+                      <td class="score">${row.imp&&row.cond?Number(row.imp)+Number(row.cond):''}</td>
+                      <td><input type="text" name="col_notes" value="${row.notes||''}"/></td>`;
+      function calc(){ const imp=Number(tr.querySelector('input[name=col_imp]').value)||0; const cond=Number(tr.querySelector('input[name=col_cond]').value)||0; tr.querySelector('.score').textContent = (imp||cond)?(imp+cond):''; }
+      tr.addEventListener('input',calc);
+      priorityTbody.appendChild(tr);
+    }
+    $('#addPriorityBtn').addEventListener('click',()=>addPriority());
+
+    // Save/Load/Export
+    function formToObject(){
+      const form = document.getElementById('assessmentForm');
+      const data = {};
+      new FormData(form).forEach((v,k)=>{
+        // handle multiple with same names by collecting into arrays if needed
+        if(k in data){
+          if(Array.isArray(data[k])) data[k].push(v); else data[k]=[data[k],v];
+        } else data[k]=v;
+      });
+      // objects
+      data.objects = Array.from(objectsContainer.children).map(card=>{
+        const obj = {};
+        obj.desc = card.querySelector('input[name=desc]').value;
+        ['conn','hist','cond','prov','res','disp','uniq'].forEach(k=>obj[k]=Number(card.querySelector(`input[name=${k}]`).value)||0);
+        obj.total = Number(card.querySelector('.total').textContent)||0;
+        obj.disposition = card.querySelector('select[name=disposition]').value;
+        return obj;
+      });
+      // tasks
+      data.tasks = Array.from(tasksTbody.querySelectorAll('tr')).map(tr=>({name:tr.querySelector('input[name=task_name]').value,resp:tr.querySelector('input[name=task_resp]').value,dead:tr.querySelector('input[name=task_dead]').value,status:tr.querySelector('input[name=task_status]').value}));
+      // priority
+      data.priority = Array.from(priorityTbody.querySelectorAll('tr')).map(tr=>({collection:tr.querySelector('input[name=col_name]').value,importance:Number(tr.querySelector('input[name=col_imp]').value)||0,condition:Number(tr.querySelector('input[name=col_cond]').value)||0,score: Number(tr.querySelector('.score').textContent)||0,notes:tr.querySelector('input[name=col_notes]').value}));
+
+      // formats
+      data.formats = {};
+      formats.forEach(f=>{
+        const key = f;
+        const present = document.querySelector(`input[name='format_present_${f}']`).checked;
+        const prev = document.querySelector(`select[name='format_prev_${f}']`).value;
+        const note = document.querySelector(`input[name='format_note_${f}']`).value;
+        data.formats[key] = {present,prevalence:prev,note};
+      });
+
+      return data;
+    }
+
+    function saveLocal(){ localStorage.setItem('harc_assessment', JSON.stringify(formToObject())); alert('Saved to local browser storage.'); }
+    function loadLocal(){ const raw = localStorage.getItem('harc_assessment'); if(!raw){ alert('No saved form found in this browser.'); return; } const data = JSON.parse(raw); populateFromObject(data); }
+
+    function populateFromObject(data){
+      const form = document.getElementById('assessmentForm');
+      // clear dynamic areas
+      objectsContainer.innerHTML=''; tasksTbody.innerHTML=''; priorityTbody.innerHTML='';
+      // fill simple inputs
+      for(const key in data){ if(['objects','tasks','priority','formats'].includes(key)) continue; const el=form.querySelector(`[name=${key}]`); if(el){ if(el.type==='checkbox') el.checked = !!data[key]; else if(el.type==='radio'){ const r = form.querySelector(`[name=${key}][value='${data[key]}']`); if(r) r.checked=true; } else el.value = data[key]; }}
+      // formats
+      if(data.formats){ formats.forEach(f=>{ const p = document.querySelector(`input[name='format_present_${f}']`); const s = document.querySelector(`select[name='format_prev_${f}']`); const n = document.querySelector(`input[name='format_note_${f}']`); if(p) p.checked = !!data.formats[f].present; if(s) s.value = data.formats[f].prevalence||''; if(n) n.value = data.formats[f].note||''; }); }
+      // objects
+      if(data.objects && data.objects.length){ data.objects.forEach(o=>addObject(o)); } else { addObject(); }
+      // tasks
+      if(data.tasks && data.tasks.length){ data.tasks.forEach(t=>addTask(t)); }
+      // priority
+      if(data.priority && data.priority.length){ data.priority.forEach(p=>addPriority(p)); }
+    }
+
+    document.getElementById('saveBtn').addEventListener('click',saveLocal);
+    document.getElementById('loadBtn').addEventListener('click',loadLocal);
+
+    document.getElementById('exportJsonBtn').addEventListener('click',()=>{
+      const data = formToObject(); const blob = new Blob([JSON.stringify(data, null, 2)],{type:'application/json'});
+      const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='HARC_Assessment.json'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('exportFillBtn').addEventListener('click',()=>{
+      const data = formToObject(); const blob = new Blob([JSON.stringify(data, null, 2)],{type:'application/json'});
+      const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='HARC_Assessment_Filled.json'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('exportCsvBtn').addEventListener('click',()=>{
+      const data = formToObject();
+      // flatten some key sections for CSV (basic info + summary fields)
+      const rows = [];
+      // basic info row
+      rows.push(['Congregation','Archivist','Date','Timeline','Sqft','Linear ft','Cubic ft','%Processed','%FindingAids','%Accessible']);
+      rows.push([data.congregation||'',data.archivist||'',data.dateCompleted||'',data.timeline||'',data.sqft||'',data.linearft||'',data.cubicft||'',data.pctProcessed||'',data.pctFindingAids||'',data.pctAccessible||'']);
+      // formats section
+      rows.push([]);
+      rows.push(['Format','Present','Prevalence','Note']);
+      for(const k in data.formats) rows.push([k,data.formats[k].present?"Yes":"No",data.formats[k].prevalence||'',data.formats[k].note||'']);
+      const csv = rows.map(r=>r.map(cell=>`"${String(cell||'').replace(/"/g,'""')}"`).join(',')).join('\n');
+      const blob = new Blob([csv],{type:'text/csv'}); const url=URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='HARC_Assessment_Summary.csv'; a.click(); URL.revokeObjectURL(url);
+    });
+
+    document.getElementById('printBtn').addEventListener('click',()=>{ window.print(); });
+
+    // auto-add initial rows
+    addTask(); addPriority();
+
+    // load if present on open
+    window.addEventListener('load',()=>{ const raw = localStorage.getItem('harc_assessment'); if(raw){ /* leave to user to click load */ } });
+  </script>
+</body>
+</html>
