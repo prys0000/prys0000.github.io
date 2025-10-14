@@ -1,222 +1,221 @@
-import React from "react";
-import {
-  BarChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  Cell,
-} from "recharts";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archival Storage Environment Standards</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        #root {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        .container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+        }
+        .intro {
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        .chart-section {
+            margin-bottom: 3rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #34495e;
+        }
+        .guidelines {
+            background-color: #f8f9fa;
+            border-left: 4px solid #3498db;
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+        .guidelines h2 {
+            margin-top: 0;
+        }
+        .guidelines ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .guidelines li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .guidelines li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .custom-tooltip {
+            background-color: white;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            padding: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .tooltip-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .tooltip-row {
+            font-size: 13px;
+            margin: 4px 0;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
 
-/**
- * ArchivalStorageChart
- *
- * - Responsive, accessible layout matching the toolkit tone
- * - Precomputes range values so Recharts uses simple dataKeys
- * - Custom tooltip that shows original min/max ranges
- */
-const ArchivalStorageChart = () => {
-  const raw = [
-    {
-      material: "Paper & Books",
-      tempMin: 65,
-      tempMax: 70,
-      humidityMin: 30,
-      humidityMax: 50,
-      color: "#8B4513",
-    },
-    {
-      material: "Photographs (B&W)",
-      tempMin: 65,
-      tempMax: 70,
-      humidityMin: 30,
-      humidityMax: 40,
-      color: "#2C3E50",
-    },
-    {
-      material: "Photographs (Color)",
-      tempMin: 35,
-      tempMax: 40,
-      humidityMin: 30,
-      humidityMax: 40,
-      color: "#E74C3C",
-    },
-    {
-      material: "Magnetic Media",
-      tempMin: 60,
-      tempMax: 70,
-      humidityMin: 30,
-      humidityMax: 50,
-      color: "#3498DB",
-    },
-    {
-      material: "Film & Negatives",
-      tempMin: 35,
-      tempMax: 45,
-      humidityMin: 30,
-      humidityMax: 40,
-      color: "#9B59B6",
-    },
-    {
-      material: "Textiles",
-      tempMin: 65,
-      tempMax: 70,
-      humidityMin: 45,
-      humidityMax: 55,
-      color: "#16A085",
-    },
-  ];
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/recharts@2.5.0/dist/Recharts.js"></script>
+    
+    <script>
+        (function() {
+            const e = React.createElement;
+            const { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Cell } = window.Recharts;
 
-  // compute range fields so Recharts can use simple dataKey strings
-  const data = raw.map((d) => ({
-    ...d,
-    tempRange: Math.max(0, d.tempMax - d.tempMin),
-    humidityRange: Math.max(0, d.humidityMax - d.humidityMin),
-  }));
+            const ArchivalStorageChart = () => {
+                const raw = [
+                    { material: "Paper & Books", tempMin: 65, tempMax: 70, humidityMin: 30, humidityMax: 50, color: "#8B4513" },
+                    { material: "Photographs (B&W)", tempMin: 65, tempMax: 70, humidityMin: 30, humidityMax: 40, color: "#2C3E50" },
+                    { material: "Photographs (Color)", tempMin: 35, tempMax: 40, humidityMin: 30, humidityMax: 40, color: "#E74C3C" },
+                    { material: "Magnetic Media", tempMin: 60, tempMax: 70, humidityMin: 30, humidityMax: 50, color: "#3498DB" },
+                    { material: "Film & Negatives", tempMin: 35, tempMax: 45, humidityMin: 30, humidityMax: 40, color: "#9B59B6" },
+                    { material: "Textiles", tempMin: 65, tempMax: 70, humidityMin: 45, humidityMax: 55, color: "#16A085" }
+                ];
 
-  // global axis bounds with some padding
-  const tempGlobalMin = Math.min(...raw.map((r) => r.tempMin));
-  const tempGlobalMax = Math.max(...raw.map((r) => r.tempMax));
-  const humidityGlobalMin = Math.min(...raw.map((r) => r.humidityMin));
-  const humidityGlobalMax = Math.max(...raw.map((r) => r.humidityMax));
+                const data = raw.map(d => ({
+                    ...d,
+                    tempRange: Math.max(0, d.tempMax - d.tempMin),
+                    humidityRange: Math.max(0, d.humidityMax - d.humidityMin)
+                }));
 
-  const tempDomain = [
-    Math.floor(tempGlobalMin - 5),
-    Math.ceil(tempGlobalMax + 5),
-  ];
-  const humidityDomain = [
-    Math.max(0, Math.floor(humidityGlobalMin - 5)),
-    Math.min(100, Math.ceil(humidityGlobalMax + 5)),
-  ];
+                const tempGlobalMin = Math.min(...raw.map(r => r.tempMin));
+                const tempGlobalMax = Math.max(...raw.map(r => r.tempMax));
+                const humidityGlobalMin = Math.min(...raw.map(r => r.humidityMin));
+                const humidityGlobalMax = Math.max(...raw.map(r => r.humidityMax));
 
-  // Custom tooltip that displays the friendly ranges and respects color coding
-  const CustomTooltip = ({ active, payload }) => {
-    if (!active || !payload || !payload.length) return null;
-    const item = payload[0].payload;
-    // simple styling inline to avoid external CSS dependency
-    return (
-      <div
-        role="tooltip"
-        aria-live="polite"
-        style={{
-          background: "#fff",
-          border: "1px solid rgba(0,0,0,0.08)",
-          padding: 10,
-          borderRadius: 6,
-          boxShadow: "0 6px 18px rgba(20,30,50,0.06)",
-          fontSize: 13,
-          color: "#222831",
-        }}
-      >
-        <div style={{ fontWeight: 700, marginBottom: 6 }}>{item.material}</div>
-        <div style={{ marginBottom: 4 }}>
-          <strong>Temperature: </strong>
-          {item.tempMin}–{item.tempMax}°F
-        </div>
-        <div>
-          <strong>Relative Humidity: </strong>
-          {item.humidityMin}–{item.humidityMax}% RH
-        </div>
-      </div>
-    );
-  };
+                const tempDomain = [Math.floor(tempGlobalMin - 5), Math.ceil(tempGlobalMax + 5)];
+                const humidityDomain = [
+                    Math.max(0, Math.floor(humidityGlobalMin - 5)),
+                    Math.min(100, Math.ceil(humidityGlobalMax + 5))
+                ];
 
-  return (
-    <section
-      aria-labelledby="archival-storage-chart-title"
-      style={{
-        background: "linear-gradient(180deg, rgba(255,255,255,0.98), rgba(250,250,252,0.98))",
-        padding: 18,
-        borderRadius: 10,
-        boxShadow: "0 6px 18px rgba(20,30,50,0.06)",
-        color: "var(--text, #222831)",
-        fontFamily: '"Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial',
-      }}
-    >
-      <h3 id="archival-storage-chart-title" style={{ margin: 0, color: "var(--accent-2, #1f416f)" }}>
-        Archival Storage Environment Standards
-      </h3>
-      <p style={{ marginTop: 8, marginBottom: 16 }}>
-        Recommended temperature and relative-humidity ranges for common archival materials. These ranges support
-        long-term stability and slow chemical deterioration.
-      </p>
+                const CustomTooltip = ({ active, payload }) => {
+                    if (!active || !payload || !payload.length) return null;
+                    const item = payload[0].payload;
+                    
+                    return e('div', { className: 'custom-tooltip' },
+                        e('div', { className: 'tooltip-title', style: { color: item.color } }, item.material),
+                        e('div', { className: 'tooltip-row' }, `Temperature: ${item.tempMin}–${item.tempMax}°F`),
+                        e('div', { className: 'tooltip-row' }, `Relative Humidity: ${item.humidityMin}–${item.humidityMax}% RH`)
+                    );
+                };
 
-      {/* Temperature chart */}
-      <div style={{ height: 300, marginBottom: 24 }}>
-        <div style={{ fontWeight: 600, marginBottom: 8 }}>Temperature Ranges (°F)</div>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            layout="vertical"
-            data={data}
-            margin={{ top: 8, right: 12, left: 12, bottom: 8 }}
-            role="img"
-            aria-label="Temperature ranges chart showing recommended temperature ranges per material"
-          >
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
-            <XAxis
-              type="number"
-              domain={tempDomain}
-              tickCount={6}
-              label={{ value: "°F", position: "insideBottomRight", offset: -8 }}
-            />
-            <YAxis type="category" dataKey="material" width={180} />
-            <Tooltip content={<CustomTooltip />} />
-            {/* tempMin acts as the offset, make it transparent */}
-            <Bar dataKey="tempMin" stackId="temp" fill="transparent" isAnimationActive={false} />
-            <Bar dataKey="tempRange" stackId="temp" isAnimationActive={false} >
-              {data.map((entry, idx) => (
-                <Cell key={`temp-cell-${idx}`} fill={entry.color} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+                return e('div', { className: 'container' },
+                    e('h1', null, 'Archival Storage Environment Standards'),
+                    e('p', { className: 'intro' },
+                        'Recommended temperature and relative-humidity ranges for common archival materials. These ranges support long-term stability and slow chemical deterioration.'
+                    ),
+                    
+                    e('div', { className: 'chart-section' },
+                        e('h2', null, 'Temperature Ranges (°F)'),
+                        e(ResponsiveContainer, { width: '100%', height: 400 },
+                            e(BarChart, { 
+                                data: data, 
+                                layout: 'horizontal', 
+                                margin: { top: 20, right: 30, left: 120, bottom: 20 }
+                            },
+                                e(CartesianGrid, { strokeDasharray: '3 3', stroke: '#e0e0e0' }),
+                                e(XAxis, { 
+                                    type: 'number',
+                                    domain: tempDomain,
+                                    tickFormatter: (v) => `${v}°F`,
+                                    label: { value: 'Temperature (°F)', position: 'insideBottomRight', offset: -8 }
+                                }),
+                                e(YAxis, { type: 'category', dataKey: 'material', width: 110 }),
+                                e(Tooltip, { content: e(CustomTooltip) }),
+                                e(Bar, { dataKey: 'tempMin', stackId: 'temp', fill: 'transparent' }),
+                                e(Bar, { dataKey: 'tempRange', stackId: 'temp' },
+                                    data.map((entry, idx) => 
+                                        e(Cell, { key: `cell-temp-${idx}`, fill: entry.color })
+                                    )
+                                )
+                            )
+                        )
+                    ),
 
-      {/* Humidity chart */}
-      <div style={{ height: 300, marginBottom: 18 }}>
-        <div style={{ fontWeight: 600, marginBottom: 8 }}>Relative Humidity Ranges (% RH)</div>
-        <ResponsiveContainer width="100%" height="100%">
-          <BarChart
-            layout="vertical"
-            data={data}
-            margin={{ top: 8, right: 12, left: 12, bottom: 8 }}
-            role="img"
-            aria-label="Relative humidity ranges chart showing recommended humidity ranges per material"
-          >
-            <CartesianGrid strokeDasharray="3 3" vertical={false} />
-            <XAxis
-              type="number"
-              domain={humidityDomain}
-              tickFormatter={(v) => `${v}%`}
-              tickCount={6}
-              label={{ value: "% RH", position: "insideBottomRight", offset: -8 }}
-            />
-            <YAxis type="category" dataKey="material" width={180} />
-            <Tooltip content={<CustomTooltip />} />
-            <Bar dataKey="humidityMin" stackId="hum" fill="transparent" isAnimationActive={false} />
-            <Bar dataKey="humidityRange" stackId="hum" isAnimationActive={false}>
-              {data.map((entry, idx) => (
-                <Cell key={`hum-cell-${idx}`} fill={entry.color} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
-      </div>
+                    e('div', { className: 'chart-section' },
+                        e('h2', null, 'Relative Humidity Ranges (% RH)'),
+                        e(ResponsiveContainer, { width: '100%', height: 400 },
+                            e(BarChart, { 
+                                data: data, 
+                                layout: 'horizontal', 
+                                margin: { top: 20, right: 30, left: 120, bottom: 20 }
+                            },
+                                e(CartesianGrid, { strokeDasharray: '3 3', stroke: '#e0e0e0' }),
+                                e(XAxis, { 
+                                    type: 'number',
+                                    domain: humidityDomain,
+                                    tickFormatter: (v) => `${v}%`,
+                                    tickCount: 6,
+                                    label: { value: '% RH', position: 'insideBottomRight', offset: -8 }
+                                }),
+                                e(YAxis, { type: 'category', dataKey: 'material', width: 110 }),
+                                e(Tooltip, { content: e(CustomTooltip) }),
+                                e(Bar, { dataKey: 'humidityMin', stackId: 'humidity', fill: 'transparent' }),
+                                e(Bar, { dataKey: 'humidityRange', stackId: 'humidity' },
+                                    data.map((entry, idx) => 
+                                        e(Cell, { key: `cell-humidity-${idx}`, fill: entry.color })
+                                    )
+                                )
+                            )
+                        )
+                    ),
 
-      {/* Key guidelines */}
-      <div style={{ marginTop: 8 }}>
-        <div style={{ fontWeight: 700, marginBottom: 8 }}>Key Guidelines</div>
-        <ul style={{ marginTop: 0 }}>
-          <li>Stability matters most. Short-term fluctuations are more damaging than conditions slightly outside an ideal range.</li>
-          <li>Cooler for photographic materials and film. Color media and film deteriorate faster at higher temperatures.</li>
-          <li>Use continuous monitoring. Deploy data loggers and keep records over time to detect trends and seasonal swings.</li>
-          <li>Acclimatize on transfer. Allow materials to adjust slowly if moved between environments with different temperature/humidity.</li>
-        </ul>
-      </div>
-    </section>
-  );
-};
+                    e('div', { className: 'guidelines' },
+                        e('h2', null, 'Key Guidelines'),
+                        e('ul', null,
+                            e('li', null, 'Stability matters most. Short-term fluctuations are more damaging than conditions slightly outside an ideal range.'),
+                            e('li', null, 'Cooler for photographic materials and film. Color media and film deteriorate faster at higher temperatures.'),
+                            e('li', null, 'Use continuous monitoring. Deploy data loggers and keep records over time to detect trends and seasonal swings.'),
+                            e('li', null, 'Acclimatize on transfer. Allow materials to adjust slowly if moved between environments with different temperature/humidity.')
+                        )
+                    )
+                );
+            };
 
-export default ArchivalStorageChart;
+            const root = ReactDOM.createRoot(document.getElementById('root'));
+            root.render(e(ArchivalStorageChart));
+        })();
+    </script>
+</body>
+</html>
