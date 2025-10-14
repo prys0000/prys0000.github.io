@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC — Transfer Documentation Checklist</title>
+
+  <!-- Google font (optional) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --muted:#6b7280;
+      --accent:#2a52a8;
+      --card:#fbfdff;
+      --success:#1b7a3a;
+      --danger:#b31b1b;
+      --maxw:980px;
+      --gap:1rem;
+      color-scheme: light;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);font-family:"Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; color:#111;}
+    .container{max-width:var(--maxw);margin:28px auto;padding:24px;background:linear-gradient(180deg, #ffffff 0%, #fbfdff 100%);box-shadow:0 6px 20px rgba(16,24,40,0.06);border-radius:10px;}
+    header h1{margin:.1rem 0 .5rem;font-size:1.35rem;}
+    header p.lead{margin:0;color:var(--muted);font-size:0.95rem;}
+    hr{border:0;border-top:1px solid #e6e9ef;margin:20px 0;}
+    .section{margin-top:1rem;}
+    h2{font-size:1.05rem;margin:.25rem 0;color:var(--accent);}
+    h3{font-size:0.98rem;margin:.25rem 0;color:#0b254e;}
+    .grid{display:grid;grid-template-columns:1fr 320px;gap:18px;align-items:start;}
+    @media (max-width:880px){ .grid{grid-template-columns:1fr;} .sidebar{order:2} }
+    .card{background:var(--card);border:1px solid #eef2f8;padding:16px;border-radius:8px;}
+    .checklist{list-style:none;padding:0;margin:0;}
+    .checklist li{display:flex;align-items:flex-start;padding:.45rem 0;border-bottom:1px dashed #eef3fb;}
+    .checklist li:last-child{border-bottom:0;}
+    .checklist input[type="checkbox"]{margin-right:12px;margin-top:3px;transform:scale(1.06);}
+    .muted{color:var(--muted);font-size:.95rem;}
+    .required-label{display:inline-flex;align-items:center;gap:8px;margin-bottom:.6rem;}
+    .pill{display:inline-block;background:#eef7ff;color:var(--accent);padding:4px 8px;border-radius:999px;font-weight:600;font-size:.85rem;border:1px solid #d7eaff;}
+    .actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px;}
+    button, .btn {
+      background:var(--accent); color:#fff;border:0;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:600;
+      box-shadow:0 4px 10px rgba(42,82,168,0.12);
+    }
+    .btn.secondary{background:#f3f6fb;color:#0b254e;border:1px solid #e6edf9;box-shadow:none;}
+    .btn.ghost{background:transparent;border:1px solid #e6edf9;color:#0b254e;}
+    .sample-wrap{margin-top:8px;}
+    textarea.sample{width:100%;height:140px;padding:12px;border-radius:8px;border:1px solid #e6edf9;font-family:inherit;resize:vertical}
+    .meta{font-size:0.92rem;color:var(--muted);margin-top:6px;}
+    .legend{font-weight:700;color:#0b254e;margin-top:6px;}
+    .restriction-list li{margin:.35rem 0;}
+    footer{margin-top:20px;color:var(--muted);font-size:0.92rem;}
+    /* Print styles: hide interactive bits */
+    @media print {
+      .actions, .sidebar, button, .btn, input[type="checkbox"] { display: none !important; }
+      .container{box-shadow:none;border-radius:0;padding:0;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main" aria-labelledby="page-title">
+    <header>
+      <h1 id="page-title">Step 3 — Essential Documentation for HARC</h1>
+      <p class="lead">Transfer documentation checklist, access/restrictions guidance, and suggested standard wording.</p>
+    </header>
+
+    <hr>
+
+    <div class="grid">
+      <!-- main content -->
+      <article>
+        <section class="card section" aria-labelledby="required-heading">
+          <div class="required-label">
+            <span class="pill">✅ Required</span>
+          </div>
+          <h2 id="required-heading">Transfer Documentation — Required</h2>
+
+          <ul class="checklist" id="required-checklist" aria-live="polite">
+            <li><input type="checkbox" id="chk-deed"><label for="chk-deed">Signed Deed of Gift or Deposit Agreement</label></li>
+            <li><input type="checkbox" id="chk-boxlist"><label for="chk-boxlist">Box list or inventory</label></li>
+            <li><input type="checkbox" id="chk-narrative"><label for="chk-narrative">Congregational narrative history</label></li>
+            <li><input type="checkbox" id="chk-restrictions"><label for="chk-restrictions">Access restrictions (by series/box)</label></li>
+            <li><input type="checkbox" id="chk-contact"><label for="chk-contact">Contact information for congregation liaison</label></li>
+          </ul>
+
+          <div class="actions" aria-hidden="false">
+            <button id="btn-save" class="btn">Save checklist</button>
+            <button id="btn-clear" class="btn secondary">Clear saved</button>
+            <button onclick="window.print()" class="btn ghost">Print</button>
+          </div>
+
+          <div class="meta">Checklist state persists in this browser only (saved locally).</div>
+        </section>
+
+        <section class="card section" aria-labelledby="if-available-heading">
+          <div class="required-label">
+            <span class="pill">✅ If Available</span>
+          </div>
+          <h2 id="if-available-heading">If Available — Helpful to include</h2>
+
+          <ul class="checklist" id="optional-checklist">
+            <li><input type="checkbox" id="chk-policies"><label for="chk-policies">Existing policies (access, use, confidentiality)</label></li>
+            <li><input type="checkbox" id="chk-digital"><label for="chk-digital">Digitized materials (with file documentation)</label></li>
+            <li><input type="checkbox" id="chk-oral"><label for="chk-oral">Oral histories and transcripts</label></li>
+            <li><input type="checkbox" id="chk-published"><label for="chk-published">Published histories or studies</label></li>
+            <li><input type="checkbox" id="chk-resources"><label for="chk-resources">Previously created resources</label></li>
+          </ul>
+        </section>
+
+        <section class="card section" aria-labelledby="access-heading">
+          <h2 id="access-heading">Access and Restrictions Documentation</h2>
+
+          <p class="muted"><strong>📝 Be specific.</strong> General statements like <em>"Personnel files are confidential"</em> are not enough — state exact series, time period, and exceptions.</p>
+
+          <div class="sample-wrap">
+            <h3>Recommended sample wording (copy & paste)</h3>
+            <textarea class="sample" id="sampleText" aria-label="Sample restriction wording">
+Personnel files of congregation members (Series 3) shall remain closed for 25 years following the date of death of the member. Files include formation records, ministry assignments, health records, and correspondence. After 25 years, files are open with HIPAA restrictions applied to medical records.
+            </textarea>
+
+            <div class="actions" style="margin-top:8px;">
+              <button id="btn-copy" class="btn">Copy sample wording</button>
+              <button id="btn-insert" class="btn secondary" title="Insert into clipboard and highlight">Select text</button>
+            </div>
+          </div>
+
+          <hr style="margin:14px 0;">
+
+          <h3 class="legend">Standard Restriction Categories</h3>
+          <ul class="restriction-list">
+            <li><strong>Personnel Files:</strong> Typically 25–75 years after death</li>
+            <li><strong>Legal Records:</strong> 50–100 years from creation</li>
+            <li><strong>Financial Records:</strong> Varies; consult counsel</li>
+            <li><strong>Medical Records:</strong> HIPAA governs; typically lifetime plus 50 years</li>
+            <li><strong>Student Records:</strong> FERPA governs; typically 75 years</li>
+            <li><strong>Correspondence:</strong> Varies based on content</li>
+          </ul>
+        </section>
+      </article>
+
+      <!-- sidebar -->
+      <aside class="sidebar" aria-labelledby="help-heading">
+        <div class="card section" role="region" aria-label="Quick tips">
+          <h3 id="help-heading">Quick tips</h3>
+          <ul class="muted" style="padding-left:1rem;">
+            <li>Store a signed deed and box list together in a single folder / PDF for handoff.</li>
+            <li>Mark restrictions precisely (series and box numbers) and include review dates.</li>
+            <li>Digitization documentation should include file formats, checksums, and folder structure.</li>
+            <li>Keep a contact name, email, and phone on the first page of the box list.</li>
+          </ul>
+
+          <div style="margin-top:12px;">
+            <button id="btn-email" class="btn secondary" onclick="location.href='mailto:bgordon@harcsm.org?subject=HARC%20Transfer%20Documentation%20Question'">Email HARC</button>
+            <a class="btn ghost" href="#" onclick="window.print();return false;" aria-label="Print page">Print view</a>
+          </div>
+        </div>
+
+        <div class="card section" role="region" aria-label="Accessibility note" style="margin-top:12px;">
+          <h3>Accessibility</h3>
+          <p class="muted" style="margin:0;">This page uses semantic headings, labeled form controls, and high-contrast text for readability. Printed copies hide interactive controls.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p><strong>Note:</strong> The sample wording is a suggested template. Consult legal counsel and HARC staff for final access or legal language.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Basic localStorage persistence for checklist state
+    (function(){
+      const requiredKeys = ['chk-deed','chk-boxlist','chk-narrative','chk-restrictions','chk-contact'];
+      const optionalKeys = ['chk-policies','chk-digital','chk-oral','chk-published','chk-resources'];
+      const allKeys = requiredKeys.concat(optionalKeys);
+
+      function load() {
+        allKeys.forEach(id=>{
+          const el = document.getElementById(id);
+          if(!el) return;
+          const saved = localStorage.getItem('harc.'+id);
+          if(saved !== null) el.checked = saved === '1';
+        });
+      }
+      function save() {
+        allKeys.forEach(id=>{
+          const el = document.getElementById(id);
+          if(!el) return;
+          localStorage.setItem('harc.'+id, el.checked ? '1' : '0');
+        });
+        // small feedback
+        const btn = document.getElementById('btn-save');
+        btn.textContent = 'Saved ✓';
+        setTimeout(()=> btn.textContent = 'Save checklist', 1300);
+      }
+      function clearSaved(){
+        allKeys.forEach(id => localStorage.removeItem('harc.'+id));
+        load();
+        const btn = document.getElementById('btn-clear');
+        btn.textContent = 'Cleared';
+        setTimeout(()=> btn.textContent = 'Clear saved', 1100);
+      }
+
+      // wire up buttons
+      document.getElementById('btn-save').addEventListener('click', save);
+      document.getElementById('btn-clear').addEventListener('click', clearSaved);
+
+      // copy sample wording
+      const sampleEl = document.getElementById('sampleText');
+      document.getElementById('btn-copy').addEventListener('click', async ()=>{
+        try {
+          await navigator.clipboard.writeText(sampleEl.value.trim());
+          const b = document.getElementById('btn-copy');
+          b.textContent = 'Copied ✓';
+          setTimeout(()=> b.textContent = 'Copy sample wording', 1200);
+        } catch(e){
+          alert('Unable to copy. Please select the text and copy manually.');
+        }
+      });
+      document.getElementById('btn-insert').addEventListener('click', ()=>{
+        sampleEl.focus();
+        sampleEl.select();
+      });
+
+      // load persisted state on page load
+      load();
+    })();
+  </script>
+</body>
+</html>
