@@ -1,1537 +1,2940 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <title>HARC Archives Transition Toolkit</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --accent:#0b57a4;
-      --bg:#f7f7f7;
-      --max-width:1024px;
-      --content-pad:18px;
-      --muted:#666;
-    }
-    html,body{font-family:"Merriweather", Georgia, serif; margin:0; padding:0; color:#222; line-height:1.6; background:white}
-    .wrap{max-width:var(--max-width); margin:0 auto; padding:var(--content-pad)}
-    h1,h2,h3,h4{margin:.25rem 0 .75rem}
-    hr{margin:1rem 0}
-    nav.toc{background:var(--bg); padding:1rem; border-radius:8px; margin-bottom:1.25rem}
-    nav.toc a{color:var(--accent); text-decoration:none}
-    nav.toc a:hover{text-decoration:underline}
-    ul,ol{margin:0 0 1rem 1.25rem}
-    .grid{display:grid; gap:12px}
-    /* responsive columns for main layout */
-    .two-col{display:grid; grid-template-columns: 1fr 300px; gap:24px}
-    @media (max-width:900px){ .two-col{grid-template-columns:1fr} .sidebar{order:2} }
-    /* gallery styles */
-    .gallery{display:grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap:12px; margin:12px 0}
-    .gallery figure{background:#fff; border:1px solid #eee; padding:6px; border-radius:6px; margin:0}
-    .gallery img{width:100%; height:auto; display:block; border-radius:4px}
-    .caption{font-size:.95rem; color:var(--muted); margin-top:.4rem}
-    .debug{font-size:.9rem; color:#b00; margin-top:.4rem}
-    a.button{display:inline-block; background:var(--accent); color:white; padding:.4rem .6rem; border-radius:6px; text-decoration:none}
-    table{width:100%; border-collapse:collapse; margin:8px 0}
-    table th, table td{border:1px solid #ddd; padding:6px; text-align:left}
-    pre{background:#f6f6f6; padding:8px; overflow:auto}
-
-    :root {
-  --muted-line: rgba(0,0,0,0.10); /* change opacity for darker/lighter */
-}
-
-/* thin, muted horizontal rule */
-.hr-muted {
-  border: 0;
-  height: 1px;
-  background: var(--muted-line);
-  margin: 1.25rem 0;     /* space above/below */
-  border-radius: 1px;
-}
-
-/* slightly thicker, more prominent */
-.hr-muted-lg {
-  height: 2px;
-  background: rgba(0,0,0,0.14);
-  margin: 1.5rem 0;
-}
-
-/* accessible separator alternative (if it conveys structure) */
-.hr-sep {
-  border: 0;
-  height: 1px;
-  background: var(--muted-line);
-  margin: 1rem 0;
-}
-
-  </style>
-</head>
-<body>
-  <div class="wrap">
-    <h1 id="harc-archives-transition-toolkit">HARC Archives Transition Toolkit</h1>
-    <h2 id="guide">Guide for Congregations Transitioning Their Archives</h2>
+<div class="wrap">
+    <h1 id="harc-archives-transition-toolkit">
+        HARC Archives Transition Toolkit
+    </h1>
+    <h2 id="guide">
+        Guide for Congregations Transitioning Their Archives
+    </h2>
     <hr>
-
     <div class="two-col">
-      <main>
-        <h2 id="table-of-contents">Table of Contents</h2>
-        <nav class="toc" aria-label="Table of contents">
-          <ul>
-            <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#the-harc-solution">The HARC Solution</a></li>
-            <li><a href="#about-harc">About HARC</a></li>
-            <li><a href="#how-to-use">How to Use This Toolkit</a></li>
-            <li><a href="#part-i">Part I: Assessing Your Archive</a></li>
-            <li><a href="#part-ii">Part II: Planning Your Transition</a></li>
-            <li><a href="#part-iii">Part III: Executing the Transition</a></li>
-            <li><a href="#part-iv">Part IV: Resources and Templates</a></li>
-            <li><a href="#part-v">Part V: Packing & Moving Resources</a></li>
-            <li><a href="#conclusion">Conclusion</a></li>
-            <li><a href="#acknowledgments">Acknowledgments</a></li>
-          </ul>
-        </nav>
-
-        <!-- Introduction -->
-        <section id="introduction">
-          <h2>Introduction</h2>
-          <h3>The Value of Women Religious Archives</h3>
-          <p>Women religious archives are primary sources for American women’s and church history. They document education, healthcare, social justice work, leadership, and daily life. These collections preserve the legacy of Catholic sisters and provide essential material for scholarship, teaching, and community memory.</p>
-
-          <p><strong>These collections preserve stories of:</strong></p>
-          <ul>
-            <li>Educational pioneers and healthcare professionals</li>
-            <li>Advocates for social justice and civil rights</li>
-            <li>Service to marginalized communities</li>
-            <li>Leadership within the Church and broader society</li>
-          </ul>
-
-          <h3>Archives in Transition</h3>
-          <p>Irreplaceable collections need long-term stewardship. Congregations have legal, ethical, and spiritual responsibilities to safeguard their cultural heritage. Thoughtful transition planning ensures preservation and accessibility for future generations.</p>
-        </section>
-
+        <main>
+            <h2 id="table-of-contents">
+                Table of Contents
+            </h2>
+            <nav class="toc" aria-label="Table of contents">
+                <ul>
+                    <li data-list-item-id="e053c67ae6cc363319771b64fc212c34c">
+                        <a href="#introduction">Introduction</a>
+                    </li>
+                    <li data-list-item-id="e0868b3abdb9a7e43fef2fb76c10a7d7f">
+                        <a href="#the-harc-solution">The HARC Solution</a>
+                        <ul>
+                            <li data-list-item-id="ee31ec97f7837f428462882a308815eab">
+                                <a href="#about-harc">About HARC</a>
+                            </li>
+                            <li data-list-item-id="eec259e65d91c757cdbdeaeb5f1367ee3">
+                                <a href="#how-to-use">How to Use This Toolkit</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-list-item-id="e59a6b21202d5417bcfb589d10b4a2776">
+                        <a href="#part-i">Part I: Assessing Your Archive</a>
+                        <ul>
+                            <li data-list-item-id="e0103649dc5e6025f1d96fdb5e6673fba">
+								<a href="purpose-and-values">Purpose and Values</a>
+                            </li>
+                            <li data-list-item-id="e96df4ad64a9063ef4656cc57c773586f">
+								<a href="#step-3-archives-evaluation">Archives Evaluation</a>
+								(
+								<a href="donor/harc_assessment_templates_form.html"
+									target="_blank"
+									rel="noopener noreferrer"
+									title="Opens the Archives Evaluation interactive form in a new tab"
+									aria-label="Open Archives Evaluation interactive form (opens in new tab)">
+									Quick link to interactive form
+								</a>
+								)
+							</li>
+                            
+                        </ul>
+                    </li>
+                    <li data-list-item-id="e9ab112a63496678eb815e85dc06f18c6">
+                        <a href="#part-ii">Part II: Planning Your Transition</a>
+                    </li>
+                    <li data-list-item-id="eb961b903650c5a39b61810f8816a9dcb">
+                        <a href="#part-iii">Part III: Executing the Transition</a>
+                        <ul>
+                            <li data-list-item-id="ee42418e93fec8181ee2fe0d25d4968fe">
+                                Building Contextual History
+                            </li>
+                            <li data-list-item-id="e8a8607402abb8caabf8e42c904b1622d">
+                                Preparing Research-Ready Collections
+                            </li>
+                            <li data-list-item-id="e909c6d6b8113f8decf1bc762dd63f0d3">
+                                Essential Documentation for HARC (Quick link to checklist)
+                            </li>
+                            <li data-list-item-id="e2c2631adb1272cec87d634902a5c44c9">
+                                Physical Move Planning
+                            </li>
+                            <li data-list-item-id="e3991bd1ec5527b62d46c31055efc27e9">
+                                Disposition of Objects and Non-Archival Materials
+                            </li>
+                        </ul>
+                    </li>
+                    <li data-list-item-id="ebb4bc5ae6c8185d38e744e32a2fb2c33">
+                        <a href="#part-iv">Part IV: Resources and Templates</a>
+                    </li>
+                    <li data-list-item-id="e1cad9c64509d0539df3e6d519bf3b860">
+                        <a href="#part-v">Part V: Packing &amp; Moving Resources</a>
+                    </li>
+                    <li data-list-item-id="e380874e64d054c4e107f15a59dfc69bd">
+                        <a href="#conclusion">Conclusion</a>
+                    </li>
+                    <li data-list-item-id="e4514fbe3c965f6f6b56fe0b55b7856f3">
+                        <a href="#acknowledgments">Acknowledgments</a>
+                    </li>
+                </ul>
+                <hr>
+                <p>
+                    &nbsp;
+                </p>
+            </nav>
+        </main>
+    </div>
+    <section id="introduction">
+        <h2>
+            Introduction
+        </h2>
+        <h3>
+            The Value of Women Religious Archives
+        </h3>
+        <p>
+            Women religious archives are primary sources for American women’s and church history. They document education, healthcare, social justice work, leadership, and daily life. These collections preserve the legacy of Catholic sisters and provide essential material for scholarship, teaching, and community memory.
+        </p>
+        <p>
+            <strong>These collections preserve stories of:</strong>
+        </p>
+        <ul>
+            <li data-list-item-id="ee89fbaae3fecafb26c113315026f30ae">
+                Educational pioneers and healthcare professionals
+            </li>
+            <li data-list-item-id="e781b1de9aef62ba253b796a7737e71f6">
+                Advocates for social justice and civil rights
+            </li>
+            <li data-list-item-id="e0e2471af73089e7fa20c134cd7ed1bab">
+                Service to marginalized communities
+            </li>
+            <li data-list-item-id="e67741e51b116ce184c56591de1c9b2d9">
+                Leadership within the Church and broader society
+            </li>
+        </ul>
+        <h3>
+            Archives in Transition
+        </h3>
+        <p>
+            Irreplaceable collections need long-term stewardship. Congregations have legal, ethical, and spiritual responsibilities to safeguard their cultural heritage. Thoughtful transition planning ensures preservation and accessibility for future generations.
+        </p>
+    </section>
+    <hr class="hr-muted" aria-hidden="true">
+    <section id="the-harc-solution">
+        <h2>
+            The HARC Solution
+        </h2>
+        <p>
+            The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent professional home for women religious archives.
+        </p>
+        <p>
+            <strong>HARC offers:</strong>
+        </p>
+        <ul>
+            <li data-list-item-id="ef5155a9edc6eab339650fc4b0423d6bb">
+                Climate-controlled, archival-standard storage
+            </li>
+            <li data-list-item-id="e78e969a5d23a19e3ba3b998f267aefab">
+                Professional archival staff and long-term preservation
+            </li>
+            <li data-list-item-id="e891cf118d023918e028b1ce99169cba7">
+                Research access and online discovery tools
+            </li>
+            <li data-list-item-id="e4da8695e51ae9bfd3129d2b5f5a38aaa">
+                Respect for donor restrictions and congregational intent
+            </li>
+        </ul>
+        <p>
+            <i>This toolkit guides congregations through preparing, planning, and executing a transition to HARC.</i>
+        </p>
+    </section>
+    <hr class="hr-muted" aria-hidden="true">
+    <section id="about-harc">
+        <h2>
+            About HARC
+        </h2>
+        <h3 id="mission">
+            Mission
+        </h3>
+        <p>
+            HARC at Saint Mary’s preserves and shares congregational history through documents, artifacts, and materials. Partnering with Saint Mary’s College, HARC supports research, exhibits, and outreach that highlight the contributions of sisters in education, health care, and social justice.
+        </p>
+        <h3 id="services">
+            Services
+        </h3>
+        <p>
+            <strong>For Donor Congregations</strong>
+        </p>
+        <ul>
+            <li data-list-item-id="e6b7448b83b343b162af22227d9ca9c1f">
+                Professional archival processing and preservation
+            </li>
+            <li data-list-item-id="ead3aae131cae5febe8ae362a83459f44">
+                Climate-controlled storage meeting SAA standards
+            </li>
+            <li data-list-item-id="e5feb29f920bb72bba860d68d978f7042">
+                Customized access restrictions honored
+            </li>
+            <li data-list-item-id="e2fa6db3ae66631a37a915ca62a1fc793">
+                Priority access for congregation members
+            </li>
+            <li data-list-item-id="e005d7b92426022363a5f907b464298ca">
+                Annual usage reports and ongoing consultation
+            </li>
+        </ul>
         <hr class="hr-muted" aria-hidden="true">
-
-        <!-- HARC Solution -->
-        <section id="the-harc-solution">
-          <h2>The HARC Solution</h2>
-          <p>The Heritage and Research Center at Saint Mary’s (HARC) provides a permanent professional home for women religious archives.</p>
-          <p><strong>HARC offers:</strong></p>
-          <ul>
-            <li>Climate-controlled, archival-standard storage</li>
-            <li>Professional archival staff and long-term preservation</li>
-            <li>Research access and online discovery tools</li>
-            <li>Respect for donor restrictions and congregational intent</li>
-          </ul>
-          <p><em>This toolkit guides congregations through preparing, planning, and executing a transition to HARC.</em></p>
-        </section>
-        
-        <hr class="hr-muted" aria-hidden="true">
-
-        <!-- About HARC + Gallery -->
-        <section id="about-harc">
-          <h2>About HARC</h2>
-
-          <h3 id="mission">Mission</h3>
-          <p>HARC at Saint Mary’s preserves and shares congregational history through documents, artifacts, and materials. Partnering with Saint Mary’s College, HARC supports research, exhibits, and outreach that highlight the contributions of sisters in education, health care, and social justice.</p>
-
-          <h3 id="services">Services</h3>
-          <p><strong>For Donor Congregations</strong></p>
-          <ul>
-            <li>Professional archival processing and preservation</li>
-            <li>Climate-controlled storage meeting SAA standards</li>
-            <li>Customized access restrictions honored</li>
-            <li>Priority access for congregation members</li>
-            <li>Annual usage reports and ongoing consultation</li>
-          </ul>
-     
-          <hr class="hr-muted" aria-hidden="true">
-          <h3>HARC: Inside the Facility (Gallery)</h3>
-          <p><a href="storage-environment-chart.html" class="button" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a></p>
-          
-          <div class="gallery" id="harc-gallery" aria-live="polite">
+        <h3>
+            HARC: Inside the Facility (Gallery)
+        </h3>
+        <p>
+            <a class="button" href="storage-environment-chart.html" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a>
+        </p>
+        <div class="gallery" id="harc-gallery" aria-live="polite">
             <figure>
-              <a href="#" id="vault-link" target="_blank" rel="noopener">
-                <img id="vault-img" src="vault-1.jpg" alt="HARC archival vault with shelving and boxes" loading="lazy">
-              </a>
-              <figcaption class="caption"><strong>Vault — archival storage area</strong><br>Climate-controlled shelving and boxed collections.</figcaption>
-              <div id="vault-debug" class="debug" style="display:none">
-                <span id="vault-debug-text"></span>
-                &nbsp;(<a id="vault-debug-open" href="#" target="_blank" rel="noopener">open tried path</a>)
-              </div>
+                <p>
+                    <a href="#" id="vault-link" target="_blank" rel="noopener"><img src="vault-1.jpg" alt="HARC archival vault with shelving and boxes" id="vault-img" loading="lazy">&nbsp;</a>
+                </p>
+                <figcaption class="caption">
+                    <strong>Vault — archival storage area</strong><br>
+                    Climate-controlled shelving and boxed collections.
+                </figcaption>
+                <div class="debug" style="display:none;" id="vault-debug">
+                    <span id="vault-debug-text"></span> &nbsp;(<a href="#" id="vault-debug-open" target="_blank" rel="noopener">open tried path</a>)
+                </div>
             </figure>
+        </div>
+        <script>
+                    (function(){
+                      const img = document.getElementById('vault-img');
+                      const link = document.getElementById('vault-link');
+                      const debugWrap = document.getElementById('vault-debug');
+                      const debugText = document.getElementById('vault-debug-text');
+                      const debugOpen = document.getElementById('vault-debug-open');
+                      // Candidate paths to try (edit/add based on your site structure)
+                      const candidatePaths = [
+                        'vault-1.jpg',
+                        './vault-1.jpg',
+                        'vault-1.jpeg',
+                        'vault-1.JPG',
+                        'vault-1.JPEG',
+                        'vault-1.png',
+                        'images/vault-1.jpg',
+                        'assets/images/vault-1.jpg',
+                        '/images/vault-1.jpg',
+                        '/assets/images/vault-1.jpg'
+                      ];
+                      // Inline SVG placeholder (data URI)
+                      const placeholder = 'data:image/svg+xml;utf8,' + encodeURIComponent(
+                        '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">'
+                        +'<rect width="100%" height="100%" fill="#f6f6f6"/>'
+                        +'<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" fill="#999" font-size="22">Image not available</text>'
+                        +'</svg>'
+                      );
+                      let attempt = 0;
+                      let lastTried = '';
+                      function tryNext() {
+                        if (attempt >= candidatePaths.length) {
+                          // show placeholder + debug
+                          img.src = placeholder;
+                          debugWrap.style.display = 'inline';
+                          debugText.textContent = 'Image not found. Checked ' + candidatePaths.length + ' paths.';
+                          debugOpen.href = lastTried || '#';
+                          link.href = '#';
+                          console.warn('[HARC gallery] no image found. attempts:', candidatePaths);
+                          return;
+                        }
+                        const path = candidatePaths[attempt++];
+                        lastTried = path;
+                        console.log('[HARC gallery] trying image path:', path);
+                        // set the image src to attempt path (browser will fire load/error)
+                        img.src = path;
+                        link.href = path;
+                        debugOpen.href = path;
+                      }
+                      img.addEventListener('load', function onLoad(){
+                        // success if image has natural width
+                        if (img.naturalWidth && img.naturalWidth > 10 && img.src !== placeholder) {
+                          debugWrap.style.display = 'none';
+                          console.log('[HARC gallery] image loaded successfully:', img.src);
+                        } else {
+                          // sometimes a server returns a small 1px image or something odd; treat as error:
+                          onError();
+                        }
+                      });
+                      function onError(){
+                        console.log('[HARC gallery] failed loading:', img.src);
+                        // try the next candidate after a tiny delay so browser can update
+                        setTimeout(tryNext, 80);
+                      }
+                      img.addEventListener('error', onError);
+                      // start attempts
+                      attempt = 0;
+                      tryNext();
+                      // debug link handler: leave it as raw link to let browser show 404 if path incorrect
+                      debugOpen.addEventListener('click', function(){ /* noop - opens in new tab */ });
+                    })();
+                  </script>
+    </section>
+    <hr>
+    <h2 id="how-to-use-this-toolkit">
+        How to Use This Toolkit
+    </h2>
+    <h3 id="collaborative-approach">
+        Collaborative Approach
+    </h3>
+    <p>
+        This toolkit requires partnership between the congregation leadership and the archivist. Neither can successfully navigate this transition alone. Regular dialogue, shared decision-making, and mutual trust are essential.
+    </p>
+    <h3 id="three-part-structure">
+        Three-Part Structure
+    </h3>
+    <p style="margin-left:0px;">
+        <strong>📝 Part I: Assessing Your Archive</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e0486f76e1113f1bdfe289835f5dd92c0">
+            Helps you constructively evaluate your current archival situation, what materials you have, their condition, and your congregation's story.
+        </li>
+    </ul>
+    <p>
+        <span style="background-color:rgb(255,255,255);color:rgb(42,82,152);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>📐 </strong></span></span><strong>Part II: Planning Your Transition</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ea45dbc7def9f454a3c8f3e53b5f5d41a">
+            Guides the decision-making process regarding transferring your archives to HARC, including creating a timeline and reaching agreement terms.
+        </li>
+    </ul>
+    <p>
+        <span style="background-color:rgb(255,255,255);color:rgb(42,82,152);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"><strong>📦 </strong></span></span><strong>Part III: Executing the Transition</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="eac30a3f10a1a388a5c3607beaa3d24ed">
+            Offers practical guidance on preparing collections, documenting, and physically relocating your archives to HARC.
+        </li>
+    </ul>
+    <h4 id="who-should-use-this-toolkit">
+        Who Should Use This Toolkit
+    </h4>
+    <ul>
+        <li data-list-item-id="ef513ebb5b2eb6478458637e1895a8bc2">
+            <strong>Congregation Leadership</strong>: Presidents, councils, and decision-makers responsible for long-term planning
+        </li>
+        <li data-list-item-id="e87b4508c1dfbb909a5e714043520f1f8">
+            <strong>Archivists</strong>: Professional archivists, sister-archivists, or staff managing congregational records
+        </li>
+        <li data-list-item-id="e170d2bc66d1c2999e71b1af775fb74d0">
+            <strong>Consultants</strong>: External advisors assisting with transition planning
+        </li>
+    </ul>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        <i>Every congregation is unique. Adapt this toolkit to your situation, timeline, and resources. Not every section will apply to every congregation.</i>
+    </p>
+    <hr>
+    <h2 id="the-transition-timeline-framework">
+        The Transition Timeline Framework
+    </h2>
+    <h3 id="understanding-the-timeline">
+        Understanding the Timeline
+    </h3>
+    <p>
+        The most crucial step is to establish priorities, allocate resources, and develop a plan.
+    </p>
+    <h4 id="timeline-prioritization">
+        Timeline Prioritization
+    </h4>
+    <p>
+        <strong>Critical Focus</strong>: Essential tasks only. Eliminate non-critical projects.
+    </p>
+    <ol>
+        <li data-list-item-id="e184c8f36470be8dfe1d73a326f27c422">
+            Finalize transition agreement with HARC
+        </li>
+        <li data-list-item-id="e7c0871429645e99078a28042a8a6c972">
+            Collect existing inventories (guides, finding aids)
+        </li>
+        <li data-list-item-id="e57305c2cbc61ab9c27d528d9294c4ee7">
+            Collect essential policies and documentation
+        </li>
+        <li data-list-item-id="ef52d288b34f4535e7bf620f62d72ffdd">
+            Identify and address preservation emergencies
+        </li>
+        <li data-list-item-id="e825f0448e96713d4d026f1f390673e38">
+            Pack and move collection
+        </li>
+    </ol>
+    <hr>
+    <h2 id="part-i-assessing-your-archive">
+        Part I: Assessing Your Archive
+    </h2>
+    <h3 id="goals">
+        Goals
+    </h3>
+    <p>
+        By completing Part I, you will:
+    </p>
+    <ul>
+        <li data-list-item-id="e31ebdc0c46b8b8d30c73d6343ee4d8c0">
+            Document the extent and condition of collections
+        </li>
+        <li data-list-item-id="eb12ce81c142806b6ba6dc5ea8069813e">
+            Identify preservation priorities
+        </li>
+        <li data-list-item-id="ef13b13feb07ce9046aed3744835f5cd5">
+            Assess processing needs
+        </li>
+        <li data-list-item-id="eca95ccd01a43588c331f2f42933c86d1">
+            Evaluate what materials have long-term value
+        </li>
+    </ul>
+    <h3 id="step-1-leadership-reflections">
+        Step 1: Reflections
+    </h3>
+    <h4 id="purpose-and-values">
+        Purpose and Values
+    </h4>
+    <ul>
+        <li data-list-item-id="e08c6b5e03bffe4dcda6fd9da607279a7">
+            <strong>What words describe your congregation's core values today?</strong><br>
+            <i>Consider: Compassion, justice, education, healing, service, prayer, community, advocacy, etc.</i>
+        </li>
+        <li data-list-item-id="e07b0bf7e830244bdd176d30ae9976fd2">
+            <strong>What are the three most essential stories your archives tell?</strong><br>
+            <i>Think about: Founding narrative, signature ministries, contributions to social movements, service to marginalized communities, response to historical moments, etc.</i>
+        </li>
+        <li data-list-item-id="e5dfb4efbbd1df3b57d3b579048c62ba9">
+            <strong>What individual items or collections are most significant?</strong><br>
+            <i>Examples: Founder's correspondence, photographs of key missions, ministry records documenting underserved communities, etc.</i>
+        </li>
+    </ul>
+    <h4 id="congregation-identity">
+        Congregation Identity
+    </h4>
+    <ol>
+        <li data-list-item-id="e9174274585b33208a91a716edb29ad51">
+            What is your congregation's charism?
+        </li>
+        <li data-list-item-id="e78f480f603469728aa544e55ced8e67c">
+            What were the primary historical missions/ministries?
+        </li>
+        <li data-list-item-id="ef58f669841f4664e865896ee8680ebe4">
+            List well-known sisters and their ministries. Will their records be in the archive?
+        </li>
+        <li data-list-item-id="e55fd67017cede119f67458dd0f4c9cac">
+            Does a summary narrative of your congregation's history exist? If not, who could write one?
+        </li>
+        <li data-list-item-id="e71fecd43289e51c51d52fa7f6b2b9a87">
+            What collections are most requested by:
+            <ul>
+                <li data-list-item-id="e9dcbd192c5ab268cef4774c8f99560d5">
+                    Congregation members:
+                </li>
+                <li data-list-item-id="ebcdf98148bacb7c0abb9475dbe98daef">
+                    External researchers:
+                </li>
+            </ul>
+        </li>
+        <li data-list-item-id="e3baf14d7e55974baca060dd1ae759684">
+            What concerns do you have about public access?
+        </li>
+        <li data-list-item-id="ebe732921e81959fb5185b88ec502eaf7">
+            What records should be confidential?
+        </li>
+    </ol>
+    <h4 id="future-concerns">
+        Future Concerns
+    </h4>
+    <ul>
+        <li data-list-item-id="e0e6fd94776c2f8369ada86bc8b2c3fba">
+            <strong>What records should remain confidential?</strong><br>
+            <i>Examples: Personnel files (25 years after death), legal records (50 years), medical records (governed by HIPAA), financial records (varies), etc.</i>
+        </li>
+        <li data-list-item-id="e9fbb0dcc2ded8063a184fb316edfeb1e">
+            <strong>What questions concern you about transitioning to HARC?</strong><br>
+            <i>HARC staff can address concerns about access, costs, control, confidentiality, and ongoing relationships.</i>
+        </li>
+    </ul>
+    <h3 id="step-3-archives-evaluation">
+        Step 2: Archives Evaluation
+    </h3>
+    <p>
+        Use the <strong>Archives Evaluation Worksheet</strong> (see Resources section) to document:
+    </p>
+    <ul>
+        <li data-list-item-id="edc42f4f30cfb660f9a4e202d1bc21fe0">
+            Square/linear/cubic footage of storage
+        </li>
+        <li data-list-item-id="ef61b009620db2bc81c41508241667bfd">
+            Percentage of processed collections
+        </li>
+        <li data-list-item-id="ed61a2c3889c7b255a686f262c0ca3901">
+            Percentage with finding aids
+        </li>
+        <li data-list-item-id="e34fcc30d7dcd80d3fc6c12713f7913aa">
+            Material formats present (documents, photos, audiovisual, digital, etc.)
+        </li>
+        <li data-list-item-id="e40a7239151db8dfad338b01477d7ff57">
+            Prevalence of each format (extensive, common, rare)
+        </li>
+        <li data-list-item-id="e6ad6789a1afec490d0e050dcb3f84e44">
+            Condition issues (mold, damage, fragility)
+        </li>
+    </ul>
+    <h3 id="step-4-object-evaluation">
+        Step 3: Object Evaluation
+    </h3>
+    <p>
+        Use the <strong>Object Evaluation Worksheet</strong> to assess three-dimensional items:
+    </p>
+    <p>
+        <strong>Evaluation Criteria</strong> (assign points 1-5 for each):
+    </p>
+    <ul>
+        <li data-list-item-id="ef5b51682a4fd055dc872fcb394017157">
+            Connection to congregational story __ points
+        </li>
+        <li data-list-item-id="e2cb67330753669f80ea7be32176b893c">
+            Historical significance __ points
+        </li>
+        <li data-list-item-id="ee14259feb8c00b74d019c8b334e98c80">
+            Condition and preservation needs __ points
+        </li>
+        <li data-list-item-id="efa22adb20c092fb10a1284cef89eaa75">
+            Provenance/documentation __ points
+        </li>
+        <li data-list-item-id="efd82c19e3a28dd9298a1bd05b8a098da">
+            Research or display value __ points
+        </li>
+        <li data-list-item-id="e93bf78d0a4e8d8c438aca64795595e39">
+            Uniqueness __ points
+        </li>
+    </ul>
+    <p>
+        <strong>Process:</strong>
+    </p>
+    <ol>
+        <li data-list-item-id="e10fa18c797319cede6d9e99ff89ca88e">
+            Evaluate each object using the criteria
+        </li>
+        <li data-list-item-id="e8697d08368389a9a8fce237b13128930">
+            Objects with the highest scores have the most substantial ties to your story
+        </li>
+        <li data-list-item-id="ed2a42486dda15e12de73624871cde12f">
+            Prioritize these for transfer to HARC
+        </li>
+        <li data-list-item-id="e87e7a29b38af716d68c03733a7a45a99">
+            Lower-scoring objects may be deaccessioned or donated elsewhere
+        </li>
+    </ol>
+    <p>
+        <i>Note: HARC has limited capacity for three-dimensional objects. Focus on items integral to your congregational narrative.</i>
+    </p>
+    <hr>
+    <h2 id="part-ii-planning-your-transition-to-harc">
+        Part II: Planning Your Transition to HARC
+    </h2>
+    <h3 id="goals">
+        Goals
+    </h3>
+    <p>
+        By completing Part II, you will:
+    </p>
+    <ul>
+        <li data-list-item-id="edc60de112a4040bfc393d690a6cdd2eb">
+            Establish a transition timeline
+        </li>
+        <li data-list-item-id="e1056ef9b58adab4e210b5b8a84ad2973">
+            Finalize the transition to the HARC facility
+        </li>
+        <li data-list-item-id="e8322f8d4b029859c9d297c9f435482a9">
+            Develop processing priorities based on timeline
+        </li>
+        <li data-list-item-id="e0d176dbc4f48cdfff15bf9a61c1e2d59">
+            Identify resources needed for transition preparation
+        </li>
+        <li data-list-item-id="ef6547dc370a3cdfa87cbcb80d209ef4b">
+            Create a work plan aligned with the timeline
+        </li>
+        <li data-list-item-id="eb7bca226f169e204197156fc76406197">
+            Prepare materials for HARC transfer
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-1-understanding-harc-partnership">
+        Step 1: Understanding HARC Partnership
+    </h3>
+    <h4 id="what-harc-provides">
+        What HARC Provides
+    </h4>
+    <p>
+        <strong>Facilities:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ef21a7b37fa2996f3622c6482aa279fea">
+            Purpose-built, climate-controlled repository
+        </li>
+        <li data-list-item-id="e3a664f4d97f7db3c28723db8034f7d7e">
+            Archival-standard storage meeting SAA guidelines
+        </li>
+        <li data-list-item-id="e82f8238690e86ad9b4ed73fb7f9dbe69">
+            Research room for congregation and public use
+        </li>
+        <li data-list-item-id="e5e394cdda26c03d41de3dff8f761fff9">
+            Exhibition space for rotating displays
+        </li>
+    </ul>
+    <p>
+        <strong>Services:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e99557a78c3c1f7ebcbdefba9d2279dd3">
+            Professional archival processing and preservation
+        </li>
+        <li data-list-item-id="ef96ca2e749fa3db485dc69b38ccece3b">
+            Creation/enhancement of finding aids
+        </li>
+        <li data-list-item-id="e28503d7e75bd9211cf0d47bbde8e88c3">
+            Online discovery through the finding aid portal
+        </li>
+        <li data-list-item-id="e895cf16d1a60dbfeb8e63670dc0c2ccb">
+            Reference services for researchers
+        </li>
+        <li data-list-item-id="ef0c50fdcea62ddbea8ff5c9a291ad6a3">
+            Reproduction services
+        </li>
+        <li data-list-item-id="e82a552f67c0a8b8a4236b5377180c16e">
+            Annual usage reports to the congregation
+        </li>
+        <li data-list-item-id="e62c6b5eed29f25782b4d2a372ed82f87">
+            Ongoing consultation and support
+        </li>
+    </ul>
+    <p>
+        <strong>Access:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e91c5b9abce450a1d177c177a5cdb28f0">
+            Priority access for congregation members (by appointment)
+        </li>
+        <li data-list-item-id="efadeaca8de0fb17b29d95bb572b03660">
+            Public research access during regular hours
+        </li>
+        <li data-list-item-id="edaa3599b5287eb8066c7c8b9fe95afd5">
+            Customized restriction periods honored
+        </li>
+        <li data-list-item-id="ed0ff1d37aac4ae0b9da8bf092687bf6f">
+            Secure handling of confidential materials
+        </li>
+        <li data-list-item-id="e07a737022611eb8a248a8bec6d2631d9">
+            Copyright guidance and permissions support
+        </li>
+    </ul>
+    <h4 id="what-congregations-provide">
+        What Congregations Provide
+    </h4>
+    <p>
+        <strong>Essential Documentation:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e47dd1a891997f6df726584bc472810fd">
+            Preliminary inventory or box list
+        </li>
+        <li data-list-item-id="ef0a092a16a13d4d02bded516c741aa63">
+            Congregational narrative history
+        </li>
+        <li data-list-item-id="ed18220908ed89976ff7370fe65e576c2">
+            Access and restriction guidelines
+        </li>
+        <li data-list-item-id="ec112e5031f8c188e8dd91431f9d294c2">
+            Contact information for ongoing liaison
+        </li>
+        <li data-list-item-id="e2ab8c7a9f80f15d452fe59f6ea87c38c">
+            Transfer agreement (deed of gift or deposit)
+        </li>
+    </ul>
+    <p>
+        <strong>Recommended Documentation:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ea92673027fc47bf81826a2d62ad3c4bc">
+            Finding aids (if existing)
+        </li>
+        <li data-list-item-id="e391ac2c23086b3398645e5ae15ca0d38">
+            Policies (access, confidentiality, use)
+        </li>
+        <li data-list-item-id="e23f9392ea9728ba0e7a2ada8182e7493">
+            Digitized materials (with documentation)
+        </li>
+        <li data-list-item-id="ec0cee83e7bfc1990332606cb43ea71df">
+            Administrative history and organizational charts
+        </li>
+        <li data-list-item-id="e1de41ca199dd2899dc8582ffda9353ca">
+            Member directories and ministry histories
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-2-developing-your-transition-plan">
+        Step 2: Developing Your Transition Plan
+    </h3>
+    <h4 id="critical-steps">
+        Critical Steps
+    </h4>
+    <ul>
+        <li data-list-item-id="ea9bc8bd83b5d9e305491bb971a10b838">
+            Finalize HARC agreement
+        </li>
+        <li data-list-item-id="ed96ae94866ffa36d417e763b14a531b8">
+            Create basic box-level inventory
+        </li>
+        <li data-list-item-id="eaba3d2e800b76b108abe316bb57370dc">
+            Identify preservation emergencies
+        </li>
+        <li data-list-item-id="e2018ff63bde14e5a7d22b89ec6bc3cf9">
+            Secure packing supplies and moving arrangements
+        </li>
+        <li data-list-item-id="e1d31673dbbdb4367f3c5cf7a1ed559ed">
+            Draft congregational narrative (brief)
+        </li>
+        <li data-list-item-id="e62f74d002111d206ff5c661d8dbf0710">
+            Coordinate moving date with HARC
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-3-agreement-terms-with-harc">
+        Step 3: Agreement Terms with HARC
+    </h3>
+    <h4 id="deposit-agreement">
+        Deposit Agreement
+    </h4>
+    <ul>
+        <li data-list-item-id="edaacc213066f78cf235418c105308f6f">
+            Transfer custody of collections to HARC
+        </li>
+        <li data-list-item-id="e00afab1aaa8864fb973a5f3e717d8853">
+            Most common and recommended arrangement
+        </li>
+        <li data-list-item-id="e16d18fdcb5cd95242ebd485eec76f630">
+            Provides long-term security and clarity
+        </li>
+        <li data-list-item-id="ea02090a9346ced6d61ebb60509a98253">
+            Eliminates future decision-making burden
+        </li>
+        <li data-list-item-id="e9b59b843d471b87220839c71411aaca2">
+            HARC assumes all preservation responsibilities
+        </li>
+        <li data-list-item-id="e66867feda5a78a3afcf364d8fe5e6951">
+            HARC provides custody and care
+        </li>
+    </ul>
+    <h4 id="essential-agreement-terms">
+        Essential Agreement Terms
+    </h4>
+    <p>
+        Your agreement with HARC will address:
+    </p>
+    <p>
+        <strong>1. Description of Materials</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e0f3dd1ae5f69912fd85a696e7dd2848d">
+            Inventory/box list
+        </li>
+        <li data-list-item-id="e866abb8d24a463ff7995a25d3fb09eb4">
+            Extent (linear/cubic feet)
+        </li>
+        <li data-list-item-id="eab3db352596bfe7d0a87f34659ca17be">
+            Formats included
+        </li>
+        <li data-list-item-id="e906f970b49962f1c445c2eaf45c9ca27">
+            Condition assessment
+        </li>
+        <li data-list-item-id="ed75816c481fa69e6a47b9a0424a80889">
+            Excluded materials (if any)
+        </li>
+    </ul>
+    <p>
+        <strong>2. Transfer of Title</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e0ae411d7e0298aae816cbf8f3ce0d38d">
+            Date ownership transfers
+        </li>
+        <li data-list-item-id="ecabcf9374e32a8e7619a0694275d6dd0">
+            Intellectual property rights
+        </li>
+        <li data-list-item-id="e4c2b3bb259809fd2f462368f14da9723">
+            Copyright considerations
+        </li>
+    </ul>
+    <p>
+        <strong>3. Access Restrictions</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="eea7d67c7871b7af4887424526438314f">
+            Closed periods for specific series
+        </li>
+        <li data-list-item-id="e3def92e83a0ac0e32ba84eaa33eb6fe6">
+            Confidentiality requirements (personnel, legal, etc.)
+        </li>
+        <li data-list-item-id="e8448421855b00a0a15b96de0fce5050e">
+            Privacy protections (HIPAA, FERPA)
+        </li>
+        <li data-list-item-id="e1fdf1377483e3dc2cdc47ea1723fc8de">
+            Review and revision procedures
+        </li>
+    </ul>
+    <p>
+        <strong>4. Congregation Access</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e2aa9973bfcc8c6ec1f750d6f7073a0bc">
+            Priority scheduling for members
+        </li>
+        <li data-list-item-id="e1e834f90108eee2c24d41490cdd72b9d">
+            Research room use protocols
+        </li>
+        <li data-list-item-id="ebf0a07421da2daa15723cc037bdd6248">
+            Borrowing procedures (if any)
+        </li>
+        <li data-list-item-id="e9728812d18474e6dd63337e4ef72b8d4">
+            Reproduction and copying policies
+        </li>
+    </ul>
+    <p>
+        <strong>5. Future Accruals</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e62f116f095c227ab9c04913c80bd7f55">
+            Procedure for ongoing deposits
+        </li>
+        <li data-list-item-id="e7438ae5bbb8188cd7fba1679e1f7e2c1">
+            Schedule for transfers
+        </li>
+        <li data-list-item-id="e412f93057ca8f15f54012a3c4832920e">
+            Contact for coordination
+        </li>
+    </ul>
+    <p>
+        <strong>6. Use and Publications</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e19fa7234b8c50cf2917683df3b620ed8">
+            HARC's rights to use materials for exhibits, web, and education
+        </li>
+        <li data-list-item-id="eabe98f95cbe6f6c05249b533744d9e18">
+            Reproduction fees and permissions
+        </li>
+        <li data-list-item-id="e943107dde0e584374443ab7229ba8bb7">
+            Commercial use policies
+        </li>
+        <li data-list-item-id="ea7d933267c62d69f9e2688b31a82dbc2">
+            Credit line/attribution
+        </li>
+    </ul>
+    <p>
+        <strong>7. Deaccession and Disposal</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="effdf04d028a514e305cab7e23e16fecc">
+            HARC's authority regarding duplicates or non-archival materials
+        </li>
+        <li data-list-item-id="ed099fd825d1fb1cb52fb64412affa290">
+            Consultation requirements
+        </li>
+        <li data-list-item-id="e228f155222ef7020dafbf4b6adec7425">
+            Disposition procedures
+        </li>
+    </ul>
+    <h4 id="sample-agreement-terms">
+        Sample Agreement Terms
+    </h4>
+    <p>
+        HARC will provide template agreements customized to your situation. Key provisions include:
+    </p>
+    <p>
+        <strong>Access Restrictions Example:</strong>
+    </p>
+    <p>
+        <i>"Personnel files of congregation members shall remain closed for 25 years following the date of death of the individual. Medical records shall be restricted in accordance with HIPAA regulations. All other materials shall be open for research unless otherwise specified."</i>
+    </p>
+    <p>
+        <strong>Congregation Access Example:</strong>
+    </p>
+    <p>
+        <i>"Members of [Congregation Name] shall have priority access to the collection upon request with 48 hours' advance notice. HARC will provide on-site research facilities during regular business hours at no charge to congregation members."</i>
+    </p>
+    <hr>
+    <h3 id="step-5-communication">
+        Step 4: Communication
+    </h3>
+    <p>
+        <strong>Discussion Questions:</strong>
+    </p>
+    <ol>
+        <li data-list-item-id="ed522d89c1be7338b8068951da9785950">
+            Can we realistically prepare our collection within our timeline?
+        </li>
+        <li data-list-item-id="ec4d7658d9f88b2edd7c960d9f2795d83">
+            Do we have the resources (financial, staff) needed for transition preparation?
+        </li>
+        <li data-list-item-id="e961870ed5caf4a89c3b8ea206ab2753c">
+            Have we addressed all concerns about confidentiality, access, and control?
+        </li>
+        <li data-list-item-id="e5cd4d75a4d1c16877ad8f7d6a14495d0">
+            Are there any remaining questions or reservations?
+        </li>
+    </ol>
+    <p>
+        <i>If you answer "yes" to these questions, proceed to Part III to execute your transition.</i>
+    </p>
+    <p>
+        <strong>If concerns remain, contact HARC to discuss:</strong><br>
+        Email: bgordon@harcsm.org
+    </p>
+    <hr>
+    <h2 id="part-iii-executing-the-transition">
+        Part III: Executing the Transition
+    </h2>
+    <h3 id="goals">
+        Goals
+    </h3>
+    <p>
+        By completing Part III, you will:
+    </p>
+    <ul>
+        <li data-list-item-id="ee51711a6d433beaff9f4fdcd2188e174">
+            Prepare "research-ready" collections
+        </li>
+        <li data-list-item-id="e9cbbced8c5dd9c0af8d3c8ebda89735c">
+            Create essential documentation for HARC
+        </li>
+        <li data-list-item-id="e8affde50407736f6f800f8cb6a6d07aa">
+            Pack collections safely
+        </li>
+        <li data-list-item-id="e7645ad395e10d99a8c9735738ce1bfea">
+            Coordinate physical move
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-1-building-contextual-history">
+        Step 1: Building Contextual History
+    </h3>
+    <h4 id="purpose">
+        Purpose
+    </h4>
+    <p>
+        When archives transition to HARC, institutional knowledge transfers with them. Future archivists and researchers will not understand your congregation's unique:
+    </p>
+    <ul>
+        <li data-list-item-id="ecc2f7c9a996f454a2ef0780193995cfd">
+            Language and terminology
+        </li>
+        <li data-list-item-id="e6ade0ce2a63c592c52a5bef0c6bc13a9">
+            Customs and traditions
+        </li>
+        <li data-list-item-id="e6c300b3b274039678884f1ea0153d5aa">
+            Organizational structure
+        </li>
+        <li data-list-item-id="e5b991e8daff6138730d3ab389ca8aae4">
+            Historical context
+        </li>
+        <li data-list-item-id="ec4d2f661f68f9e56aac5ff1fa3268e46">
+            Charism and spirituality
+        </li>
+    </ul>
+    <p>
+        <i>A congregational narrative preserves this knowledge.</i>
+    </p>
+    <h4 id="what-to-include">
+        What to Include
+    </h4>
+    <p>
+        <strong>I. Foundation and Early History</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e71c3b94a2584d8a62e4e53212fcec46b">
+            Founding date and location
+        </li>
+        <li data-list-item-id="e2d706b8152c2a71315aa529eca2ad346">
+            Founder(s) biography and charism
+        </li>
+        <li data-list-item-id="ed9aa04cbe6e87400adaa831d917e85bc">
+            Original mission and ministries
+        </li>
+        <li data-list-item-id="e190e760604a573ddca457fdb55fcc71e">
+            Early challenges and growth
+        </li>
+        <li data-list-item-id="ed409a4be08e4ade9493ef3c733b82c3b">
+            Relationship with other congregations or federations
+        </li>
+    </ul>
+    <p>
+        <strong>II. Organizational Structure</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e17d2725e3a98bb7f3b0729203a442ed0">
+            Governance model (general leadership, provinces, regions, etc.)
+        </li>
+        <li data-list-item-id="e55f12c5e7da4d8901baed8da48c7d710">
+            Evolution of administrative structure
+        </li>
+        <li data-list-item-id="e6f08abeb7a816393ca6d87555b2c3152">
+            Significant reorganizations, mergers, or splits
+        </li>
+        <li data-list-item-id="e90cd125567766c98f95007a81cb52d04">
+            Current structure (as of transition)
+        </li>
+    </ul>
+    <p>
+        <strong>III. Ministries and Apostolic Works</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e1164faaba3f7a2a06da852bc6ce90999">
+            Primary historical ministries (education, healthcare, social services, etc.)
+        </li>
+        <li data-list-item-id="e9f249e1f67c91c0021c1f030a7f7776f">
+            Geographic spread and expansion
+        </li>
+        <li data-list-item-id="e339d6a0c519994f61ad5f11a2e99d25f">
+            Signature ministries or notable institutions
+        </li>
+        <li data-list-item-id="e722b2adba519139c0642afd7634f71b3">
+            Ministry evolution over time
+        </li>
+        <li data-list-item-id="e0573570ecb9eeb589d0d4ad4838abad6">
+            Current ministries (as of transition)
+        </li>
+    </ul>
+    <p>
+        <strong>IV. Congregational Life</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e3ad3a8fcca297ca32bc8605a89087903">
+            Formation process and changes over time
+        </li>
+        <li data-list-item-id="e67c5f4a3287b1f2eac712bd14c1f7302">
+            Prayer life and spirituality
+        </li>
+        <li data-list-item-id="e5d2360c9419ad33447643407c5e82e3b">
+            Community living arrangements
+        </li>
+        <li data-list-item-id="e51bfc90c4237401fc73a565a7907777c">
+            Habit changes and religious garb evolution
+        </li>
+        <li data-list-item-id="ebbc4f5f3cf07d7539ef6ed72d3d226b9">
+            Significant customs or traditions
+        </li>
+    </ul>
+    <p>
+        <strong>V. Key Events and Figures</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e7f93c25815f2dab22ee43b3505581670">
+            Notable members and their contributions
+        </li>
+        <li data-list-item-id="ea01bca1fc40231bfdbfaba17fee40cb4">
+            Response to historical moments (Vatican II, social movements, etc.)
+        </li>
+        <li data-list-item-id="ee1b6ca32a294d6ff69ad0a50c009aad3">
+            Challenges overcome (financial, membership, societal changes)
+        </li>
+        <li data-list-item-id="efd0fac2ce0e333cba155ca1b2d51e15a">
+            Celebrations and milestones
+        </li>
+    </ul>
+    <p>
+        <strong>VI. Archives and Records</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e7695b29b7a486fdf726b7f0cd1b230c1">
+            History of the archival program
+        </li>
+        <li data-list-item-id="ee843d7724ab14f14f62d3e7f7a7a56e2">
+            Major series and their significance
+        </li>
+        <li data-list-item-id="e0a9220fbb05446195dcb2dc416775ee8">
+            Known gaps in documentation
+        </li>
+        <li data-list-item-id="ea341366b7220feb8a56b6e1a6f62e311">
+            Unique collections or treasures
+        </li>
+        <li data-list-item-id="e0e56538b1a21fcfff64b9927c1476237">
+            Digitization or preservation projects completed
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-2-preparing-research-ready-collections">
+        Step 2: Preparing Research-Ready Collections
+    </h3>
+    <h4 id="what-research-ready-means">
+        What "Research-Ready" Means
+    </h4>
+    <p>
+        Collections arriving at HARC should be:
+    </p>
+    <ol>
+        <li data-list-item-id="e47688407f8ef4cc320dd9f2cd7cd5d1a">
+            <strong>Inventoried</strong>: Box-level list documenting contents
+        </li>
+        <li data-list-item-id="ef6cce96e346b04503297717df282c1a1">
+            <strong>Described</strong>: Finding aids or collection guides available
+        </li>
+        <li data-list-item-id="e81c5ddd98d64e271291b3d4d2c00266b">
+            <strong>Documented</strong>: Restrictions, policies, and context provided
+        </li>
+    </ol>
+    <h4 id="basic-processing-standards">
+        Basic Processing Standards
+    </h4>
+    <p>
+        <strong>Minimum Requirements</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e3b4b5c4b81410c18431d6529a918937b">
+            Box lists (number, contents, dates)
+        </li>
+        <li data-list-item-id="e0658012893db8523190f14b8171218f9">
+            Series-level arrangement (major groupings logical and documented)
+        </li>
+        <li data-list-item-id="e47693c02109bb878ce4cbed681dff1b8">
+            Clear labeling (congregation name, box number, contents)
+        </li>
+        <li data-list-item-id="e2716a66ff9683177074baeddb8c1337c">
+            Restrictions identified (by series or box)
+        </li>
+    </ul>
+    <p>
+        <strong>Enhanced (if time allows)</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ed38331da4a83c6446669168021241c94">
+            Folder-level inventories
+        </li>
+        <li data-list-item-id="efd7c593d153a028758fa37302fce44c4">
+            Detailed finding aids
+        </li>
+        <li data-list-item-id="edc67e446537d12be16f0afd47c555915">
+            Scope and content notes
+        </li>
+        <li data-list-item-id="e638e0c0c69e686ea8ecaa49df7384939">
+            Subject access points
+        </li>
+        <li data-list-item-id="e38a6cc3d8dbf64a4406ac25b3fe351b2">
+            Biographical/historical notes
+        </li>
+    </ul>
+    <h4 id="processing-workflow">
+        Processing Workflow
+    </h4>
+    <p>
+        <strong>1. Survey the Collection</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ea14597c9ebff121fa80faaa20df7b697">
+            Estimate extent (linear/cubic feet)
+        </li>
+        <li data-list-item-id="e03baa0eb039c0927053cdee0b21fb9eb">
+            Identify formats present
+        </li>
+        <li data-list-item-id="e4b2a7e7bc91a243e27fa89207a49fc71">
+            Note condition issues
+        </li>
+        <li data-list-item-id="ea4f8dca6561709d95801932db62b610c">
+            Assess existing organization
+        </li>
+    </ul>
+    <p>
+        <strong>2. Physical Processing</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e2135e1bb417684e7ebd164361ecb5a3a">
+            Rehouse in archival boxes/folders (if resources allow)
+        </li>
+        <li data-list-item-id="e1e9a499c9cb73099dffbd4580700efc7">
+            Remove damaging fasteners (rusty staples, paperclips)
+        </li>
+        <li data-list-item-id="eee0fdb86b849bb676aaba7837b839bf6">
+            Separate oversized materials
+        </li>
+        <li data-list-item-id="ece303bf178aaa08a39aff898720e85dd">
+            Flag preservation concerns
+        </li>
+        <li data-list-item-id="e8cb75e0affa9e34baf823724ac65311b">
+            Label boxes clearly
+        </li>
+    </ul>
+    <p>
+        <strong>4. Description</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e4fc0c31fd272c4a31dbe753ef5659e56">
+            Create box-level inventory minimum
+        </li>
+        <li data-list-item-id="e549f9f6c1c988aba744ef27af9e699e9">
+            Write series descriptions
+        </li>
+        <li data-list-item-id="e6746e39124a45adae6a50c80e315050d">
+            Note restrictions by series/box
+        </li>
+        <li data-list-item-id="eb4eeebeef3254e65e71242285b82f6ce">
+            Identify high-value materials
+        </li>
+    </ul>
+    <p>
+        <strong>5. Special Materials</strong>
+    </p>
+    <p>
+        <strong>Photographs:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="eac942b6267be0924abb04159846332aa">
+            Organize by event, ministry, or individual
+        </li>
+        <li data-list-item-id="e0a40d3fb8aa334640e0208718cb84195">
+            Provide identification when possible
+        </li>
+        <li data-list-item-id="e5f258e0499c453e83ba0b3271c08a34e">
+            Note dates and locations
+        </li>
+        <li data-list-item-id="e32cfba0e6a88f6b995acdadc0dc5332c">
+            Create photo inventory
+        </li>
+    </ul>
+    <p>
+        <strong>Audiovisual Materials:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e7579d1f467195454869ab6adc50cfa96">
+            Keep in original cases
+        </li>
+        <li data-list-item-id="e4367b2ee25a3c5c2325d8d34612315b5">
+            Store upright
+        </li>
+        <li data-list-item-id="ecce92a15fd76b8d86bff61ab8f032990">
+            Inventory by format (cassettes, VHS, CDs, etc.)
+        </li>
+        <li data-list-item-id="e00c067af1347075ce594ddb34501aa5d">
+            Note content if known
+        </li>
+        <li data-list-item-id="edf10d2fce74ef1edf9e037db9e7ef22e">
+            Flag for digitization if deteriorating
+        </li>
+    </ul>
+    <p>
+        <strong>Digital Materials:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ee81c32af2fe7139bdc984c4504ea3e8d">
+            Consolidate onto external hard drive
+        </li>
+        <li data-list-item-id="e27759afbeb4848ba100a6fbd18ed669a">
+            Organize in folders (like a file cabinet)
+        </li>
+        <li data-list-item-id="ef4c04b02407068d82648ba609e746152">
+            Include metadata/descriptions
+        </li>
+        <li data-list-item-id="e4542685a65c40b6245d30f01cf4fd16e">
+            Note any passwords or restrictions
+        </li>
+    </ul>
+    <p>
+        <strong>Objects:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e0c4a9c2834eb8e8e5fada3ce31bb6d8c">
+            Photograph before packing
+        </li>
+        <li data-list-item-id="e739eabc722b86d48b7191ea01719d43e">
+            Wrap carefully
+        </li>
+        <li data-list-item-id="e050db96ca899c74867908c9cae5f5c26">
+            Note if accompanying collection or separate
+        </li>
+        <li data-list-item-id="edeb494b4d6061619f584a019f626df9c">
+            Limited capacity at HARC—prioritize
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-3-essential-documentation-for-harc">
+        Step 3: Essential Documentation for HARC
+    </h3>
+    <h4 id="transfer-documentation-checklist">
+        Transfer Documentation Checklist
+    </h4>
+    <p>
+        <span style="background-color:rgb(248,249,250);color:rgb(102,102,102);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">✅ </span></span><strong>Required:</strong>
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Signed Deed of Gift or Deposit Agreement
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Box list or inventory
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Congregational narrative history
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Access restrictions (by series/box)
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Contact information for congregation liaison
+    </p>
+    <p>
+        <span style="background-color:rgb(248,249,250);color:rgb(102,102,102);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">✅ </span></span><strong>If Available:</strong>
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Existing policies (access, use, confidentiality)
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Digitized materials (with file documentation)
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Oral histories and transcripts
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Published histories or studies
+    </p>
+    <p style="margin-left:40px;">
+        ✓ Previously created resources
+    </p>
+    <h4 id="access-and-restrictions-documentation">
+        Access and Restrictions Documentation
+    </h4>
+    <p style="margin-left:0px;">
+        <strong>📝 Be Specific:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e38e572797c1ea200ce2fb19fbfbed8d4">
+            <strong>Instead of:</strong> <i>"Personnel files are confidential"</i>
+        </li>
+        <li data-list-item-id="e5921f8a3c1e15e96f28db6ed0b19874a">
+            <strong>Write:</strong> <i>"Personnel files of congregation members (Series 3) shall remain closed for 25 years following the date of death of the member. Files include formation records, ministry assignments, health records, and correspondence. After 25 years, files are open with HIPAA restrictions applied to medical records."</i>
+        </li>
+    </ul>
+    <h4 id="standard-restriction-categories">
+        Standard Restriction Categories
+    </h4>
+    <ul>
+        <li data-list-item-id="e19af098d8a0af9ba82aa2428a2c55032">
+            <strong>Personnel Files:</strong> Typically 25-75 years after death
+        </li>
+        <li data-list-item-id="e6386f1421d5899c8724d048e8f500425">
+            <strong>Legal Records:</strong> 50-100 years from creation
+        </li>
+        <li data-list-item-id="e875b5fff1fd6aa6926de5df92648ce4c">
+            <strong>Financial Records:</strong> Varies; consult with counsel
+        </li>
+        <li data-list-item-id="e4d948d572bbfdcd1f7ea798a19b257f0">
+            <strong>Medical Records:</strong> HIPAA governs; typically lifetime plus 50 years
+        </li>
+        <li data-list-item-id="e000ac2f0d348777a577678ecbb0fa876">
+            <strong>Student Records:</strong> FERPA governs; typically 75 years
+        </li>
+        <li data-list-item-id="e747d370ba8f6e551fb39e2d2f751b909">
+            <strong>Correspondence:</strong> Varies based on content
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-4-physical-move-planning">
+        Step 4: Physical Move Planning
+    </h3>
+    <h4 id="timeline-and-coordination">
+        Timeline and Coordination
+    </h4>
+    <p>
+        <strong>📝 Three (3) Months Before</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e56b90fc1a10b6f9e9b4cf3655a7abf18">
+            Finalize move date with HARC
+        </li>
+        <li data-list-item-id="e88df1ae947f99dbb88fea4dc308b1f4d">
+            Assess moving options (professional vs. self)
+        </li>
+        <li data-list-item-id="e6e6bfd9527af24bc915d6615abea8a5a">
+            Order packing supplies
+        </li>
+        <li data-list-item-id="ece1290901106484461f1c6173eb868dc">
+            Begin packing processed collections
+        </li>
+        <li data-list-item-id="e7caf4f2564ce9ee2587b2044ce1069f4">
+            Purchase insurance for transit
+        </li>
+        <li data-list-item-id="ed0486a29c161bb220ac2f41510d0dee4">
+            Create detailed packing schedule
+        </li>
+    </ul>
+    <p style="margin-left:0px;">
+        <strong>🏷️ One (1) Month Before</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ef2255c540c4c7cb27e2343210b0a46dc">
+            Complete packing
+        </li>
+        <li data-list-item-id="e752d883286c5b6c170bff0c810f9b3a6">
+            Conduct final inventory check
+        </li>
+        <li data-list-item-id="e4ab882bdf131e664dfdeaed8fb64a881">
+            Prepare staging area
+        </li>
+        <li data-list-item-id="e5d4f25eb44ac3db818fcef72b919d744">
+            Confirm move details with HARC and movers
+        </li>
+    </ul>
+    <p style="margin-left:0px;">
+        <strong>🏠 Move Week</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ecead7bf952c4015970130f931a27011c">
+            Final walkthrough
+        </li>
+        <li data-list-item-id="e5d4dead6e87d3c3fad70197918fb501e">
+            Load collection
+        </li>
+        <li data-list-item-id="e0988be3a7c46580d09b4e21d45b519d3">
+            Transit to HARC
+        </li>
+        <li data-list-item-id="e284345da8db08d004a5ee1be8220c462">
+            Unload and verify receipt
+        </li>
+        <li data-list-item-id="ebce3d5cbe99cedf3a3cfde9e36d0beca">
+            Prayer service or blessing
+        </li>
+    </ul>
+    <p>
+        &nbsp;
+    </p>
+    <h4 id="packing-standards">
+        Packing Standards
+    </h4>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a><strong> General Principles:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e21abf7bbdfc5fa8a551a8b234bed3e4f">
+            Maximum 30-35 lbs. per box
+        </li>
+        <li data-list-item-id="e5296988b72f74a82bc7d0a96733f173b">
+            Fill boxes adequately (use spacers for partial boxes)
+        </li>
+        <li data-list-item-id="eb687e9a2b765ba3870a37629838e39b2">
+            Label all sides of boxes
+        </li>
+        <li data-list-item-id="e33959c096cc3d6429d37a93e96269574">
+            Number sequentially (Box 1 of 50, etc.)
+        </li>
+        <li data-list-item-id="ea62bd7b3daf3c781593eb0617983451b">
+            Maintain collection order
+        </li>
+        <li data-list-item-id="ebe844d27b20b2069a73bdc8ef501550d">
+            Separate fragile items
+        </li>
+    </ul>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a> <strong>Box Labels Should Include:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e61f3c70bf1e0d1200031b85662df1e48">
+            Congregation name
+        </li>
+        <li data-list-item-id="e1ff19c094f357e8cfe6dd7f47126740d">
+            Box number and total count
+        </li>
+        <li data-list-item-id="e3add06ed948bdb13fca90bcf7d3cc0c0">
+            Contents description
+        </li>
+        <li data-list-item-id="eb911d9281cd263dce4c9b6d8d20692e0">
+            Date range
+        </li>
+        <li data-list-item-id="ee6d1aee79bececff23ab7f69ab946867">
+            Special handling notes (FRAGILE, OVERSIZED, etc.)
+        </li>
+    </ul>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a> <strong>Paper Documents:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e1bb915455f23b0e822def86c72f954c0">
+            Keep in folders
+        </li>
+        <li data-list-item-id="e7b06eb0dca321a879b390ef2357a64fd">
+            Store upright in boxes
+        </li>
+        <li data-list-item-id="e8909f23dd4492f770ebdc2f2591f77ad">
+            Remove rusty fasteners
+        </li>
+        <li data-list-item-id="ef9c9c3c5b76a8c4f1e38d30b32a685c4">
+            Do not overfill boxes
+        </li>
+        <li data-list-item-id="e5a8d5774102e19b8529d1f193c975240">
+            Use spacers if partially filled
+        </li>
+    </ul>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a> <strong>Photographs:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e758475f6f07c0f8feaf836815b73d9b4">
+            Keep upright, never flat
+        </li>
+        <li data-list-item-id="eaea3f7bfde22af4db3a7a59e77443126">
+            Leave in albums if present
+        </li>
+        <li data-list-item-id="eada65a01f0ce8410b1cde88b0d0cd279">
+            Use archival sleeves if possible
+        </li>
+        <li data-list-item-id="ec7cb18836bb9f1dd58b6824b8319418d">
+            Never use rubber bands or paperclips
+        </li>
+        <li data-list-item-id="e4542770a3beaa6a0cbbb7494197be1b0">
+            Separate formats (prints, negatives, slides)
+        </li>
+    </ul>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a> <strong>Audiovisual:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ef3ecd146006feeb2b178be1509bb68f3">
+            Keep in original cases
+        </li>
+        <li data-list-item-id="e61cb00c593f1e830eb67412131acb7f6">
+            Store upright
+        </li>
+        <li data-list-item-id="e65ddbfddb6b7c398f458b0fc738d1e3b">
+            Pack tightly to prevent shifting
+        </li>
+        <li data-list-item-id="e7120c592a45bb3824a3c6a32de39b6dc">
+            Label contents on case
+        </li>
+        <li data-list-item-id="eafb131d60f83a04ba9dcfb10af92282e">
+            Note format clearly
+        </li>
+    </ul>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a> <strong>Artifacts:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e74c94f4edeca26ad35d775474e5c5c20">
+            Photograph first
+        </li>
+        <li data-list-item-id="eb306368a31d357c2abd2e2abed9a4ace">
+            Wrap individually
+        </li>
+        <li data-list-item-id="efbe09e99892b0cd98448251b9b47641c">
+            Float in packing peanuts
+        </li>
+        <li data-list-item-id="e1d2e988d83a1a61ac240076509ff075f">
+            Label as FRAGILE
+        </li>
+        <li data-list-item-id="e66718eebf1cf83717f5c14c2a5d9710a">
+            Include packing list with photos
+        </li>
+    </ul>
+    <p>
+        <a style="-webkit-text-stroke-width:0px;background-color:rgb(255, 255, 255);box-sizing:inherit;color:rgb(0, 0, 238);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;outline:0px;overflow-wrap:break-word;text-align:start;text-indent:0px;text-transform:none;transition:0.2s;white-space:normal;widows:2;word-spacing:0px;" target="_blank" rel="noopener noreferrer" href="https://www.ou.edu/carlalbertcenter/about#contentpar_text">👉</a> <strong>Oversized Materials:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e4eb95a18ac89fe02358ed7d28e3fb2a2">
+            Store flat, never rolled
+        </li>
+        <li data-list-item-id="e88139f30aca857efcbac1890ab41d8e8">
+            Interweave with tissue
+        </li>
+        <li data-list-item-id="e089cdc1562078bba98b38f20a7c2270d">
+            Use flat boxes or portfolios
+        </li>
+        <li data-list-item-id="e2870c68e36b58d81f9ab6795fc4e0687">
+            Mark "DO NOT BEND"
+        </li>
+        <li data-list-item-id="edd054d45e5ac06fa3014e6804eb4d9bb">
+            Limit stack height
+        </li>
+    </ul>
+    <p>
+        &nbsp;
+    </p>
+    <h4 id="insurance-considerations">
+        Insurance Considerations
+    </h4>
+    <p>
+        <strong>In Transit Coverage:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e179268c7ae8ab852bc0df700b13fac9f">
+            Determine who carries insurance (congregation or mover)
+        </li>
+        <li data-list-item-id="e335e925ebe062becaa208dccd2d6443a">
+            Verify coverage amounts
+        </li>
+        <li data-list-item-id="e688ec30be0586c081ede40a30350f623">
+            Understand exclusions
+        </li>
+        <li data-list-item-id="eb307d1c85493dbfabf123adebcb33bf8">
+            Document collection value
+        </li>
+        <li data-list-item-id="e14ecd506d7a9d82d779635dfddb22e36">
+            Photograph collections
+        </li>
+    </ul>
+    <p>
+        <strong>HARC Coverage:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e87ba116ee1d94ce4b109329a109d8433">
+            Once at HARC, collection is insured by HARC
+        </li>
+        <li data-list-item-id="e69233befcaf9959afeb0f42afe174c1a">
+            Review coverage with HARC staff
+        </li>
+        <li data-list-item-id="ec8cc9c0a26fa65d81880cd5e07bf2191">
+            Understand limitations
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-5-disposition-of-objects-and-non-archival-materials">
+        Step 5: Disposition of Objects and Non-Archival Materials
+    </h3>
+    <h4 id="objects-for-harc">
+        Objects for HARC
+    </h4>
+    <ul>
+        <li data-list-item-id="e3ef5d7ae22b25d83bf9c90c2dd3f4f3d">
+            Items integral to congregational story
+        </li>
+        <li data-list-item-id="e7dc105217225805851fc5292e5d03686">
+            Well-documented provenance
+        </li>
+        <li data-list-item-id="e1732148aaa7c7296feca8e809262dc5e">
+            Good condition
+        </li>
+        <li data-list-item-id="e3fd548c91e82a3a89702be12ba3f5aeb">
+            Reasonable size/storage needs
+        </li>
+        <li data-list-item-id="e4cb863a9a8a4a9b3528330d053b98f7e">
+            Discussed and approved by HARC
+        </li>
+    </ul>
+    <h4 id="objects-to-discard">
+        Objects to Discard
+    </h4>
+    <ul>
+        <li data-list-item-id="e074f6843141e792a82bb90f6315b2a10">
+            Damaged beyond use
+        </li>
+        <li data-list-item-id="e6696b99e98d85d8851146407bda2430a">
+            No historical value
+        </li>
+        <li data-list-item-id="ed36182078b0674450503307b625f7c63">
+            Duplicates
+        </li>
+        <li data-list-item-id="e57f0e2b82d1d0edf674413f3e68e8416">
+            Unsafe materials
+        </li>
+    </ul>
+    <h4 id="consecrated-objects">
+        Consecrated Objects
+    </h4>
+    <p>
+        <strong>Items Requiring Special Disposal:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ed4cb0bc40175cdfcd38611cf19f63276">
+            Blessed objects (statues, crucifixes)
+        </li>
+        <li data-list-item-id="e5c7f379cfa543b4ffdb8fb3ea3591239">
+            Altar linens and vestments
+        </li>
+        <li data-list-item-id="e8a9cc10d899c7757adc7e4c2689b803f">
+            Sacred vessels (chalices, ciboria)
+        </li>
+        <li data-list-item-id="e44f3e20f68adadc5dd3af53ffc323b24">
+            Worn religious medals and rosaries
+        </li>
+    </ul>
+    <p>
+        <strong>Proper Disposal Methods:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e1a3a548d671c59739ea2fc431a4b8666">
+            Burial in blessed ground
+        </li>
+        <li data-list-item-id="ebdd170da191b38d6b9284fdbac63ac13">
+            Burning and burying ashes
+        </li>
+        <li data-list-item-id="ee9fac01977946de56d70ced2831a1bf8">
+            Return to elements (water for certain items)
+        </li>
+        <li data-list-item-id="e7c5a4f3d391106c109e7db2f80036dbf">
+            Consult diocesan guidelines
+        </li>
+        <li data-list-item-id="e1de17c5071d7127d26a7d5fb17d5f167">
+            Never discard in regular trash
+        </li>
+    </ul>
+    <p>
+        <strong>Consultation:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ec16ad739a7d1841b8f3928936c7ba39f">
+            Contact your diocese for guidance
+        </li>
+        <li data-list-item-id="e801fdb6545a434dd1abfbc0d1533c3bb">
+            Collaborate with chaplain or spiritual director
+        </li>
+        <li data-list-item-id="e11888e6506cdb145b39a780164c3c0b4">
+            Document respectful disposal
+        </li>
+        <li data-list-item-id="ebb79c663aa7e933274a3003e62cc6d95">
+            Consider blessing or prayer service
+        </li>
+    </ul>
+    <hr>
+    <h3 id="step-6-commemoration-and-ongoing-relationship">
+        Step 6: Commemoration and Ongoing Relationship
+    </h3>
+    <h4 id="commemorating-the-transition">
+        Commemorating the Transition
+    </h4>
+    <p>
+        <i>Moving your congregation's history is significant.</i>
+    </p>
+    <p>
+        <strong>Prayer Service</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="eca4f0b1de7599e834d6795b9a25c9fd2">
+            Blessing of archives before move
+        </li>
+        <li data-list-item-id="eeb53348ba72a620001a2a39c7c795840">
+            Prayer for those whose stories are preserved
+        </li>
+        <li data-list-item-id="ec126f2cfc08a917ed8ddb487e0a0cf34">
+            Gratitude for archivists and donors
+        </li>
+        <li data-list-item-id="e5265ede2cf40a55e1d248ef92e4cc909">
+            Hope for future researchers
+        </li>
+    </ul>
+    <p>
+        <strong>Documentation</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e664447c5f8445ed2459674c4c75ef9a9">
+            Photograph archives in current space
+        </li>
+        <li data-list-item-id="e708783e84e7843abf018226edc45effa">
+            Document packing and moving process
+        </li>
+        <li data-list-item-id="e5d2938d15478b98189e98edb6cdcea49">
+            Record oral histories about archives
+        </li>
+        <li data-list-item-id="e4851f1bdf1fe5ba169ce9b1f88cf226a">
+            Create video or written reflection
+        </li>
+    </ul>
+    <p>
+        <strong>Community Involvement</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ed002a2308b95a294907d0c0fd97f1cd8">
+            Inform congregation about transition
+        </li>
+        <li data-list-item-id="ebf33139283836463e2d318e84a8ef208">
+            Share updates during process
+        </li>
+        <li data-list-item-id="ed3c5a1b35ef25df8d13f845d1bbf548a">
+            Invite sisters to final blessing
+        </li>
+        <li data-list-item-id="ed2bf29cfa92edff294a38fa9ca202f45">
+            Celebrate completion
+        </li>
+    </ul>
+    <p>
+        <strong>Public Recognition</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e8f49cd45d6cc18b81d65ec7800006137">
+            Newsletter articles
+        </li>
+        <li data-list-item-id="e9cfe4cc70b7b24456575f01a2ce4288a">
+            Website updates
+        </li>
+        <li data-list-item-id="e1b654eee23b155dac2f437da73331574">
+            Thank donors and volunteers
+        </li>
+        <li data-list-item-id="e2f2ecc34b7ab067ead7823acf4ac2990">
+            Acknowledge HARC partnership
+        </li>
+    </ul>
+    <hr>
+    <h2 id="part-iv-resources-and-templates">
+        Part IV: Resources and Templates
+    </h2>
+    <h3 id="assessment-tools">
+        Assessment Tools
+    </h3>
+    <h4 id="archives-evaluation-worksheet">
+        Archives Evaluation Worksheet
+    </h4>
+    <p>
+        <strong>Basic Information:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e9e1f6c6ab9620cecce149656b22bf562">
+            Congregation Name: <strong>___</strong>
+        </li>
+        <li data-list-item-id="e71296b1cf5acfdf31bc1d96cd6377128">
+            Archivist Name: <strong>___</strong>
+        </li>
+        <li data-list-item-id="e7f5e0ca2ced4b67276449facf310861c">
+            Date Completed: <strong>___</strong>
+        </li>
+        <li data-list-item-id="ed958634e06630104fa62befb7b8e787e">
+            Projected Transition Timeline: <strong>___</strong>
+        </li>
+    </ul>
+    <p>
+        <strong>Storage Space:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e8129860584f8e02cdd80bd12c95be2ff">
+            Square footage: <strong>___</strong>
+        </li>
+        <li data-list-item-id="e150c5032c416328201a26403e600481b">
+            Linear footage of shelving: <strong>___</strong>
+        </li>
+        <li data-list-item-id="e234eca690b3c709445e9d6a679489b98">
+            Cubic footage: <strong>___</strong>
+        </li>
+    </ul>
+    <p>
+        <strong>Collection Status:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ea9bb520fa687eaf61650e08e22627c23">
+            Percentage processed: <strong>___</strong>%
+        </li>
+        <li data-list-item-id="ed7d469b40da4683ca8a10b0be95ab2c0">
+            Percentage with finding aids: <strong>___</strong>%
+        </li>
+        <li data-list-item-id="e9b24c25aef361b4bc3f742f6efbf8816">
+            Percentage accessible: <strong>___</strong>%
+        </li>
+    </ul>
+    <p>
+        <strong>Material Formats</strong> (check all present and note prevalence: Extensive/Common/Rare):
+    </p>
+    <figure class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Format
+                    </th>
+                    <th>
+                        Present
+                    </th>
+                    <th>
+                        Prevalence
+                    </th>
+                    <th>
+                        Condition Notes
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Documents (standard boxes)
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Documents (oversized)
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Photographs (prints)
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Photographs (negatives)
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Photographs (slides)
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Photo albums
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Scrapbooks
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Audio recordings
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Video recordings
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Film (8mm, 16mm)
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Digital files
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Microfilm/fiche
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Books/publications
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Architectural drawings
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Maps
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Artifacts/objects
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Religious items
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Artwork
+                    </td>
+                    <td>
+                        ☐
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <p>
+        <strong>Preservation Concerns:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="efb91ceb10557201326e460ab2aae5f2d">
+            ☐ Mold or mildew present
+        </li>
+        <li data-list-item-id="e49d2989f224696474797c15b3049d18d">
+            ☐ Pest damage
+        </li>
+        <li data-list-item-id="ee8a25d3aea21be2a331094b34089167f">
+            ☐ Water damage
+        </li>
+        <li data-list-item-id="eeac85c6098a7d78d914920d81fb89ef8">
+            ☐ Brittleness/deterioration
+        </li>
+        <li data-list-item-id="ed75b0ac3b0c9b22e487991442a7e9efc">
+            ☐ Improper storage
+        </li>
+        <li data-list-item-id="e2e5522a5c369da7f41fb3dd79269708a">
+            ☐ Inadequate climate control
+        </li>
+        <li data-list-item-id="ef726b934c210e35c5420f32ae0dc9333">
+            ☐ Overcrowding
+        </li>
+        <li data-list-item-id="e08a147ee649e7f7d705c433aaa39bfe8">
+            ☐ Other: <strong>___</strong>
+        </li>
+    </ul>
+    <p>
+        <strong>Existing Documentation:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e4f8ec8d4e5315b25eef198cd2d88af8d">
+            ☐ Box lists
+        </li>
+        <li data-list-item-id="e8ccd133c93b0590c660dea909049c7f6">
+            ☐ Finding aids
+        </li>
+        <li data-list-item-id="ea96b6e127f351d1069b39d9bfebb8340">
+            ☐ Inventories
+        </li>
+        <li data-list-item-id="e5dd41ac41afbc2f0772e4ab5114f1d8f">
+            ☐ Policies
+        </li>
+        <li data-list-item-id="ebf2ecc66d56a9aa49561545dd57b618f">
+            ☐ Accession records
+        </li>
+    </ul>
+    <h4 id="object-evaluation-worksheet">
+        Object Evaluation Worksheet
+    </h4>
+    <p>
+        <i>For each significant object, assign points (1-5) for each criterion:</i>
+    </p>
+    <p>
+        <strong>Object Description:</strong> <strong>___</strong>
+    </p>
+    <p>
+        <strong>Criteria:</strong>
+    </p>
+    <ol>
+        <li data-list-item-id="e57cf2574e31978f71299e77c4d998f02">
+            Connection to congregational story (1=weak, 5=essential): <strong>_</strong>
+        </li>
+        <li data-list-item-id="e38137103c30fa917970faf8591d5b1f8">
+            Historical significance (1=minimal, 5=major): <strong>_</strong>
+        </li>
+        <li data-list-item-id="ec1fd904a66f5868dbe619921cca9f638">
+            Condition (1=poor, 5=excellent): <strong>_</strong>
+        </li>
+        <li data-list-item-id="e5281868757156847fbf55e05b75f3cac">
+            Provenance/documentation (1=none, 5=complete): <strong>_</strong>
+        </li>
+        <li data-list-item-id="e98efa776d2332608e3d7452eacfff13c">
+            Research value (1=minimal, 5=high): <strong>_</strong>
+        </li>
+        <li data-list-item-id="e0b32f149f1f90bbc0ad71f063fafa159">
+            Display potential (1=low, 5=high): <strong>_</strong>
+        </li>
+        <li data-list-item-id="ea47e7859eef33d6d3a3b51554bd46ae3">
+            Uniqueness (1=common, 5=one-of-kind): <strong>_</strong>
+        </li>
+    </ol>
+    <p>
+        <strong>Total Score:</strong> <strong>_</strong> / 35
+    </p>
+    <p>
+        <strong>Disposition Decision:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ec6fbef0e17cf1beeef3d0f7ebf60d8c6">
+            ☐ Priority for HARC
+        </li>
+        <li data-list-item-id="e2c68a10fa9d1fd1feb653bf812bd2aaf">
+            ☐ Alternative repository
+        </li>
+        <li data-list-item-id="ea1240c5b59c613618556b8c19b5a17a7">
+            ☐ Sale/donation
+        </li>
+        <li data-list-item-id="e3a2d64367d5e928c6ba58b5a52207ebf">
+            ☐ Respectful disposal
+        </li>
+    </ul>
+    <h3 id="planning-tools">
+        Planning Tools
+    </h3>
+    <h4 id="transition-planning-worksheet">
+        Transition Planning Worksheet
+    </h4>
+    <p>
+        <strong>Timeline:</strong> <strong>___</strong>
+    </p>
+    <p>
+        <strong>Critical Tasks (by date):</strong>
+    </p>
+    <figure class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Task
+                    </th>
+                    <th>
+                        Responsible
+                    </th>
+                    <th>
+                        Deadline
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Complete assessment
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Finalize HARC agreement
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Create congregational narrative
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Process priority collections
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Develop finding aids
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Order packing supplies
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Hire movers
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Pack collections
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Transfer to HARC
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Commemoration event
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <p>
+        <strong>Resource Needs:</strong>
+    </p>
+    <p>
+        <strong>Staffing:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e5f6bd8af87f19b4d4f53a40989568ffc">
+            Archivist hours/week: <strong>_</strong>
+        </li>
+        <li data-list-item-id="ec1eacecfb6c46f0cb7d0a5f4b0420554">
+            Volunteer hours/week: <strong>_</strong>
+        </li>
+        <li data-list-item-id="e725259f9db24af9eece719b44f2fbc52">
+            Consultant needed: ☐ Yes ☐ No
+        </li>
+        <li data-list-item-id="e8a7b2ddbaa7e7b331449633c45fd0cd0">
+            Project scope: <strong>___</strong>
+        </li>
+    </ul>
+    <p>
+        <strong>Supplies:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e2cc214b6daa83248c08b8fb8163da889">
+            Archival boxes: <strong>_</strong>
+        </li>
+        <li data-list-item-id="eb4da6a5fbae345622d3d8f8a71641392">
+            Folders: <strong>_</strong>
+        </li>
+        <li data-list-item-id="e4cc9e62deb53fdceaa5548c5af330779">
+            Labels: <strong>_</strong>
+        </li>
+        <li data-list-item-id="e9407e87a59269ae11856b190c79a07ca">
+            Packing materials: <strong>_</strong>
+        </li>
+        <li data-list-item-id="e018bb0dd72f77c17d52d2b2a7fbc4b5e">
+            Estimated cost: $<strong>_</strong>
+        </li>
+    </ul>
+    <p>
+        <strong>Services:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ec22ff4137b347cca543bb9b4022a5585">
+            Project archivist: <strong>___</strong>
+        </li>
+        <li data-list-item-id="e7afffe9d920db2da3ecf3a5ba7bc2337">
+            Other consultants: <strong>___</strong>
+        </li>
+        <li data-list-item-id="ed677c8e2076dc9fcb943876247103c00">
+            Estimated cost: $<strong>_</strong>
+        </li>
+    </ul>
+    <p>
+        <strong>Budget Summary:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e7ce5f6265a8723c49f7479b2103a361c">
+            Total estimated cost: $<strong>_</strong>
+        </li>
+        <li data-list-item-id="eb2f5fed0015ed049aab4f64186d07bad">
+            Funding sources: <strong>___</strong>
+        </li>
+        <li data-list-item-id="e043a0c3c77fd7b1a8871b6e5f338fbff">
+            Budget approved: ☐ Yes ☐ No
+        </li>
+    </ul>
+    <h4 id="processing-priority-matrix">
+        Processing Priority Matrix
+    </h4>
+    <p>
+        Rate collections by importance (1-5) and condition (1-5):
+    </p>
+    <figure class="table">
+        <table>
+            <thead>
+                <tr>
+                    <th>
+                        Collection
+                    </th>
+                    <th>
+                        Importance
+                    </th>
+                    <th>
+                        Condition
+                    </th>
+                    <th>
+                        Priority Score
+                    </th>
+                    <th>
+                        Notes
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </figure>
+    <p>
+        <strong>Priority Rankings:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e9bf224a53e45d4aed32bc6b900edfc1b">
+            High priority (8-10): Process immediately
+        </li>
+        <li data-list-item-id="ee22ab2dc7d1195dae111d6dfece2a3b9">
+            Medium priority (5-7): Process if time allows
+        </li>
+        <li data-list-item-id="e11f5b2172254fdb2c771cf53142d4b07">
+            Low priority (2-4): Basic inventory only
+        </li>
+    </ul>
+    <h3 id="agreement-templates">
+        Agreement Templates
+    </h3>
+    <h4 id="sample-access-restrictions-language">
+        Sample Access Restrictions Language
+    </h4>
+    <p>
+        <strong>Standard Restrictions:</strong>
+    </p>
+    <p>
+        "The following materials shall be restricted from public access:
+    </p>
+    <p>
+        <strong>Personnel Files (Series 3):</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ebf714383cf85f6048551813a78c49f66">
+            Files of congregation members shall remain closed for 25 years following the member's date of death. After this period, files are open with the following exceptions:
+            <ul>
+                <li data-list-item-id="e2b572889e488ed310949f07783527c38">
+                    Medical records remain restricted by HIPAA regulations
+                </li>
+                <li data-list-item-id="ea24b67fc65add99dd3ed985e5fc3b184">
+                    Psychological evaluations remain closed for 50 years after death
+                </li>
+                <li data-list-item-id="e092b55d9f2ba826f7cff9acc9c0599d2">
+                    Formation records deemed sensitive by the HARC archivist may be redacted
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <p>
+        <strong>Legal Files (Series 7):</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ec4dd237d3749b959dc1f6159c315c3c8">
+            Settlement agreements and related litigation records remain closed for 50 years from the date of settlement or case closure.
+        </li>
+    </ul>
+    <p>
+        <strong>Financial Records (Series 8):</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e3c28f846b98c5147fac1d191d80d5162">
+            Donor records containing personal financial information remain closed for 75 years from the date of the gift.
+        </li>
+    </ul>
+    <p>
+        <strong>Correspondence (Various):</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="ee95b6381694b4886d9420f61d92a6c5d">
+            Correspondence marked 'confidential' by the sender remains closed for 25 years from the date of the letter.
+        </li>
+    </ul>
+    <p>
+        <strong>Restriction Review:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="eb446e1b262ae352119a073ca369f517b">
+            HARC will review these restrictions every 10 years in consultation with [Congregation Name] and may recommend modifications based on legal changes or evolving archival standards."
+        </li>
+    </ul>
+    <h4 id="sample-congregation-access-language">
+        Sample Congregation Access Language
+    </h4>
+    <p>
+        <i>"Members of [Congregation Name] shall have priority access to the collection under the following terms:</i>
+    </p>
+    <ul>
+        <li data-list-item-id="e6582964a4a1c22838353bce4aa22b46a">
+            <strong>Scheduling</strong>: Members may schedule research appointments with 48 hours' advance notice during HARC's regular business hours.
+        </li>
+        <li data-list-item-id="e6e3c148951ecd5aceef17ccbe755c670">
+            <strong>Facilities</strong>: HARC will provide research space, basic copying equipment, and reference assistance at no charge to congregation members.
+        </li>
+        <li data-list-item-id="e2d306543a817c23e803874065518f873">
+            <strong>Restricted Materials</strong>: Congregation members have access to restricted materials with authorization from [designated congregation authority].
+        </li>
+        <li data-list-item-id="e3442d6e0f73ed9509b5b819ebecc6a6a">
+            <strong>Borrowing</strong>: With advance arrangement, members may borrow specific items for congregation events or meetings for up to 30 days. Borrowed materials must be insured and securely stored.
+        </li>
+        <li data-list-item-id="e0f0b5d4a06fb92cebf68eaba8c97d34f">
+            <strong>Reproduction</strong>: Members may copy materials for congregation use without fees, provided proper attribution is maintained. Commercial use requires separate permission.
+        </li>
+        <li data-list-item-id="e6a2b2c1e11feef35f23d7729ec371023">
+            <strong>Ongoing Consultation</strong>: HARC will consult with the designated congregation liaison regarding major research projects, publication requests, or exhibition loans from the collection."
+        </li>
+    </ul>
+    <hr>
+    <h2 id="part-v-packing-and-moving-resources">
+        Part V: Packing and Moving Resources
+    </h2>
+    <h3 id="box-label-template">
+        Box Label Template
+    </h3>
+    <pre><code class="language-plaintext">[CONGREGATION NAME] ARCHIVES
 
-            <!-- You can add additional images here, e.g. shelving-1.jpg, reading-room.jpg, etc. -->
-          </div>
-
-          <!-- small JS to try fallback paths and display debug info -->
-          <script>
-            (function(){
-              const img = document.getElementById('vault-img');
-              const link = document.getElementById('vault-link');
-              const debugWrap = document.getElementById('vault-debug');
-              const debugText = document.getElementById('vault-debug-text');
-              const debugOpen = document.getElementById('vault-debug-open');
-
-              // Candidate paths to try (edit/add based on your site structure)
-              const candidatePaths = [
-                'vault-1.jpg',
-                './vault-1.jpg',
-                'vault-1.jpeg',
-                'vault-1.JPG',
-                'vault-1.JPEG',
-                'vault-1.png',
-                'images/vault-1.jpg',
-                'assets/images/vault-1.jpg',
-                '/images/vault-1.jpg',
-                '/assets/images/vault-1.jpg'
-              ];
-
-              // Inline SVG placeholder (data URI)
-              const placeholder = 'data:image/svg+xml;utf8,' + encodeURIComponent(
-                '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">'
-                +'<rect width="100%" height="100%" fill="#f6f6f6"/>'
-                +'<text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" fill="#999" font-size="22">Image not available</text>'
-                +'</svg>'
-              );
-
-              let attempt = 0;
-              let lastTried = '';
-
-              function tryNext() {
-                if (attempt >= candidatePaths.length) {
-                  // show placeholder + debug
-                  img.src = placeholder;
-                  debugWrap.style.display = 'inline';
-                  debugText.textContent = 'Image not found. Checked ' + candidatePaths.length + ' paths.';
-                  debugOpen.href = lastTried || '#';
-                  link.href = '#';
-                  console.warn('[HARC gallery] no image found. attempts:', candidatePaths);
-                  return;
-                }
-                const path = candidatePaths[attempt++];
-                lastTried = path;
-                console.log('[HARC gallery] trying image path:', path);
-                // set the image src to attempt path (browser will fire load/error)
-                img.src = path;
-                link.href = path;
-                debugOpen.href = path;
-              }
-
-              img.addEventListener('load', function onLoad(){
-                // success if image has natural width
-                if (img.naturalWidth && img.naturalWidth > 10 && img.src !== placeholder) {
-                  debugWrap.style.display = 'none';
-                  console.log('[HARC gallery] image loaded successfully:', img.src);
-                } else {
-                  // sometimes a server returns a small 1px image or something odd; treat as error:
-                  onError();
-                }
-              });
-
-              function onError(){
-                console.log('[HARC gallery] failed loading:', img.src);
-                // try the next candidate after a tiny delay so browser can update
-                setTimeout(tryNext, 80);
-              }
-
-              img.addEventListener('error', onError);
-
-              // start attempts
-              attempt = 0;
-              tryNext();
-
-              // debug link handler: leave it as raw link to let browser show 404 if path incorrect
-              debugOpen.addEventListener('click', function(){ /* noop - opens in new tab */ });
-
-            })();
-          </script>
-
-        </section>
-<hr>
-<h2 id="how-to-use-this-toolkit">How to Use This Toolkit</h2>
-<h3 id="collaborative-approach">Collaborative Approach</h3>
-<p>This toolkit requires partnership between the congregation leadership and the archivist. Neither can successfully navigate this transition alone. Regular dialogue, shared decision-making, and mutual trust are essential.</p>
-<h3 id="three-part-structure">Three-Part Structure</h3>
-<p><strong>Part I: Assessing Your Archive</strong><br>Helps you constructively evaluate your current archival situation, what materials you have, their condition, and your congregation&#39;s story.</p>
-<p><strong>Part II: Planning Your Transition</strong><br>Guides the decision-making process regarding transferring your archives to HARC, including creating a timeline and reaching agreement terms.</p>
-<p><strong>Part III: Executing the Transition</strong><br>Offers practical guidance on preparing collections, documenting, and physically relocating your archives to HARC.</p>
-<h4 id="who-should-use-this-toolkit">Who Should Use This Toolkit</h4>
-<ul>
-<li><strong>Congregation Leadership</strong>: Presidents, councils, and decision-makers responsible for long-term planning</li>
-<li><strong>Archivists</strong>: Professional archivists, sister-archivists, or staff managing congregational records</li>
-<li><strong>Consultants</strong>: External advisors assisting with transition planning</li>
-</ul>
-<p><strong>Flexibility</strong><br><em>Every congregation is unique. Adapt this toolkit to your situation, timeline, and resources. Not every section will apply to every congregation.</em></p>
-<hr>
-<h2 id="the-transition-timeline-framework">The Transition Timeline Framework</h2>
-<h3 id="understanding-the-timeline">Understanding the Timeline</h3>
-<p>The most crucial step is to establish priorities, allocate resources, and develop a plan.</p>
-<h4 id="timeline-prioritization">Timeline Prioritization</h4>
-<p><strong>Critical Focus</strong>: Essential tasks only. Eliminate non-critical projects.</p>
-<ol>
-<li>Finalize transition agreement with HARC</li>
-<li>Collect existing inventories (guides, finding aids)</li>
-<li>Collect essential policies and documentation</li>
-<li>Identify and address preservation emergencies</li>
-<li>Pack and move collection</li>
-</ol>
-<hr>
-<h2 id="part-i-assessing-your-archive">Part I: Assessing Your Archive</h2>
-<h3 id="goals">Goals</h3>
-<p>By completing Part I, you will:</p>
-<p><strong>For Leadership</strong></p>
-<ul>
-<li>Clarify your congregation&#39;s identity and core stories</li>
-<li>Establish parameters for confidential materials</li>
-<li>Understand the scope of your archival and object collections</li>
-<li>Identify concerns about transitioning archives</li>
-</ul>
-<p><strong>For Archivists</strong></p>
-<ul>
-<li>Document the extent and condition of collections</li>
-<li>Identify preservation priorities</li>
-<li>Assess processing needs</li>
-<li>Evaluate what materials have long-term value</li>
-</ul>
-<h3 id="step-1-leadership-reflections">Step 1: Leadership Reflections</h3>
-<h4 id="purpose-and-values">Purpose and Values</h4>
-<ul>
-<li><p><strong>What words describe your congregation&#39;s core values today?</strong><br><em>Consider: Compassion, justice, education, healing, service, prayer, community, advocacy, etc.</em></p>
-</li>
-<li><p><strong>What are the three most essential stories your archives tell?</strong><br><em>Think about: Founding narrative, signature ministries, contributions to social movements, service to marginalized communities, response to historical moments, etc.</em></p>
-</li>
-<li><p><strong>What individual items or collections are most significant?</strong><br><em>Examples: Founder&#39;s correspondence, photographs of key missions, ministry records documenting underserved communities, etc.</em></p>
-</li>
-</ul>
-<h4 id="future-concerns">Future Concerns</h4>
-<ul>
-<li><p><strong>What are your most significant concerns about the archive&#39;s future?</strong><br><em>Common concerns: Loss of institutional knowledge, accessibility after sisters pass, costs of maintenance, preserving confidentiality, honoring charism, maintaining connection to congregation</em></p>
-</li>
-<li><p><strong>What qualities are critical in a future archive home?</strong><br><em>Consider: Catholic identity, proximity to congregation, professional standards, research access, respect for restrictions, long-term sustainability, alignment with charism</em></p>
-</li>
-<li><p><strong>What records should remain confidential?</strong><br><em>Examples: Personnel files (25 years after death), legal settlement records (50 years), medical records (governed by HIPAA), financial records (varies), etc.</em></p>
-</li>
-<li><p><strong>What questions concern you about transitioning to HARC?</strong><br><em>HARC staff can address concerns about access, costs, control, confidentiality, and ongoing relationships.</em></p>
-</li>
-</ul>
-<h3 id="step-2-archivist-reflections">Step 2: Archivist Reflections</h3>
-<h4 id="congregation-identity">Congregation Identity</h4>
-<ol>
-<li>What is your congregation&#39;s charism?</li>
-<li>What were the primary historical missions/ministries?</li>
-<li>List well-known sisters and their ministries. Will their records be in the archive?</li>
-<li>Does a summary narrative of your congregation&#39;s history exist? If not, who could write one?</li>
-<li>What collections are most requested by:<ul>
-<li>Congregation members:</li>
-<li>External researchers:</li>
-</ul>
-</li>
-<li>What concerns do you have about public access?</li>
-<li>What records should be confidential?</li>
-</ol>
-<h3 id="step-3-archives-evaluation">Step 3: Archives Evaluation</h3>
-<p>Use the <strong>Archives Evaluation Worksheet</strong> (see Resources section) to document:</p>
-<ul>
-<li>Square/linear/cubic footage of storage</li>
-<li>Percentage of processed collections</li>
-<li>Percentage with finding aids</li>
-<li>Material formats present (documents, photos, audiovisual, digital, etc.)</li>
-<li>Prevalence of each format (extensive, common, rare)</li>
-<li>Condition issues (mold, damage, fragility)</li>
-</ul>
-<h3 id="step-4-object-evaluation">Step 4: Object Evaluation</h3>
-<p>Use the <strong>Object Evaluation Worksheet</strong> to assess three-dimensional items:</p>
-<p><strong>Evaluation Criteria</strong> (assign points 1-5 for each):</p>
-<ul>
-<li>Connection to congregational story __ points</li>
-<li>Historical significance __ points</li>
-<li>Condition and preservation needs __ points</li>
-<li>Provenance/documentation __ points</li>
-<li>Research or display value __ points</li>
-<li>Uniqueness __ points</li>
-</ul>
-<p><strong>Process:</strong></p>
-<ol>
-<li>Evaluate each object using the criteria</li>
-<li>Objects with the highest scores have the most substantial ties to your story</li>
-<li>Prioritize these for transfer to HARC</li>
-<li>Lower-scoring objects may be deaccessioned or donated elsewhere</li>
-</ol>
-<p><em>Note: HARC has limited capacity for three-dimensional objects. Focus on items integral to your congregational narrative.</em></p>
-<h3 id="step-5-discussion-and-synthesis">Step 5: Discussion and Synthesis</h3>
-<p>After completing reflections and evaluations, schedule a meeting to discuss:</p>
-<ol>
-<li>Do leadership and archivists agree on the congregation&#39;s core identity and most important stories?</li>
-<li>Does the archive adequately document these stories? What gaps exist?</li>
-<li>What materials have been identified as most significant? Does leadership concur?</li>
-<li>Are there disagreements about access restrictions? How will these be resolved?</li>
-<li>What preservation concerns require immediate attention?</li>
-<li>Based on this assessment, what is a realistic timeline for transition?</li>
-<li>What resources (staffing, funding, expertise) are needed to prepare for transition?</li>
-</ol>
-<p><em>Document these discussions. They inform your transition planning in Part II.</em></p>
-<hr>
-<h2 id="part-ii-planning-your-transition-to-harc">Part II: Planning Your Transition to HARC</h2>
-<h3 id="goals">Goals</h3>
-<p>By completing Part II, you will:</p>
-<p><strong>For Leadership</strong></p>
-<ul>
-<li>Establish a transition timeline</li>
-<li>Finalize the transition to the HARC facility</li>
-</ul>
-<p><strong>For Archivists</strong></p>
-<ul>
-<li>Develop processing priorities based on timeline</li>
-<li>Identify resources needed for transition preparation</li>
-<li>Create a work plan aligned with the timeline</li>
-<li>Prepare materials for HARC transfer</li>
-</ul>
-<h3 id="step-1-understanding-harc-partnership">Step 1: Understanding HARC Partnership</h3>
-<h4 id="what-harc-provides">What HARC Provides</h4>
-<p><strong>Facilities:</strong></p>
-<ul>
-<li>Purpose-built, climate-controlled repository</li>
-<li>Archival-standard storage meeting SAA guidelines</li>
-<li>Research room for congregation and public use</li>
-<li>Exhibition space for rotating displays</li>
-</ul>
-<p><strong>Services:</strong></p>
-<ul>
-<li>Professional archival processing and preservation</li>
-<li>Creation/enhancement of finding aids</li>
-<li>Online discovery through the finding aid portal</li>
-<li>Reference services for researchers</li>
-<li>Reproduction services</li>
-<li>Annual usage reports to the congregation</li>
-<li>Ongoing consultation and support</li>
-</ul>
-<p><strong>Access:</strong></p>
-<ul>
-<li>Priority access for congregation members (by appointment)</li>
-<li>Public research access during regular hours</li>
-<li>Customized restriction periods honored</li>
-<li>Secure handling of confidential materials</li>
-<li>Copyright guidance and permissions support</li>
-</ul>
-<h4 id="what-congregations-provide">What Congregations Provide</h4>
-<p><strong>Essential Documentation:</strong></p>
-<ul>
-<li>Preliminary inventory or box list</li>
-<li>Congregational narrative history</li>
-<li>Access and restriction guidelines</li>
-<li>Contact information for ongoing liaison</li>
-<li>Transfer agreement (deed of gift or deposit)</li>
-</ul>
-<p><strong>Recommended Documentation:</strong></p>
-<ul>
-<li>Finding aids (if existing)</li>
-<li>Policies (access, confidentiality, use)</li>
-<li>Digitized materials (with documentation)</li>
-<li>Administrative history and organizational charts</li>
-<li>Member directories and ministry histories</li>
-</ul>
-<h3 id="step-2-developing-your-transition-plan">Step 2: Developing Your Transition Plan</h3>
-<h4 id="critical-steps">Critical Steps</h4>
-<ul>
-<li>Finalize HARC agreement</li>
-<li>Create basic box-level inventory</li>
-<li>Identify preservation emergencies</li>
-<li>Secure packing supplies and moving arrangements</li>
-<li>Draft congregational narrative (brief)</li>
-<li>Begin essential access policy documentation</li>
-<li>Coordinate moving date with HARC</li>
-<li>Prepare for physical transfer</li>
-</ul>
-<h4 id="essential-steps">Essential Steps</h4>
-<ul>
-<li>Execute move to HARC</li>
-<li>Transfer documentation and finding aids</li>
-<li>Conduct final walk-through</li>
-<li>Establish ongoing liaison arrangement</li>
-<li>Celebrate transition</li>
-</ul>
-<h3 id="step-3-agreement-terms-with-harc">Step 3: Agreement Terms with HARC</h3>
-<h4 id="deposit-agreement">Deposit Agreement</h4>
-<ul>
-<li>Transfer custody of collections to HARC</li>
-<li>Most common and recommended arrangement</li>
-<li>Provides long-term security and clarity</li>
-<li>Eliminates future decision-making burden</li>
-<li>HARC assumes all preservation responsibilities</li>
-<li>HARC provides custody and care</li>
-</ul>
-<h4 id="essential-agreement-terms">Essential Agreement Terms</h4>
-<p>Your agreement with HARC will address:</p>
-<p><strong>1. Description of Materials</strong></p>
-<ul>
-<li>Inventory/box list</li>
-<li>Extent (linear/cubic feet)</li>
-<li>Formats included</li>
-<li>Condition assessment</li>
-<li>Excluded materials (if any)</li>
-</ul>
-<p><strong>2. Transfer of Title</strong></p>
-<ul>
-<li>Date ownership transfers</li>
-<li>Intellectual property rights</li>
-<li>Copyright considerations</li>
-</ul>
-<p><strong>3. Access Restrictions</strong></p>
-<ul>
-<li>Closed periods for specific series</li>
-<li>Confidentiality requirements (personnel, legal, etc.)</li>
-<li>Privacy protections (HIPAA, FERPA)</li>
-<li>Review and revision procedures</li>
-</ul>
-<p><strong>4. Congregation Access</strong></p>
-<ul>
-<li>Priority scheduling for members</li>
-<li>Research room use protocols</li>
-<li>Borrowing procedures (if any)</li>
-<li>Reproduction and copying policies</li>
-</ul>
-<p><strong>5. Future Accruals</strong></p>
-<ul>
-<li>Procedure for ongoing deposits</li>
-<li>Schedule for transfers</li>
-<li>Contact for coordination</li>
-</ul>
-<p><strong>6. Use and Publications</strong></p>
-<ul>
-<li>HARC&#39;s rights to use materials for exhibits, web, and education</li>
-<li>Reproduction fees and permissions</li>
-<li>Commercial use policies</li>
-<li>Credit line/attribution</li>
-</ul>
-<p><strong>7. Deaccession and Disposal</strong></p>
-<ul>
-<li>HARC&#39;s authority regarding duplicates or non-archival materials</li>
-<li>Consultation requirements</li>
-<li>Disposition procedures</li>
-</ul>
-<h4 id="sample-agreement-terms">Sample Agreement Terms</h4>
-<p>HARC will provide template agreements customized to your situation. Key provisions include:</p>
-<p><strong>Access Restrictions Example:</strong></p>
-<p><em>&quot;Personnel files of congregation members shall remain closed for 25 years following the date of death of the individual. Medical records shall be restricted in accordance with HIPAA regulations. All other materials shall be open for research unless otherwise specified.&quot;</em></p>
-<p><strong>Congregation Access Example:</strong></p>
-<p><em>&quot;Members of [Congregation Name] shall have priority access to the collection upon request with 48 hours&#39; advance notice. HARC will provide on-site research facilities during regular business hours at no charge to congregation members.&quot;</em></p>
-<h3 id="step-5-communication">Step 5: Communication</h3>
-<p><strong>Discussion Questions:</strong></p>
-<ol>
-<li>Can we realistically prepare our collection within our timeline?</li>
-<li>Do we have the resources (financial, staff) needed for transition preparation?</li>
-<li>Have we addressed all concerns about confidentiality, access, and control?</li>
-<li>Are there any remaining questions or reservations?</li>
-</ol>
-<p><em>If you answer &quot;yes&quot; to these questions, proceed to Part III to execute your transition.</em></p>
-<p><strong>If concerns remain, contact HARC to discuss:</strong><br>Email: bgordon@harcsm.org</p>
-<hr>
-<h2 id="part-iii-executing-the-transition">Part III: Executing the Transition</h2>
-<h3 id="goals">Goals</h3>
-<p>By completing Part III, you will:</p>
-<p><strong>For Leadership</strong></p>
-<ul>
-<li>Finalize agreements with HARC</li>
-<li>Secure resources for physical transition</li>
-<li>Make final decisions about collections and objects</li>
-<li>Support the archivist through execution</li>
-<li>Plan commemoration of transition</li>
-</ul>
-<p><strong>For Archivists</strong></p>
-<ul>
-<li>Prepare &quot;research-ready&quot; collections</li>
-<li>Create essential documentation for HARC</li>
-<li>Pack collections safely</li>
-<li>Coordinate physical move</li>
-<li>Transfer knowledge to HARC staff</li>
-</ul>
-<h3 id="step-1-building-contextual-history">Step 1: Building Contextual History</h3>
-<h4 id="purpose">Purpose</h4>
-<p>When archives transition to HARC, institutional knowledge transfers with them. Future archivists and researchers will not understand your congregation&#39;s unique:</p>
-<ul>
-<li>Language and terminology</li>
-<li>Customs and traditions</li>
-<li>Organizational structure</li>
-<li>Historical context</li>
-<li>Charism and spirituality</li>
-</ul>
-<p><em>A congregational narrative preserves this knowledge.</em></p>
-<h4 id="what-to-include">What to Include</h4>
-<p><strong>I. Foundation and Early History</strong></p>
-<ul>
-<li>Founding date and location</li>
-<li>Founder(s) biography and charism</li>
-<li>Original mission and ministries</li>
-<li>Early challenges and growth</li>
-<li>Relationship with other congregations or federations</li>
-</ul>
-<p><strong>II. Organizational Structure</strong></p>
-<ul>
-<li>Governance model (general leadership, provinces, regions, etc.)</li>
-<li>Evolution of administrative structure</li>
-<li>Significant reorganizations, mergers, or splits</li>
-<li>Current structure (as of transition)</li>
-</ul>
-<p><strong>III. Ministries and Apostolic Works</strong></p>
-<ul>
-<li>Primary historical ministries (education, healthcare, social services, etc.)</li>
-<li>Geographic spread and expansion</li>
-<li>Signature ministries or notable institutions</li>
-<li>Ministry evolution over time</li>
-<li>Current ministries (as of transition)</li>
-</ul>
-<p><strong>IV. Congregational Life</strong></p>
-<ul>
-<li>Formation process and changes over time</li>
-<li>Prayer life and spirituality</li>
-<li>Community living arrangements</li>
-<li>Habit changes and religious garb evolution</li>
-<li>Significant customs or traditions</li>
-</ul>
-<p><strong>V. Key Events and Figures</strong></p>
-<ul>
-<li>Notable members and their contributions</li>
-<li>Response to historical moments (Vatican II, social movements, etc.)</li>
-<li>Challenges overcome (financial, membership, societal changes)</li>
-<li>Celebrations and milestones</li>
-</ul>
-<p><strong>VI. Archives and Records</strong></p>
-<ul>
-<li>History of the archival program</li>
-<li>Major series and their significance</li>
-<li>Known gaps in documentation</li>
-<li>Unique collections or treasures</li>
-<li>Digitization or preservation projects completed</li>
-</ul>
-<h4 id="length-and-format">Length and Format</h4>
-<p><em>Aim for 5-15 pages, depending on the congregation&#39;s history and complexity.</em></p>
-<p><strong>Format</strong>: Narrative prose, organized by sections above. Include:</p>
-<ul>
-<li>Table of contents</li>
-<li>Photographs (with captions and permissions)</li>
-<li>Organizational charts</li>
-<li>Timeline of key dates</li>
-<li>Glossary of congregation-specific terms</li>
-</ul>
-<p><strong>Tone</strong>: Informative and honest.</p>
-<ul>
-<li>Acknowledge challenges alongside achievements</li>
-<li>Write for an audience <em>unfamiliar</em> with religious life</li>
-</ul>
-<h4 id="getting-help">Getting Help</h4>
-<p>If writing seems daunting:</p>
-<ul>
-<li>Foster collaboration between leadership and the archivist</li>
-<li>Interview longtime members for context</li>
-<li>Consult existing publications or histories</li>
-<li>Ask HARC staff for guidance and examples</li>
-</ul>
-<h3 id="step-2-preparing-research-ready-collections">Step 2: Preparing Research-Ready Collections</h3>
-<h4 id="what-research-ready-means">What &quot;Research-Ready&quot; Means</h4>
-<p>Collections arriving at HARC should be:</p>
-<ol>
-<li><strong>Inventoried</strong>: Box-level list documenting contents</li>
-<li><strong>Organized</strong>: Logical arrangement (provenance and original order respected)</li>
-<li><strong>Described</strong>: Finding aids or collection guides available</li>
-<li><strong>Accessible</strong>: Physically sound and safe to handle</li>
-<li><strong>Documented</strong>: Restrictions, policies, and context provided</li>
-</ol>
-<h4 id="basic-processing-standards">Basic Processing Standards</h4>
-<p><strong>Minimum Requirements</strong></p>
-<ul>
-<li>Box lists (number, contents, dates)</li>
-<li>Series-level arrangement (major groupings logical and documented)</li>
-<li>Clear labeling (congregation name, box number, contents)</li>
-<li>Basic condition assessment (fragility, preservation needs noted)</li>
-<li>Restrictions identified (by series or box)</li>
-</ul>
-<p><strong>Enhanced (if time allows)</strong></p>
-<ul>
-<li>Folder-level inventories</li>
-<li>Detailed finding aids</li>
-<li>Scope and content notes</li>
-<li>Subject access points</li>
-<li>Biographical/historical notes</li>
-</ul>
-<h4 id="processing-workflow">Processing Workflow</h4>
-<p><strong>1. Survey the Collection</strong></p>
-<ul>
-<li>Estimate extent (linear/cubic feet)</li>
-<li>Identify formats present</li>
-<li>Note condition issues</li>
-<li>Assess existing organization</li>
-</ul>
-<p><strong>2. Establish Intellectual Control</strong></p>
-<ul>
-<li>Define record groups (who created records)</li>
-<li>Identify series within each group (what types of records)</li>
-<li>Respect original order when functional</li>
-<li>Impose order when none exists</li>
-</ul>
-<p><strong>3. Physical Processing</strong></p>
-<ul>
-<li>Rehouse in archival boxes/folders (if resources allow)</li>
-<li>Remove damaging fasteners (rusty staples, paperclips)</li>
-<li>Separate oversized materials</li>
-<li>Flag preservation concerns</li>
-<li>Label boxes clearly</li>
-</ul>
-<p><strong>4. Description</strong></p>
-<ul>
-<li>Create box-level inventory minimum</li>
-<li>Write series descriptions</li>
-<li>Document arrangement scheme</li>
-<li>Note restrictions by series/box</li>
-<li>Identify high-value materials</li>
-</ul>
-<p><strong>5. Special Materials</strong></p>
-<p><strong>Photographs:</strong></p>
-<ul>
-<li>Organize by event, ministry, or individual</li>
-<li>Provide identification when possible</li>
-<li>Note dates and locations</li>
-<li>Use archival sleeves if budget allows</li>
-<li>Create photo inventory</li>
-</ul>
-<p><strong>Audiovisual Materials:</strong></p>
-<ul>
-<li>Keep in original cases</li>
-<li>Store upright</li>
-<li>Inventory by format (cassettes, VHS, CDs, etc.)</li>
-<li>Note content if known</li>
-<li>Flag for digitization if deteriorating</li>
-</ul>
-<p><strong>Digital Materials:</strong></p>
-<ul>
-<li>Consolidate onto external hard drive</li>
-<li>Organize in folders (like a file cabinet)</li>
-<li>Document file structure</li>
-<li>Include metadata/descriptions</li>
-<li>Note any passwords or restrictions</li>
-</ul>
-<p><strong>Objects:</strong></p>
-<ul>
-<li>Photograph before packing</li>
-<li>Document provenance</li>
-<li>Wrap carefully</li>
-<li>Note if accompanying collection or separate</li>
-<li>Limited capacity at HARC—prioritize</li>
-</ul>
-<h3 id="step-3-essential-documentation-for-harc">Step 3: Essential Documentation for HARC</h3>
-<h4 id="transfer-documentation-checklist">Transfer Documentation Checklist</h4>
-<p><strong>Required:</strong></p>
-<ul>
-<li>✓ Signed Deed of Gift or Deposit Agreement</li>
-<li>✓ Box list or inventory</li>
-<li>✓ Congregational narrative history</li>
-<li>✓ Access restrictions (by series/box)</li>
-<li>✓ Contact information for congregation liaison</li>
-</ul>
-<p><strong>Strongly Recommended:</strong></p>
-<ul>
-<li>✓ Finding aids (if existing)</li>
-<li>✓ Organizational charts</li>
-<li>✓ Member directories</li>
-<li>✓ Glossary of congregation-specific terms</li>
-<li>✓ Habit/garb evolution dates</li>
-<li>✓ Building/property histories</li>
-<li>✓ Ministry lists and dates</li>
-</ul>
-<p><strong>If Available:</strong></p>
-<ul>
-<li>✓ Existing policies (access, use, confidentiality)</li>
-<li>✓ Digitized materials (with file documentation)</li>
-<li>✓ Oral histories and transcripts</li>
-<li>✓ Published histories or studies</li>
-<li>✓ Previously created resources</li>
-</ul>
-<h4 id="access-and-restrictions-documentation">Access and Restrictions Documentation</h4>
-<p><strong>Be Specific:</strong></p>
-<ul>
-<li><strong>Instead of:</strong> <em>&quot;Personnel files are confidential&quot;</em></li>
-<li><strong>Write:</strong> <em>&quot;Personnel files of congregation members (Series 3) shall remain closed for 25 years following the date of death of the member. Files include formation records, ministry assignments, health records, and correspondence. After 25 years, files are open with HIPAA restrictions applied to medical records.&quot;</em></li>
-</ul>
-<h4 id="standard-restriction-categories">Standard Restriction Categories</h4>
-<ul>
-<li><strong>Personnel Files:</strong> Typically 25-75 years after death</li>
-<li><strong>Legal Records:</strong> 50-100 years from creation</li>
-<li><strong>Financial Records:</strong> Varies; consult with counsel</li>
-<li><strong>Medical Records:</strong> HIPAA governs; typically lifetime plus 50 years</li>
-<li><strong>Student Records:</strong> FERPA governs; typically 75 years</li>
-<li><strong>Correspondence:</strong> Varies based on content</li>
-</ul>
-<p><strong>Review Triggers:</strong></p>
-<ul>
-<li>Specify when restrictions should be reviewed</li>
-<li>Designate who can authorize changes</li>
-<li>Include HARC contact for questions</li>
-</ul>
-<h3 id="step-4-physical-move-planning">Step 4: Physical Move Planning</h3>
-<h4 id="timeline-and-coordination">Timeline and Coordination</h4>
-<p><strong>Three (3) Months Before</strong></p>
-<ul>
-<li>Finalize move date with HARC</li>
-<li>Assess moving options (professional vs. self)</li>
-<li>Order packing supplies</li>
-<li>Begin packing processed collections</li>
-<li>Purchase insurance for transit</li>
-<li>Create detailed packing schedule</li>
-</ul>
-<p><strong>One (1) Month Before</strong></p>
-<ul>
-<li>Complete packing</li>
-<li>Conduct final inventory check</li>
-<li>Prepare staging area</li>
-<li>Confirm move details with HARC and movers</li>
-</ul>
-<p><strong>Move Week</strong></p>
-<ul>
-<li>Final walkthrough</li>
-<li>Load collection</li>
-<li>Transit to HARC</li>
-<li>Unload and verify receipt</li>
-<li>Prayer service or blessing</li>
-</ul>
-<p><strong>After Move</strong></p>
-<ul>
-<li>Review transfer documentation</li>
-<li>Establish ongoing communication plan</li>
-<li>Schedule follow-up with HARC</li>
-<li>Plan commemoration event</li>
-</ul>
-<h4 id="packing-standards">Packing Standards</h4>
-<p><strong>General Principles:</strong></p>
-<ul>
-<li>Maximum 30-35 lbs. per box</li>
-<li>Fill boxes adequately (use spacers for partial boxes)</li>
-<li>Label all sides of boxes</li>
-<li>Number sequentially (Box 1 of 50, etc.)</li>
-<li>Maintain collection order</li>
-<li>Separate fragile items</li>
-</ul>
-<p><strong>Box Labels Should Include:</strong></p>
-<ul>
-<li>Congregation name</li>
-<li>Box number and total count</li>
-<li>Contents description</li>
-<li>Date range</li>
-<li>Special handling notes (FRAGILE, OVERSIZED, etc.)</li>
-</ul>
-<p><strong>Paper Documents:</strong></p>
-<ul>
-<li>Keep in folders</li>
-<li>Store upright in boxes</li>
-<li>Remove rusty fasteners</li>
-<li>Do not overfill boxes</li>
-<li>Use spacers if partially filled</li>
-</ul>
-<p><strong>Photographs:</strong></p>
-<ul>
-<li>Keep upright, never flat</li>
-<li>Leave in albums if present</li>
-<li>Use archival sleeves if possible</li>
-<li>Never use rubber bands or paperclips</li>
-<li>Separate formats (prints, negatives, slides)</li>
-</ul>
-<p><strong>Audiovisual:</strong></p>
-<ul>
-<li>Keep in original cases</li>
-<li>Store upright</li>
-<li>Pack tightly to prevent shifting</li>
-<li>Label contents on case</li>
-<li>Note format clearly</li>
-</ul>
-<p><strong>Artifacts:</strong></p>
-<ul>
-<li>Photograph first</li>
-<li>Wrap individually</li>
-<li>Float in packing peanuts</li>
-<li>Label as FRAGILE</li>
-<li>Include packing list with photos</li>
-</ul>
-<p><strong>Oversized Materials:</strong></p>
-<ul>
-<li>Store flat, never rolled</li>
-<li>Interweave with tissue</li>
-<li>Use flat boxes or portfolios</li>
-<li>Mark &quot;DO NOT BEND&quot;</li>
-<li>Limit stack height</li>
-</ul>
-<h4 id="insurance-considerations">Insurance Considerations</h4>
-<p><strong>In Transit Coverage:</strong></p>
-<ul>
-<li>Determine who carries insurance (congregation or mover)</li>
-<li>Verify coverage amounts</li>
-<li>Understand exclusions</li>
-<li>Document collection value</li>
-<li>Photograph collections</li>
-</ul>
-<p><strong>HARC Coverage:</strong></p>
-<ul>
-<li>Once at HARC, collection is insured by HARC</li>
-<li>Review coverage with HARC staff</li>
-<li>Understand limitations</li>
-</ul>
-<h3 id="step-5-disposition-of-objects-and-non-archival-materials">Step 5: Disposition of Objects and Non-Archival Materials</h3>
-<h4 id="objects-for-harc">Objects for HARC</h4>
-<ul>
-<li>Items integral to congregational story</li>
-<li>Well-documented provenance</li>
-<li>Good condition</li>
-<li>Reasonable size/storage needs</li>
-<li>Discussed and approved by HARC</li>
-</ul>
-<h4 id="objects-to-discard">Objects to Discard</h4>
-<ul>
-<li>Damaged beyond use</li>
-<li>No historical value</li>
-<li>Duplicates</li>
-<li>Unsafe materials</li>
-</ul>
-<h4 id="consecrated-objects">Consecrated Objects</h4>
-<p><strong>Items Requiring Special Disposal:</strong></p>
-<ul>
-<li>Blessed objects (statues, crucifixes)</li>
-<li>Altar linens and vestments</li>
-<li>Sacred vessels (chalices, ciboria)</li>
-<li>Worn religious medals and rosaries</li>
-</ul>
-<p><strong>Proper Disposal Methods:</strong></p>
-<ul>
-<li>Burial in blessed ground</li>
-<li>Burning and burying ashes</li>
-<li>Return to elements (water for certain items)</li>
-<li>Consult diocesan guidelines</li>
-<li>Never discard in regular trash</li>
-</ul>
-<p><strong>Consultation:</strong></p>
-<ul>
-<li>Contact your diocese for guidance</li>
-<li>Collaborate with chaplain or spiritual director</li>
-<li>Document respectful disposal</li>
-<li>Consider blessing or prayer service</li>
-</ul>
-<h3 id="records-retention-vs-archives">Records Retention vs. Archives</h3>
-<p><strong>Not Everything is Archival</strong></p>
-<p><strong>Retain Permanently:</strong></p>
-<ul>
-<li>Governance records (chapters, council minutes)</li>
-<li>Constitutions and bylaws</li>
-<li>Member files</li>
-<li>Property deeds and legal documents</li>
-<li>Financial audits and annual reports</li>
-<li>Ministry founding documents</li>
-<li>Significant correspondence</li>
-<li>Publications created by the congregation</li>
-<li>Photographs documenting community life</li>
-</ul>
-<p><strong>Temporary Retention (then destroy):</strong></p>
-<ul>
-<li>Routine correspondence</li>
-<li>Duplicates</li>
-<li>Supply catalogs</li>
-<li>Junk mail</li>
-<li>Preliminary drafts (keep final only)</li>
-<li>Routine financial records (after retention period)</li>
-<li>Expired contracts</li>
-</ul>
-<p><strong>Weeding Guidelines:</strong></p>
-<ul>
-<li>Keep final versions, remove drafts</li>
-<li>Remove duplicates</li>
-<li>Discard routine announcements</li>
-<li>Remove non-archival research materials</li>
-<li>Eliminate blank forms and catalogs</li>
-</ul>
-<h3 id="step-6-commemoration-and-ongoing-relationship">Step 6: Commemoration and Ongoing Relationship</h3>
-<h4 id="commemorating-the-transition">Commemorating the Transition</h4>
-<p><em>Moving your congregation&#39;s history is significant.</em></p>
-<p><strong>Prayer Service</strong></p>
-<ul>
-<li>Blessing of archives before move</li>
-<li>Prayer for those whose stories are preserved</li>
-<li>Gratitude for archivists and donors</li>
-<li>Hope for future researchers</li>
-</ul>
-<p><strong>Documentation</strong></p>
-<ul>
-<li>Photograph archives in current space</li>
-<li>Document packing and moving process</li>
-<li>Record oral histories about archives</li>
-<li>Create video or written reflection</li>
-</ul>
-<p><strong>Community Involvement</strong></p>
-<ul>
-<li>Inform congregation about transition</li>
-<li>Share updates during process</li>
-<li>Invite sisters to final blessing</li>
-<li>Celebrate completion</li>
-</ul>
-<p><strong>Public Recognition</strong></p>
-<ul>
-<li>Newsletter articles</li>
-<li>Website updates</li>
-<li>Thank donors and volunteers</li>
-<li>Acknowledge HARC partnership</li>
-</ul>
-<h4 id="establishing-ongoing-connection-with-harc">Establishing Ongoing Connection with HARC</h4>
-<p><strong>Liaison Role:</strong></p>
-<ul>
-<li>Designate congregation contact person</li>
-<li>Provide updated contact information</li>
-<li>Establish communication schedule</li>
-<li>Clarify decision-making authority</li>
-</ul>
-<p><strong>Regular Communication:</strong></p>
-<ul>
-<li>Annual reports from HARC on collection use</li>
-<li>Updates on processing progress</li>
-<li>Consultation on access requests</li>
-<li>Notification of research/publication projects</li>
-</ul>
-<p><strong>Continued Engagement:</strong></p>
-<ul>
-<li>Visit HARC for research</li>
-<li>Attend HARC programs and events</li>
-<li>Participate in oral history projects</li>
-<li>Contribute to exhibits</li>
-<li>Support additional deposits</li>
-</ul>
-<p><strong>Future Accruals:</strong></p>
-<ul>
-<li>Establish schedule for ongoing deposits</li>
-<li>Coordinate with HARC on timing</li>
-<li>Maintain same organizational structure</li>
-<li>Continue documentation standards</li>
-</ul>
-<hr>
-<h2 id="part-iv-resources-and-templates">Part IV: Resources and Templates</h2>
-<h3 id="assessment-tools">Assessment Tools</h3>
-<h4 id="archives-evaluation-worksheet">Archives Evaluation Worksheet</h4>
-<p><strong>Basic Information:</strong></p>
-<ul>
-<li>Congregation Name: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Archivist Name: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Date Completed: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Projected Transition Timeline: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-</ul>
-<p><strong>Storage Space:</strong></p>
-<ul>
-<li>Square footage: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Linear footage of shelving: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Cubic footage: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-</ul>
-<p><strong>Collection Status:</strong></p>
-<ul>
-<li>Percentage processed: <strong>___</strong>%</li>
-<li>Percentage with finding aids: <strong>___</strong>%</li>
-<li>Percentage accessible: <strong>___</strong>%</li>
-</ul>
-<p><strong>Material Formats</strong> (check all present and note prevalence: Extensive/Common/Rare):</p>
-<table>
-<thead>
-<tr>
-<th>Format</th>
-<th>Present</th>
-<th>Prevalence</th>
-<th>Condition Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Documents (standard boxes)</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Documents (oversized)</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Photographs (prints)</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Photographs (negatives)</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Photographs (slides)</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Photo albums</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Scrapbooks</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Audio recordings</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Video recordings</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Film (8mm, 16mm)</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Digital files</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Microfilm/fiche</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Books/publications</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Architectural drawings</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Maps</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Artifacts/objects</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Religious items</td>
-<td>☐</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Artwork</td>
-<td>☐</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Preservation Concerns:</strong></p>
-<ul>
-<li>☐ Mold or mildew present</li>
-<li>☐ Pest damage</li>
-<li>☐ Water damage</li>
-<li>☐ Brittleness/deterioration</li>
-<li>☐ Improper storage</li>
-<li>☐ Inadequate climate control</li>
-<li>☐ Overcrowding</li>
-<li>☐ Other: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-</ul>
-<p><strong>Existing Documentation:</strong></p>
-<ul>
-<li>☐ Box lists</li>
-<li>☐ Finding aids</li>
-<li>☐ Inventories</li>
-<li>☐ Policies</li>
-<li>☐ Accession records</li>
-</ul>
-<h4 id="object-evaluation-worksheet">Object Evaluation Worksheet</h4>
-<p><em>For each significant object, assign points (1-5) for each criterion:</em></p>
-<p><strong>Object Description:</strong> <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></p>
-<p><strong>Criteria:</strong></p>
-<ol>
-<li>Connection to congregational story (1=weak, 5=essential): <strong>_</strong></li>
-<li>Historical significance (1=minimal, 5=major): <strong>_</strong></li>
-<li>Condition (1=poor, 5=excellent): <strong>_</strong></li>
-<li>Provenance/documentation (1=none, 5=complete): <strong>_</strong></li>
-<li>Research value (1=minimal, 5=high): <strong>_</strong></li>
-<li>Display potential (1=low, 5=high): <strong>_</strong></li>
-<li>Uniqueness (1=common, 5=one-of-kind): <strong>_</strong></li>
-</ol>
-<p><strong>Total Score:</strong> <strong>_</strong> / 35</p>
-<p><strong>Disposition Decision:</strong></p>
-<ul>
-<li>☐ Priority for HARC</li>
-<li>☐ Alternative repository</li>
-<li>☐ Sale/donation</li>
-<li>☐ Respectful disposal</li>
-</ul>
-<h3 id="planning-tools">Planning Tools</h3>
-<h4 id="transition-planning-worksheet">Transition Planning Worksheet</h4>
-<p><strong>Timeline:</strong> <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></p>
-<p><strong>Critical Tasks (by date):</strong></p>
-<table>
-<thead>
-<tr>
-<th>Task</th>
-<th>Responsible</th>
-<th>Deadline</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Complete assessment</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Finalize HARC agreement</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Create congregational narrative</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Process priority collections</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Develop finding aids</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Order packing supplies</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Hire movers</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Pack collections</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Transfer to HARC</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Commemoration event</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Resource Needs:</strong></p>
-<p><strong>Staffing:</strong></p>
-<ul>
-<li>Archivist hours/week: <strong>_</strong></li>
-<li>Volunteer hours/week: <strong>_</strong></li>
-<li>Consultant needed: ☐ Yes ☐ No</li>
-<li>Project scope: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-</ul>
-<p><strong>Supplies:</strong></p>
-<ul>
-<li>Archival boxes: <strong>_</strong></li>
-<li>Folders: <strong>_</strong></li>
-<li>Labels: <strong>_</strong></li>
-<li>Packing materials: <strong>_</strong></li>
-<li>Estimated cost: $<strong>_</strong></li>
-</ul>
-<p><strong>Services:</strong></p>
-<ul>
-<li>Project archivist: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Other consultants: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Estimated cost: $<strong>_</strong></li>
-</ul>
-<p><strong>Budget Summary:</strong></p>
-<ul>
-<li>Total estimated cost: $<strong>_</strong></li>
-<li>Funding sources: <strong><strong><strong><strong><strong><strong>___</strong></strong></strong></strong></strong></strong></li>
-<li>Budget approved: ☐ Yes ☐ No</li>
-</ul>
-<h4 id="processing-priority-matrix">Processing Priority Matrix</h4>
-<p>Rate collections by importance (1-5) and condition (1-5):</p>
-<table>
-<thead>
-<tr>
-<th>Collection</th>
-<th>Importance</th>
-<th>Condition</th>
-<th>Priority Score</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Priority Rankings:</strong></p>
-<ul>
-<li>High priority (8-10): Process immediately</li>
-<li>Medium priority (5-7): Process if time allows</li>
-<li>Low priority (2-4): Basic inventory only</li>
-</ul>
-<h3 id="agreement-templates">Agreement Templates</h3>
-<h4 id="sample-access-restrictions-language">Sample Access Restrictions Language</h4>
-<p><strong>Standard Restrictions:</strong></p>
-<p>&quot;The following materials shall be restricted from public access:</p>
-<p><strong>Personnel Files (Series 3):</strong></p>
-<ul>
-<li>Files of congregation members shall remain closed for 25 years following the member&#39;s date of death. After this period, files are open with the following exceptions:<ul>
-<li>Medical records remain restricted by HIPAA regulations</li>
-<li>Psychological evaluations remain closed for 50 years after death</li>
-<li>Formation records deemed sensitive by the HARC archivist may be redacted</li>
-</ul>
-</li>
-</ul>
-<p><strong>Legal Files (Series 7):</strong></p>
-<ul>
-<li>Settlement agreements and related litigation records remain closed for 50 years from the date of settlement or case closure.</li>
-</ul>
-<p><strong>Financial Records (Series 8):</strong></p>
-<ul>
-<li>Donor records containing personal financial information remain closed for 75 years from the date of the gift.</li>
-</ul>
-<p><strong>Correspondence (Various):</strong></p>
-<ul>
-<li>Correspondence marked &#39;confidential&#39; by the sender remains closed for 25 years from the date of the letter.</li>
-</ul>
-<p><strong>Restriction Review:</strong></p>
-<ul>
-<li>HARC will review these restrictions every 10 years in consultation with [Congregation Name] and may recommend modifications based on legal changes or evolving archival standards.&quot;</li>
-</ul>
-<h4 id="sample-congregation-access-language">Sample Congregation Access Language</h4>
-<p><em>&quot;Members of [Congregation Name] shall have priority access to the collection under the following terms:</em></p>
-<ul>
-<li><p><strong>Scheduling</strong>: Members may schedule research appointments with 48 hours&#39; advance notice during HARC&#39;s regular business hours.</p>
-</li>
-<li><p><strong>Facilities</strong>: HARC will provide research space, basic copying equipment, and reference assistance at no charge to congregation members.</p>
-</li>
-<li><p><strong>Restricted Materials</strong>: Congregation members have access to restricted materials with authorization from [designated congregation authority].</p>
-</li>
-<li><p><strong>Borrowing</strong>: With advance arrangement, members may borrow specific items for congregation events or meetings for up to 30 days. Borrowed materials must be insured and securely stored.</p>
-</li>
-<li><p><strong>Reproduction</strong>: Members may copy materials for congregation use without fees, provided proper attribution is maintained. Commercial use requires separate permission.</p>
-</li>
-<li><p><strong>Ongoing Consultation</strong>: HARC will consult with the designated congregation liaison regarding major research projects, publication requests, or exhibition loans from the collection.&quot;</p>
-</li>
-</ul>
-<hr>
-<h2 id="part-v-packing-and-moving-resources">Part V: Packing and Moving Resources</h2>
-<h3 id="box-label-template">Box Label Template</h3>
-<pre><code>[CONGREGATION NAME] ARCHIVES
-
-Box <span class="hljs-strong">_____</span><span class="hljs-strong">__ of __</span><span class="hljs-strong">_____</span>
+Box _______ of _______
 
 ☐ Standard  ☐ Oversized  ☐ Fragile
 
-Dates: <span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span>__
+Dates: _________________
 
 ☐ Inventory Included  ☐ Born-Digital Media
 
-Contents: <span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-emphasis">___</span>_
+Contents: _________________________________________________
 
-Special Instructions: <span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span><span class="hljs-strong">_____</span>__
-</code></pre><h3 id="moving-day-checklist">Moving Day Checklist</h3>
-<h4 id="one-week-before-">One Week Before:</h4>
-<ul>
-<li>☐ Confirm date/time with movers</li>
-<li>☐ Confirm receipt date with HARC</li>
-<li>☐ Verify insurance coverage</li>
-<li>☐ Final inventory count</li>
-<li>☐ Prepare staging area</li>
-<li>☐ Notify congregation</li>
-</ul>
-<h4 id="moving-day">Moving Day</h4>
-<ul>
-<li>☐ Final walk-through</li>
-<li>☐ Prayer service/blessing</li>
-<li>☐ Document with photos</li>
-<li>☐ Verify box count with movers</li>
-<li>☐ Provide driving directions to HARC</li>
-<li>☐ Emergency contact numbers exchanged</li>
-</ul>
-<h4 id="at-harc">At HARC</h4>
-<ul>
-<li>☐ Verify box count on arrival</li>
-<li>☐ Check for damage</li>
-<li>☐ Sign transfer receipt</li>
-<li>☐ Tour HARC facilities</li>
-<li>☐ Meet HARC staff</li>
-<li>☐ Exchange contact information</li>
-</ul>
-<h4 id="after-move">After Move</h4>
-<ul>
-<li>☐ Thank volunteers and movers</li>
-<li>☐ Submit final invoice (if applicable)</li>
-<li>☐ Schedule follow-up with HARC</li>
-<li>☐ Announce completion to congregation</li>
-<li>☐ Plan commemoration event</li>
-</ul>
-<hr>
-<h2 id="conclusion">Conclusion</h2>
-<h3 id="your-archives-matter">Your Archives Matter</h3>
-<p>The records you preserve tell essential stories of:</p>
-<ul>
-<li>Faith lived in community</li>
-<li>Service to marginalized populations</li>
-<li>Women&#39;s leadership in church and society</li>
-<li>Catholic contributions to American history</li>
-<li>Resilience, adaptation, and prophetic witness</li>
-</ul>
-<h3 id="harc-s-commitment">HARC&#39;s Commitment</h3>
-<p>By partnering with HARC, you ensure your congregation&#39;s legacy will:</p>
-<ul>
-<li>Be preserved according to professional standards</li>
-<li>Remain accessible to your members</li>
-<li>Serve researchers and scholars</li>
-<li>Educate future generations</li>
-<li>Honor your charism and mission</li>
-</ul>
-<h3 id="next-steps">Next Steps</h3>
-<h4 id="contact-harc">Contact HARC</h4>
-<p>Schedule an initial visit</p>
-<p><strong>Email:</strong></p>
-<ul>
-<li>Barbara Gordon, Executive Director: bgordon@harcsm.org</li>
-<li>JÁ Pryse, Lead Archivist: japryse@harcsm.org</li>
-</ul>
-<p><strong>Phone:</strong> (574) 678-6155</p>
-<h4 id="complete-part-i-assessment-and-share-results-with-harc">Complete Part I Assessment and share results with HARC</h4>
-<h4 id="visit-harc-to-see-the-facility-and-meet-staff">Visit HARC to see the facility and meet staff</h4>
-<h4 id="develop-your-timeline-using-the-framework-in-this-toolkit">Develop Your Timeline using the framework in this toolkit</h4>
-<h4 id="create-your-transition-plan-in-collaboration-with-harc">Create Your Transition Plan in collaboration with HARC</h4>
-<h3 id="questions-">Questions?</h3>
-<p>HARC staff are available to:</p>
-<ul>
-<li>Answer questions about the transition process</li>
-<li>Guide assessment and planning</li>
-<li>Review draft agreements</li>
-<li>Offer technical assistance</li>
-<li>Connect with other congregations that have transitioned</li>
-<li>Visit your archives to assist with evaluation</li>
-</ul>
-<p><strong>We are here to help you preserve your precious legacy.</strong></p>
-<hr>
-<h2 id="professional-resources">Professional Resources</h2>
-<h3 id="archival-standards-organizations">Archival Standards Organizations</h3>
-<h4 id="society-of-american-archivists-saa-">Society of American Archivists (SAA)</h4>
-<ul>
-<li>Website: <a href="https://www2.archivists.org/">https://www2.archivists.org/</a></li>
-<li>Standards, best practices, consultant directory</li>
-<li>Publications on religious archives</li>
-</ul>
-<h4 id="archivists-for-congregations-of-women-religious-acwr-">Archivists for Congregations of Women Religious (ACWR)</h4>
-<ul>
-<li>Website: <a href="https://archivistsacwr.org/">https://archivistsacwr.org/</a></li>
-<li>Consultant directory</li>
-<li>Women religious archives resources</li>
-<li>Networking and support</li>
-</ul>
-<h4 id="association-of-catholic-diocesan-archivists-acda-">Association of Catholic Diocesan Archivists (ACDA)</h4>
-<ul>
-<li>Website: <a href="https://diocesanarchivists.org/">https://diocesanarchivists.org/</a></li>
-<li>Catholic archives resources and guidance</li>
-</ul>
-<h4 id="american-theological-library-association-atla-">American Theological Library Association (ATLA)</h4>
-<ul>
-<li>Website: <a href="https://www.atla.com/">https://www.atla.com/</a></li>
-<li>Religious archives resources</li>
-<li>Digital collections initiatives</li>
-</ul>
-<h3 id="recommended-reading">Recommended Reading</h3>
-<h4 id="processing-and-description-">Processing and Description:</h4>
-<p>Greene, Mark A., and Dennis Meissner. 2005. &quot;More Product, Less Process: Revamping Traditional Archival Processing.&quot; <em>American Archivist</em> 68, no. 2: 208-263. <a href="https://doi.org/10.17723/aarc.68.2.c741823776k65863">https://doi.org/10.17723/aarc.68.2.c741823776k65863</a>.</p>
-<p>Society of American Archivists. 2019. <em>Describing Archives: A Content Standard (DACS)</em>. 3rd ed. Chicago: Society of American Archivists.</p>
-<p>Roe, Kathleen D. 2005. <em>Arranging and Describing Archives and Manuscripts</em>. Chicago: Society of American Archivists.</p>
-<h4 id="religious-archives-">Religious Archives:</h4>
-<p>Ray, Robert C. 2009. &quot;No One Has Ever Seen God: The Use of Religious Archives for Nonreligious Purposes.&quot; <em>Journal of Religious &amp; Theological Information</em> 7 (3-4): 149-60. <a href="https://doi.org/10.1080/10477840902783010">https://doi.org/10.1080/10477840902783010</a>.</p>
-<p>Perrone, Fernanda. 2003. &quot;Vanished Worlds: Searching for the Records of Closed Catholic Women&#39;s Colleges.&quot; <em>Archival Issues</em> 27, no. 2: 107-121.</p>
-<p>Perrone, Fernanda. 2018. &quot;From Annals to Heritage Centers: The Archives of Women&#39;s Religious Communities.&quot; In <em>Perspectives on Women&#39;s Archives</em>, edited by Tanya Zanish-Belcher and Anke Voss, 177-213. Chicago: Society of American Archivists.</p>
-<p>Wittberg, Patricia. 2019. &quot;Preserving Our Story.&quot; <em>American Catholic Studies Newsletter</em> 46, no. 1: 18-24.</p>
-<p>O&#39;Toole, James M. 1984. &quot;What&#39;s Different about Religious Archives?&quot; <em>Midwestern Archivist</em> 9, no. 2: 91-101.</p>
-<h4 id="digital-preservation-">Digital Preservation:</h4>
-<p>Digital Preservation Coalition. 2023. &quot;Standards and Best Practice.&quot; <em>Digital Preservation Handbook</em>. <a href="https://www.dpconline.org/handbook/institutional-strategies/standards-and-best-practice">https://www.dpconline.org/handbook/institutional-strategies/standards-and-best-practice</a>.</p>
-<p>Levels of Digital Preservation Working Group. 2019. &quot;Levels of Digital Preservation Matrix, Version 2.0.&quot; National Digital Stewardship Alliance. October. <a href="https://osf.io/2mkwx/">https://osf.io/2mkwx/</a>.</p>
-<p>National Archives and Records Administration. n.d. &quot;Digital Preservation - Home.&quot; Accessed October 11, 2025. <a href="https://www.archives.gov/preservation/digital-preservation">https://www.archives.gov/preservation/digital-preservation</a>.</p>
-<hr>
-<h2 id="acknowledgments">Acknowledgments</h2>
-<p>This toolkit was developed by the Heritage and Research Center at Saint Mary&#39;s (HARC) with gratitude to:</p>
-<ul>
-<li><p><strong>Archivists for Congregations of Women Religious (ACWR):</strong> for the original <a href="https://archivistsacwr.org/wp-content/uploads/2024/09/Religious-Archives-in-Transition-Toolkit_September2024.pdf"><em>Religious Archives in Transition Toolkit</em></a></p>
-</li>
-<li><p>The <strong>congregations that have partnered with HARC</strong> and shared their wisdom</p>
-</li>
-<li><p><strong>Women religious archivists</strong> whose expertise and dedication preserve these irreplaceable collections</p>
-</li>
-<li><p>The <strong>Society of American Archivists</strong> for professional <a href="https://www2.archivists.org/standards">standards and resources</a></p>
-</li>
-<li><p><strong>Congregation leadership</strong> that recognizes archives as a ministry</p>
-</li>
-</ul>
-<p><em>Special thanks to the sisters who dedicated their lives to prayer and service. Your history deserves to be saved.</em></p>
-<hr>
-<h2 id="notes">Notes</h2>
-<hr>
-<p><em>Document prepared by the Heritage and Research Center at Saint Mary&#39;s (HARC)</em><br><em>For questions or assistance, contact: bgordon@harcsm.org | (574) 678-6155</em></p>
+Special Instructions: _____________________________________
+</code></pre>
+    <h3 id="moving-day-checklist">
+        Moving Day Checklist
+    </h3>
+    <h4 id="one-week-before-">
+        One Week Before:
+    </h4>
+    <ul>
+        <li data-list-item-id="ee06303c347e3b0024dc9163641a52839">
+            ☐ Confirm date/time with movers
+        </li>
+        <li data-list-item-id="e2aea5e9d8eb4bcfb518c8189922e806c">
+            ☐ Confirm receipt date with HARC
+        </li>
+        <li data-list-item-id="e5ae995ec66cef81a99c12b5dc6ff421d">
+            ☐ Final inventory count
+        </li>
+    </ul>
+    <h4 id="moving-day">
+        Moving Day
+    </h4>
+    <ul>
+        <li data-list-item-id="e1fd3a5346796f2feebadaeb482efe21f">
+            ☐ Final walk-through
+        </li>
+        <li data-list-item-id="e04ed27cd3e771561dccae853509e0907">
+            ☐ Document with photos
+        </li>
+        <li data-list-item-id="e88b125effd2b1f90b152b05b1e8076f1">
+            ☐ Verify box count with movers
+        </li>
+    </ul>
+    <h4 id="at-harc">
+        At HARC
+    </h4>
+    <ul>
+        <li data-list-item-id="e8cdf709613438ec077ec4a6442c4f2f1">
+            ☐ Verify box count on arrival
+        </li>
+        <li data-list-item-id="e975c548025837e831640e3e34929775b">
+            ☐ Check for damage
+        </li>
+        <li data-list-item-id="e763580ba757f48c14d2adc420d28e569">
+            ☐ Sign transfer receipt
+        </li>
+    </ul>
+    <hr>
+    <h2 id="conclusion">
+        Conclusion
+    </h2>
+    <h3 id="your-archives-matter">
+        Your Archives Matter
+    </h3>
+    <p>
+        The records you preserve tell essential stories of:
+    </p>
+    <ul>
+        <li data-list-item-id="e5e65d3e91171c31b2c6a9ed636adfabb">
+            Faith lived in community
+        </li>
+        <li data-list-item-id="e59894e3cd2ee705610d9419dd29772f7">
+            Service to marginalized populations
+        </li>
+        <li data-list-item-id="e8ff9a8ce6c852fc0fc1814bb32a80c55">
+            Women's leadership in church and society
+        </li>
+        <li data-list-item-id="ecd9281f84e6a7a8b329dc0a0d4c8caf3">
+            Catholic contributions to American history
+        </li>
+        <li data-list-item-id="e9f4622c59725dc0a4c6ebfb5bb429cf1">
+            Resilience, adaptation, and prophetic witness
+        </li>
+    </ul>
+    <h3 id="harc-s-commitment">
+        HARC's Commitment
+    </h3>
+    <p>
+        By partnering with HARC, you ensure your congregation's legacy will:
+    </p>
+    <ul>
+        <li data-list-item-id="e5369d3785caa853448617ef73cf2106c">
+            Be preserved according to professional standards
+        </li>
+        <li data-list-item-id="e49f40b03122f7d9b5ee703f79de0bc59">
+            Remain accessible to your members
+        </li>
+        <li data-list-item-id="ed70d00b2838fc21faeb288d15f8ae0ae">
+            Serve researchers and scholars
+        </li>
+        <li data-list-item-id="e717927e517f4125514dd017d7bfb4ff7">
+            Educate future generations
+        </li>
+        <li data-list-item-id="eb5ef2f86b4c9d2a4500602bd607ba185">
+            Honor your charism and mission
+        </li>
+    </ul>
+    <h3 id="questions-">
+        Questions?
+    </h3>
+    <p>
+        HARC staff are available to:
+    </p>
+    <ul>
+        <li data-list-item-id="e2085ceef82474c64517c58c56bfece6e">
+            Answer questions about the transition process
+        </li>
+        <li data-list-item-id="eec6e68ddbdc58b5678be27fcb631fd0b">
+            Guide assessment and planning
+        </li>
+        <li data-list-item-id="e1ba83e5b2b2d222843a199c4b54566f5">
+            Review draft agreements
+        </li>
+        <li data-list-item-id="eadd277d48f681180c095359d983c0edb">
+            Offer technical assistance
+        </li>
+        <li data-list-item-id="e8690d90be677b9d567fc94b90c2d235c">
+            Connect with other congregations that have transitioned
+        </li>
+        <li data-list-item-id="eb7cfcc5beddd832bb465ba1d1b420909">
+            Visit your archives to assist with evaluation
+        </li>
+    </ul>
+    <h4 id="contact-harc">
+        Contact HARC
+    </h4>
+    <p style="margin-left:0px;">
+        <span style="background-color:rgb(248,249,250);color:rgb(102,102,102);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">✅</span></span><span style="background-color:rgb(238,247,255);color:rgb(51,51,51);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"> </span></span><strong>Email:</strong>
+    </p>
+    <ul>
+        <li data-list-item-id="e2805fbbf3d98abeef9b8c5ad825cef56">
+            Barbara Gordon, Executive Director: bgordon@harcsm.org
+        </li>
+        <li data-list-item-id="edbfdd531972d6a0f4727c111ed3ab901">
+            JÁ Pryse, Lead Archivist: japryse@harcsm.org
+        </li>
+    </ul>
+    <p>
+        <span style="background-color:rgb(248,249,250);color:rgb(102,102,102);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;">✅</span></span><span style="background-color:rgb(238,247,255);color:rgb(51,51,51);font-family:&quot;Open Sans&quot;, sans-serif;font-size:16px;"><span style="-webkit-text-stroke-width:0px;display:inline !important;float:none;font-style:normal;font-variant-caps:normal;font-variant-ligatures:normal;font-weight:400;letter-spacing:normal;orphans:2;text-align:start;text-decoration-color:initial;text-decoration-style:initial;text-decoration-thickness:initial;text-indent:0px;text-transform:none;white-space:normal;widows:2;word-spacing:0px;"> </span></span><strong>Phone:</strong> (574) 678-6155
+    </p>
+    <p>
+        &nbsp;
+    </p>
+    <p>
+        <i>We are here to help you preserve your precious legacy.</i>
+    </p>
+    <hr>
+    <h2 id="professional-resources">
+        Professional Resources
+    </h2>
+    <h3 id="archival-standards-organizations">
+        Archival Standards Organizations
+    </h3>
+    <h4 id="society-of-american-archivists-saa-">
+        Society of American Archivists (SAA)
+    </h4>
+    <ul>
+        <li data-list-item-id="ea6a051c85af32a02888a5679901963fd">
+            Website: <a target="_blank" rel="noopener noreferrer" href="https://www2.archivists.org/">https://www2.archivists.org/</a>
+        </li>
+        <li data-list-item-id="e6dacaf2ccd949e2da3fc25168179bc3c">
+            Standards, best practices, consultant directory
+        </li>
+        <li data-list-item-id="e5147e7ab600decc6e9df2e3c5cd5fca0">
+            Publications on religious archives
+        </li>
+    </ul>
+    <h4 id="archivists-for-congregations-of-women-religious-acwr-">
+        Archivists for Congregations of Women Religious (ACWR)
+    </h4>
+    <ul>
+        <li data-list-item-id="e9c105cd91ef4547d634e0cb4c6156dde">
+            Website: <a target="_blank" rel="noopener noreferrer" href="https://archivistsacwr.org/">https://archivistsacwr.org/</a>
+        </li>
+        <li data-list-item-id="e8b374aa9dd8d70dc954383817cdfd419">
+            Consultant directory
+        </li>
+        <li data-list-item-id="e1ec8cc1cd47f1343384263cf96798ad5">
+            Women religious archives resources
+        </li>
+        <li data-list-item-id="ea70213ec8f663ed9b5cac524da5bef87">
+            Networking and support
+        </li>
+    </ul>
+    <h4 id="association-of-catholic-diocesan-archivists-acda-">
+        Association of Catholic Diocesan Archivists (ACDA)
+    </h4>
+    <ul>
+        <li data-list-item-id="e788ed998653878d2d2c9acbf4bf60b44">
+            Website: <a target="_blank" rel="noopener noreferrer" href="https://diocesanarchivists.org/">https://diocesanarchivists.org/</a>
+        </li>
+        <li data-list-item-id="ee08207649af178d5ecfa3dc17a3f1ed5">
+            Catholic archives resources and guidance
+        </li>
+    </ul>
+    <h4 id="american-theological-library-association-atla-">
+        American Theological Library Association (ATLA)
+    </h4>
+    <ul>
+        <li data-list-item-id="edc1da9af854ace33b3e450696adb97d2">
+            Website: <a target="_blank" rel="noopener noreferrer" href="https://www.atla.com/">https://www.atla.com/</a>
+        </li>
+        <li data-list-item-id="eb95348adf0f6b09e737b410bbaaa8a15">
+            Religious archives resources
+        </li>
+        <li data-list-item-id="e5bd78d1190c0b94a178010ec243933dd">
+            Digital collections initiatives
+        </li>
+    </ul>
+    <h3 id="recommended-reading">
+        Recommended Reading
+    </h3>
+    <h4 id="processing-and-description-">
+        Processing and Description:
+    </h4>
+    <p>
+        Greene, Mark A., and Dennis Meissner. 2005. "More Product, Less Process: Revamping Traditional Archival Processing." <i>American Archivist</i> 68, no. 2: 208-263. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.17723/aarc.68.2.c741823776k65863">https://doi.org/10.17723/aarc.68.2.c741823776k65863</a>.
+    </p>
+    <p>
+        Society of American Archivists. 2019. <i>Describing Archives: A Content Standard (DACS)</i>. 3rd ed. Chicago: Society of American Archivists.
+    </p>
+    <p>
+        Roe, Kathleen D. 2005. <i>Arranging and Describing Archives and Manuscripts</i>. Chicago: Society of American Archivists.
+    </p>
+    <h4 id="religious-archives-">
+        Religious Archives:
+    </h4>
+    <p>
+        Ray, Robert C. 2009. "No One Has Ever Seen God: The Use of Religious Archives for Nonreligious Purposes." <i>Journal of Religious &amp; Theological Information</i> 7 (3-4): 149-60. <a target="_blank" rel="noopener noreferrer" href="https://doi.org/10.1080/10477840902783010">https://doi.org/10.1080/10477840902783010</a>.
+    </p>
+    <p>
+        Perrone, Fernanda. 2003. "Vanished Worlds: Searching for the Records of Closed Catholic Women's Colleges." <i>Archival Issues</i> 27, no. 2: 107-121.
+    </p>
+    <p>
+        Perrone, Fernanda. 2018. "From Annals to Heritage Centers: The Archives of Women's Religious Communities." In <i>Perspectives on Women's Archives</i>, edited by Tanya Zanish-Belcher and Anke Voss, 177-213. Chicago: Society of American Archivists.
+    </p>
+    <p>
+        Wittberg, Patricia. 2019. "Preserving Our Story." <i>American Catholic Studies Newsletter</i> 46, no. 1: 18-24.
+    </p>
+    <p>
+        O'Toole, James M. 1984. "What's Different about Religious Archives?" <i>Midwestern Archivist</i> 9, no. 2: 91-101.
+    </p>
+    <h4 id="digital-preservation-">
+        Digital Preservation:
+    </h4>
+    <p>
+        Digital Preservation Coalition. 2023. "Standards and Best Practice." <i>Digital Preservation Handbook</i>. <a target="_blank" rel="noopener noreferrer" href="https://www.dpconline.org/handbook/institutional-strategies/standards-and-best-practice">https://www.dpconline.org/handbook/institutional-strategies/standards-and-best-practice</a>.
+    </p>
+    <p>
+        Levels of Digital Preservation Working Group. 2019. "Levels of Digital Preservation Matrix, Version 2.0." National Digital Stewardship Alliance. October. <a target="_blank" rel="noopener noreferrer" href="https://osf.io/2mkwx/">https://osf.io/2mkwx/</a>.
+    </p>
+    <p>
+        National Archives and Records Administration. n.d. "Digital Preservation - Home." Accessed October 11, 2025. <a target="_blank" rel="noopener noreferrer" href="https://www.archives.gov/preservation/digital-preservation">https://www.archives.gov/preservation/digital-preservation</a>.
+    </p>
+    <hr>
+    <h2 id="acknowledgments">
+        Acknowledgments
+    </h2>
+    <p>
+        This toolkit was developed by the Heritage and Research Center at Saint Mary's (HARC) with gratitude to:
+    </p>
+    <ul>
+        <li data-list-item-id="e17ff2a8798d56fd91e21cdbd047e5d11">
+            <strong>Archivists for Congregations of Women Religious (ACWR):</strong> for the original <a target="_blank" rel="noopener noreferrer" href="https://archivistsacwr.org/wp-content/uploads/2024/09/Religious-Archives-in-Transition-Toolkit_September2024.pdf"><i>Religious Archives in Transition Toolkit</i></a>
+        </li>
+        <li data-list-item-id="e8b26793347ac938e2b3baeec75e3bb98">
+            The <strong>congregations that have partnered with HARC</strong> and shared their wisdom
+        </li>
+        <li data-list-item-id="ed3ef9d53bca1685c652099289459d6dc">
+            <strong>Women religious archivists</strong> whose expertise and dedication preserve these irreplaceable collections
+        </li>
+        <li data-list-item-id="e69cbda8bbe3efefa0b76c7eeca98b305">
+            The <strong>Society of American Archivists</strong> for professional <a target="_blank" rel="noopener noreferrer" href="https://www2.archivists.org/standards">standards and resources</a>
+        </li>
+        <li data-list-item-id="e96736438232e1c8df842e885c659b838">
+            <strong>Congregation leadership</strong> that recognizes archives as a ministry
+        </li>
+    </ul>
+    <p>
+        <i>Special thanks to the sisters who dedicated their lives to prayer and service. Your history deserves to be saved.</i>
+    </p>
+    <hr>
+    <h2 id="notes">
+        Notes
+    </h2>
+    <hr>
+    <p>
+        <i>Document prepared by the Heritage and Research Center at Saint Mary's (HARC)</i><br>
+        <i>For questions or assistance, contact: bgordon@harcsm.org | (574) 678-6155</i>
+    </p>
+</div>
