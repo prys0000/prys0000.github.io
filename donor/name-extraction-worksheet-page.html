@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Extraction Worksheet | Archives Unification Resources</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="rgba(255,255,255,0.03)"/></svg>');
+            opacity: 0.3;
+        }
+        
+        header .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 2.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.95;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+        
+        .purpose-box {
+            background: rgba(255,255,255,0.1);
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .purpose-box p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        .purpose-box strong {
+            color: #ffd54f;
+        }
+        
+        nav {
+            background: #2a5298;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            color: #1e3c72;
+            font-size: 2.2em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #1e3c72;
+        }
+        
+        h3 {
+            color: #2a5298;
+            font-size: 1.6em;
+            margin: 30px 0 15px 0;
+        }
+        
+        h4 {
+            color: #1e3c72;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .intro-box {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8eef5 100%);
+            border-left: 5px solid #1e3c72;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .intro-box p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .intro-box ul {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+        
+        .intro-box li {
+            margin: 10px 0;
+            font-size: 1.05em;
+        }
+        
+        .steps-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .step-card {
+            background: white;
+            border: 2px solid #e0e6ed;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            padding-top: 70px;
+            transition: all 0.3s ease;
+        }
+        
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(30, 60, 114, 0.15);
+            border-color: #1e3c72;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            font-size: 1.5em;
+            box-shadow: 0 4px 15px rgba(30, 60, 114, 0.3);
+        }
+        
+        .step-card h4 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+        
+        .step-card p {
+            color: #555;
+            line-height: 1.6;
+            text-align: center;
+        }
+        
+        .fields-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            background: white;
+        }
+        
+        .fields-table thead {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+        
+        .fields-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        
+        .fields-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e6ed;
+            vertical-align: top;
+        }
+        
+        .fields-table tbody tr:hover {
+            background: #f5f8fc;
+        }
+        
+        .fields-table tbody tr:nth-child(even) {
+            background: #fafbfc;
+        }
+        
+        .field-name {
+            font-weight: bold;
+            color: #1e3c72;
+            font-family: 'Courier New', monospace;
+            font-size: 1.05em;
+        }
+        
+        .example {
+            font-style: italic;
+            color: #2e7d32;
+            font-size: 0.95em;
+        }
+        
+        .priority-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .priority-card {
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .priority-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+        
+        .priority-high {
+            background: #fff3f3;
+            border: 2px solid #e57373;
+        }
+        
+        .priority-high::before {
+            background: #c62828;
+        }
+        
+        .priority-high h4 {
+            color: #c62828;
+        }
+        
+        .priority-medium {
+            background: #fff8e1;
+            border: 2px solid #ffd54f;
+        }
+        
+        .priority-medium::before {
+            background: #f57c00;
+        }
+        
+        .priority-medium h4 {
+            color: #f57c00;
+        }
+        
+        .priority-low {
+            background: #f1f8f4;
+            border: 2px solid #81c784;
+        }
+        
+        .priority-low::before {
+            background: #2e7d32;
+        }
+        
+        .priority-low h4 {
+            color: #2e7d32;
+        }
+        
+        .priority-card h4 {
+            font-size: 1.4em;
+            margin-bottom: 15px;
+        }
+        
+        .priority-card p {
+            margin: 10px 0;
+            line-height: 1.6;
+        }
+        
+        .priority-card ul {
+            margin-left: 20px;
+            margin-top: 10px;
+        }
+        
+        .priority-card li {
+            margin: 8px 0;
+        }
+        
+        .template-preview {
+            background: #f8f9fa;
+            border: 3px solid #1e3c72;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            overflow-x: auto;
+        }
+        
+        .template-preview h3 {
+            margin-top: 0;
+            color: #1e3c72;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .template-table {
+            width: 100%;
+            min-width: 1200px;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .template-table thead {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+        }
+        
+        .template-table th {
+            padding: 12px 10px;
+            text-align: left;
+            font-size: 0.9em;
+            font-weight: 600;
+            border-right: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .template-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            font-size: 0.85em;
+        }
+        
+        .template-table .header-row {
+            background: #e8eef5;
+            font-weight: 600;
+            color: #1e3c72;
+        }
+        
+        .template-table .example-row {
+            background: #fafbfc;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .tip-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
+            border-left: 5px solid #2a5298;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .tip-card h4 {
+            margin-top: 0;
+            color: #1e3c72;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tip-card .icon {
+            font-size: 1.5em;
+        }
+        
+        .tip-card p {
+            color: #555;
+            line-height: 1.6;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 50px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin: 50px 0;
+        }
+        
+        .download-section h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .download-section p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+        
+        .download-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 16px 40px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #1e3c72;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+        }
+        
+        .workflow-box {
+            background: #f0f4f8;
+            border: 2px solid #1e3c72;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+        }
+        
+        .workflow-box h3 {
+            margin-top: 0;
+            color: #1e3c72;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+        
+        .workflow-steps {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .workflow-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border: 2px solid #e0e6ed;
+        }
+        
+        .workflow-arrow {
+            font-size: 2em;
+            color: #2a5298;
+        }
+        
+        .workflow-step-number {
+            background: #1e3c72;
+            color: white;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            font-weight: bold;
+        }
+        
+        .workflow-step h5 {
+            color: #1e3c72;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px 40px;
+            text-align: center;
+            color: #666;
+            border-top: 3px solid #1e3c72;
+        }
+        
+        footer p {
+            margin: 5px 0;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #ffd54f 0%, #ffecb3 100%);
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: 500;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                min-width: 100%;
+            }
+            
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .steps-container,
+            .priority-cards,
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workflow-steps {
+                flex-direction: column;
+            }
+            
+            .workflow-arrow {
+                transform: rotate(90deg);
+            }
+            
+            .template-preview {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1> Name Extraction Worksheet</h1>
+                <p class="subtitle">Systematic Name Collection for Authority File Development</p>
+                
+                <div class="purpose-box">
+                    <p><strong>Purpose:</strong> This worksheet helps you systematically extract names from archival collections for later entry into the Authority File.</p>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li>✓ Don't worry about perfection - capture what you can</li>
+                        <li>✓ You can research details later when creating authority records</li>
+                        <li>✓ If you see the same name multiple times, add a tally in Notes</li>
+                        <li>✓ Mark High priority for names appearing in multiple collections</li>
+                        <li>✓ Group similar names together periodically for batch processing</li>
+                    </ul>
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#how-to-use">How to Use</a></li>
+                <li><a href="#fields">Field Descriptions</a></li>
+                <li><a href="#priority">Priority System</a></li>
+                <li><a href="#template">Template Preview</a></li>
+                <li><a href="#tips">Tips & Workflow</a></li>
+                <li><a href="#download">Download</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <!-- How to Use Section -->
+            <section id="how-to-use">
+                <h2>How to Use This Worksheet</h2>
+                
+                <div class="intro-box">
+                    <p>The Name Extraction Worksheet is your daily companion while processing collections. Use it to capture names <em>as you work</em>, then batch-create authority records later.</p>
+                </div>
+                
+                <div class="steps-container">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <h4>Record Every Name</h4>
+                        <p>As you process collections, record every person and organization name you encounter in materials.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <h4>Fill in What You Know</h4>
+                        <p>Fill in as much information as you can find at the time. Don't stop to research - keep processing!</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <h4>Mark Priority</h4>
+                        <p>Assign High/Medium/Low priority based on how frequently the name appears in your collections.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <h4>Periodic Review</h4>
+                        <p>Regularly review your extraction list and batch-create authority records for similar names together.</p>
+                    </div>
+                    
+                    <div class="step-card">
+                        <div class="step-number">5</div>
+                        <h4>Mark as Done</h4>
+                        <p>Once you've created an authority record, mark the status as "Done" and note the Authority ID.</p>
+                    </div>
+                </div>
+                
+                <div class="workflow-box">
+                    <h3>Typical Workflow Integration</h3>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">1</div>
+                            <h5>Process Folder</h5>
+                            <p>Review folder contents</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">2</div>
+                            <h5>Spot Name</h5>
+                            <p>Encounter a person or organization</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">3</div>
+                            <h5>Quick Entry</h5>
+                            <p>Add to worksheet (30 seconds)</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">4</div>
+                            <h5>Continue</h5>
+                            <p>Keep processing without interruption</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Field Descriptions Section -->
+            <section id="fields">
+                <h2>Field Descriptions</h2>
+                <p>Each field in the worksheet captures specific information to help you locate names and prepare for authority record creation.</p>
+                
+                <table class="fields-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 20%;">Field Name</th>
+                            <th style="width: 40%;">Description</th>
+                            <th style="width: 40%;">Example</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="field-name">Source_Collection</td>
+                            <td>Which collection you found the name in</td>
+                            <td class="example">BVM Collection<br>Holy Family Archives</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Source_Series</td>
+                            <td>Series number or name where found</td>
+                            <td class="example">003.1<br>"Individual Sisters Files"<br>S2 - Membership</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Source_Box</td>
+                            <td>Box number</td>
+                            <td class="example">42<br>Box 12<br>Oversize Box 3</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Source_Folder</td>
+                            <td>Folder number or name</td>
+                            <td class="example">Folder 12<br>"Smith, M.C. Correspondence"<br>F-025</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Name_As_Found</td>
+                            <td><strong>EXACT name as written in document</strong> - don't edit or standardize yet!</td>
+                            <td class="example">Sister Mary Catherine Smith<br>Sr. M.C. Smith<br>Mary Catherine Smith, OSF</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Name_Type</td>
+                            <td>Person or Corporate Body</td>
+                            <td class="example">Person<br>Corporate Body</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Surname</td>
+                            <td>Last name (for persons)</td>
+                            <td class="example">Smith<br>O'Brien<br>García</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Given_Name</td>
+                            <td>First and middle names</td>
+                            <td class="example">Mary Catherine<br>Margaret Mary<br>Ann Frances</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Religious_Name</td>
+                            <td>Name used in religious life (may be same as given name)</td>
+                            <td class="example">Mary Catherine<br>Cecilia<br>Francis Xavier</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Post_Nominals</td>
+                            <td>Religious order abbreviation</td>
+                            <td class="example">OSF<br>BVM<br>RSM<br>SSND</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Congregation</td>
+                            <td>Full name of religious order or organization</td>
+                            <td class="example">Sisters of St. Francis<br>Sisters of Charity of the Blessed Virgin Mary<br>Sisters of Mercy</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Approximate_Dates</td>
+                            <td>Any dates you can find - birth, death, active years, "circa"</td>
+                            <td class="example">1925-2010<br>active 1950s-1980s<br>circa 1960<br>d. 2005</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Context_Notes</td>
+                            <td>What was the person mentioned for? What were they doing? What role?</td>
+                            <td class="example">Principal of St. Mary School<br>Founded school in 1950<br>Served as Superior General<br>Taught music</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Priority</td>
+                            <td>How important/frequent is this name?</td>
+                            <td class="example">High<br>Medium<br>Low</td>
+                        </tr>
+                        <tr>
+                            <td class="field-name">Status</td>
+                            <td>Processing status</td>
+                            <td class="example">New<br>In Progress<br>Done [PERS-042]</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Priority System Section -->
+            <section id="priority">
+                <h2>Priority System & When to Create Authority Records</h2>
+                <p>Use this priority system to determine when to create full authority records from your extraction worksheet.</p>
+                
+                <div class="priority-cards">
+                    <div class="priority-card priority-high">
+                        <h4>🔴 HIGH Priority</h4>
+                        <p><strong>Create authority record immediately</strong></p>
+                        <p style="margin-top: 15px;"><strong>Criteria:</strong></p>
+                        <ul>
+                            <li>Names appearing <strong>10+ times</strong> across collections</li>
+                            <li>Congregation founders and leaders</li>
+                            <li>Major institutional names</li>
+                            <li>People with extensive biographical materials</li>
+                            <li>Frequent correspondence authors</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-style: italic;">These names need immediate standardization to ensure consistency.</p>
+                    </div>
+                    
+                    <div class="priority-card priority-medium">
+                        <h4>🟡 MEDIUM Priority</h4>
+                        <p><strong>Create during next batch processing session</strong></p>
+                        <p style="margin-top: 15px;"><strong>Criteria:</strong></p>
+                        <ul>
+                            <li>Names appearing <strong>3-9 times</strong></li>
+                            <li>Important but less frequent names</li>
+                            <li>Secondary leadership roles</li>
+                            <li>Institutional names of schools/hospitals</li>
+                            <li>Significant ministry contributors</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-style: italic;">Process these in batches (e.g., all "Sister Mary" names together).</p>
+                    </div>
+                    
+                    <div class="priority-card priority-low">
+                        <h4>🟢 LOW Priority</h4>
+                        <p><strong>Create as time permits or if requested</strong></p>
+                        <p style="margin-top: 15px;"><strong>Criteria:</strong></p>
+                        <ul>
+                            <li>Names appearing <strong>1-2 times</strong></li>
+                            <li>Mentioned in passing</li>
+                            <li>Peripheral references</li>
+                            <li>Minor correspondents</li>
+                            <li>External contacts</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-style: italic;">Create only when specifically needed for finding aids or researcher requests.</p>
+                    </div>
+                </div>
+                
+                <div class="intro-box" style="margin-top: 30px;">
+                    <h4 style="margin-top: 0; color: #1e3c72;"> Time Management Tip</h4>
+                    <p>Creating a detailed authority record takes 5-60 minutes depending on research needed. By using the extraction worksheet, you can:</p>
+                    <ul>
+                        <li><strong>Capture names in real-time</strong> without interrupting processing flow (30 seconds per entry)</li>
+                        <li><strong>Batch similar names</strong> for efficient research (e.g., all OSF sisters together)</li>
+                        <li><strong>Prioritize your time</strong> on names that matter most</li>
+                        <li><strong>Build gradually</strong> rather than trying to do everything at once</li>
+                    </ul>
+                </div>
+            </section>
+            
+            <!-- Template Preview Section -->
+            <section id="template">
+                <h2>Template Preview</h2>
+                
+                <div class="template-preview">
+                    <h3>Extraction Worksheet Structure</h3>
+                    <p style="text-align: center; margin-bottom: 20px;">Below is the worksheet format with example entries. Download the Excel template to get started.</p>
+                    
+                    <table class="template-table">
+                        <thead>
+                            <tr>
+                                <th>Source_Collection</th>
+                                <th>Source_Series</th>
+                                <th>Source_Box</th>
+                                <th>Source_Folder</th>
+                                <th>Name_As_Found</th>
+                                <th>Name_Type</th>
+                                <th>Surname</th>
+                                <th>Given_Name</th>
+                                <th>Religious_Name</th>
+                                <th>Post_Nominals</th>
+                                <th>Congregation</th>
+                                <th>Approximate_Dates</th>
+                                <th>Context_Notes</th>
+                                <th>Priority</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="header-row">
+                                <td>Which collection</td>
+                                <td>Series number/name</td>
+                                <td>Box number</td>
+                                <td>Folder number/name</td>
+                                <td>Exact name as it appears</td>
+                                <td>Person or Corporate Body</td>
+                                <td>Last name</td>
+                                <td>First/middle name</td>
+                                <td>Name in religious life</td>
+                                <td>OSF, BVM, etc.</td>
+                                <td>Full congregation name</td>
+                                <td>Any dates mentioned</td>
+                                <td>What was person doing/mentioned for?</td>
+                                <td>High/Medium/Low</td>
+                                <td>New/In Progress/Done</td>
+                            </tr>
+                            <tr class="example-row">
+                                <td>BVM Collection</td>
+                                <td>003.1</td>
+                                <td>42</td>
+                                <td>Folder 12</td>
+                                <td>Sister Mary Catherine Smith</td>
+                                <td>Person</td>
+                                <td>Smith</td>
+                                <td>Mary Catherine</td>
+                                <td>Mary Catherine</td>
+                                <td>OSF</td>
+                                <td>Sisters of St. Francis</td>
+                                <td>1925-2010</td>
+                                <td>Principal of St. Mary School</td>
+                                <td>High</td>
+                                <td>New</td>
+                            </tr>
+                            <tr class="example-row">
+                                <td>Holy Family</td>
+                                <td>002.1</td>
+                                <td>5</td>
+                                <td>Founders</td>
+                                <td>Sr. M. Dolores Armer</td>
+                                <td>Person</td>
+                                <td>Armer</td>
+                                <td>Dolores</td>
+                                <td>Mary Dolores</td>
+                                <td>SHF</td>
+                                <td>Sisters of the Holy Family</td>
+                                <td>active 1950s-1980s</td>
+                                <td>Early community historian</td>
+                                <td>High</td>
+                                <td>New</td>
+                            </tr>
+                            <tr class="example-row">
+                                <td>Mercy Collection</td>
+                                <td>004.1</td>
+                                <td>15</td>
+                                <td>St. Agnes School</td>
+                                <td>St. Agnes School, Chicago</td>
+                                <td>Corporate Body</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td>Sisters of Mercy</td>
+                                <td>operated 1920-1975</td>
+                                <td>Elementary school</td>
+                                <td>Medium</td>
+                                <td>New</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Tips Section -->
+            <section id="tips">
+                <h2>Tips for Effective Name Extraction</h2>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Speed is Key</h4>
+                        <p>Don't stop to research details. Capture what you see and move on. You'll research more thoroughly when creating the authority record.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Exact Names</h4>
+                        <p>Record the name EXACTLY as it appears in the document in the "Name_As_Found" field. Don't standardize yet - that comes later.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Location Matters</h4>
+                        <p>Always record where you found the name (collection, series, box, folder). You'll need this for verification and context.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Tally Repeats</h4>
+                        <p>If you see the same name multiple times, add tally marks in Context_Notes: "appears 3x in this box" or "mentioned throughout series."</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Batch Processing</h4>
+                        <p>Group similar names together periodically (e.g., all OSF sisters, all Chicago schools) for efficient authority record creation.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Context Clues</h4>
+                        <p>Note what role or activity the person was mentioned for. This context helps with biographical research and disambiguation.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Date Everything</h4>
+                        <p>Capture any dates you see, even approximate ones: "circa 1960s," "active 1950-1980," "d. 2005." Every clue helps.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Regular Reviews</h4>
+                        <p>Review your extraction list weekly or monthly. Create authority records in batches for efficiency and consistency.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4><span class="icon"></span> Use Priority Wisely</h4>
+                        <p>High priority = immediate attention needed. Medium = batch process soon. Low = create only when needed for specific finding aid.</p>
+                    </div>
+                </div>
+                
+                <div class="intro-box" style="margin-top: 30px;">
+                    <h4 style="margin-top: 0; color: #1e3c72;"> Pro Tip: The "Sister Mary Catherine" Problem</h4>
+                    <p>When you encounter common religious names like "Sister Mary Catherine," be sure to capture:</p>
+                    <ul>
+                        <li><strong>Birth surname if visible</strong> - this is the key disambiguator</li>
+                        <li><strong>Post-nominals (OSF, BVM, etc.)</strong> - helps narrow down which congregation</li>
+                        <li><strong>Time period clues</strong> - "active in 1950s" tells you when they served</li>
+                        <li><strong>Location or ministry</strong> - "Principal at St. Mary's, Chicago" provides context</li>
+                    </ul>
+                    <p style="margin-top: 15px;">These details are CRITICAL for distinguishing between multiple sisters with the same religious name!</p>
+                </div>
+            </section>
+            
+            <!-- Download Section -->
+            <section id="download">
+                <div class="download-section">
+                    <h2> Download the Worksheet</h2>
+                    <p>Get started with systematic name extraction using our ready-to-use Excel template.</p>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 25px; border-radius: 10px; margin: 30px 0;">
+                        <h3 style="color: white; margin-bottom: 15px;">What's Included:</h3>
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; text-align: left;">
+                            <div>✓ Pre-formatted Excel template</div>
+                            <div>✓ 15 data collection fields</div>
+                            <div>✓ Built-in instructions</div>
+                            <div>✓ Example entries</div>
+                            <div>✓ Drop-down menus</div>
+                            <div>✓ Print-friendly format</div>
+                        </div>
+                    </div>
+                    
+                    <div class="download-buttons">
+                        <a href="#" class="btn btn-primary">Download Excel Template</a>
+                        <a href="#" class="btn btn-secondary">View Instructions PDF</a>
+                        <a href="#" class="btn btn-secondary">See Authority File System</a>
+                    </div>
+                    
+                    <p style="margin-top: 30px; font-size: 1em; opacity: 0.9;">Compatible with Excel 2010+, Google Sheets, and LibreOffice Calc</p>
+                </div>
+            </section>
+            
+            <!-- Integration Info -->
+            <section>
+                <h2>Integration with Authority File System</h2>
+                <p>The Name Extraction Worksheet is designed to work seamlessly with the complete Authority File system.</p>
+                
+                <div class="workflow-box">
+                    <h3>Complete Workflow</h3>
+                    <div class="workflow-steps">
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">1</div>
+                            <h5>Extract Names</h5>
+                            <p>Use this worksheet while processing</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">2</div>
+                            <h5>Batch Review</h5>
+                            <p>Periodically review your extraction list</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">3</div>
+                            <h5>Create Records</h5>
+                            <p>Transfer to Authority File spreadsheet</p>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-step">
+                            <div class="workflow-step-number">4</div>
+                            <h5>Use in Finding Aids</h5>
+                            <p>Apply authorized names consistently</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tips-grid" style="margin-top: 30px;">
+                    <div class="tip-card">
+                        <h4> Authority File Database</h4>
+                        <p>The main Authority File spreadsheet contains 27 fields with complete biographical and administrative data based on professional standards (LCNAF, RDA, ISAAR).</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4> Comprehensive Documentation</h4>
+                        <p>40+ page implementation guide covers the "Sister Mary Catherine problem," authorized name formats, field-by-field instructions, and complete workflows.</p>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h4> System Integration</h4>
+                        <p>Authority records can be imported into ArchivesSpace, CONTENTdm, PastPerfect, or any system supporting EAC-CPF or CSV import.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        
+        <footer>
+            <p><strong>Name Extraction Worksheet</strong> | Part of the Complete Authority File Package</p>
+            <p style="margin-top: 10px;">Archives Unification Project • Women Religious Collections</p>
+            <p style="margin-top: 10px; font-size: 0.9em; color: #999;">Systematic name collection for professional authority control</p>
+        </footer>
+    </div>
+</body>
+</html>
