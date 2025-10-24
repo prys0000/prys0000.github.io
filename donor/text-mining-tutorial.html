@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Mining Tutorial: Search Names in Spreadsheets</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #366092 0%, #4a7bb7 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            color: #366092;
+            font-size: 2em;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #366092;
+        }
+        
+        h3 {
+            color: #4a7bb7;
+            font-size: 1.5em;
+            margin: 25px 0 15px 0;
+        }
+        
+        .highlight-box {
+            background: #f0f4f8;
+            border-left: 5px solid #366092;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 25px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+        
+        .code-block .comment {
+            color: #6a9955;
+        }
+        
+        .code-block .keyword {
+            color: #569cd6;
+        }
+        
+        .code-block .string {
+            color: #ce9178;
+        }
+        
+        .code-block .function {
+            color: #dcdcaa;
+        }
+        
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .results-table thead {
+            background: #366092;
+            color: white;
+        }
+        
+        .results-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .results-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .results-table tbody tr:hover {
+            background: #f5f8fc;
+        }
+        
+        .results-table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+        
+        .stat-card {
+            background: white;
+            border: 2px solid #366092;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .stat-card .number {
+            font-size: 3em;
+            color: #366092;
+            font-weight: bold;
+        }
+        
+        .stat-card .label {
+            color: #666;
+            font-size: 1.1em;
+            margin-top: 10px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .step {
+            background: #e8f0f8;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            border-left: 5px solid #4a7bb7;
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #366092;
+            color: white;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border-radius: 50%;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 5px 12px;
+            background: #4a7bb7;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.9em;
+            margin: 5px;
+        }
+        
+        .badge.found {
+            background: #2e8b57;
+        }
+        
+        .badge.not-found {
+            background: #dc3545;
+        }
+        
+        ol, ul {
+            margin-left: 30px;
+            margin-top: 15px;
+        }
+        
+        li {
+            margin: 10px 0;
+        }
+        
+        .detail-sample {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 15px 0;
+            font-size: 0.95em;
+        }
+        
+        .detail-sample strong {
+            color: #366092;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+            color: #666;
+            border-top: 3px solid #366092;
+        }
+        
+        .download-section {
+            background: linear-gradient(135deg, #366092 0%, #4a7bb7 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .download-section h3 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+            
+            header h1 {
+                font-size: 1.8em;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Text Mining Tutorial</h1>
+            <p>How to Search for Multiple Names and Their Variations in Large Spreadsheets</p>
+        </header>
+        
+        <div class="content">
+            <!-- Introduction -->
+            <section id="introduction">
+                <h2>Introduction</h2>
+                <p>This tutorial demonstrates how to perform text mining on large inventory spreadsheets to locate all instances of specific names and their variations. This technique is invaluable for archival research, genealogy, historical documentation, and data analysis.</p>
+                
+                <div class="highlight-box">
+                    <strong>Use Case:</strong> Searching through 5,567 rows of archival inventory data to find 17 different people, each with multiple name variations (e.g., "Clarke, Mary Frances", "Mother Clarke", "Mary Frances Clarke").
+                </div>
+            </section>
+            
+            <!-- Overview -->
+            <section id="overview">
+                <h2>Project Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="number">5,567</div>
+                        <div class="label">Rows Searched</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">17</div>
+                        <div class="label">Names Tracked</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">91</div>
+                        <div class="label">Matches Found</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="number">8</div>
+                        <div class="label">Names Found</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Process -->
+            <section id="process">
+                <h2>Step-by-Step Process</h2>
+                
+                <div class="step">
+                    <span class="step-number">1</span>
+                    <strong>Prepare Your Name List</strong>
+                    <p>Create a dictionary mapping each person's primary identifier to all their name variations, including alternate spellings, titles, and shortened versions.</p>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">2</span>
+                    <strong>Load the Spreadsheet</strong>
+                    <p>Import your Excel file using pandas and examine its structure to identify relevant columns.</p>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">3</span>
+                    <strong>Search Each Row</strong>
+                    <p>Iterate through every row, checking for any name variations using case-insensitive pattern matching.</p>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">4</span>
+                    <strong>Record Matches</strong>
+                    <p>For each match, capture the row number, matched variation, and relevant metadata (Series, Box Name, Folder Name, etc.).</p>
+                </div>
+                
+                <div class="step">
+                    <span class="step-number">5</span>
+                    <strong>Generate Report</strong>
+                    <p>Create an Excel workbook with summary statistics and detailed results for analysis.</p>
+                </div>
+            </section>
+            
+            <!-- Python Script -->
+            <section id="script">
+                <h2>Complete Python Script</h2>
+                <p>Below is the full script used for this text mining analysis. It requires Python 3 with <code>pandas</code> and <code>openpyxl</code> libraries.</p>
+                
+                <h3>Installation Requirements</h3>
+                <div class="code-block">
+pip install pandas openpyxl
+                </div>
+                
+                <h3>The Script</h3>
+                <div class="code-block">
+<span class="keyword">import</span> pandas <span class="keyword">as</span> pd
+<span class="keyword">import</span> re
+<span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict
+<span class="keyword">from</span> openpyxl <span class="keyword">import</span> Workbook
+<span class="keyword">from</span> openpyxl.styles <span class="keyword">import</span> Font, PatternFill, Alignment
+
+<span class="comment"># Load the spreadsheet</span>
+file_path = <span class="string">'October_2_Master_Inventory.xlsx'</span>
+df = pd.<span class="function">read_excel</span>(file_path, sheet_name=<span class="number">0</span>)
+
+<span class="comment"># Define the names to search for with all their variations</span>
+names_to_search = {
+    <span class="string">'Clarke, Mary Frances (Sister/Mother)'</span>: [
+        <span class="string">'Clarke, Mary Frances'</span>, <span class="string">'Clarke, Frances'</span>, <span class="string">'Mother Mary Frances Clarke'</span>, 
+        <span class="string">'Mary Frances Clarke'</span>, <span class="string">'Frances Clarke'</span>, <span class="string">'Mother Clarke'</span>
+    ],
+    <span class="string">'Byrne, Catherine (Sister)'</span>: [
+        <span class="string">'Byrne, Catherine'</span>, <span class="string">'Sister Catherine Byrne'</span>, <span class="string">'Catherine Byrne'</span>
+    ],
+    <span class="string">'Kelly, Eliza (Sister)'</span>: [
+        <span class="string">'Kelly, Eliza'</span>, <span class="string">'Kelly, Elizabeth'</span>, <span class="string">'Sister Eliza'</span>, 
+        <span class="string">'Eliza Kelly'</span>, <span class="string">'Elizabeth Kelly'</span>
+    ],
+    <span class="string">'Mann, Margaret'</span>: [
+        <span class="string">'Mann, Margaret'</span>, <span class="string">'Sister Mary Margaret'</span>, <span class="string">'Margaret Mann'</span>
+    ],
+    <span class="string">'Dougherty, Mary Cecilia (Mother)'</span>: [
+        <span class="string">'Dougherty, Cecilia'</span>, <span class="string">'Mother Mary Dougherty'</span>, 
+        <span class="string">'Dougherty, Mary Cecilia'</span>, <span class="string">'Cecilia Dougherty'</span>
+    ],
+    <span class="comment"># ... add all other names following the same pattern</span>
+}
+
+<span class="comment"># Search for all instances</span>
+results = []
+
+<span class="keyword">for</span> idx, row <span class="keyword">in</span> df.<span class="function">iterrows</span>():
+    <span class="comment"># Combine all text from the row for searching</span>
+    row_text = <span class="string">' '</span>.<span class="function">join</span>([<span class="function">str</span>(val) <span class="keyword">for</span> val <span class="keyword">in</span> row.values <span class="keyword">if</span> pd.<span class="function">notna</span>(val)])
+    
+    <span class="comment"># Check each name</span>
+    <span class="keyword">for</span> primary_name, variations <span class="keyword">in</span> names_to_search.<span class="function">items</span>():
+        <span class="keyword">for</span> variation <span class="keyword">in</span> variations:
+            <span class="comment"># Case-insensitive search</span>
+            <span class="keyword">if</span> re.<span class="function">search</span>(re.<span class="function">escape</span>(variation), row_text, re.IGNORECASE):
+                results.<span class="function">append</span>({
+                    <span class="string">'Primary Name'</span>: primary_name,
+                    <span class="string">'Matched Variation'</span>: variation,
+                    <span class="string">'Row Number'</span>: idx + <span class="number">2</span>,  <span class="comment"># +2 for Excel (1-indexed + header)</span>
+                    <span class="string">'Series'</span>: row.<span class="function">get</span>(<span class="string">'Series'</span>, <span class="string">''</span>),
+                    <span class="string">'Box Name'</span>: row.<span class="function">get</span>(<span class="string">'Box Name'</span>, <span class="string">''</span>),
+                    <span class="string">'Box'</span>: row.<span class="function">get</span>(<span class="string">'Box'</span>, <span class="string">''</span>),
+                    <span class="string">'Folder Name'</span>: row.<span class="function">get</span>(<span class="string">'Folder Name'</span>, <span class="string">''</span>),
+                    <span class="string">'Context'</span>: row_text[:<span class="number">200</span>]  <span class="comment"># First 200 chars</span>
+                })
+                <span class="keyword">break</span>  <span class="comment"># Only count once per row per person</span>
+
+<span class="comment"># Create summary statistics</span>
+summary = <span class="function">defaultdict</span>(<span class="function">int</span>)
+<span class="keyword">for</span> result <span class="keyword">in</span> results:
+    summary[result[<span class="string">'Primary Name'</span>]] += <span class="number">1</span>
+
+<span class="comment"># Convert to DataFrames</span>
+results_df = pd.<span class="function">DataFrame</span>(results)
+summary_df = pd.<span class="function">DataFrame</span>([
+    {<span class="string">'Name'</span>: name, <span class="string">'Total Instances'</span>: count}
+    <span class="keyword">for</span> name, count <span class="keyword">in</span> <span class="function">sorted</span>(summary.<span class="function">items</span>(), key=<span class="keyword">lambda</span> x: x[<span class="number">1</span>], reverse=<span class="keyword">True</span>)
+])
+
+<span class="comment"># Add names with 0 instances</span>
+all_names = <span class="function">set</span>(names_to_search.<span class="function">keys</span>())
+found_names = <span class="function">set</span>(summary.<span class="function">keys</span>())
+missing_names = all_names - found_names
+
+<span class="keyword">for</span> name <span class="keyword">in</span> <span class="function">sorted</span>(missing_names):
+    summary_df = pd.<span class="function">concat</span>([summary_df, pd.<span class="function">DataFrame</span>([{
+        <span class="string">'Name'</span>: name, <span class="string">'Total Instances'</span>: <span class="number">0</span>
+    }])], ignore_index=<span class="keyword">True</span>)
+
+<span class="comment"># Save to Excel with formatting</span>
+output_path = <span class="string">'Name_Text_Mining_Report.xlsx'</span>
+
+<span class="keyword">with</span> pd.<span class="function">ExcelWriter</span>(output_path, engine=<span class="string">'openpyxl'</span>) <span class="keyword">as</span> writer:
+    <span class="comment"># Write Summary sheet</span>
+    summary_df.<span class="function">to_excel</span>(writer, sheet_name=<span class="string">'Summary'</span>, index=<span class="keyword">False</span>)
+    
+    <span class="comment"># Write Detailed Results sheet</span>
+    results_df.<span class="function">to_excel</span>(writer, sheet_name=<span class="string">'Detailed Results'</span>, index=<span class="keyword">False</span>)
+    
+    <span class="comment"># Format the sheets</span>
+    workbook = writer.book
+    
+    <span class="comment"># Format Summary sheet</span>
+    summary_sheet = workbook[<span class="string">'Summary'</span>]
+    summary_sheet.column_dimensions[<span class="string">'A'</span>].width = <span class="number">60</span>
+    summary_sheet.column_dimensions[<span class="string">'B'</span>].width = <span class="number">20</span>
+    
+    <span class="keyword">for</span> cell <span class="keyword">in</span> summary_sheet[<span class="number">1</span>]:
+        cell.font = <span class="function">Font</span>(bold=<span class="keyword">True</span>, size=<span class="number">12</span>, color=<span class="string">'FFFFFF'</span>)
+        cell.fill = <span class="function">PatternFill</span>(start_color=<span class="string">'366092'</span>, 
+                                   end_color=<span class="string">'366092'</span>, 
+                                   fill_type=<span class="string">'solid'</span>)
+    
+    <span class="comment"># Format Detailed Results sheet</span>
+    detail_sheet = workbook[<span class="string">'Detailed Results'</span>]
+    detail_sheet.column_dimensions[<span class="string">'A'</span>].width = <span class="number">60</span>
+    detail_sheet.column_dimensions[<span class="string">'B'</span>].width = <span class="number">30</span>
+    detail_sheet.column_dimensions[<span class="string">'C'</span>].width = <span class="number">15</span>
+    detail_sheet.column_dimensions[<span class="string">'D'</span>].width = <span class="number">40</span>
+    detail_sheet.column_dimensions[<span class="string">'E'</span>].width = <span class="number">40</span>
+    detail_sheet.column_dimensions[<span class="string">'F'</span>].width = <span class="number">15</span>
+    detail_sheet.column_dimensions[<span class="string">'G'</span>].width = <span class="number">50</span>
+    
+    <span class="keyword">for</span> cell <span class="keyword">in</span> detail_sheet[<span class="number">1</span>]:
+        cell.font = <span class="function">Font</span>(bold=<span class="keyword">True</span>, size=<span class="number">12</span>, color=<span class="string">'FFFFFF'</span>)
+        cell.fill = <span class="function">PatternFill</span>(start_color=<span class="string">'366092'</span>, 
+                                   end_color=<span class="string">'366092'</span>, 
+                                   fill_type=<span class="string">'solid'</span>)
+
+<span class="function">print</span>(<span class="string">f"Report created successfully! Total matches: {len(results)}"</span>)
+                </div>
+            </section>
+            
+            <!-- Results -->
+            <section id="results">
+                <h2>Results Summary</h2>
+                
+                <h3>Names Found</h3>
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Total Instances</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Clarke, Mary Frances (Sister/Mother)</td>
+                            <td><strong>41</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>DeCock, Mary (Sister)</td>
+                            <td><strong>35</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>Garvey, Helen Maher (Robert Joseph)(Sister/President)</td>
+                            <td><strong>8</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>Mann, Margaret</td>
+                            <td><strong>3</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>Byrne, Catherine (Sister)</td>
+                            <td><strong>1</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>Dougherty, Mary Cecilia (Mother)</td>
+                            <td><strong>1</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>Farrell, Carolyn Lester (Sister)</td>
+                            <td><strong>1</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                        <tr>
+                            <td>Baschnagel, Josita (Mother)</td>
+                            <td><strong>1</strong></td>
+                            <td><span class="badge found">Found</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h3>Names Not Found</h3>
+                <p>The following names were searched but no instances were found in the inventory:</p>
+                <div style="margin: 20px 0;">
+                    <span class="badge not-found">Barwick, Ramona (Simone) (Sister)</span>
+                    <span class="badge not-found">Burrows, Joanne (Sister SC - not BVM)</span>
+                    <span class="badge not-found">Collins, Donard (Sister)</span>
+                    <span class="badge not-found">Cox, Joyce (Petrine) (Sister)</span>
+                    <span class="badge not-found">Donaghoe, Terrence J., Rev. (Father)</span>
+                    <span class="badge not-found">Dunn, Catherine (Sister)</span>
+                    <span class="badge not-found">Hadro, Teri (Sister)</span>
+                    <span class="badge not-found">Kelly, Eliza (Sister)</span>
+                    <span class="badge not-found">Lilly, Mary Ascension (Mother)</span>
+                </div>
+                
+                <h3>Sample Detailed Results</h3>
+                <p>Each match includes comprehensive location information:</p>
+                
+                <div class="detail-sample">
+                    <strong>Primary Name:</strong> Clarke, Mary Frances (Sister/Mother)<br>
+                    <strong>Matched Variation:</strong> Mary Frances Clarke<br>
+                    <strong>Row Number:</strong> 233<br>
+                    <strong>Series:</strong> BVM Constitutions<br>
+                    <strong>Box Name:</strong> BVM Constitutions Committees Vol. XII, Vol. XIII Resource Materials, Indexed<br>
+                    <strong>Box:</strong> 8.0<br>
+                    <strong>Folder Name:</strong> Mary Frances Clarke & successors
+                </div>
+                
+                <div class="detail-sample">
+                    <strong>Primary Name:</strong> DeCock, Mary (Sister)<br>
+                    <strong>Matched Variation:</strong> Mary DeCock<br>
+                    <strong>Row Number:</strong> 1543<br>
+                    <strong>Series:</strong> General Administration<br>
+                    <strong>Box Name:</strong> Sisters' Correspondence - D<br>
+                    <strong>Box:</strong> 2.0<br>
+                    <strong>Folder Name:</strong> DeCock, Mary
+                </div>
+            </section>
+            
+            <!-- Key Features -->
+            <section id="features">
+                <h2>Key Features</h2>
+                
+                <div class="highlight-box">
+                    <h3>✓ Case-Insensitive Matching</h3>
+                    <p>Finds names regardless of capitalization (e.g., "mary frances clarke" matches "Mary Frances Clarke")</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>✓ Multiple Name Variations</h3>
+                    <p>Each person can have unlimited name variations, including formal names, nicknames, titles, and alternate spellings</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>✓ Comprehensive Metadata</h3>
+                    <p>Captures row numbers and all relevant columns (Series, Box Name, Box, Folder Name) for easy document retrieval</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>✓ Duplicate Prevention</h3>
+                    <p>Counts each person only once per row, even if multiple variations appear in the same row</p>
+                </div>
+                
+                <div class="highlight-box">
+                    <h3>✓ Professional Excel Output</h3>
+                    <p>Generates formatted reports with color-coded headers and optimized column widths</p>
+                </div>
+            </section>
+            
+            <!-- Applications -->
+            <section id="applications">
+                <h2>Applications</h2>
+                <p>This text mining technique is useful for:</p>
+                <ul>
+                    <li><strong>Archival Research:</strong> Locate all references to historical figures across large document collections</li>
+                    <li><strong>Genealogy:</strong> Track family members through records with varying name formats</li>
+                    <li><strong>Data Quality:</strong> Identify inconsistent naming conventions in databases</li>
+                    <li><strong>Historical Documentation:</strong> Create indices of people mentioned in archives</li>
+                    <li><strong>Legal Discovery:</strong> Find all mentions of individuals in document collections</li>
+                    <li><strong>Academic Research:</strong> Analyze frequency and context of historical figures in source materials</li>
+                </ul>
+            </section>
+            
+            <!-- Customization -->
+            <section id="customization">
+                <h2>Customizing for Your Project</h2>
+                
+                <h3>Adapting the Name List</h3>
+                <p>Modify the <code>names_to_search</code> dictionary to include your specific people and their variations:</p>
+                <div class="code-block">
+names_to_search = {
+    <span class="string">'Last, First (Title)'</span>: [
+        <span class="string">'Last, First'</span>,
+        <span class="string">'First Last'</span>,
+        <span class="string">'Nickname'</span>,
+        <span class="string">'Title First Last'</span>
+    ],
+    <span class="comment"># Add more people...</span>
+}
+                </div>
+                
+                <h3>Changing Column Names</h3>
+                <p>Update the column references to match your spreadsheet structure:</p>
+                <div class="code-block">
+<span class="string">'Series'</span>: row.<span class="function">get</span>(<span class="string">'Your_Column_Name'</span>, <span class="string">''</span>),
+<span class="string">'Box Name'</span>: row.<span class="function">get</span>(<span class="string">'Your_Column_Name'</span>, <span class="string">''</span>),
+                </div>
+                
+                <h3>Adjusting Search Sensitivity</h3>
+                <p>For more flexible matching, you can modify the search pattern:</p>
+                <div class="code-block">
+<span class="comment"># Exact match (default)</span>
+<span class="keyword">if</span> re.<span class="function">search</span>(re.<span class="function">escape</span>(variation), row_text, re.IGNORECASE):
+
+<span class="comment"># Partial word match (use with caution)</span>
+<span class="keyword">if</span> variation.<span class="function">lower</span>() <span class="keyword">in</span> row_text.<span class="function">lower</span>():
+
+<span class="comment"># Word boundary match (whole words only)</span>
+<span class="keyword">if</span> re.<span class="function">search</span>(<span class="string">r'\b'</span> + re.<span class="function">escape</span>(variation) + <span class="string">r'\b'</span>, row_text, re.IGNORECASE):
+                </div>
+            </section>
+            
+            <!-- Download Section -->
+            <div class="download-section">
+                <h3>📥 Sample Output Files</h3>
+                <p>View the actual report generated from this analysis to see the complete results with all 91 matches, formatted tables, and detailed metadata.</p>
+            </div>
+            
+            <!-- Tips -->
+            <section id="tips">
+                <h2>Tips & Best Practices</h2>
+                <ul>
+                    <li><strong>Test with a subset first:</strong> Run the script on a smaller sample to verify accuracy before processing large files</li>
+                    <li><strong>Include common variations:</strong> Think about how names might appear (with/without titles, first name only, last name only, etc.)</li>
+                    <li><strong>Check for typos:</strong> Include common misspellings if known</li>
+                    <li><strong>Review the context column:</strong> The first 200 characters can help verify matches are correct</li>
+                    <li><strong>Consider punctuation:</strong> "O'Brien" vs "OBrien" or "St. Mary" vs "St Mary"</li>
+                    <li><strong>Use word boundaries:</strong> Be careful with short names that might match partial words</li>
+                    <li><strong>Document your variations:</strong> Keep a record of why you included each variation</li>
+                </ul>
+            </section>
+            
+            <!-- Conclusion -->
+            <section id="conclusion">
+                <h2>Conclusion</h2>
+                <p>This text mining approach provides an efficient, scalable method for locating individuals across large document collections. By automating the search process and capturing comprehensive metadata, researchers can quickly identify relevant materials and build comprehensive indices of their archival holdings.</p>
+                
+                <p>The script is highly adaptable and can be modified for various types of text mining projects beyond name searches, including keyword analysis, topic identification, and pattern detection in structured data.</p>
+            </section>
+        </div>
+        
+        <footer>
+            <p><strong>Text Mining Tutorial</strong> | Created with Python, pandas, and openpyxl</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">This tutorial demonstrates automated text mining techniques for archival and research applications.</p>
+        </footer>
+    </div>
+</body>
+</html>
