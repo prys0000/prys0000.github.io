@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authority File Package | Complete Name Control System</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #0c2145 0%, #1a3a6b 100%);
+            color: white;
+            padding: 60px 40px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="80" height="80" xmlns="http://www.w3.org/2000/svg"><rect x="10" y="10" width="60" height="60" fill="rgba(255,255,255,0.03)" rx="5"/></svg>');
+            opacity: 0.4;
+        }
+        
+        header .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        header .subtitle {
+            font-size: 1.5em;
+            opacity: 0.95;
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+        
+        header .tagline {
+            font-size: 1.15em;
+            opacity: 0.9;
+            max-width: 900px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        
+        .stats-bar {
+            background: rgba(255,255,255,0.1);
+            padding: 20px 30px;
+            margin-top: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #ffd54f;
+        }
+        
+        .stat-label {
+            font-size: 0.95em;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        
+        nav {
+            background: #1a3a6b;
+            padding: 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+        }
+        
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 18px 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border-right: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        nav a:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-2px);
+        }
+        
+        .content {
+            padding: 50px 40px;
+        }
+        
+        section {
+            margin-bottom: 60px;
+        }
+        
+        h2 {
+            color: #0c2145;
+            font-size: 2.3em;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #0c2145;
+        }
+        
+        h3 {
+            color: #1a3a6b;
+            font-size: 1.7em;
+            margin: 30px 0 15px 0;
+        }
+        
+        h4 {
+            color: #0c2145;
+            font-size: 1.3em;
+            margin: 20px 0 10px 0;
+        }
+        
+        .hero-box {
+            background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf1 100%);
+            border: 3px solid #0c2145;
+            padding: 40px;
+            margin: 30px 0;
+            border-radius: 12px;
+            text-align: center;
+        }
+        
+        .hero-box h3 {
+            color: #0c2145;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+        
+        .hero-box p {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+        }
+        
+        .problem-solution {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .problem-box, .solution-box {
+            padding: 30px;
+            border-radius: 12px;
+        }
+        
+        .problem-box {
+            background: #fff3f3;
+            border: 2px solid #e57373;
+        }
+        
+        .problem-box h4 {
+            color: #c62828;
+        }
+        
+        .solution-box {
+            background: #f1f8f4;
+            border: 2px solid #81c784;
+        }
+        
+        .solution-box h4 {
+            color: #2e7d32;
+        }
+        
+        .file-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .file-card {
+            background: white;
+            border: 3px solid #0c2145;
+            border-radius: 12px;
+            padding: 30px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .file-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, #0c2145 0%, #1a3a6b 100%);
+            border-radius: 12px 12px 0 0;
+        }
+        
+        .file-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(12, 33, 69, 0.2);
+        }
+        
+        .file-icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .file-card h3 {
+            color: #0c2145;
+            margin-top: 0;
+            text-align: center;
+            font-size: 1.5em;
+        }
+        
+        .file-badge {
+            display: inline-block;
+            background: #ffd54f;
+            color: #0c2145;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .feature-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #2e7d32;
+            font-weight: bold;
+            font-size: 1.3em;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #0c2145 0%, #1a3a6b 100%);
+            color: white;
+            padding: 14px 35px;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(12, 33, 69, 0.3);
+        }
+        
+        .quick-start {
+            background: linear-gradient(135deg, #e8f4f8 0%, #d4e8f0 100%);
+            border-left: 6px solid #0c2145;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 8px;
+        }
+        
+        .quick-start h3 {
+            margin-top: 0;
+            color: #0c2145;
+        }
+        
+        .timeline {
+            position: relative;
+            padding-left: 40px;
+            margin: 30px 0;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: #0c2145;
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: white;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 25px;
+            width: 15px;
+            height: 15px;
+            background: #0c2145;
+            border: 3px solid white;
+            border-radius: 50%;
+        }
+        
+        .timeline-item h4 {
+            margin-top: 0;
+        }
+        
+        .format-box {
+            background: #f5f7fa;
+            border: 2px solid #0c2145;
+            border-radius: 8px;
+            padding: 25px;
+            margin: 20px 0;
+        }
+        
+        .format-example {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 4px solid #2e7d32;
+            font-family: 'Courier New', monospace;
+            font-size: 1.1em;
+        }
+        
+        .format-wrong {
+            border-left-color: #c62828;
+        }
+        
+        .checklist {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 8px;
+            margin: 25px 0;
+        }
+        
+        .checklist ul {
+            list-style: none;
+        }
+        
+        .checklist li {
+            padding: 10px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 1.05em;
+        }
+        
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            color: #0c2145;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .info-card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+            border-left: 5px solid #1a3a6b;
+            padding: 25px;
+            border-radius: 8px;
+        }
+        
+        .info-card h4 {
+            margin-top: 0;
+            color: #0c2145;
+        }
+        
+        .priority-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        }
+        
+        .priority-table thead {
+            background: linear-gradient(135deg, #0c2145 0%, #1a3a6b 100%);
+            color: white;
+        }
+        
+        .priority-table th {
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+        }
+        
+        .priority-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e6ed;
+        }
+        
+        .priority-table tbody tr:hover {
+            background: #f5f8fc;
+        }
+        
+        .priority-high {
+            background: #fff3f3;
+            border-left: 5px solid #e57373;
+        }
+        
+        .priority-medium {
+            background: #fff8e1;
+            border-left: 5px solid #ffd54f;
+        }
+        
+        .priority-low {
+            background: #f1f8f4;
+            border-left: 5px solid #81c784;
+        }
+        
+        .standards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .standard-card {
+            background: white;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .standard-card:hover {
+            border-color: #0c2145;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(12, 33, 69, 0.15);
+        }
+        
+        .standard-card h4 {
+            color: #0c2145;
+            margin-bottom: 10px;
+        }
+        
+        .faq-section {
+            margin: 30px 0;
+        }
+        
+        .faq-item {
+            background: white;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-question {
+            color: #0c2145;
+            font-weight: 600;
+            font-size: 1.15em;
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer {
+            color: #555;
+            line-height: 1.7;
+        }
+        
+        .cta-section {
+            background: linear-gradient(135deg, #0c2145 0%, #1a3a6b 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            margin-top: 60px;
+            border-radius: 12px;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            border-bottom: 3px solid rgba(255,255,255,0.3);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .cta-section p {
+            font-size: 1.2em;
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        
+        .btn-light {
+            background: white;
+            color: #0c2145;
+        }
+        
+        .btn-light:hover {
+            background: #f5f7fa;
+        }
+        
+        footer {
+            background: #f8f9fa;
+            padding: 40px;
+            text-align: center;
+            color: #666;
+            border-top: 4px solid #0c2145;
+        }
+        
+        footer p {
+            margin: 8px 0;
+        }
+        
+        .highlight-gold {
+            background: linear-gradient(120deg, #ffd54f 0%, #ffecb3 100%);
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #0c2145;
+        }
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 40px 20px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            .content {
+                padding: 30px 20px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav li {
+                min-width: 100%;
+            }
+            
+            nav a {
+                border-right: none;
+                border-bottom: 1px solid rgba(255,255,255,0.1);
+            }
+            
+            .problem-solution {
+                grid-template-columns: 1fr;
+            }
+            
+            .file-cards,
+            .info-grid,
+            .standards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <h1> Authority File Package</h1>
+                <p class="subtitle">Complete Name Control System for Archival Collections</p>
+                <p class="tagline">Professional authority control for persons and organizations based on national and international archival standards. Solve the critical problem of name consistency and disambiguation.</p>
+                
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Comprehensive Tools</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">27</div>
+                        <div class="stat-label">Data Fields</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">40+</div>
+                        <div class="stat-label">Documentation Pages</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">60+</div>
+                        <div class="stat-label">Examples & Guidelines</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <nav>
+            <ul>
+                <li><a href="#problem">The Problem</a></li>
+                <li><a href="#files">The Files</a></li>
+                <li><a href="#format">Name Format</a></li>
+                <li><a href="#workflow">Workflow</a></li>
+                <li><a href="#getting-started">Getting Started</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+        
+        <div class="content">
+            <!-- Problem Section -->
+            <section id="problem">
+                <h2>The Problem This Solves</h2>
+                
+                <div class="hero-box">
+                    <h3>The "Sister Mary Catherine" Problem</h3>
+                    <p>You have 15 different people in your archives, all called "Sister Mary Catherine." How do you tell them apart? How do researchers find the right one? How do you maintain consistency across thousands of folders?</p>
+                </div>
+                
+                <div class="problem-solution">
+                    <div class="problem-box">
+                        <h4>❌ Before Authority Control</h4>
+                        <p><strong>Researcher Experience:</strong></p>
+                        <ul>
+                            <li>Searches for "Sister Mary Catherine"</li>
+                            <li>Finds 15 different people with that name</li>
+                            <li>Can't tell which is which</li>
+                            <li>Misses materials under variant names</li>
+                            <li>No biographical context</li>
+                        </ul>
+                        <p style="margin-top: 20px;"><strong>Archivist Experience:</strong></p>
+                        <ul>
+                            <li>Encounters "Sr. M. Catherine Smith" in one box</li>
+                            <li>Finds "Mary Catherine Smith, OSF" in another</li>
+                            <li>Sees "Sister Mary Catherine" in a third</li>
+                            <li>Are these the same person? <em>No way to know.</em></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="solution-box">
+                        <h4>✓ After Authority Control</h4>
+                        <p><strong>Researcher Experience:</strong></p>
+                        <ul>
+                            <li>Searches for "Sister Mary Catherine"</li>
+                            <li>Authority file shows all distinct individuals</li>
+                            <li>Each has unique authorized name: <strong>Smith, Mary Catherine, OSF</strong></li>
+                            <li>All variant names link to authorized form</li>
+                            <li>Biographical notes provide context</li>
+                            <li>Related materials easily identified</li>
+                        </ul>
+                        <p style="margin-top: 20px;"><strong>Archivist Experience:</strong></p>
+                        <ul>
+                            <li>Checks authority file</li>
+                            <li>Finds existing record: <strong>Smith, Mary Catherine, OSF [PERS-042]</strong></li>
+                            <li>Uses authorized form consistently</li>
+                            <li>Adds any new name variants discovered</li>
+                            <li>Links materials to authority record</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Files Section -->
+            <section id="files">
+                <h2>The Three Files in Your Package</h2>
+                
+                <div class="file-cards">
+                    <div class="file-card">
+                        <span class="file-badge"> MAIN DATABASE</span>
+                        <h3>1. Authority File Persons & Agents</h3>
+                        <p style="margin: 15px 0;"><strong>Excel Workbook with 3 Sheets</strong></p>
+                        
+                        <ul class="feature-list">
+                            <li><strong>Sheet 1: Authority Records</strong> — Main data entry form with example records and color-coded instructions</li>
+                            <li><strong>Sheet 2: Naming Guidelines</strong> — Comprehensive formatting rules based on LCNAF, RDA, ISAAR(CPF) standards</li>
+                            <li><strong>Sheet 3: Quick Reference</strong> — One-page summary for daily use</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>27 fields including:</strong> Authorized Name, Birth Name, Religious Name, Dates, Congregation, Variant Names, Biographical Notes, Sources, and more.</p>
+                        
+                        <a href="#" class="btn">Download Excel File →</a>
+                    </div>
+                    
+                    <div class="file-card">
+                        <span class="file-badge">COMPLETE GUIDE</span>
+                        <h3>2. Authority File Documentation</h3>
+                        <p style="margin: 15px 0;"><strong>40+ Page Implementation Manual</strong></p>
+                        
+                        <ul class="feature-list">
+                            <li>What authority control is and why it matters</li>
+                            <li>The "Sister Mary Catherine problem" explained</li>
+                            <li>Authorized name format breakdown</li>
+                            <li>Field-by-field instructions</li>
+                            <li>Date formatting standards</li>
+                            <li>Biographical note guidelines</li>
+                            <li>Complete workflow documentation</li>
+                            <li>Common challenges and solutions</li>
+                            <li>Integration with finding aids</li>
+                            <li>Professional standards reference</li>
+                        </ul>
+                        
+                        <a href="#" class="btn">View Documentation →</a>
+                    </div>
+                    
+                    <div class="file-card">
+                        <span class="file-badge">PRACTICAL TOOL</span>
+                        <h3>3. Name Extraction Worksheet</h3>
+                        <p style="margin: 15px 0;"><strong>Collection Processing Tool</strong></p>
+                        
+                        <ul class="feature-list">
+                            <li>Record names as you encounter them</li>
+                            <li>Track source location (box, folder, item)</li>
+                            <li>Assess priority for authority record creation</li>
+                            <li>Monitor status (pending, in progress, complete)</li>
+                            <li>Batch process similar names together</li>
+                            <li>Simple data entry form with instructions</li>
+                        </ul>
+                        
+                        <p style="margin-top: 20px;"><strong>Perfect for:</strong> Processing collections systematically and capturing names for later authority work.</p>
+                        
+                        <a href="#" class="btn">Download Worksheet →</a>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Format Section -->
+            <section id="format">
+                <h2>The Authorized Name Format</h2>
+                
+                <div class="format-box">
+                    <h3>For Religious Sisters & Brothers</h3>
+                    <p style="font-size: 1.15em; margin-bottom: 20px;"><strong>Standard Format:</strong></p>
+                    <div style="text-align: center; font-size: 1.3em; color: #0c2145; font-weight: bold; margin: 20px 0;">
+                        Surname, Given Name [Religious Name], Post-Nominals
+                    </div>
+                    
+                    <p><strong>Correct Examples:</strong></p>
+                    <div class="format-example">
+                        ✓ Smith, Mary Catherine, OSF
+                    </div>
+                    <div class="format-example">
+                        ✓ O'Brien, Margaret Mary, BVM
+                    </div>
+                    <div class="format-example">
+                        ✓ García, María Teresa, SSND
+                    </div>
+                    <div class="format-example">
+                        ✓ Murphy, Mary Catherine [Cecilia], BVM
+                    </div>
+                    
+                    <h4 style="margin-top: 30px;">Why This Format?</h4>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <h4>Surname First</h4>
+                            <p>Standard for alphabetizing and searching in catalogs and databases</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Religious Name</h4>
+                            <p>Name used in religious life (in brackets if different from given name)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Post-Nominals</h4>
+                            <p>Identifies congregation (OSF, BVM, SSND, etc.)</p>
+                        </div>
+                        <div class="info-card">
+                            <h4>Result</h4>
+                            <p>Each sister has a unique, findable name that distinguishes her from others</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="format-box" style="margin-top: 30px;">
+                    <h3>For Organizations & Institutions</h3>
+                    <p style="font-size: 1.15em; margin-bottom: 20px;"><strong>Standard Format:</strong></p>
+                    <div style="text-align: center; font-size: 1.3em; color: #0c2145; font-weight: bold; margin: 20px 0;">
+                        Institution Name (City, State Abbreviation)
+                    </div>
+                    
+                    <p><strong>Correct Examples:</strong></p>
+                    <div class="format-example">
+                        ✓ St. Mary's Academy (Chicago, Ill.)
+                    </div>
+                    <div class="format-example">
+                        ✓ Mundelein College (Chicago, Ill.)
+                    </div>
+                    <div class="format-example">
+                        ✓ Mount Carmel Motherhouse (Dubuque, Iowa)
+                    </div>
+                </div>
+                
+                <h3 style="margin-top: 40px;">Solving the Duplicate Name Problem</h3>
+                <div class="problem-solution">
+                    <div class="problem-box">
+                        <h4>The Challenge</h4>
+                        <p>Many religious sisters shared the same religious name:</p>
+                        <ul>
+                            <li>Sister Mary Catherine (appears 15 times)</li>
+                            <li>Sister Mary Margaret (appears 12 times)</li>
+                            <li>Sister Mary Joseph (appears 20 times)</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-style: italic;">How do you tell them apart?</p>
+                    </div>
+                    
+                    <div class="solution-box">
+                        <h4>The Solution</h4>
+                        <p><strong>Use birth surname to distinguish:</strong></p>
+                        <div class="format-example" style="margin: 10px 0;">
+                            Smith, Mary Catherine, OSF [PERS-001]
+                        </div>
+                        <div class="format-example" style="margin: 10px 0;">
+                            Jones, Mary Catherine, OSF [PERS-045]
+                        </div>
+                        <div class="format-example" style="margin: 10px 0;">
+                            O'Brien, Mary Catherine, BVM [PERS-127]
+                        </div>
+                        <div class="format-example" style="margin: 10px 0;">
+                            Murphy, Mary Catherine, BVM [PERS-203]
+                        </div>
+                        <p style="margin-top: 15px;"><strong>Each is now unique and findable!</strong></p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Workflow Section -->
+            <section id="workflow">
+                <h2>Typical Workflow</h2>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>Step 1: Encounter a Name</h4>
+                        <p>While processing a collection, you see: <strong>"Sister Mary Catherine Smith"</strong></p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Step 2: Check Authority File</h4>
+                        <p>Search your authority file: Is there already a record for this person?</p>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Step 3A: If Record Exists</h4>
+                        <ul>
+                            <li>Use the authorized form: <strong>Smith, Mary Catherine, OSF</strong></li>
+                            <li>Add any new name variants you found</li>
+                            <li>Note any new biographical details</li>
+                            <li>Link your material to authority record [PERS-042]</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Step 3B: If New Name</h4>
+                        <ul>
+                            <li>Record in Name Extraction Worksheet, OR</li>
+                            <li>Create authority record immediately (if high priority)</li>
+                            <li>Research biographical information</li>
+                            <li>Format authorized name correctly</li>
+                            <li>Assign authority ID</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <h4>Step 4: Use in Finding Aids</h4>
+                        <ul>
+                            <li>Folder title: <strong>Smith, Mary Catherine, OSF [PERS-042]</strong></li>
+                            <li>Create cross-references for all variants</li>
+                            <li>Researchers can find via any form of name</li>
+                            <li>System links all related materials automatically</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Priority System for Name Processing</h3>
+                <table class="priority-table">
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Criteria</th>
+                            <th>Action</th>
+                            <th>Timeline</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="priority-high">
+                            <td><strong>HIGH</strong></td>
+                            <td>
+                                • Names appearing in 10+ folders/boxes<br>
+                                • Congregation founders and leaders<br>
+                                • Major institution names<br>
+                                • Extensive biographical materials
+                            </td>
+                            <td>Create authority record immediately</td>
+                            <td>Same day</td>
+                        </tr>
+                        <tr class="priority-medium">
+                            <td><strong>MEDIUM</strong></td>
+                            <td>
+                                • Names appearing 3-9 times<br>
+                                • Important but less frequent<br>
+                                • Secondary leadership roles<br>
+                                • Significant contributors
+                            </td>
+                            <td>Batch process with similar names</td>
+                            <td>Within 1 week</td>
+                        </tr>
+                        <tr class="priority-low">
+                            <td><strong>LOW</strong></td>
+                            <td>
+                                • Names appearing 1-2 times<br>
+                                • Mentioned in passing<br>
+                                • Peripheral references<br>
+                                • Minor correspondents
+                            </td>
+                            <td>Create as time permits or on request</td>
+                            <td>As needed</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Getting Started Section -->
+            <section id="getting-started">
+                <h2>Getting Started</h2>
+                
+                <div class="quick-start">
+                    <h3> Quick Start (30 Minutes)</h3>
+                    <ol style="font-size: 1.1em; line-height: 2;">
+                        <li><strong>Read this page</strong> (5 minutes)</li>
+                        <li><strong>Open Authority_File_Persons_Agents.xlsx</strong> (10 minutes)
+                            <ul>
+                                <li>Review Sheet 3: Quick Reference</li>
+                                <li>Look at example records in Sheet 1</li>
+                            </ul>
+                        </li>
+                        <li><strong>Skim Authority_File_Documentation.md</strong> (15 minutes)
+                            <ul>
+                                <li>Read "Understanding the Authorized Name Format"</li>
+                                <li>Review "The Sister Mary Catherine Problem"</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </div>
+                
+                <h3>Essential Fields Overview</h3>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h4>7 Minimum Required</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Authority_ID</li>
+                            <li>Authorized_Name</li>
+                            <li>Name_Type</li>
+                            <li>Congregation</li>
+                            <li>Status</li>
+                            <li>Created_Date</li>
+                            <li>Data_Quality</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>6 Highly Recommended</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Birth_Name</li>
+                            <li>Religious_Name</li>
+                            <li>Birth_Date</li>
+                            <li>Death_Date</li>
+                            <li>Variant_Names</li>
+                            <li>Authority_Source</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h4>14 Additional Fields</h4>
+                        <ul style="font-size: 0.95em;">
+                            <li>Biographical Notes</li>
+                            <li>Positions Held</li>
+                            <li>Education</li>
+                            <li>Ministry Locations</li>
+                            <li>Related Names</li>
+                            <li>...and 9 more</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3>Professional Standards</h3>
+                <p>This authority file follows these national and international standards:</p>
+                
+                <div class="standards-grid">
+                    <div class="standard-card">
+                        <h4>LCNAF</h4>
+                        <p>Library of Congress Name Authority File</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Name formatting conventions and authorized forms</p>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <h4>RDA</h4>
+                        <p>Resource Description and Access</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Descriptive cataloging and authority principles</p>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <h4>ISAAR(CPF)</h4>
+                        <p>International Standard</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">Archival authority records for context</p>
+                    </div>
+                    
+                    <div class="standard-card">
+                        <h4>EAC-CPF</h4>
+                        <p>Encoded Archival Context</p>
+                        <p style="font-size: 0.9em; margin-top: 10px;">XML encoding for machine-readable formats</p>
+                    </div>
+                </div>
+                
+                </section>
+            
+            <!-- FAQ Section -->
+            <section id="faq">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-section">
+                    <div class="faq-item">
+                        <div class="faq-question">Q: How many names should I include in my authority file?</div>
+                        <div class="faq-answer">Start with frequently mentioned names—those appearing in multiple folders or having significant roles. Add others as you process collections. A typical authority file for a religious congregation might contain 200-500 primary names, with 1000+ when including all organizations and related individuals.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: What if I can't find a person's birth surname?</div>
+                        <div class="faq-answer">Note it as unknown, mark the record "Needs Review" for data quality, and continue research when time permits. Use the religious name as a temporary authorized form: "[Unknown], Mary Catherine, OSF [PERS-042]". Document your research efforts in the notes field.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Do I need to create records for everyone mentioned in the archives?</div>
+                        <div class="faq-answer">No. Prioritize: (1) Congregation members first, (2) major institutions, (3) frequently mentioned individuals, (4) others as relevant to your research community. Create records based on frequency of appearance and research value.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: How long does it take to create an authority record?</div>
+                        <div class="faq-answer">Simple record with known information: 5-10 minutes. Complex research requiring necrology lookup, cross-referencing directories, and verifying dates: 30-60 minutes. Batch processing similar names improves efficiency significantly.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: Can I modify the fields in the spreadsheet?</div>
+                        <div class="faq-answer">Yes, but keep core fields standard (Authorized Name, Authority ID, Name Type, Dates, Congregation). Add custom fields for congregation-specific needs (e.g., Necrology Page Number, Province, Mission Assignments). The format is designed to be adaptable while maintaining professional standards.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: What about privacy for living members?</div>
+                        <div class="faq-answer">Use only factual, publicly available information (directories, published materials, congregation websites). Avoid sensitive personal details. For living members, focus on authorized name, congregation, and professional roles rather than extensive biographical details.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: How does this integrate with ArchivesSpace or other systems?</div>
+                        <div class="faq-answer">The Excel file can be exported as CSV and imported into ArchivesSpace as agent records. The format follows EAC-CPF encoding standards, making it compatible with most archival management systems. See the documentation for specific import instructions.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">Q: What if I discover two "different" people are actually the same person?</div>
+                        <div class="faq-answer">Merge the records: Keep one authority ID, add all variant names from both records, combine biographical information, note the merger in the record history, and create a redirect from the deprecated ID to the active one.</div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- CTA Section -->
+            <div class="cta-section">
+                <h2> You're Ready to Start!</h2>
+                <p>You now have a complete, professional authority control system ready for implementation.</p>
+                
+                <div style="background: rgba(255,255,255,0.1); padding: 30px; border-radius: 10px; margin: 30px 0;">
+                    <h3 style="color: white; margin-bottom: 20px;">This System Will:</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; text-align: left;">
+                        <div>✓ Solve the duplicate name problem</div>
+                        <div>✓ Make collections more discoverable</div>
+                        <div>✓ Provide valuable biographical context</div>
+                        <div>✓ Meet professional archival standards</div>
+                        <div>✓ Serve your congregation for generations</div>
+                        <div>✓ Support researchers effectively</div>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-light">Download All Files</a>
+                    <a href="#" class="btn btn-light">View Quick Start Guide</a>
+                    <a href="#" class="btn btn-light">Read Full Documentation</a>
+                </div>
+                
+                <p style="margin-top: 40px; font-size: 1.1em;">Start with the <span class="highlight-gold">Quick Reference sheet</span> and dive in. Good luck! 📚✨</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p><strong>Authority File Package</strong> | Complete Name Control System</p>
+            <p style="margin-top: 10px;">Based on LCNAF • RDA • ISAAR(CPF) • EAC-CPF Standards</p>
+            <p style="margin-top: 15px; font-size: 0.95em;">Created: October 23, 2025</p>
+            <p style="margin-top: 5px; font-size: 0.9em; color: #999;">Professional authority control for persons and organizations in archival collections</p>
+        </footer>
+    </div>
+</body>
+</html>
