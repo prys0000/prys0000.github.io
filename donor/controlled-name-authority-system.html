@@ -1,0 +1,2096 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controlled Name Authority System | HARC</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+        :root {
+            --navy-dark: #1a1a52;
+            --navy-medium: #172143;
+            --navy-light: #1c235a;
+            --bg-main: #f5f7fa;
+            --bg-card: #ffffff;
+            --border-light: #dce3eb;
+            --border-medium: #c5d0dc;
+            --text-primary: #1a2332;
+            --text-secondary: #5a6c7d;
+            --accent-blue: #e8f4f8;
+            --accent-green: #e8f5e9;
+            --accent-yellow: #fff8e6;
+            --success: #2e7d32;
+            --warning: #f57c00;
+            --shadow-sm: 0 2px 8px rgba(26, 58, 82, 0.08);
+            --shadow-md: 0 4px 16px rgba(26, 58, 82, 0.12);
+            --shadow-lg: 0 8px 32px rgba(26, 58, 82, 0.16);
+            --radius: 12px;
+            --radius-lg: 16px;
+            --max-width: 1400px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-main);
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy-medium) 50%, var(--navy-light) 100%);
+            color: white;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .header-content {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3.5rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .voice-indicator {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 1rem 1.5rem;
+            border-radius: var(--radius);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+            margin-top: 1rem;
+        }
+
+        .voice-dot {
+            width: 10px;
+            height: 10px;
+            background: #4caf50;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        /* NAVIGATION */
+        nav {
+            background: var(--navy-medium);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-md);
+        }
+
+        nav ul {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            flex: 1;
+            min-width: 150px;
+        }
+
+        nav a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-bottom-color: #4caf50;
+        }
+
+        /* MAIN CONTENT */
+        main {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* WORKFLOW SECTION */
+        .workflow-container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 1024px) {
+            .workflow-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* CONTROL PANEL */
+        .control-panel {
+            background: var(--bg-card);
+            border: 2px solid var(--navy-medium);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 80px;
+            height: fit-content;
+        }
+
+        .control-panel h2 {
+            color: var(--navy-dark);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--accent-blue);
+        }
+
+        .voice-control {
+            background: var(--accent-green);
+            border: 2px solid var(--success);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .voice-control h3 {
+            color: var(--success);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .voice-button {
+            background: var(--success);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .voice-button:hover {
+            background: #1b5e20;
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .voice-button.listening {
+            background: #d32f2f;
+            animation: pulseButton 1s infinite;
+        }
+
+        @keyframes pulseButton {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .voice-status {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: white;
+            border-radius: var(--radius);
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .quick-assign {
+            background: var(--accent-blue);
+            border: 2px solid var(--navy-medium);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+        }
+
+        .quick-assign h3 {
+            color: var(--navy-dark);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .assign-input {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .assign-input input {
+            flex: 1;
+            padding: 0.75rem;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .assign-input input:focus {
+            outline: none;
+            border-color: var(--navy-medium);
+        }
+
+        .assign-btn {
+            background: var(--navy-medium);
+            color: white;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .assign-btn:hover {
+            background: var(--navy-dark);
+        }
+
+        /* MAIN WORKSPACE */
+        .workspace {
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            padding: 2rem;
+        }
+
+        .workspace h2 {
+            color: var(--navy-dark);
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 3px solid var(--navy-medium);
+        }
+
+        /* NAME ENTRY FORM */
+        .name-entry-form {
+            background: var(--bg-main);
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--navy-dark);
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 0.75rem;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--navy-medium);
+            box-shadow: 0 0 0 3px rgba(23, 33, 67, 0.1);
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: flex-end;
+        }
+
+        .btn {
+            padding: 0.875rem 2rem;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: var(--navy-medium);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--navy-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--navy-medium);
+            border: 2px solid var(--navy-medium);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-blue);
+        }
+
+        /* AUTHORITY LIST */
+        .authority-list {
+            margin-top: 2rem;
+        }
+
+        .authority-list h3 {
+            color: var(--navy-dark);
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .search-filter {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .search-filter input {
+            flex: 1;
+            min-width: 250px;
+            padding: 0.875rem;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius);
+            font-size: 0.95rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .filter-btn {
+            padding: 0.875rem 1.25rem;
+            background: white;
+            border: 2px solid var(--border-medium);
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background: var(--navy-medium);
+            color: white;
+            border-color: var(--navy-medium);
+        }
+
+        .filter-btn:hover {
+            border-color: var(--navy-medium);
+        }
+
+        /* NAME CARDS */
+        .names-grid {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .name-card {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-left: 4px solid var(--navy-medium);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .name-card:hover {
+            border-color: var(--navy-medium);
+            box-shadow: var(--shadow-sm);
+            transform: translateX(4px);
+        }
+
+        .name-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .name-authorized {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--navy-dark);
+        }
+
+        .name-id {
+            background: var(--navy-medium);
+            color: white;
+            padding: 0.4rem 0.75rem;
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            font-weight: 600;
+            font-family: 'Courier New', monospace;
+        }
+
+        .name-details {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1rem;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .name-label {
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .name-value {
+            color: var(--text-primary);
+        }
+
+        .name-variants {
+            background: var(--accent-blue);
+            padding: 0.75rem;
+            border-radius: var(--radius);
+            margin-top: 1rem;
+        }
+
+        .name-variants h4 {
+            font-size: 0.85rem;
+            color: var(--navy-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .variants-list {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .priority-badge {
+            display: inline-block;
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius);
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .priority-high {
+            background: #ffebee;
+            color: #c62828;
+        }
+
+        .priority-medium {
+            background: #fff8e6;
+            color: var(--warning);
+        }
+
+        .priority-low {
+            background: var(--accent-blue);
+            color: #1976d2;
+        }
+
+        /* INFO BOXES */
+        .info-box {
+            background: var(--accent-blue);
+            border: 2px solid var(--navy-medium);
+            border-left-width: 6px;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-box h3 {
+            color: var(--navy-dark);
+            margin-bottom: 0.75rem;
+        }
+
+        .info-box p {
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        /* STATS BAR */
+        .stats-bar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .stat-card {
+            background: white;
+            border: 2px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--navy-medium);
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* VOICE COMMANDS */
+        .voice-commands {
+            background: var(--accent-yellow);
+            border: 2px solid var(--warning);
+            border-left-width: 6px;
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .voice-commands h3 {
+            color: #e65100;
+            margin-bottom: 1rem;
+        }
+
+        .commands-list {
+            display: grid;
+            gap: 0.75rem;
+        }
+
+        .command-item {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1rem;
+            background: white;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius);
+        }
+
+        .command-phrase {
+            font-family: 'Courier New', monospace;
+            font-weight: 600;
+            color: var(--navy-dark);
+        }
+
+        .command-result {
+            color: var(--text-secondary);
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .header-content {
+                padding: 2rem 1.5rem;
+            }
+
+            main {
+                padding: 2rem 1.5rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-filter {
+                flex-direction: column;
+            }
+
+            .filter-buttons {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <h1>Controlled Name Authority System</h1>
+        <div class="subtitle">Structured Vocabulary Management</div>
+        <p style="font-size: 1.05rem; opacity: 0.9; max-width: 900px; line-height: 1.7;">
+            A system for managing person and organization names with ID assignment. 
+            Type to create controlled vocabulary entries, assign unique identifiers, and maintain 
+            consistent naming across all archival materials.
+        </p>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#workflow">Quick Entry</a></li>
+        <li><a href="#authority-list">Authority List</a></li>
+        <li><a href="#guidelines">Naming Rules</a></li>
+        <li><a href="#" onclick="exportToCSV(); return false;">Export CSV</a></li>
+        <li><a href="#" onclick="exportToJSON(); return false;">Export JSON</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <!-- WORKFLOW SECTION -->
+    <section id="workflow">
+        <div class="workflow-container">
+            
+            <!-- CONTROL PANEL -->
+            <aside class="control-panel">
+                <h2>Quick Controls</h2>
+                
+                <!-- QUICK ASSIGN -->
+                <div class="quick-assign">
+                    <h3>Quick Code Assignment</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: var(--text-secondary);">
+                        Type a name and instantly assign the next available ID.
+                    </p>
+                    <div class="assign-input">
+                        <input 
+                            type="text" 
+                            id="quickName" 
+                            placeholder="Smith, Mary Catherine, OSF"
+                            onkeypress="if(event.key==='Enter') quickAssign()"
+                        />
+                        <button class="assign-btn" onclick="quickAssign()">Assign</button>
+                    </div>
+                    <div style="font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.5rem;">
+                        Next ID: <strong id="nextId">PERS-001</strong>
+                    </div>
+                </div>
+
+                <!-- STATS -->
+                <div style="margin-top: 2rem;">
+                    <h3 style="color: var(--navy-dark); font-size: 1.1rem; margin-bottom: 1rem;">Session Stats</h3>
+                    <div style="display: grid; gap: 0.75rem;">
+                        <div style="background: var(--accent-blue); padding: 0.75rem; border-radius: var(--radius);">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--navy-medium);" id="totalRecords">0</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Total Records</div>
+                        </div>
+                        <div style="background: var(--accent-green); padding: 0.75rem; border-radius: var(--radius);">
+                            <div style="font-size: 1.5rem; font-weight: 700; color: var(--success);" id="sessionAdded">0</div>
+                            <div style="font-size: 0.85rem; color: var(--text-secondary);">Added This Session</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Export Buttons -->
+                    <div style="margin-top: 1.5rem; display: grid; gap: 0.5rem;">
+                        <button onclick="exportToCSV()" style="padding: 0.75rem; background: var(--navy-medium); color: white; border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                            📥 Export to CSV
+                        </button>
+                        <button onclick="exportToJSON()" style="padding: 0.75rem; background: var(--navy-medium); color: white; border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; font-size: 0.9rem;">
+                            📥 Export to JSON
+                        </button>
+                        <button onclick="clearAllData()" style="padding: 0.75rem; background: #d32f2f; color: white; border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer; font-size: 0.85rem; margin-top: 0.5rem;">
+                            🗑️ Clear All Data
+                        </button>
+                    </div>
+                    
+                    <div style="background: var(--accent-yellow); padding: 0.75rem; border-radius: var(--radius); margin-top: 1rem; font-size: 0.8rem; color: var(--text-secondary);">
+                        💾 Data auto-saves to browser storage
+                    </div>
+                </div>
+            </aside>
+
+            <!-- MAIN WORKSPACE -->
+            <div class="workspace">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <h2 style="margin: 0;">Name Entry Form</h2>
+                    <button onclick="toggleGuidelines()" id="guidelinesToggle" style="background: var(--navy-medium); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: var(--radius); font-weight: 600; cursor: pointer; display: flex; align-items: center; gap: 0.5rem;">
+                        📖 Quick Guidelines
+                        <span id="toggleIcon">▼</span>
+                    </button>
+                </div>
+
+                <!-- COLLAPSIBLE QUICK GUIDELINES -->
+                <div id="quickGuidelines" style="display: none; background: var(--accent-blue); border: 2px solid var(--navy-medium); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem; animation: slideDown 0.3s ease;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+                        
+                        <!-- RELIGIOUS NAMES -->
+                        <div style="background: white; padding: 1rem; border-radius: var(--radius); border-left: 4px solid var(--navy-medium);">
+                            <h4 style="color: var(--navy-dark); margin-bottom: 0.75rem; font-size: 1rem;">👤 Religious Sisters/Brothers</h4>
+                            <div style="font-family: 'Courier New', monospace; background: var(--accent-blue); padding: 0.5rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 600;">
+                                Surname, Given [Religious], Post
+                            </div>
+                            <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-secondary);">
+                                <strong>Examples:</strong><br/>
+                                • Smith, Mary Catherine, OSF<br/>
+                                • O'Brien, Margaret Mary, BVM<br/>
+                                • García, María Teresa, SSND
+                            </div>
+                        </div>
+
+                        <!-- CORPORATE BODIES -->
+                        <div style="background: white; padding: 1rem; border-radius: var(--radius); border-left: 4px solid var(--navy-medium);">
+                            <h4 style="color: var(--navy-dark); margin-bottom: 0.75rem; font-size: 1rem;">🏛️ Institutions/Organizations</h4>
+                            <div style="font-family: 'Courier New', monospace; background: var(--accent-blue); padding: 0.5rem; border-radius: 6px; font-size: 0.85rem; margin-bottom: 0.75rem; font-weight: 600;">
+                                Name (City, State Abbr.)
+                            </div>
+                            <div style="font-size: 0.85rem; line-height: 1.6; color: var(--text-secondary);">
+                                <strong>Examples:</strong><br/>
+                                • St. Mary's Academy (Chicago, Ill.)<br/>
+                                • Mundelein College (Chicago, Ill.)<br/>
+                                • Mount Carmel (Dubuque, Iowa)
+                            </div>
+                        </div>
+
+                        <!-- DATES -->
+                        <div style="background: white; padding: 1rem; border-radius: var(--radius); border-left: 4px solid var(--navy-medium);">
+                            <h4 style="color: var(--navy-dark); margin-bottom: 0.75rem; font-size: 1rem;">📅 Date Formats</h4>
+                            <div style="font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary);">
+                                <strong>Full date:</strong> <code style="background: var(--accent-blue); padding: 0.2rem 0.4rem; border-radius: 4px;">1925-03-15</code><br/>
+                                <strong>Year only:</strong> <code style="background: var(--accent-blue); padding: 0.2rem 0.4rem; border-radius: 4px;">1925</code><br/>
+                                <strong>Approximate:</strong> <code style="background: var(--accent-blue); padding: 0.2rem 0.4rem; border-radius: 4px;">circa 1925</code><br/>
+                                <strong>Range:</strong> <code style="background: var(--accent-blue); padding: 0.2rem 0.4rem; border-radius: 4px;">1925-1930</code>
+                            </div>
+                        </div>
+
+                        <!-- POST-NOMINALS -->
+                        <div style="background: white; padding: 1rem; border-radius: var(--radius); border-left: 4px solid var(--navy-medium);">
+                            <h4 style="color: var(--navy-dark); margin-bottom: 0.75rem; font-size: 1rem;">📝 Common Post-Nominals</h4>
+                            <div style="font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary);">
+                                <strong>BVM</strong> - Sisters of Charity BVM<br/>
+                                <strong>OSF</strong> - Order of St. Francis<br/>
+                                <strong>RSM</strong> - Sisters of Mercy<br/>
+                                <strong>SSND</strong> - School Sisters of Notre Dame<br/>
+                                <strong>CSJ</strong> - Congregation of St. Joseph
+                            </div>
+                        </div>
+
+                        <!-- VARIANT NAMES -->
+                        <div style="background: white; padding: 1rem; border-radius: var(--radius); border-left: 4px solid var(--warning);">
+                            <h4 style="color: var(--warning); margin-bottom: 0.75rem; font-size: 1rem;">🔄 Common Variant Forms</h4>
+                            <div style="font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary);">
+                                • Sister Mary Catherine Smith<br/>
+                                • Sr. M. Catherine Smith<br/>
+                                • Catherine Smith, OSF<br/>
+                                • Mary Catherine Smith
+                            </div>
+                        </div>
+
+                        <!-- DUPLICATE NAMES -->
+                        <div style="background: var(--accent-yellow); padding: 1rem; border-radius: var(--radius); border-left: 4px solid var(--warning);">
+                            <h4 style="color: var(--warning); margin-bottom: 0.75rem; font-size: 1rem;">⚠️ Handling Duplicates</h4>
+                            <div style="font-size: 0.85rem; line-height: 1.8; color: var(--text-secondary);">
+                                <strong>Use birth surname</strong> to distinguish<br/>
+                                • Smith, Mary Catherine, OSF<br/>
+                                • Jones, Mary Catherine, OSF<br/>
+                                <strong>Add qualifiers if needed:</strong><br/>
+                                • Murphy, Mary (d. 1985)<br/>
+                                • Murphy, Mary (1925-2010)
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 2px solid var(--border-light); text-align: center;">
+                        <a href="#guidelines" style="color: var(--navy-medium); font-weight: 600; text-decoration: none; font-size: 0.9rem;">
+                            📚 View Complete Guidelines Below ↓
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="name-entry-form">
+                    <form id="nameForm">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="authorizedName">
+                                    Authorized Name *
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (Surname, Given Name, Post-nominals)
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="authorizedName" 
+                                    placeholder="Smith, Mary Catherine, OSF"
+                                    required
+                                />
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                    💡 Use birth surname to distinguish people with same religious name
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="nameType">Name Type *</label>
+                                <select id="nameType" required>
+                                    <option value="">Select type...</option>
+                                    <option value="Person">Person</option>
+                                    <option value="Corporate Body">Corporate Body</option>
+                                    <option value="Family">Family</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthName">
+                                    Birth Name
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (if different from authorized)
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="birthName" 
+                                    placeholder="Smith, Catherine Marie"
+                                />
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                    Legal name at birth/baptism
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="religiousName">
+                                    Religious Name
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (name used in religious life)
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="religiousName" 
+                                    placeholder="Mary Catherine"
+                                />
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                    Without surname or title
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="congregation">Congregation</label>
+                                <select id="congregation">
+                                    <option value="">Select congregation...</option>
+                                    <option value="BVM">Sisters of Charity BVM</option>
+                                    <option value="OSF">Sisters of St. Francis</option>
+                                    <option value="RSM">Sisters of Mercy</option>
+                                    <option value="SHF">Sisters of Holy Family</option>
+                                    <option value="OLV">Our Lady of Victory</option>
+                                    <option value="SSND">School Sisters of Notre Dame</option>
+                                    <option value="CSJ">Congregation of St. Joseph</option>
+                                    <option value="OP">Order of Preachers (Dominican)</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="postNominals">
+                                    Post-Nominals
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (BVM, OSF, RSM, etc.)
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="postNominals" 
+                                    placeholder="OSF"
+                                />
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                    Religious order abbreviation
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="birthDate">
+                                    Birth Date
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (YYYY-MM-DD or YYYY)
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="birthDate" 
+                                    placeholder="1925-03-15 or 1925 or circa 1925"
+                                />
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                    Use ISO format: YYYY-MM-DD (best) or YYYY only
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="deathDate">
+                                    Death Date
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (YYYY-MM-DD or YYYY)
+                                    </span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="deathDate" 
+                                    placeholder="2010-12-25 or 2010"
+                                />
+                                <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                    Leave blank if living or unknown
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="status">Status *</label>
+                                <select id="status" required>
+                                    <option value="">Select status...</option>
+                                    <option value="Active">Active</option>
+                                    <option value="Deceased">Deceased</option>
+                                    <option value="Departed">Departed</option>
+                                    <option value="Unknown">Unknown</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="priority">
+                                    Priority
+                                    <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                        (High = leader/frequent, Low = one-off)
+                                    </span>
+                                </label>
+                                <select id="priority">
+                                    <option value="Medium">Medium</option>
+                                    <option value="High">High - Leadership/Frequent</option>
+                                    <option value="Low">Low - Occasional Mention</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 1rem;">
+                            <label for="variantNames">
+                                Variant Names
+                                <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                    (one per line - all forms found in documents)
+                                </span>
+                            </label>
+                            <textarea 
+                                id="variantNames" 
+                                rows="3" 
+                                placeholder="Sister Mary Catherine Smith&#10;Sr. M. Catherine Smith&#10;Catherine Smith, OSF&#10;Mary Catherine Smith"
+                                style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-medium); border-radius: var(--radius); font-family: 'Inter', sans-serif; resize: vertical;"
+                            ></textarea>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                💡 Include: Sister + name, Sr. + initials, secular forms, informal versions
+                            </div>
+                        </div>
+
+                        <div class="form-group" style="margin-top: 1rem;">
+                            <label for="bioNote">
+                                Biographical Note
+                                <span style="font-weight: 400; color: var(--text-secondary); font-size: 0.85rem; margin-left: 0.5rem;">
+                                    (education, ministries, leadership, achievements)
+                                </span>
+                            </label>
+                            <textarea 
+                                id="bioNote" 
+                                rows="3" 
+                                placeholder="PhD Education, Loyola University. Principal, St. Mary School (1965-1980). Provincial Superior (1975-1981). Author of 'Catholic Education in America'. Founded first congregation hospital."
+                                style="width: 100%; padding: 0.75rem; border: 2px solid var(--border-medium); border-radius: var(--radius); font-family: 'Inter', sans-serif; resize: vertical;"
+                            ></textarea>
+                            <div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.25rem;">
+                                💡 Include: Education, key roles, leadership positions, publications, historical significance
+                            </div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="clearForm()">Clear Form</button>
+                            <button type="submit" class="btn btn-primary">Save Authority Record</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- AUTHORITY LIST -->
+                <div class="authority-list" id="authority-list">
+                    <h3>Current Authority Records</h3>
+                    
+                    <div class="search-filter">
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Search by name, ID, or congregation..." 
+                            onkeyup="filterRecords()"
+                        />
+                        <div class="filter-buttons">
+                            <button class="filter-btn active" onclick="filterByPriority('All')">All</button>
+                            <button class="filter-btn" onclick="filterByPriority('High')">High</button>
+                            <button class="filter-btn" onclick="filterByPriority('Medium')">Medium</button>
+                            <button class="filter-btn" onclick="filterByPriority('Low')">Low</button>
+                        </div>
+                    </div>
+
+                    <div class="names-grid" id="namesGrid">
+                        <!-- Records will be dynamically added here -->
+                        <div style="text-align: center; padding: 3rem; color: var(--text-secondary);">
+                            <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">📋</div>
+                            <p>No authority records yet. Use the form above to create your first record.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- GUIDELINES SECTION -->
+    <section id="guidelines" style="margin-top: 4rem;">
+        <h2 style="color: var(--navy-dark); font-size: 2rem; margin-bottom: 1.5rem;">Complete Naming Guidelines</h2>
+        
+        <div style="background: var(--accent-blue); border: 2px solid var(--navy-medium); border-radius: var(--radius-lg); padding: 1.5rem; margin-bottom: 2rem;">
+            <p style="font-size: 1.05rem; color: var(--text-primary); line-height: 1.7; margin-bottom: 0.5rem;">
+                <strong>Based on professional archival standards:</strong> LCNAF, RDA, ISAAR(CPF), and EAC-CPF
+            </p>
+            <p style="font-size: 0.95rem; color: var(--text-secondary); line-height: 1.6;">
+                These guidelines ensure your authority records meet national and international archival standards 
+                for name control and entity description.
+            </p>
+        </div>
+
+        <!-- SECTION 1: RELIGIOUS SISTERS/BROTHERS -->
+        <div class="info-box">
+            <h3>Section 1: Religious Sisters/Brothers</h3>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">Primary Authorized Name Format</h4>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius); border: 2px solid var(--border-medium);">
+                    <p style="font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 1rem;">
+                        Surname, Given Name [Religious Name], Post-nominals
+                    </p>
+                    <div style="display: grid; gap: 0.75rem; font-size: 0.95rem;">
+                        <div><strong>✓</strong> Smith, Mary Catherine, OSF</div>
+                        <div><strong>✓</strong> O'Brien, Margaret Mary, BVM <em style="color: var(--text-secondary); margin-left: 1rem;">← Include apostrophes in surnames</em></div>
+                        <div><strong>✓</strong> García, María Teresa, SSND <em style="color: var(--text-secondary); margin-left: 1rem;">← Preserve diacritical marks</em></div>
+                    </div>
+                </div>
+                
+                <div style="background: var(--accent-yellow); padding: 1rem; border-radius: var(--radius); margin-top: 1rem; font-size: 0.9rem;">
+                    <strong>Why this format?</strong> Religious name in natural order, post-nominals at end. 
+                    Birth surname makes each person unique even when religious names are shared.
+                </div>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">Additional Name Fields</h4>
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                    <thead>
+                        <tr style="background: var(--navy-medium); color: white;">
+                            <th style="padding: 0.75rem; text-align: left;">Field</th>
+                            <th style="padding: 0.75rem; text-align: left;">Example</th>
+                            <th style="padding: 0.75rem; text-align: left;">Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 0.75rem;"><strong>Birth Name</strong></td>
+                            <td style="padding: 0.75rem;">Smith, Catherine Marie</td>
+                            <td style="padding: 0.75rem;">Legal name at birth/baptism (if different from authorized name)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem;"><strong>Religious Name Only</strong></td>
+                            <td style="padding: 0.75rem;">Mary Catherine</td>
+                            <td style="padding: 0.75rem;">Name used in religious life without surname</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">Variant Name Forms (Record All Variants Used)</h4>
+                <p style="margin-bottom: 1rem; color: var(--text-secondary);">Track how names appear in different documents across time:</p>
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                    <thead>
+                        <tr style="background: var(--navy-medium); color: white;">
+                            <th style="padding: 0.75rem; text-align: left;">Format</th>
+                            <th style="padding: 0.75rem; text-align: left;">Example</th>
+                            <th style="padding: 0.75rem; text-align: left;">Purpose</th>
+                            <th style="padding: 0.75rem; text-align: left;">Historical Context</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 0.75rem;">Sister + Religious Name + Surname</td>
+                            <td style="padding: 0.75rem;">Sister Mary Catherine Smith</td>
+                            <td style="padding: 0.75rem;">Common historical usage</td>
+                            <td style="padding: 0.75rem;">Pre-Vatican II form</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 0.75rem;">Sr. + Initial + Religious + Surname</td>
+                            <td style="padding: 0.75rem;">Sr. M. Catherine Smith</td>
+                            <td style="padding: 0.75rem;">Abbreviated form</td>
+                            <td style="padding: 0.75rem;">Common in mid-20th century</td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 0.75rem;">Given Name + Surname + Post-nominals</td>
+                            <td style="padding: 0.75rem;">Catherine Smith, OSF</td>
+                            <td style="padding: 0.75rem;">Modern secular form</td>
+                            <td style="padding: 0.75rem;">Post-Vatican II usage</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem;">Religious Name + Surname</td>
+                            <td style="padding: 0.75rem;">Mary Catherine Smith</td>
+                            <td style="padding: 0.75rem;">Informal usage</td>
+                            <td style="padding: 0.75rem;">Without title or post-nominals</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 2: CORPORATE BODIES -->
+        <div class="info-box">
+            <h3>Section 2: Corporate Bodies (Institutions, Schools, Organizations)</h3>
+            
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">Primary Format</h4>
+                <div style="background: white; padding: 1.5rem; border-radius: var(--radius); border: 2px solid var(--border-medium);">
+                    <p style="font-family: 'Courier New', monospace; font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 1rem;">
+                        Institution Name (City, State Abbreviation)
+                    </p>
+                    <div style="display: grid; gap: 0.75rem; font-size: 0.95rem;">
+                        <div><strong>✓</strong> St. Mary's Academy (Chicago, Ill.)</div>
+                        <div><strong>✓</strong> Mundelein College (Chicago, Ill.) <em style="color: var(--text-secondary); margin-left: 1rem;">← Even if well-known, add location</em></div>
+                        <div><strong>✓</strong> Mount Carmel Motherhouse (Dubuque, Iowa) <em style="color: var(--text-secondary); margin-left: 1rem;">← Include motherhouses, convents</em></div>
+                    </div>
+                </div>
+            </div>
+
+            <div style="margin: 1.5rem 0;">
+                <h4 style="color: var(--navy-dark); margin-bottom: 1rem;">Special Cases</h4>
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                    <tbody>
+                        <tr style="border-bottom: 1px solid var(--border-light);">
+                            <td style="padding: 0.75rem; font-weight: 600;">Historical Name Changes</td>
+                            <td style="padding: 0.75rem;">Record all names as variants. Note dates of changes in biographical/historical note.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; font-weight: 600;">Departments/Subdivisions</td>
+                            <td style="padding: 0.75rem;">Use period to indicate hierarchy: <code style="background: var(--accent-blue); padding: 0.25rem 0.5rem; border-radius: 4px;">Mount Carmel. Formation House</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- SECTION 3: DUPLICATE NAMES -->
+        <div class="info-box" style="background: var(--accent-yellow); border-color: var(--warning);">
+            <h3 style="color: #e65100;">Section 3: Handling Duplicate Names</h3>
+            <p style="margin-bottom: 1rem;">Multiple people may share similar names. Use these strategies to distinguish them:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--warning); color: white;">
+                        <th style="padding: 0.75rem; text-align: left;">Issue</th>
+                        <th style="padding: 0.75rem; text-align: left;">Solution</th>
+                        <th style="padding: 0.75rem; text-align: left;">Example</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;">Multiple sisters with same religious name</td>
+                        <td style="padding: 0.75rem;"><strong>Use birth surname</strong></td>
+                        <td style="padding: 0.75rem;">Smith, Mary Catherine, OSF<br/>vs. Jones, Mary Catherine, OSF</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;">Same name in multiple congregations</td>
+                        <td style="padding: 0.75rem;"><strong>Post-nominals distinguish</strong></td>
+                        <td style="padding: 0.75rem;">O'Brien, Mary Margaret, BVM<br/>vs. O'Brien, Mary Margaret, RSM</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;">Uncertainty about identity</td>
+                        <td style="padding: 0.75rem;"><strong>Add qualifier in parentheses</strong></td>
+                        <td style="padding: 0.75rem;">Smith, Mary Catherine (d. 1985)</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;">Common names needing clarification</td>
+                        <td style="padding: 0.75rem;"><strong>Add birth/death years</strong></td>
+                        <td style="padding: 0.75rem;">Murphy, Mary Catherine (1925-2010)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 4: DATES -->
+        <div class="info-box">
+            <h3>Section 4: Dates and Date Ranges</h3>
+            <p style="margin-bottom: 1rem;">Use ISO 8601 standard for consistency:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--navy-medium); color: white;">
+                        <th style="padding: 0.75rem; text-align: left;">Format</th>
+                        <th style="padding: 0.75rem; text-align: left;">Pattern</th>
+                        <th style="padding: 0.75rem; text-align: left;">Example</th>
+                        <th style="padding: 0.75rem; text-align: left;">When to Use</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Full date</strong></td>
+                        <td style="padding: 0.75rem;"><code>YYYY-MM-DD</code></td>
+                        <td style="padding: 0.75rem;">1925-03-15</td>
+                        <td style="padding: 0.75rem;">When exact date known (best practice)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Year only</strong></td>
+                        <td style="padding: 0.75rem;"><code>YYYY</code></td>
+                        <td style="padding: 0.75rem;">1925</td>
+                        <td style="padding: 0.75rem;">When exact date unknown</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Approximate</strong></td>
+                        <td style="padding: 0.75rem;"><code>circa YYYY</code></td>
+                        <td style="padding: 0.75rem;">circa 1925</td>
+                        <td style="padding: 0.75rem;">Uncertain dates</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Before date</strong></td>
+                        <td style="padding: 0.75rem;"><code>before YYYY</code></td>
+                        <td style="padding: 0.75rem;">before 1930</td>
+                        <td style="padding: 0.75rem;">Terminus ante quem</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>After date</strong></td>
+                        <td style="padding: 0.75rem;"><code>after YYYY</code></td>
+                        <td style="padding: 0.75rem;">after 1920</td>
+                        <td style="padding: 0.75rem;">Terminus post quem</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Date range</strong></td>
+                        <td style="padding: 0.75rem;"><code>YYYY-YYYY</code></td>
+                        <td style="padding: 0.75rem;">1925-1930</td>
+                        <td style="padding: 0.75rem;">Span of time</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;"><strong>Active period</strong></td>
+                        <td style="padding: 0.75rem;"><code>active YYYY-YYYY</code></td>
+                        <td style="padding: 0.75rem;">active 1950-1975</td>
+                        <td style="padding: 0.75rem;">Period of ministry/activity</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 5: POST-NOMINALS -->
+        <div class="info-box">
+            <h3>Section 5: Post-Nominals (Religious Order Abbreviations)</h3>
+            <p style="margin-bottom: 1rem;">Common abbreviations used after names:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--navy-medium); color: white;">
+                        <th style="padding: 0.75rem; text-align: left;">Abbreviation</th>
+                        <th style="padding: 0.75rem; text-align: left;">Full Name</th>
+                        <th style="padding: 0.75rem; text-align: left;">Usage Example</th>
+                        <th style="padding: 0.75rem; text-align: left;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>BVM</strong></td>
+                        <td style="padding: 0.75rem;">Sisters of Charity of the Blessed Virgin Mary</td>
+                        <td style="padding: 0.75rem;">Smith, Mary, BVM</td>
+                        <td style="padding: 0.75rem;">Always after name</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>OSF</strong></td>
+                        <td style="padding: 0.75rem;">Order of St. Francis</td>
+                        <td style="padding: 0.75rem;">Jones, Catherine, OSF</td>
+                        <td style="padding: 0.75rem;">Various Franciscan congregations</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>RSM</strong></td>
+                        <td style="padding: 0.75rem;">Religious Sisters of Mercy</td>
+                        <td style="padding: 0.75rem;">Murphy, Ann, RSM</td>
+                        <td style="padding: 0.75rem;">Common abbreviation</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>SSND</strong></td>
+                        <td style="padding: 0.75rem;">School Sisters of Notre Dame</td>
+                        <td style="padding: 0.75rem;">García, María, SSND</td>
+                        <td style="padding: 0.75rem;">International order</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>CSJ</strong></td>
+                        <td style="padding: 0.75rem;">Congregation of St. Joseph</td>
+                        <td style="padding: 0.75rem;">Williams, Mary, CSJ</td>
+                        <td style="padding: 0.75rem;">Multiple CSJ congregations</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;"><strong>OP</strong></td>
+                        <td style="padding: 0.75rem;">Order of Preachers (Dominicans)</td>
+                        <td style="padding: 0.75rem;">Davis, Catherine, OP</td>
+                        <td style="padding: 0.75rem;">Dominican Sisters</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 6: BIOGRAPHICAL NOTES -->
+        <div class="info-box">
+            <h3>Section 6: Biographical Notes</h3>
+            <p style="margin-bottom: 1rem;">Include significant information in biographical notes:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--navy-medium); color: white;">
+                        <th style="padding: 0.75rem; text-align: left;">Category</th>
+                        <th style="padding: 0.75rem; text-align: left;">Example</th>
+                        <th style="padding: 0.75rem; text-align: left;">Purpose</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Education</strong></td>
+                        <td style="padding: 0.75rem;">PhD in Education, Loyola University</td>
+                        <td style="padding: 0.75rem;">Highest degree or significant training</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Key Ministries</strong></td>
+                        <td style="padding: 0.75rem;">Principal, St. Mary School (1965-1980)</td>
+                        <td style="padding: 0.75rem;">Major roles and positions</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Leadership Roles</strong></td>
+                        <td style="padding: 0.75rem;">Provincial Superior (1975-1981)</td>
+                        <td style="padding: 0.75rem;">Congregation administrative positions</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>Publications</strong></td>
+                        <td style="padding: 0.75rem;">Author of "Catholic Education in America"</td>
+                        <td style="padding: 0.75rem;">Major scholarly works only</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;"><strong>Historical Significance</strong></td>
+                        <td style="padding: 0.75rem;">Founded first congregation hospital</td>
+                        <td style="padding: 0.75rem;">Notable achievements and legacy</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 7: DATA QUALITY -->
+        <div class="info-box" style="background: var(--accent-green); border-color: var(--success);">
+            <h3 style="color: var(--success);">Section 7: Data Quality Levels</h3>
+            <p style="margin-bottom: 1rem;">Track the reliability of your information:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--success); color: white;">
+                        <th style="padding: 0.75rem; text-align: left;">Level</th>
+                        <th style="padding: 0.75rem; text-align: left;">Definition</th>
+                        <th style="padding: 0.75rem; text-align: left;">When to Use</th>
+                        <th style="padding: 0.75rem; text-align: left;">Action Required</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>✓ Verified</strong></td>
+                        <td style="padding: 0.75rem;">Confirmed from primary sources</td>
+                        <td style="padding: 0.75rem;">After checking official records</td>
+                        <td style="padding: 0.75rem; color: var(--success);">None - ready to use</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light);">
+                        <td style="padding: 0.75rem;"><strong>⏳ Preliminary</strong></td>
+                        <td style="padding: 0.75rem;">From secondary sources or initial entry</td>
+                        <td style="padding: 0.75rem;">During initial processing</td>
+                        <td style="padding: 0.75rem; color: var(--warning);">Verify against primary sources</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 0.75rem;"><strong>❓ Needs Review</strong></td>
+                        <td style="padding: 0.75rem;">Uncertain or conflicting information</td>
+                        <td style="padding: 0.75rem;">When questions exist</td>
+                        <td style="padding: 0.75rem; color: #d32f2f;">Research and resolve conflicts</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- SECTION 8: AUTHORITY SOURCES -->
+        <div class="info-box">
+            <h3>Section 8: Authority Sources</h3>
+            <p style="margin-bottom: 1rem;">Prioritize sources by reliability:</p>
+            
+            <table style="width: 100%; border-collapse: collapse; background: white; border-radius: var(--radius); overflow: hidden;">
+                <thead>
+                    <tr style="background: var(--navy-medium); color: white;">
+                        <th style="padding: 0.75rem; text-align: left;">Source Type</th>
+                        <th style="padding: 0.75rem; text-align: left;">Example</th>
+                        <th style="padding: 0.75rem; text-align: left;">Reliability</th>
+                        <th style="padding: 0.75rem; text-align: left;">Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(46, 125, 50, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Necrology records</strong></td>
+                        <td style="padding: 0.75rem;">Congregation official death records</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--success); font-weight: 700;">High</span></td>
+                        <td style="padding: 0.75rem;">Primary source</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(46, 125, 50, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Congregation directories</strong></td>
+                        <td style="padding: 0.75rem;">Annual membership directory 2024</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--success); font-weight: 700;">High</span></td>
+                        <td style="padding: 0.75rem;">Official publication</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(46, 125, 50, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Formation records</strong></td>
+                        <td style="padding: 0.75rem;">Entrance/profession registers</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--success); font-weight: 700;">High</span></td>
+                        <td style="padding: 0.75rem;">Official administrative records</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(245, 124, 0, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Published biographies</strong></td>
+                        <td style="padding: 0.75rem;">Book: "Life of Mother Mary"</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--warning); font-weight: 700;">Medium-High</span></td>
+                        <td style="padding: 0.75rem;">Verify facts</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(245, 124, 0, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Newspaper obituaries</strong></td>
+                        <td style="padding: 0.75rem;">Chicago Tribune, Dec 15, 1985</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--warning); font-weight: 700;">Medium</span></td>
+                        <td style="padding: 0.75rem;">Confirm dates with official records</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(245, 124, 0, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Oral history</strong></td>
+                        <td style="padding: 0.75rem;">Interview with Sister Mary Smith</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--warning); font-weight: 700;">Medium</span></td>
+                        <td style="padding: 0.75rem;">Document source and date</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid var(--border-light); background: rgba(245, 124, 0, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Website</strong></td>
+                        <td style="padding: 0.75rem;">Congregation website biography page</td>
+                        <td style="padding: 0.75rem;"><span style="color: var(--warning); font-weight: 700;">Medium</span></td>
+                        <td style="padding: 0.75rem;">Verify with other sources</td>
+                    </tr>
+                    <tr style="background: rgba(211, 47, 47, 0.05);">
+                        <td style="padding: 0.75rem;"><strong>Undocumented</strong></td>
+                        <td style="padding: 0.75rem;">No source identified</td>
+                        <td style="padding: 0.75rem;"><span style="color: #d32f2f; font-weight: 700;">Low</span></td>
+                        <td style="padding: 0.75rem;">Research needed</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- QUICK REFERENCE CARD -->
+        <div style="background: linear-gradient(135deg, var(--navy-dark), var(--navy-medium)); color: white; padding: 2rem; border-radius: var(--radius-lg); margin-top: 2rem;">
+            <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem;">Quick Reference Card</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div>
+                    <h4 style="margin-bottom: 0.75rem; opacity: 0.9;">For Sisters:</h4>
+                    <code style="background: rgba(255,255,255,0.15); padding: 0.5rem; display: block; border-radius: 6px; font-size: 0.9rem;">
+                        Surname, Given [Religious], Post
+                    </code>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 0.75rem; opacity: 0.9;">For Institutions:</h4>
+                    <code style="background: rgba(255,255,255,0.15); padding: 0.5rem; display: block; border-radius: 6px; font-size: 0.9rem;">
+                        Name (City, State Abbr.)
+                    </code>
+                </div>
+                <div>
+                    <h4 style="margin-bottom: 0.75rem; opacity: 0.9;">For Dates:</h4>
+                    <code style="background: rgba(255,255,255,0.15); padding: 0.5rem; display: block; border-radius: 6px; font-size: 0.9rem;">
+                        YYYY-MM-DD (ISO 8601)
+                    </code>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DATA STORAGE SECTION -->
+    <section id="export" style="margin-top: 4rem;">
+        <h2 style="color: var(--navy-dark); font-size: 2rem; margin-bottom: 1.5rem;">Data Storage & Export</h2>
+        
+        <div class="info-box" style="background: var(--accent-green); border-color: var(--success);">
+            <h3 style="color: var(--success);">✅ Your Data is Automatically Saved</h3>
+            <p style="margin-bottom: 1rem;">Every time you create or edit an authority record, it's automatically saved to your browser's local storage. This means:</p>
+            <ul style="margin: 1rem 0 1rem 2rem; line-height: 2;">
+                <li><strong>Persistent Storage:</strong> Your records remain saved even if you close the browser or turn off your computer</li>
+                <li><strong>No Server Required:</strong> All data stays on your local machine - nothing is uploaded to the cloud</li>
+                <li><strong>Instant Access:</strong> When you return to this page, all your records will still be here</li>
+                <li><strong>Private & Secure:</strong> Your data never leaves your computer</li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>📥 Exporting Your Data</h3>
+            <p style="margin-bottom: 1rem;">Export your authority records at any time in two formats:</p>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <h4 style="color: var(--navy-dark); margin-bottom: 0.5rem;">CSV Export (Excel-Compatible)</h4>
+                <p style="margin-bottom: 0.5rem;"><strong>Best for:</strong> Opening in Excel, Google Sheets, or importing into other systems</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Creates a spreadsheet with all fields in separate columns. Perfect for sharing with colleagues or importing into database systems.</p>
+            </div>
+
+            <div>
+                <h4 style="color: var(--navy-dark); margin-bottom: 0.5rem;">JSON Export (Complete Backup)</h4>
+                <p style="margin-bottom: 0.5rem;"><strong>Best for:</strong> Complete backup, archival purposes, or reimporting later</p>
+                <p style="font-size: 0.9rem; color: var(--text-secondary);">Includes all data and metadata. Use this format to create backups or transfer records to another computer.</p>
+            </div>
+        </div>
+
+        <div class="info-box" style="background: var(--accent-yellow); border-color: var(--warning);">
+            <h3 style="color: #e65100;">⚠️ Important: Regular Backups Recommended</h3>
+            <p style="margin-bottom: 1rem;">While browser storage is reliable, we recommend:</p>
+            <ul style="margin-left: 2rem; line-height: 2;">
+                <li><strong>Export regularly:</strong> Download your records as CSV or JSON at the end of each work session</li>
+                <li><strong>Multiple backups:</strong> Keep copies in different locations (computer, network drive, cloud storage)</li>
+                <li><strong>Before clearing browser data:</strong> Always export first - clearing browser cache/data will delete your records</li>
+                <li><strong>When switching computers:</strong> Export from old computer, import on new one</li>
+            </ul>
+        </div>
+
+        <div style="margin-top: 2rem; padding: 2rem; background: white; border: 2px solid var(--border-light); border-radius: var(--radius-lg);">
+            <h3 style="color: var(--navy-dark); margin-bottom: 1rem;">Quick Export Actions</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <button onclick="exportToCSV()" class="btn btn-primary" style="padding: 1.25rem;">
+                    📥 Export CSV<br/>
+                    <span style="font-size: 0.85rem; font-weight: 400; opacity: 0.9;">For Excel/Sheets</span>
+                </button>
+                <button onclick="exportToJSON()" class="btn btn-primary" style="padding: 1.25rem;">
+                    📥 Export JSON<br/>
+                    <span style="font-size: 0.85rem; font-weight: 400; opacity: 0.9;">Full Backup</span>
+                </button>
+                <button onclick="clearAllData()" style="padding: 1.25rem; background: #d32f2f; color: white; border: none; border-radius: var(--radius); font-weight: 600; cursor: pointer;">
+                    🗑️ Clear All Data<br/>
+                    <span style="font-size: 0.85rem; font-weight: 400; opacity: 0.9;">Permanent Delete</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer style="background: var(--navy-dark); color: white; padding: 2.5rem 2rem; text-align: center; margin-top: 4rem;">
+    <p style="font-size: 1.1rem; margin-bottom: 0.5rem;"><strong>HARC Controlled Name Authority System</strong></p>
+    <p style="opacity: 0.9;">Structured vocabulary management for archival collections</p>
+    <p style="margin-top: 1rem; opacity: 0.7; font-size: 0.9rem;">Based on professional archival standards (LCNAF, RDA, ISAAR-CPF, EAC-CPF)</p>
+</footer>
+
+<script>
+// Initialize data - Load from localStorage if exists
+let authorityRecords = JSON.parse(localStorage.getItem('harcAuthorityRecords')) || [];
+let nextPersonId = parseInt(localStorage.getItem('harcNextPersonId')) || 1;
+let nextCorpId = parseInt(localStorage.getItem('harcNextCorpId')) || 1;
+let sessionAdded = parseInt(sessionStorage.getItem('harcSessionAdded')) || 0;
+let currentFilter = 'All';
+
+// Save to localStorage
+function saveToStorage() {
+    localStorage.setItem('harcAuthorityRecords', JSON.stringify(authorityRecords));
+    localStorage.setItem('harcNextPersonId', nextPersonId);
+    localStorage.setItem('harcNextCorpId', nextCorpId);
+    sessionStorage.setItem('harcSessionAdded', sessionAdded);
+    console.log('✅ Data saved to browser storage');
+}
+
+// Voice recognition setup
+let recognition = null;
+if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
+
+    recognition.onresult = function(event) {
+        const transcript = event.results[0][0].transcript;
+        processVoiceCommand(transcript);
+    };
+
+    recognition.onerror = function(event) {
+        document.getElementById('voiceStatus').textContent = 'Error: ' + event.error;
+        document.getElementById('voiceBtn').classList.remove('listening');
+        document.getElementById('voiceBtn').textContent = '🎤 Activate Voice Input';
+    };
+
+    recognition.onend = function() {
+        document.getElementById('voiceBtn').classList.remove('listening');
+        document.getElementById('voiceBtn').textContent = '🎤 Activate Voice Input';
+    };
+}
+
+// Voice button handler
+document.getElementById('voiceBtn').addEventListener('click', function() {
+    if (recognition) {
+        if (this.classList.contains('listening')) {
+            recognition.stop();
+        } else {
+            this.classList.add('listening');
+            this.textContent = '🔴 Listening...';
+            document.getElementById('voiceStatus').textContent = 'Listening... Speak now!';
+            recognition.start();
+        }
+    } else {
+        alert('Voice recognition is not supported in your browser. Please use Chrome, Edge, or Safari.');
+    }
+});
+
+// Process voice commands
+function processVoiceCommand(transcript) {
+    document.getElementById('voiceStatus').textContent = 'You said: "' + transcript + '"';
+    
+    const lower = transcript.toLowerCase();
+    
+    // Assign code command
+    if (lower.includes('assign code') || lower.includes('assign a code')) {
+        const name = transcript.replace(/assign (a )?code (to )?/i, '').trim();
+        if (name) {
+            document.getElementById('quickName').value = name;
+            quickAssign();
+        }
+    }
+    // Create person command
+    else if (lower.includes('create person') || lower.includes('new person')) {
+        const name = transcript.replace(/create person|new person/i, '').trim();
+        if (name) {
+            document.getElementById('authorizedName').value = name;
+            document.getElementById('nameType').value = 'Person';
+        }
+    }
+    // New sister command
+    else if (lower.includes('new sister')) {
+        const name = transcript.replace(/new sister/i, '').trim();
+        if (name) {
+            document.getElementById('authorizedName').value = name;
+            document.getElementById('nameType').value = 'Person';
+        }
+    }
+    // Add institution command
+    else if (lower.includes('add institution') || lower.includes('new institution')) {
+        const name = transcript.replace(/add institution|new institution/i, '').trim();
+        if (name) {
+            document.getElementById('authorizedName').value = name;
+            document.getElementById('nameType').value = 'Corporate Body';
+        }
+    }
+    // Show records
+    else if (lower.includes('show records')) {
+        document.getElementById('authority-list').scrollIntoView({ behavior: 'smooth' });
+    }
+    // Search
+    else if (lower.includes('search for')) {
+        const term = transcript.replace(/search for/i, '').trim();
+        document.getElementById('searchInput').value = term;
+        filterRecords();
+    }
+    // Clear form
+    else if (lower.includes('clear form')) {
+        clearForm();
+    }
+    else {
+        document.getElementById('voiceStatus').textContent = 'Command not recognized. Try "Assign code to [name]"';
+    }
+}
+
+// Quick assign function
+function quickAssign() {
+    const name = document.getElementById('quickName').value.trim();
+    if (!name) return;
+
+    const id = 'PERS-' + String(nextPersonId).padStart(3, '0');
+    
+    const record = {
+        id: id,
+        authorizedName: name,
+        nameType: 'Person',
+        status: 'Unknown',
+        priority: 'Medium',
+        dateCreated: new Date().toISOString().split('T')[0],
+        variants: []
+    };
+
+    authorityRecords.push(record);
+    nextPersonId++;
+    sessionAdded++;
+    
+    saveToStorage();
+    updateStats();
+    updateNextId();
+    renderRecords();
+    
+    document.getElementById('quickName').value = '';
+    document.getElementById('voiceStatus').textContent = `✅ Created ${id} for "${name}"`;
+    
+    // Show success notification
+    showNotification(`Created ${id} for "${name}"`, 'success');
+}
+
+// Form submission
+document.getElementById('nameForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const nameType = document.getElementById('nameType').value;
+    let id;
+    
+    if (nameType === 'Person') {
+        id = 'PERS-' + String(nextPersonId).padStart(3, '0');
+        nextPersonId++;
+    } else if (nameType === 'Corporate Body') {
+        id = 'CORP-' + String(nextCorpId).padStart(3, '0');
+        nextCorpId++;
+    } else {
+        id = 'FAM-' + String(nextPersonId).padStart(3, '0');
+        nextPersonId++;
+    }
+
+    const variantsText = document.getElementById('variantNames').value;
+    const variants = variantsText.split('\n').filter(v => v.trim()).map(v => v.trim());
+
+    const record = {
+        id: id,
+        authorizedName: document.getElementById('authorizedName').value,
+        nameType: nameType,
+        birthName: document.getElementById('birthName').value,
+        religiousName: document.getElementById('religiousName').value,
+        congregation: document.getElementById('congregation').value,
+        postNominals: document.getElementById('postNominals').value,
+        birthDate: document.getElementById('birthDate').value,
+        deathDate: document.getElementById('deathDate').value,
+        status: document.getElementById('status').value,
+        priority: document.getElementById('priority').value,
+        variants: variants,
+        bioNote: document.getElementById('bioNote').value,
+        dateCreated: new Date().toISOString().split('T')[0]
+    };
+
+    authorityRecords.push(record);
+    sessionAdded++;
+    
+    saveToStorage();
+    updateStats();
+    updateNextId();
+    renderRecords();
+    clearForm();
+    
+    showNotification(`Authority record created: ${id}`, 'success');
+    document.getElementById('authority-list').scrollIntoView({ behavior: 'smooth' });
+});
+
+// Clear form
+function clearForm() {
+    document.getElementById('nameForm').reset();
+    document.getElementById('priority').value = 'Medium';
+}
+
+// Update statistics
+function updateStats() {
+    document.getElementById('totalRecords').textContent = authorityRecords.length;
+    document.getElementById('sessionAdded').textContent = sessionAdded;
+}
+
+// Update next ID
+function updateNextId() {
+    document.getElementById('nextId').textContent = 'PERS-' + String(nextPersonId).padStart(3, '0');
+}
+
+// Render records
+function renderRecords() {
+    const grid = document.getElementById('namesGrid');
+    
+    if (authorityRecords.length === 0) {
+        grid.innerHTML = `
+            <div style="text-align: center; padding: 3rem; color: var(--text-secondary);">
+                <div style="font-size: 3rem; margin-bottom: 1rem; opacity: 0.3;">📋</div>
+                <p>No authority records yet. Use voice input or the form above to create your first record.</p>
+            </div>
+        `;
+        return;
+    }
+
+    let filtered = authorityRecords;
+    
+    // Apply priority filter
+    if (currentFilter !== 'All') {
+        filtered = filtered.filter(r => r.priority === currentFilter);
+    }
+
+    // Apply search filter
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    if (searchTerm) {
+        filtered = filtered.filter(r => 
+            r.authorizedName.toLowerCase().includes(searchTerm) ||
+            r.id.toLowerCase().includes(searchTerm) ||
+            (r.congregation && r.congregation.toLowerCase().includes(searchTerm))
+        );
+    }
+
+    grid.innerHTML = filtered.map(record => `
+        <div class="name-card">
+            <div class="name-card-header">
+                <div class="name-authorized">${record.authorizedName}</div>
+                <div class="name-id">${record.id}</div>
+            </div>
+            <div class="name-details">
+                <div class="name-label">Type:</div>
+                <div class="name-value">${record.nameType}</div>
+                ${record.congregation ? `
+                    <div class="name-label">Congregation:</div>
+                    <div class="name-value">${record.congregation}</div>
+                ` : ''}
+                <div class="name-label">Status:</div>
+                <div class="name-value">${record.status}</div>
+                <div class="name-label">Priority:</div>
+                <div class="name-value">
+                    <span class="priority-badge priority-${record.priority.toLowerCase()}">${record.priority}</span>
+                </div>
+                ${record.birthDate ? `
+                    <div class="name-label">Birth:</div>
+                    <div class="name-value">${record.birthDate}</div>
+                ` : ''}
+                ${record.deathDate ? `
+                    <div class="name-label">Death:</div>
+                    <div class="name-value">${record.deathDate}</div>
+                ` : ''}
+            </div>
+            ${record.bioNote ? `
+                <div style="background: var(--accent-blue); padding: 0.75rem; border-radius: var(--radius); margin-top: 1rem; font-size: 0.9rem;">
+                    ${record.bioNote}
+                </div>
+            ` : ''}
+            ${record.variants && record.variants.length > 0 ? `
+                <div class="name-variants">
+                    <h4>Variant Names:</h4>
+                    <div class="variants-list">${record.variants.join(' • ')}</div>
+                </div>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+// Filter by priority
+function filterByPriority(priority) {
+    currentFilter = priority;
+    
+    // Update button states
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.classList.remove('active');
+    });
+    event.target.classList.add('active');
+    
+    renderRecords();
+}
+
+// Filter records by search
+function filterRecords() {
+    renderRecords();
+}
+
+// Export functions
+function exportToCSV() {
+    if (authorityRecords.length === 0) {
+        showNotification('No records to export', 'warning');
+        return;
+    }
+
+    const headers = ['Authority ID', 'Authorized Name', 'Name Type', 'Birth Name', 'Religious Name', 
+                    'Congregation', 'Post-Nominals', 'Birth Date', 'Death Date', 'Status', 
+                    'Priority', 'Biographical Note', 'Variant Names', 'Date Created'];
+    
+    const csvRows = [headers.join(',')];
+    
+    authorityRecords.forEach(record => {
+        const row = [
+            record.id,
+            `"${record.authorizedName || ''}"`,
+            record.nameType || '',
+            `"${record.birthName || ''}"`,
+            `"${record.religiousName || ''}"`,
+            record.congregation || '',
+            record.postNominals || '',
+            record.birthDate || '',
+            record.deathDate || '',
+            record.status || '',
+            record.priority || '',
+            `"${(record.bioNote || '').replace(/"/g, '""')}"`,
+            `"${(record.variants || []).join(' | ')}"`,
+            record.dateCreated || ''
+        ];
+        csvRows.push(row.join(','));
+    });
+    
+    const csvContent = csvRows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `HARC_Authority_Records_${new Date().toISOString().split('T')[0]}.csv`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+    
+    showNotification(`Exported ${authorityRecords.length} records to CSV`, 'success');
+}
+
+function exportToJSON() {
+    if (authorityRecords.length === 0) {
+        showNotification('No records to export', 'warning');
+        return;
+    }
+
+    const exportData = {
+        exportDate: new Date().toISOString(),
+        totalRecords: authorityRecords.length,
+        nextPersonId: nextPersonId,
+        nextCorpId: nextCorpId,
+        records: authorityRecords
+    };
+    
+    const jsonContent = JSON.stringify(exportData, null, 2);
+    const blob = new Blob([jsonContent], { type: 'application/json' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `HARC_Authority_Records_${new Date().toISOString().split('T')[0]}.json`;
+    a.click();
+    window.URL.revokeObjectURL(url);
+    
+    showNotification(`Exported ${authorityRecords.length} records to JSON`, 'success');
+}
+
+function clearAllData() {
+    if (!confirm('⚠️ WARNING: This will permanently delete all ' + authorityRecords.length + ' authority records from browser storage.\n\nAre you sure you want to continue?\n\n(Tip: Export your data first if you want to keep a backup)')) {
+        return;
+    }
+    
+    if (!confirm('This cannot be undone. Delete all records?')) {
+        return;
+    }
+    
+    authorityRecords = [];
+    nextPersonId = 1;
+    nextCorpId = 1;
+    sessionAdded = 0;
+    
+    localStorage.removeItem('harcAuthorityRecords');
+    localStorage.removeItem('harcNextPersonId');
+    localStorage.removeItem('harcNextCorpId');
+    sessionStorage.removeItem('harcSessionAdded');
+    
+    updateStats();
+    updateNextId();
+    renderRecords();
+    
+    showNotification('All records cleared from storage', 'success');
+}
+
+// Notification system
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.style.cssText = `
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        padding: 1rem 1.5rem;
+        background: ${type === 'success' ? 'var(--success)' : type === 'warning' ? 'var(--warning)' : 'var(--navy-medium)'};
+        color: white;
+        border-radius: var(--radius);
+        box-shadow: var(--shadow-lg);
+        z-index: 10000;
+        font-weight: 600;
+        animation: slideIn 0.3s ease;
+    `;
+    notification.textContent = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => notification.remove(), 300);
+    }, 3000);
+}
+
+// Add animation styles
+const style = document.createElement('style');
+style.textContent = `
+    @keyframes slideIn {
+        from { transform: translateX(400px); opacity: 0; }
+        to { transform: translateX(0); opacity: 1; }
+    }
+    @keyframes slideOut {
+        from { transform: translateX(0); opacity: 1; }
+        to { transform: translateX(400px); opacity: 0; }
+    }
+    @keyframes slideDown {
+        from { max-height: 0; opacity: 0; }
+        to { max-height: 2000px; opacity: 1; }
+    }
+`;
+document.head.appendChild(style);
+
+// Toggle guidelines panel
+function toggleGuidelines() {
+    const panel = document.getElementById('quickGuidelines');
+    const icon = document.getElementById('toggleIcon');
+    
+    if (panel.style.display === 'none') {
+        panel.style.display = 'block';
+        icon.textContent = '▲';
+    } else {
+        panel.style.display = 'none';
+        icon.textContent = '▼';
+    }
+}
+
+// Initialize
+updateNextId();
+updateStats();
+renderRecords();
+</script>
+
+</body>
+</html>

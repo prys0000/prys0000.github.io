@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC Archival Series & ID Guide</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+    :root{
+      --bg:#f7f8fa;
+      --panel:#ffffff;
+      --border:#d5d9e5;
+      --text:#1a1f2e;
+      --muted:#6b6f80;
+      --accent:#1e3c72;      /* primary navy */
+      --accent-2:#2a5298;    /* lighter navy/blue */
+      --radius:14px;
+      --shadow:0 16px 32px rgba(15,25,55,0.08);
+      --max-width:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      background:var(--bg);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      line-height:1.45;
+      color:var(--text);
+    }
+
+    header.site-header{
+      background:linear-gradient(90deg,var(--accent) 0%,var(--accent-2) 100%);
+      color:#fff;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .header-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:1rem 1rem 1.25rem;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      justify-content:space-between;
+      row-gap:1rem;
+    }
+
+    .brand-block{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .brand-title{
+      font-size:1.1rem;
+      font-weight:600;
+      letter-spacing:-0.03em;
+      color:#fff;
+    }
+
+    .brand-sub{
+      font-size:.8rem;
+      font-weight:400;
+      opacity:.9;
+      color:#e8ecff;
+      max-width:420px;
+      line-height:1.4;
+      margin-top:.4rem;
+    }
+
+    .quick-meta{
+      color:#fff;
+      font-size:.8rem;
+      display:grid;
+      grid-auto-flow:row;
+      row-gap:.4rem;
+      text-align:right;
+    }
+
+    .tag{
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.24);
+      color:#fff;
+      font-size:.7rem;
+      font-weight:500;
+      line-height:1.2;
+      padding:.4rem .5rem;
+      border-radius:var(--radius);
+      display:inline-block;
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:0 auto 4rem;
+      padding:2rem 1rem 4rem;
+      position:relative;
+      z-index:2;
+    }
+
+    /* Layout helpers */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.5rem;
+      margin-top:2rem;
+    }
+
+    @media(min-width:768px){
+      .grid-2col{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:1.25rem 1.25rem 1rem;
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+    }
+
+    .card-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom:.75rem;
+    }
+
+    .card-title{
+      color:var(--accent);
+      font-size:.9rem;
+      font-weight:600;
+      line-height:1.3;
+      letter-spacing:-0.03em;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+    }
+
+    .card-desc{
+      font-size:.8rem;
+      line-height:1.4;
+      color:var(--muted);
+      margin-bottom:.75rem;
+    }
+
+    hr.section-split{
+      border:0;
+      border-top:1px solid var(--border);
+      margin:2rem 0 1rem;
+    }
+
+    h2.section-head{
+      font-size:1rem;
+      font-weight:600;
+      color:var(--accent);
+      margin-bottom:.5rem;
+      letter-spacing:-0.03em;
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+    }
+
+    h3.subhead{
+      font-size:.85rem;
+      font-weight:600;
+      color:var(--text);
+      margin:.75rem 0 .5rem;
+      letter-spacing:-0.02em;
+    }
+
+    p, li{
+      font-size:.8rem;
+      color:var(--text);
+    }
+
+    p + p{
+      margin-top:.6rem;
+    }
+
+    ul{
+      margin-left:1rem;
+      margin-bottom:.75rem;
+    }
+
+    ul li{
+      list-style:disc;
+      margin-left:.75rem;
+      padding-left:.25rem;
+      margin-bottom:.4rem;
+    }
+
+    .table-wrap{
+      overflow-x:auto;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:#fff;
+      box-shadow:var(--shadow);
+      margin-top:.75rem;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+      min-width:600px;
+      font-size:.75rem;
+    }
+
+    thead{
+      background:var(--accent);
+      color:#fff;
+    }
+
+    th{
+      text-align:left;
+      font-weight:500;
+      padding:.6rem .75rem;
+      white-space:nowrap;
+      border-bottom:1px solid rgba(255,255,255,0.15);
+      font-size:.7rem;
+      letter-spacing:-0.02em;
+    }
+
+    tbody td{
+      padding:.6rem .75rem;
+      border-bottom:1px solid var(--border);
+      vertical-align:top;
+      color:var(--text);
+      line-height:1.4;
+    }
+
+    code.inline{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size:.7rem;
+      background:#eef2ff;
+      color:#1e1e44;
+      border:1px solid #c7cdfa;
+      border-radius:6px;
+      padding:.15rem .4rem;
+      white-space:nowrap;
+      display:inline-block;
+      margin-top:.25rem;
+    }
+
+    .note-box{
+      background:#eef2ff;
+      border:1px solid #c7cdfa;
+      border-radius:var(--radius);
+      padding:.75rem .9rem;
+      font-size:.75rem;
+      color:#1e1e44;
+      line-height:1.4;
+      margin-top:1rem;
+    }
+
+    footer.page-footer{
+      max-width:var(--max-width);
+      margin:3rem auto 4rem;
+      padding:0 1rem;
+      font-size:.7rem;
+      color:var(--muted);
+      line-height:1.4;
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-block">
+      <div class="brand-title">
+        HARC Archival Series &amp; ID Guide
+      </div>
+      <div class="brand-sub">
+        Standard arrangement model, identifier format, and access levels for Women Religious archival collections being centralized at the Heritage &amp; Research Center (HARC).
+      </div>
+    </div>
+
+    <div class="quick-meta">
+      <div><span class="tag">Internal Use</span></div>
+      <div><strong>Scope:</strong> 10 incoming congregations' collections</div>
+      <div><strong>Audience:</strong> Achives Staff, Executive Director</div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- PURPOSE -->
+  <section>
+    <h2 class="section-head">1. Purpose</h2>
+    <p>
+      This 'draft' is a proposal concerning how HARC will describe, arrange, and identify archival materials received from multiple Women Religious Congregations. It is intended for archival staff responsible to the ingestion, processing, description, and data entry into ArchivesSpace and related systems.
+    </p>
+    <div class="note-box">
+      Goal: To create a structural model that standardizes the description of every box, folder, and item within each congregation using a consistent series structure and identifier logic. This approach will enable us to merge collections into a single, sustainable repository while preserving the provenance of each collection.
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <section>
+    <h2 class="section-head">
+        2. Collection Registry <a target="_blank" rel="noopener noreferrer" href="https://harc.libraryhost.com/repositories/resources?utf8=%E2%9C%93&amp;action=index&amp;q%5B%5D=*&amp;limit=resource&amp;op%5B%5D=&amp;field%5B%5D=title&amp;sort=identifier+asc&amp;commit=Sort">(HARC Collection Numbers)</a>
+    </h2>
+    <p>
+        Each Congregation receives a permanent 3-digit collection number. This number is part of all identifiers for that Congregation.
+    </p>
+</section>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>HARC ID</th>
+            <th>Congregation / Collection</th>
+            <th>Primary Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>001</td>
+			<td>Sisters of Charity of the Blessed Virgin Mary</td>
+            <td>Dubuque, Iowa</td>
+
+          </tr>
+          <tr>
+            <td>002</td>
+			 <td>Sisters of the Holy Cross</td>
+            <td>Merrill, Wisconsin</td>
+
+          </tr>
+          <tr>
+            <td>003</td>
+			<td>Sisters of the Most Precious Blood</td>
+            <td>O’Fallon, Missouri</td>
+
+          </tr>
+          <tr>
+            <td>004</td>
+			<td>Sisters of Saint Agnes</td>
+            <td>Fond du Lac, Wisconsin</td>
+
+          </tr>
+          <tr>
+            <td>005</td>
+			<td>Sisters of Saint Francis of the Holy Cross</td>
+            <td>Green Bay, Wisconsin</td>
+
+          </tr>
+          <tr>
+            <td>006</td>
+			<td>Sisters of the Divine Savior Collection</td>
+			<td>Green Bay, Wisconsin</td>
+          </tr>
+
+          <tr>
+            <td>007</td>
+            <td>Sisters of St. Casimir</td>
+            <td>Chicago, Illinois</td>
+          </tr>
+		  
+          <tr>
+            <td>008</td>
+            <td>Ladysmith Servite Sisters (Sister Servants of Mary)</td>
+            <td>Ladysmith, Wisconsin</td>
+          </tr>
+          <tr>
+            <td>009</td>
+            <td>Sisters of Mercy of the Holy Cross Collection</td>
+            <td>Notre Dame, Indiana</td>
+          </tr>
+          <tr>
+            <td>010</td>
+			<td>Our Lady of Victory Missionary Sisters (Victory Noll)</td>
+            <td>Huntington, Indiana</td>
+
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- IDENTIFIER FORMAT -->
+  <section>
+    <h2 class="section-head">
+        3. Identifier Format <a target="_blank" rel="noopener noreferrer" href="https://harc.libraryhost.com/repositories/2/resources/3">(HARC IDs)</a>
+    </h2>
+    <p>
+        Every described component (series, subseries, box, folder, and when present, item) is assigned a structured HARC ID.
+    </p>
+</section>
+
+    <p>
+      The HARC ID encodes the physical hierarchy of the record —
+      <code class="inline">collection → series → subseries → box → folder → item</code>.
+    </p>
+
+    <p>
+      The ID functions as <strong>both a persistent identifier and a physical retrieval path</strong>. If a record is separated from context, or systems are offline, <strong>staff can still locate the correct box and folder</strong>.
+    </p>
+
+    <h3 class="subhead">Identifier Pattern</h3>
+    <p>
+      The HARC identifier encodes the physical hierarchy (<code class="inline">collection, series, subseries, box, folder, item</code> if needed).
+      Use <code class="inline">0000</code> for items when you need to number individual items.
+    </p>
+
+    <div class="table-wrap" style="min-width:0;">
+      <table style="min-width:0;">
+        <thead>
+          <tr>
+            <th style="white-space:nowrap;">Pattern</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="white-space:nowrap;">
+              <code class="inline">HARC_CC_S&lt;series&gt;[_S&lt;subseries&gt;]_B&lt;box&gt;_F&lt;folder&gt;[_I&lt;item&gt;]</code>
+            </td>
+            <td>
+              <ul style="margin-bottom:0;">
+                <li><code class="inline">CC</code> = 3-digit Congregation code (e.g. <code class="inline">004</code>).</li>
+                <li><code class="inline">S&lt;series&gt;</code> = Series number (001–010 model).</li>
+                <li><code class="inline">S&lt;subseries&gt;</code> = Optional subseries number.</li>
+                <li><code class="inline">B&lt;box&gt;</code> = Box number within that series / subseries.</li>
+                <li><code class="inline">F&lt;folder&gt;</code> = Folder number within that box.</li>
+                <li><code class="inline">I&lt;item&gt;</code> = Optional item number within that folder (use <code class="inline">0000</code> if needed).</li>
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td style="white-space:nowrap;">
+              <code class="inline">HARC_004_S1_B3_F12</code>
+            </td>
+            <td>
+              Congregation 004 → Series 1 → Box 3 → Folder 12
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- AUTHORITY CONTROL -->
+  <section>
+    <h2 class="section-head">4. Authority Control</h2>
+    
+    <p>
+      Many Sisters share the same religious name, and one sister may be listed under multiple variations. <strong>Authority control guarantees that each person is represented by a single identity in our system.</strong>
+    </p>
+
+    <div style="background: #fff8e6; border-left: 4px solid #f57c00; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+      <h3 class="subhead" style="color: #ef6c00; margin-top: 0;">Why Track Names</h3>
+      <p style="margin-bottom: 0;">
+        Without authority control, <strong>"Sister Mary Catherine,"</strong> <strong>"Sr. M. C. Smith,"</strong> and <strong>"Mary Catherine Smith, OSF"</strong> might look like three different people. Authority control gives each person one official identity and unique ID, preventing confusion and allowing researchers to follow a specific sister across years, boxes, and ministries.
+      </p>
+    </div>
+
+    <div class="grid grid-2col" style="margin-top: 2rem;">
+      <!-- LEFT: Key Principles -->
+      <div>
+        <h3 class="subhead">Key Principles</h3>
+        <ul style="line-height: 1.8;">
+          <li>We record <strong>one authorized name</strong> plus a unique internal ID (e.g., <code class="inline">PERS-042</code>)</li>
+          <li>All known <strong>name variants</strong> are attached to that ID</li>
+          <li>Researchers and staff can track that specific sister (or institution) <strong>consistently across the entire collection</strong></li>
+        </ul>
+
+        <div style="background: var(--panel); border: 2px solid var(--border); padding: 1.25rem; border-radius: var(--radius); margin-top: 1.5rem;">
+          <h4 style="color: var(--accent); margin-bottom: 0.75rem;">Authorized Name Format (for Sisters)</h4>
+          <div style="background: #f5f7fa; padding: 1rem; border-radius: 6px; font-family: 'Courier New', Courier, monospace; font-size: 0.95rem; margin-bottom: 0.75rem;">
+            Surname, Given Name [Religious Name], Post-nominals
+          </div>
+          <p style="margin-bottom: 0.5rem;"><strong>Example:</strong> <code class="inline">Smith, Mary Catherine, OSF</code></p>
+          <p style="font-size: 0.9rem; color: var(--muted); margin-bottom: 0;">
+            This format uses the birth surname to distinguish between different people who share the same religious name.
+          </p>
+        </div>
+      </div>
+
+      <!-- RIGHT: Workflow -->
+      <div>
+        <h3 class="subhead">How to Apply It While Processing</h3>
+        <p>As you describe folders and encounter names:</p>
+        
+        <ol style="line-height: 1.8; padding-left: 1.5rem;">
+          <li>
+            <strong>Write down every sister or institution name</strong> exactly as it appears in the document 
+            (<em>"Sister Mary Catherine," "Sr. M.C. Smith,"</em> etc.)
+          </li>
+          <li>
+            <strong>Record where you saw it</strong> in the Name Extraction Worksheet 
+            (collection, series, box, folder)
+          </li>
+          <li>
+            <strong>Assign a priority level</strong> based on frequency and importance:
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+              <span style="background: #d32f2f; color: white; padding: 0.35rem 0.75rem; border-radius: 6px; text-align: center; font-size: 0.85rem; font-weight: 600;">High Priority</span>
+              <span style="background: #f57c00; color: white; padding: 0.35rem 0.75rem; border-radius: 6px; text-align: center; font-size: 0.85rem; font-weight: 600;">Medium Priority</span>
+              <span style="background: #33691e; color: white; padding: 0.35rem 0.75rem; border-radius: 6px; text-align: center; font-size: 0.85rem; font-weight: 600;">Low Priority</span>
+            </div>
+            <p style="font-size: 0.85rem; color: var(--muted); margin-top: 0.5rem;">
+              High = leadership roles, appears frequently. Low = one-off correspondent or mention.
+            </p>
+          </li>
+          <li>
+            <strong>If an authority record already exists,</strong> use that authorized form + ID in your description 
+            (e.g., <code class="inline">Smith, Mary Catherine, OSF [PERS-042]</code>)
+          </li>
+          <li>
+            <strong>If no record exists</strong> and it's High or Medium priority, flag it for later authority record creation. 
+            <strong>Don't stop processing to create it immediately.</strong>
+          </li>
+        </ol>
+      </div>
+    </div>
+
+    <div style="background: #e3f2fd; border: 2px solid #1976d2; padding: 1.5rem; border-radius: var(--radius); margin-top: 2rem;">
+      <h3 class="subhead" style="color: #1565c0; margin-top: 0;">The Priority System</h3>
+      <p style="margin-bottom: 0;">
+        We build full authority records first for <strong>High/Medium names</strong> (founders, leaders, frequently mentioned figures). 
+        <strong>Low priority names can be handled later</strong>, allowing you to maintain processing momentum.
+      </p>
+    </div>
+
+    <div style="margin-top: 2rem; padding: 1.25rem; background: var(--panel); border: 2px solid var(--accent); border-radius: var(--radius);">
+      <p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.75rem;">
+        <span style="font-size: 1.5rem;">📖</span>
+        <span>
+          <strong>Complete Authority Control Guide:</strong> 
+          <a href="/donor/controlled-name-authority-system" style="color: var(--accent); text-decoration: underline;">
+            View full documentation and implementation system →
+          </a>
+        </span>
+      </p>
+    </div>
+
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- STANDARD SERIES MODEL -->
+  <section>
+    <h2 class="section-head">5. Standard Series Model</h2>
+    <p>
+      The Series Model will ensure incoming collections are <i><strong>arranged according to a shared hierarchical structure</strong></i>. This standardization <strong>supports consistent description</strong> <strong>and access </strong>across functions such as administration, membership, ministries, property, and communications, <strong>regardless of original series names or internal groupings</strong> used by the congregation.
+    </p>
+
+    <div class="table-wrap">
+      <figure class="table" style="width:100%; margin:0;">
+        <table class="ck-table-resized">
+          <colgroup><col style="width:7.78%;"><col style="width:21.82%;"><col style="width:55.78%;"><col style="width:14.62%;"></colgroup>
+          <thead>
+            <tr>
+              <th>Series No.</th>
+              <th>Title</th>
+              <th>Content Focus / Sub-Series / Files</th>
+              <th>Typical Access Level</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>1</strong></span></td>
+              <td>Governance &amp; Administration</td>
+              <td>Constitutions, chapter records, leadership files, policies, province/region administration</td>
+              <td><span style="color:#ef6c00;"><strong>Mixed</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>2</strong></span></td>
+              <td>Congregation History &amp; Identity</td>
+              <td>Founding, anniversaries, annals/chronicles, heritage documentation</td>
+              <td><span style="color:#33691e;"><strong>Open</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>3</strong></span></td>
+              <td>Membership &amp; Sisters’ Records</td>
+              <td>Vocation, novitiate, professions, necrologies/obituaries, directories, personnel-related materials</td>
+              <td><span style="color:#d32f2f;"><strong>Restricted</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>4</strong></span></td>
+              <td>Ministry &amp; Apostolic Works</td>
+              <td>Education, healthcare, social service, parish work, missions (domestic and international)</td>
+              <td><span style="color:#f57c00;"><strong>Mixed</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>5</strong></span></td>
+              <td>Properties &amp; Facilities</td>
+              <td>Motherhouses, convents, mission houses, property transactions, architectural plans</td>
+              <td><span style="color:#f57c00;"><strong>Mixed</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>6</strong></span></td>
+              <td>Financial &amp; Legal Records</td>
+              <td>Budgets, audits, investments, insurance, development/fundraising</td>
+              <td><span style="color:#c62828;"><strong>Restricted</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>7</strong></span></td>
+              <td>Communications &amp; Publications</td>
+              <td>Newsletters, magazines, brochures, PR, press releases, websites, media output</td>
+              <td><span style="color:#33691e;"><strong>Open</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>8</strong></span></td>
+              <td>External Relations &amp; Affiliations</td>
+              <td>Dioceses, Vatican, consortia, partner organizations, lay associates</td>
+              <td><span style="color:#f57c00;"><strong>Mixed</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>9</strong></span></td>
+              <td>Visual &amp; Audio Materials</td>
+              <td>Artwork, photographs, slides, negatives, films, audio/video recordings</td>
+              <td><span style="color:#f57c00;"><strong>Mixed</strong></span></td>
+            </tr>
+            <tr>
+              <td style="text-align:center;"><span style="font-family:'Courier New', Courier, monospace;"><strong>10</strong></span></td>
+              <td>Reference &amp; Research Files</td>
+              <td>Subject files, clippings, background research, and non-record publications kept for context</td>
+              <td><span style="color:#33691e;"><strong>Open</strong></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </figure>
+    </div>
+    <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem;">
+      <em>Sub-series are more specific groupings within a series, such as an individual school, hospital, province, or region.</em>
+    </p>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- IMPLEMENTATION WORKFLOW -->
+  <section>
+    <h2 class="section-head">6. Implementation Workflow</h2>
+
+    <div class="grid grid-2col">
+      <!-- Step 1 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Step 1. Inventory Collections</strong></div>
+        </div>
+        <div class="card-desc">
+          Build or review an itemized box/folder inventory before reboxing or re-filing.
+        </div>
+        <ul>
+          <li>Document the current order exactly as received.</li>
+          <li>Flag material that is obviously restricted (personnel, canonical seal, health).</li>
+          <li>Note formats requiring special handling (AV, fragile, oversized, born-digital).</li>
+        </ul>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Step 2. Map to Standard Series</strong></div>
+        </div>
+        <div class="card-desc">
+          Crosswalk each legacy series into the 001–010 model.
+        </div>
+        <ul>
+          <li>Create a simple crosswalk: “Original Series Title → HARC Series # / Title.”</li>
+          <li>Assign subseries numbers for institutions, provinces, or ministries.</li>
+          <li>Note any boxes that span multiple functional areas (plan to split at folder level later, not during first pass).</li>
+        </ul>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Step 3. Assign HARC IDs</strong></div>
+        </div>
+        <div class="card-desc">
+          Assign identifiers at the folder level (and item level if we’re describing individual items).
+        </div>
+        <ul>
+          <li>Record box and folder numbers in container fields (Top Container / Subcontainer in ArchivesSpace).</li>
+        </ul>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Step 4. Create/Update Finding Aid</strong></div>
+        </div>
+        <div class="card-desc">
+          Build or update the resource record and component hierarchy.
+        </div>
+        <ul>
+          <li>Write scope/arrangement notes at the series and subseries level.</li>
+          <li>Apply access notes and restriction statements (see Section 8).</li>
+          <li>Confirm that each described folder has a unique HARC ID.</li>
+        </ul>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Step 5. Phase In for Legacy Collections</strong></div>
+        </div>
+        <div class="card-desc">
+          Newly transferred or newly processed boxes follow this model immediately.
+        </div>
+        <ul>
+          <li>Legacy collections can be brought into conformance in phases to avoid disrupting researcher access.</li>
+          <li>Do not re-number boxes in-use unless staff sign-off is documented.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- ARRANGEMENT PRINCIPLES -->
+  <section>
+    <h2 class="section-head">7. Arrangement Principles (By Series)</h2>
+
+    <div class="grid grid-2col">
+      <!-- 001 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 001 — Governance &amp; Administration</strong></div>
+        </div>
+        <div class="card-desc">
+          Leadership, constitutions, chapter records, province/regional governance.
+        </div>
+        <ul>
+          <li>Arrange by leadership term / chapter year, then by record type.</li>
+          <li>Keep chapter proceedings together by chapter event.</li>
+          <li>Some governance records carry canonical or personnel restrictions.</li>
+        </ul>
+      </div>
+
+      <!-- 002 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 002 — Congregation History &amp; Identity</strong></div>
+        </div>
+        <div class="card-desc">
+          Founding, anniversaries, commemorations, annals, heritage materials.
+        </div>
+        <ul>
+          <li>Arrange chronologically by era/event.</li>
+          <li>Then sort by record type (annals, historical write-ups, anniversary books).</li>
+          <li>Founders’ material may predate formal establishment; keep it together.</li>
+        </ul>
+      </div>
+
+      <!-- 003 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 003 — Membership &amp; Sisters’ Records</strong></div>
+        </div>
+        <div class="card-desc">
+          Vocation, novitiate, vows, necrologies/obituaries, personnel-type information.
+        </div>
+        <ul>
+          <li>Arrange alphabetically by sister’s surname OR by entrance year, depending on function.</li>
+          <li>Apply restrictions for privacy and canonical/health information.</li>
+          <li>Some subseries will remain closed or mediated access only.</li>
+        </ul>
+      </div>
+
+      <!-- 004 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 004 — Ministry &amp; Apostolic Works</strong></div>
+        </div>
+        <div class="card-desc">
+          Schools, hospitals, missions, social service work, parish ministry.
+        </div>
+        <ul>
+          <li>Arrange by institution/ministry name first.</li>
+          <li>Within each institution, arrange chronologically.</li>
+          <li>If ministries are geographically scattered, geographic arrangement may replace institutional arrangement.</li>
+        </ul>
+      </div>
+
+      <!-- 005 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 005 — Properties &amp; Facilities</strong></div>
+        </div>
+        <div class="card-desc">
+          Motherhouses, convents, mission houses, property files, architectural drawings.
+        </div>
+        <ul>
+          <li>Arrange alphabetically by property or house name.</li>
+          <li>Within each property, arrange chronologically (construction, purchase, renovation, closure).</li>
+          <li>Keep plans/drawings with that property’s file.</li>
+        </ul>
+      </div>
+
+      <!-- 006 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 006 — Financial &amp; Legal Records</strong></div>
+        </div>
+        <div class="card-desc">
+          Audits, ledgers, legal counsel, insurance, development/fundraising.
+        </div>
+        <ul>
+          <li>Arrange by fiscal year, then by record type.</li>
+          <li>Follow retention requirements; some records may be destroyed after retention period.</li>
+          <li>These records are typically restricted/confidential.</li>
+        </ul>
+      </div>
+
+      <!-- 007 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 007 — Communications &amp; Publications</strong></div>
+        </div>
+        <div class="card-desc">
+          Newsletters, magazines, brochures, PR, press, website/social media capture.
+        </div>
+        <ul>
+          <li>Arrange alphabetically by publication/title, then chronologically by issue.</li>
+          <li>Maintain complete runs together whenever possible.</li>
+          <li>Most of this series is open for research.</li>
+        </ul>
+      </div>
+
+      <!-- 008 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 008 — External Relations &amp; Affiliations</strong></div>
+        </div>
+        <div class="card-desc">
+          Diocesan, Vatican, consortia, partner organizations, lay associates.
+        </div>
+        <ul>
+          <li>Arrange alphabetically by organization or entity name.</li>
+          <li>Then arrange chronologically within each organization’s file.</li>
+          <li>Some Vatican or diocesan correspondence may require special handling.</li>
+        </ul>
+      </div>
+
+      <!-- 009 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 009 — Visual &amp; Audio Materials</strong></div>
+        </div>
+        <div class="card-desc">
+          Photographs, slides, negatives, film, audio/video, born-digital media.
+        </div>
+        <ul>
+          <li>Arrange first by format (photographs vs. audio vs. video).</li>
+          <li>Then arrange chronologically or by subject, whichever is most stable and discoverable.</li>
+          <li>Note preservation/storage needs (cold storage, AV handling).</li>
+        </ul>
+      </div>
+
+      <!-- 010 -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Series 010 — Reference &amp; Research Files</strong></div>
+        </div>
+        <div class="card-desc">
+          Subject and background files; not always original congregation records.
+        </div>
+        <ul>
+          <li>Arrange alphabetically by subject or topic.</li>
+          <li>Within each subject, arrange chronologically.</li>
+          <li>Clearly distinguish between congregation-created records and collected reference material.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- ACCESS & RESTRICTIONS -->
+  <section>
+    <h2 class="section-head">8. Access &amp; Restrictions</h2>
+
+    <div class="grid grid-2col">
+
+      <!-- Open -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Access Level: Open</strong></div>
+        </div>
+        <div class="card-desc">
+          Generally available to researchers.
+        </div>
+        <ul>
+          <li>Examples: Series 002 (Congregation History &amp; Identity), Series 007 (Communications &amp; Publications), Series 010 (Reference &amp; Research Files).</li>
+          <li>Most public-facing publications, anniversary material, newsletters, etc. fall here.</li>
+        </ul>
+      </div>
+
+      <!-- Restricted – Privacy -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Access Level: Restricted – Privacy</strong></div>
+        </div>
+        <div class="card-desc">
+          Protects living individuals and sensitive personal data.
+        </div>
+        <ul>
+          <li>Examples: Series 003 (Membership &amp; Sisters’ Records), Series 009 (Visual &amp; Audio Materials when identifiable individuals are present).</li>
+          <li>Apply closures on personnel-type content, medical/spiritual direction material, canonical files, and similar records.</li>
+        </ul>
+      </div>
+
+      <!-- Restricted – Confidential / Legal / Financial -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Access Level: Restricted – Confidential / Legal / Financial</strong></div>
+        </div>
+        <div class="card-desc">
+          Protects financial, legal, or governance-sensitive information.
+        </div>
+        <ul>
+          <li>Examples: Series 006 (Financial &amp; Legal Records); portions of Series 001 (Governance &amp; Administration).</li>
+          <li>Some of these records are permanently closed or require case-by-case approval.</li>
+        </ul>
+      </div>
+
+      <!-- Restricted – Canonical -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title"><strong>Access Level: Restricted – Canonical</strong></div>
+        </div>
+        <div class="card-desc">
+          Protects materials under canon law or internal Congregation discipline.
+        </div>
+        <ul>
+          <li>Covers spiritual direction, formation evaluations, canonical investigations, etc.</li>
+          <li>Treat these as closed or strictly mediated; document the restriction in ArchivesSpace.</li>
+          <li>Record restrictions in “Conditions Governing Access” / “Conditions Governing Use” notes at the component level. Do not expose confidential detail in public notes.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  Heritage &amp; Research Center (HARC) — Archival Processing &amp; Description Program<br/>
+  This guidance standardizes intake, arrangement, description, and access control across Women Religious archival collections.
+</footer>
+
+</body>
+</html>
