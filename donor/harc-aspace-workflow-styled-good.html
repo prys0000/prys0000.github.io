@@ -1,0 +1,1074 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HARC ArchivesSpace Workflow Guide</title>
+
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap");
+
+    :root{
+      --bg:#f7f8fa;
+      --panel:#ffffff;
+      --border:#d5d9e5;
+      --text:#1a1f2e;
+      --muted:#6b6f80;
+      --accent:#1e3c72;      /* primary navy */
+      --accent-2:#101929;    /* darker navy/blue */
+      --radius:14px;
+      --shadow:0 16px 32px rgba(15,25,55,0.08);
+      --max-width:1200px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0;}
+
+    body{
+      background:var(--bg);
+      font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+      line-height:1.45;
+      color:var(--text);
+    }
+
+    header.site-header{
+      background:linear-gradient(90deg,var(--accent) 0%,var(--accent-2) 100%);
+      color:#fff;
+      box-shadow:0 8px 20px rgba(0,0,0,0.25);
+    }
+
+    .header-inner{
+      max-width:var(--max-width);
+      margin:0 auto;
+      padding:1rem 1rem 1.25rem;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:flex-start;
+      justify-content:space-between;
+      row-gap:1rem;
+    }
+
+    .brand-block{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .brand-title{
+      font-size:1.1rem;
+      font-weight:600;
+      letter-spacing:-0.03em;
+      color:#fff;
+    }
+
+    .brand-sub{
+      font-size:1.1rem;
+      font-weight:400;
+      opacity:.9;
+      color:#e8ecff;
+      max-width:420px;
+      line-height:1.4;
+      margin-top:.4rem;
+    }
+
+    .quick-meta{
+      color:#fff;
+      font-size:1rem;
+      display:grid;
+      grid-auto-flow:row;
+      row-gap:.4rem;
+      text-align:right;
+    }
+
+    .tag{
+      background:rgba(255,255,255,0.12);
+      border:1px solid rgba(255,255,255,0.24);
+      color:#fff;
+      font-size:.7rem;
+      font-weight:500;
+      line-height:1.2;
+      padding:.4rem .5rem;
+      border-radius:var(--radius);
+      display:inline-block;
+    }
+
+    .access-links{
+      display:flex;
+      gap:.75rem;
+      margin-top:.75rem;
+      flex-wrap:wrap;
+    }
+
+    .access-link{
+      background:rgba(255,255,255,0.15);
+      border:1px solid rgba(255,255,255,0.3);
+      color:#fff;
+      text-decoration:none;
+      font-size:.75rem;
+      font-weight:500;
+      padding:.5rem .85rem;
+      border-radius:var(--radius);
+      transition:all 0.2s ease;
+      display:inline-flex;
+      align-items:center;
+      gap:.4rem;
+    }
+
+    .access-link:hover{
+      background:rgba(255,255,255,0.25);
+      transform:translateY(-1px);
+    }
+
+    main{
+      max-width:var(--max-width);
+      margin:0 auto 4rem;
+      padding:2rem 1rem 1rem;
+      position:relative;
+      z-index:2;
+    }
+
+    /* Layout helpers */
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:1.5rem;
+      margin-top:2rem;
+    }
+
+    @media(min-width:768px){
+      .grid-2col{
+        grid-template-columns:1fr 1fr;
+      }
+    }
+
+    .card{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:1.25rem 1.25rem 1rem;
+      display:flex;
+      flex-direction:column;
+      min-width:0;
+    }
+
+    .card-header{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      margin-bottom:.75rem;
+    }
+
+    .card-title{
+      color:var(--accent);
+      font-size:.9rem;
+      font-weight:600;
+      line-height:1.3;
+      letter-spacing:-0.03em;
+      display:flex;
+      flex-wrap:wrap;
+      gap:.5rem;
+    }
+
+    .card-desc{
+      font-size:.8rem;
+      line-height:1.4;
+      color:var(--muted);
+      margin-bottom:.75rem;
+    }
+
+    hr.section-split{
+      border:0;
+      border-top:1px solid var(--border);
+      margin:2rem 0 1rem;
+    }
+
+    h2.section-head{
+      font-size:1rem;
+      font-weight:600;
+      color:var(--accent);
+      margin-bottom:.5rem;
+      letter-spacing:-0.03em;
+      display:flex;
+      align-items:center;
+      gap:.5rem;
+    }
+
+    h3.subhead{
+      font-size:.85rem;
+      font-weight:600;
+      color:var(--text);
+      margin:.75rem 0 .5rem;
+      letter-spacing:-0.02em;
+    }
+
+    h4.mini-head{
+      font-size:.8rem;
+      font-weight:600;
+      margin:.75rem 0 .5rem;
+      color:var(--text);
+    }
+
+    p, li{
+      font-size:.8rem;
+      color:var(--text);
+    }
+
+    p + p{
+      margin-top:.6rem;
+    }
+
+    ul{
+      margin-left:1rem;
+      margin-bottom:.75rem;
+    }
+
+    ul li{
+      list-style:disc;
+      margin-left:.75rem;
+      padding-left:.25rem;
+      margin-bottom:.4rem;
+    }
+
+    ol{
+      margin-left:1rem;
+      margin-bottom:.75rem;
+    }
+
+    ol li{
+      margin-left:.75rem;
+      padding-left:.25rem;
+      margin-bottom:.6rem;
+    }
+
+    .sub{
+      margin-top:.25rem;
+      padding-left:1.25rem;
+    }
+
+    code.inline{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      background:#f1f5f9;
+      border:1px solid #cbd5e1;
+      padding:.15rem .35rem;
+      border-radius:6px;
+      font-size:.75rem;
+      color:#334155;
+    }
+
+    strong{
+      font-weight:600;
+      color:var(--text);
+    }
+
+    a{
+      color:#2563eb;
+      text-decoration:none;
+    }
+
+    a:hover{
+      text-decoration:underline;
+    }
+
+    /* Workflow steps */
+    .workflow-overview{
+      background:var(--panel);
+      border:2px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:1.5rem;
+      margin-bottom:2rem;
+    }
+
+    .workflow-steps{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(140px, 1fr));
+      gap:1rem;
+      margin-top:1.25rem;
+    }
+
+    .workflow-step{
+      background:#f8fafc;
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:1rem .75rem;
+      text-align:center;
+      position:relative;
+    }
+
+    .workflow-step::after{
+      content:'→';
+      position:absolute;
+      right:-.75rem;
+      top:50%;
+      transform:translateY(-50%);
+      color:var(--accent);
+      font-weight:700;
+      font-size:1.2rem;
+      z-index:1;
+    }
+
+    .workflow-step:last-child::after{
+      display:none;
+    }
+
+    .workflow-step-number{
+      background:var(--accent);
+      color:#fff;
+      width:2rem;
+      height:2rem;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-weight:700;
+      margin:0 auto .5rem auto;
+      font-size:.85rem;
+    }
+
+    .workflow-step strong{
+      display:block;
+      font-size:.75rem;
+      font-weight:600;
+      color:var(--text);
+      margin-bottom:.25rem;
+    }
+
+    .workflow-step p{
+      font-size:.7rem;
+      color:var(--muted);
+      margin:0;
+    }
+
+    /* Info boxes */
+    .info-box{
+      background:#e0f2fe;
+      border:2px solid #0ea5e9;
+      border-radius:10px;
+      padding:1rem;
+      margin:1rem 0;
+      font-size:.8rem;
+      line-height:1.6;
+    }
+
+    .info-box strong{
+      color:#0369a1;
+    }
+
+    .warning-box{
+      background:#fef3c7;
+      border:2px solid #f59e0b;
+      border-radius:10px;
+      padding:1rem;
+      margin:1rem 0;
+      font-size:.8rem;
+      line-height:1.6;
+    }
+
+    .warning-box strong{
+      color:#b45309;
+    }
+
+    .success-box{
+      background:#dcfce7;
+      border:2px solid #10b981;
+      border-radius:10px;
+      padding:1rem;
+      margin:1rem 0;
+      font-size:.8rem;
+      line-height:1.6;
+    }
+
+    .success-box strong{
+      color:#047857;
+    }
+
+    /* Collapsible details */
+    details{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:10px;
+      padding:0;
+      margin:1rem 0;
+      box-shadow:var(--shadow);
+    }
+
+    summary{
+      cursor:pointer;
+      list-style:none;
+      padding:.85rem 1rem;
+      font-weight:600;
+      font-size:.85rem;
+      color:var(--accent);
+      border-radius:10px;
+      transition:background 0.2s ease;
+    }
+
+    summary:hover{
+      background:#f8fafc;
+    }
+
+    summary::-webkit-details-marker{
+      display:none;
+    }
+
+    summary::before{
+      content:'▶';
+      display:inline-block;
+      margin-right:.5rem;
+      transition:transform 0.2s ease;
+      font-size:.7rem;
+    }
+
+    details[open] summary::before{
+      transform:rotate(90deg);
+    }
+
+    .details-body{
+      padding:0 1.25rem 1.25rem;
+    }
+
+    /* TOC */
+    .toc{
+      background:var(--panel);
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:1.5rem;
+      margin-bottom:2rem;
+    }
+
+    .toc h3{
+      margin-top:0;
+      color:var(--accent);
+      font-size:.9rem;
+      font-weight:600;
+      margin-bottom:1rem;
+    }
+
+    .toc ol{
+      margin:0;
+      padding-left:1.5rem;
+    }
+
+    .toc li{
+      margin-bottom:.5rem;
+    }
+
+    .toc a{
+      color:var(--accent);
+      text-decoration:none;
+      font-weight:500;
+      font-size:.8rem;
+    }
+
+    .toc a:hover{
+      text-decoration:underline;
+    }
+
+    /* Phase sections */
+    .phase-indicator{
+      display:inline-block;
+      background:var(--accent);
+      color:#fff;
+      font-size:.7rem;
+      font-weight:600;
+      padding:.35rem .75rem;
+      border-radius:999px;
+      margin-bottom:.75rem;
+      text-transform:uppercase;
+      letter-spacing:.5px;
+    }
+
+    /* Footer */
+    .page-footer{
+      background:linear-gradient(90deg,var(--accent) 0%,var(--accent-2) 100%);
+      color:#fff;
+      text-align:center;
+      padding:1.5rem 1rem;
+      font-size:.75rem;
+      line-height:1.6;
+      opacity:.9;
+    }
+
+    /* Responsive */
+    @media (max-width:768px){
+      .workflow-steps{
+        grid-template-columns:1fr;
+      }
+      .workflow-step::after{
+        content:'↓';
+        right:50%;
+        top:auto;
+        bottom:-.75rem;
+        transform:translateX(50%);
+      }
+      .header-inner{
+        flex-direction:column;
+      }
+      .quick-meta{
+        text-align:left;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand-block">
+      <div class="brand-title">HARC ArchivesSpace Workflow Guide</div>
+      <div class="brand-sub">Complete workflow from accession to digital object creation and publication</div>
+      <div class="access-links">
+        <a class="access-link" href="https://harc.libraryhost.com/admin" target="_blank" rel="noopener">🔐 Staff Sign-In</a>
+        <a class="access-link" href="https://harc.libraryhost.com/" target="_blank" rel="noopener">👁️ Public Access</a>
+      </div>
+    </div>
+    <div class="quick-meta">
+      <span class="tag">Version 4.1.1+ Compatible</span>
+      <span class="tag">Last Updated: October 2025</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- Workflow Overview -->
+  <div class="workflow-overview">
+    <h2 style="font-size:1rem;font-weight:600;color:var(--accent);margin:0 0 .5rem 0;text-align:center;">📋 Complete Workflow Overview</h2>
+    <p style="text-align:center;margin-bottom:1.5rem;font-size:.8rem;color:var(--muted);">Follow this sequence for proper archival processing in ArchivesSpace</p>
+    <div class="workflow-steps">
+      <div class="workflow-step">
+        <div class="workflow-step-number">1</div>
+        <strong>Create Accession</strong>
+        <p>Initial intake record</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-number">2</div>
+        <strong>Create Resource</strong>
+        <p>Collection-level description</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-number">3</div>
+        <strong>Bulk Upload</strong>
+        <p>Mass import digital objects</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-number">4</div>
+        <strong>Digital Objects</strong>
+        <p>Individual item processing</p>
+      </div>
+      <div class="workflow-step">
+        <div class="workflow-step-number">5</div>
+        <strong>Publication</strong>
+        <p>Public access & maintenance</p>
+      </div>
+    </div>
+    <div class="info-box" style="margin-top:1.5rem;margin-bottom:0;">
+      <strong>Important:</strong> Digital object creation can only be done AFTER steps 1-3 are completed. Each step builds upon the previous one.
+    </div>
+  </div>
+
+  <!-- Table of Contents -->
+  <nav class="toc">
+    <h3>📋 Guide Navigation</h3>
+    <ol>
+      <li><a href="#phase-1">Phase 1: Create Accession Record</a></li>
+      <li><a href="#phase-2">Phase 2: Create Resource Record</a></li>
+      <li><a href="#phase-3">Phase 3: Bulk Upload Digital Objects</a></li>
+      <li><a href="#phase-4">Phase 4: Individual Digital Object Processing</a></li>
+      <li><a href="#phase-5">Phase 5: Publication & Maintenance</a></li>
+    </ol>
+  </nav>
+
+  <hr class="section-split" />
+
+  <!-- PHASE 1: ACCESSION -->
+  <section id="phase-1">
+    <span class="phase-indicator">Phase 1</span>
+    <h2 class="section-head">Create Accession Record</h2>
+    <p style="margin-bottom:1.5rem;">
+      The accession record documents the initial receipt of materials and serves as the foundation for all subsequent processing. This is the required first step in the ArchivesSpace workflow.
+    </p>
+
+    <div class="info-box">
+      You cannot create resource records or digital objects without first creating an accession.
+    </div>
+
+    <div class="grid grid-2col">
+      <!-- Required Fields -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>Required Accession Fields</strong>
+          </div>
+        </div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Accession ID:</strong> Unique identifier (auto-generated or manual)</li>
+          <li><strong>Title:</strong> Brief descriptive title of the materials</li>
+          <li><strong>Accession Date:</strong> Date materials were received</li>
+          <li><strong>Content Description:</strong> Summary of the materials</li>
+          <li><strong>Condition Description:</strong> Physical state of materials</li>
+          <li><strong>Extent:</strong> Quantity and type of materials</li>
+        </ul>
+      </div>
+
+      <!-- Optional Fields -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>Recommended Fields</strong>
+          </div>
+        </div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Provenance:</strong> Source or donor information</li>
+          <li><strong>General Note:</strong> Additional context</li>
+          <li><strong>Access Restrictions:</strong> Any limitations</li>
+          <li><strong>Use Restrictions:</strong> Copyright or usage notes</li>
+          <li><strong>Related Resources:</strong> Links to existing collections</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="success-box" style="margin-top:1.5rem;">
+      <strong>Next Step:</strong> Once the accession record is created and saved, proceed to Phase 2 to create the resource record.
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- PHASE 2: RESOURCE -->
+  <section id="phase-2">
+    <span class="phase-indicator">Phase 2</span>
+    <h2 class="section-head">Create Resource Record</h2>
+    <p style="margin-bottom:1.5rem;">
+      The resource record provides collection-level description and organization. This becomes the finding aid for researchers.
+    </p>
+
+    <div class="info-box">
+      The resource record must be created and saved before you can attach digital objects or perform bulk uploads. This record should be linked to your accession.
+    </div>
+
+    <div class="grid">
+      <!-- Essential Fields -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>Essential Resource Fields</strong>
+          </div>
+        </div>
+        <div class="card-desc">
+          These fields form the core of your collection record:
+        </div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Title:</strong> Collection title</li>
+          <li><strong>Identifier:</strong> Collection identifier (often matches accession)</li>
+          <li><strong>Level:</strong> Usually "collection" or "series"</li>
+          <li><strong>Language:</strong> Primary language of materials</li>
+          <li><strong>Dates:</strong> Date range of collection materials</li>
+          <li><strong>Extents:</strong> Total size and scope</li>
+          <li><strong>Finding Aid Data:</strong> Publication settings and EAD ID</li>
+        </ul>
+      </div>
+
+      <!-- Recommended Components -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>Recommended Components</strong>
+          </div>
+        </div>
+        <div class="card-desc">
+          Enhance discoverability and provide context:
+        </div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Biographical/Historical Note:</strong> Context about creator or collection</li>
+          <li><strong>Scope and Contents:</strong> Detailed description of materials</li>
+          <li><strong>Arrangement:</strong> How materials are organized</li>
+          <li><strong>Agent Links:</strong> Creators, sources, and subjects</li>
+          <li><strong>Access Restrictions:</strong> Any limitations on use</li>
+          <li><strong>Related Materials:</strong> Links to other collections</li>
+        </ul>
+      </div>
+    </div>
+
+    <details style="margin-top:1.5rem;">
+      <summary>Creating Series and Subseries Structure</summary>
+      <div class="details-body">
+        <p style="margin-bottom:.75rem;">
+          If your collection has multiple series or subseries, create them as child components of the resource record:
+        </p>
+        <ol>
+          <li>From the resource record, click <strong>Add Child</strong></li>
+          <li>Set the <strong>Level</strong> to "series" or "subseries"</li>
+          <li>Provide a descriptive title</li>
+          <li>Add scope and arrangement notes</li>
+          <li>Continue adding components to build your hierarchy</li>
+        </ol>
+        <div class="info-box" style="margin-top:1rem;margin-bottom:0;">
+          <strong>Tip:</strong> Plan your series structure before creating components. Refer to the <a href="#">HARC Series & ID Guide</a> for standardized series definitions.
+        </div>
+      </div>
+    </details>
+
+    <div class="success-box" style="margin-top:1.5rem;">
+      <strong>Next Step:</strong> After the resource record is complete, proceed to bulk upload digital objects or create individual digital object records.
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- PHASE 3: BULK UPLOAD -->
+  <section id="phase-3">
+    <span class="phase-indicator">Phase 3</span>
+    <h2 class="section-head">Bulk Upload Digital Objects</h2>
+    <p style="margin-bottom:1.5rem;">
+      Mass import allows you to create multiple digital object records at once using spreadsheet data. This is the most efficient method for processing large numbers of digital items.
+    </p>
+
+    <div class="warning-box">
+      <strong>Prerequisites:</strong> You must have completed Phases 1 (Accession) and 2 (Resource) before bulk uploading. The resource URI must exist to link digital objects.
+    </div>
+
+    <details open>
+      <summary>Step-by-Step: Bulk Upload Using CSV Template</summary>
+      <div class="details-body">
+        <ol>
+          <li>
+            <strong>Prepare Your<a href="https://github.com/prys0000/prys0000.github.io/blob/1db66028c11649ca32560cd9eef662821d4ab390/donor/finding_aid_template_aspace.xlsx" target="_blank" rel="noopener">CSV File</a></strong>
+            <p style="margin-top:.25rem;margin-bottom:.5rem;">Open your CSV template and fill the required columns:</p>
+            <ul class="sub">
+              <li><code class="inline">digital_object_id</code> — Stable & unique identifier, e.g., <code class="inline">DO-HARC_2025_1_0000</code></li>
+              <li><code class="inline">title</code> — Descriptive title from your inventory spreadsheet</li>
+              <li><code class="inline">level</code> — Set to <code class="inline">item</code></li>
+              <li><code class="inline">linked_resource_ref</code> OR <code class="inline">linked_instance_ref</code> — Link to your resource/component</li>
+              <li><strong>File Version 1 (Preservation):</strong> <code class="inline">file_version_1_file_uri</code> — URL to preservation master</li>
+              <li><strong>File Version 2 (Public Access):</strong> <code class="inline">file_version_2_file_uri</code> — URL for public access (mark as representative)</li>
+              <li><em>Optional but recommended:</em> <code class="inline">dates</code>, <code class="inline">agents</code>, <code class="inline">subjects</code>, <code class="inline">notes</code></li>
+            </ul>
+          </li>
+          <li>
+            <strong>Upload to ArchivesSpace</strong>
+            <p style="margin-top:.25rem;margin-bottom:.5rem;">In the <strong>ArchivesSpace Staff Interface</strong>:</p>
+            <ul class="sub">
+              <li>Navigate to <strong>Create ▸ Job ▸ Import CSV</strong></li>
+              <li>Upload your CSV file</li>
+              <li>Click <strong>Start Job</strong> to run the import</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Review Job Log</strong>
+            <p style="margin-top:.25rem;margin-bottom:.5rem;">Open the job log to check for warnings or errors:</p>
+            <div class="info-box" style="margin-top:.75rem;">
+              <strong>Common Issues:</strong><br/>
+              • <em>Duplicate digital_object_id:</em> Increment the suffix to make unique<br/>
+              • <em>404 on linked_instance_ref:</em> Verify the target URI exists in your resource record<br/>
+              • <em>Invalid date format:</em> Use ISO 8601 format (YYYY-MM-DD)
+            </div>
+          </li>
+          <li>
+            <strong>Spot-Check Imported Records</strong>
+            <p style="margin-top:.25rem;margin-bottom:0;">Review a sample of imported digital objects before proceeding to Phase 4.</p>
+          </li>
+        </ol>
+        <div class="success-box" style="margin-top:1rem;margin-bottom:0;">
+          <strong>Bulk Upload Complete!</strong> Continue with post-import edits in Phase 4.
+        </div>
+      </div>
+    </details>
+
+    <div class="card" style="margin-top:1.5rem;border-left:4px solid var(--accent);">
+      <div class="card-header">
+        <div class="card-title">
+          <strong>📊 CSV Template Resources</strong>
+        </div>
+      </div>
+      <div class="card-desc">
+        Download the official ArchivesSpace CSV templates:
+      </div>
+      <ul style="margin-bottom:0;font-size:.8rem;">
+        <li><a href="https://archivesspace.org/using-archivesspace/migration-tools-and-data-mapping/" target="_blank" rel="noopener">Digital Object CSV Template</a></li>
+        <li><a href="https://docs.archivesspace.org/readme_csvimport.html" target="_blank" rel="noopener">CSV Import Documentation</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- PHASE 4: DIGITAL OBJECTS -->
+  <section id="phase-4">
+    <span class="phase-indicator">Phase 4</span>
+    <h2 class="section-head">Individual Digital Object Processing</h2>
+    <p style="margin-bottom:1.5rem;">
+      This phase begins AFTER accession, resource, and bulk upload are complete. Here you'll enhance the basic digital object records created in the bulk upload with detailed metadata.
+    </p>
+
+    <div class="warning-box">
+      <strong>Prerequisites Required:</strong> You must have completed Phases 1-3 before beginning this detailed digital object processing workflow.
+    </div>
+
+    <details open>
+      <summary>Post-Import: Edit Each Digital Object</summary>
+      <div class="details-body">
+        <ol>
+          <li>
+            <strong>Search for the Digital Object</strong>
+            <p style="margin-top:.25rem;margin-bottom:.5rem;">Copy the <strong>HARC ID</strong> from your inventory spreadsheet and paste into ArchivesSpace search.</p>
+          </li>
+          <li>
+            <strong>Open and Edit</strong>
+            <p style="margin-top:.25rem;margin-bottom:.5rem;">Select the correct record and click <strong>Edit</strong>.</p>
+          </li>
+          <li>
+            <strong>Update Basic Information</strong>
+            <ul class="sub">
+              <li>Verify or update the <strong>Title</strong> from your spreadsheet</li>
+              <li>Check <strong>Publish</strong> to make visible to public</li>
+              <li>Confirm <strong>Level</strong> is set to <code class="inline">item</code></li>
+              <li>Set <strong>Language</strong> to <code class="inline">English</code> (or appropriate language)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Configure File Versions</strong>
+            <ul class="sub">
+              <li><em>Version 1 (Preservation):</em> Add URL to preservation master; <strong>uncheck Publish</strong> (internal use only)</li>
+              <li><em>Version 2 (Public Access):</em> Add URL for public access file; click <strong>Make Representative</strong> and check <strong>Publish</strong></li>
+            </ul>
+          </li>
+          <li>
+            <strong>Add or Edit Dates</strong>
+            <ul class="sub">
+              <li><strong>Date Type:</strong> Select <em>creation</em>, <em>publication</em>, or other appropriate type</li>
+              <li><strong>Date Expression:</strong> Human-readable format (e.g., "circa 1950s")</li>
+              <li><strong>Date Begin/End:</strong> Structured dates for searching (YYYY-MM-DD format)</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Link Agents</strong>
+            <p style="margin-top:.25rem;margin-bottom:.5rem;">Add creators, contributors, or subjects:</p>
+            <ul class="sub">
+              <li>Search for existing agents or create new ones</li>
+              <li>Assign appropriate roles (creator, source, subject)</li>
+              <li>Multiple agents can be added to a single object</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Add Subject Headings</strong>
+            <ul class="sub">
+              <li>Search existing subject terms or create new controlled vocabulary</li>
+              <li>Add one subject at a time</li>
+              <li>Multiple subjects are allowed and encouraged for better discoverability</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Create Descriptive Notes</strong>
+            <ul class="sub">
+              <li><strong>Abstract/Summary:</strong> Brief description of the item</li>
+              <li><strong>General Note:</strong> Additional context or details</li>
+              <li><strong>Conditions Governing Access:</strong> Restrictions, if any</li>
+              <li>Check <strong>Publish</strong> for each note to make it visible to the public</li>
+            </ul>
+          </li>
+          <li>
+            <strong>Save the Digital Object</strong>
+            <p style="margin-top:.25rem;margin-bottom:0;">Click <strong>Save Digital Object</strong> at the bottom of the form.</p>
+          </li>
+        </ol>
+
+        <div class="warning-box" style="margin-top:1rem;">
+          <strong>QA Tip:</strong> After saving, open the public interface at <a href="https://harc.libraryhost.com/" target="_blank" rel="noopener">https://harc.libraryhost.com/</a> to verify the representative file displays correctly and all metadata appears as expected.
+        </div>
+      </div>
+    </details>
+
+    <div class="grid grid-2col" style="margin-top:1.5rem;">
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>💡 Batch Editing Tips</strong>
+          </div>
+        </div>
+        <div class="card-desc">
+          For similar items, use ArchivesSpace's batch editing features:
+        </div>
+        <ul style="margin-bottom:0;">
+          <li>Select multiple digital objects using checkboxes</li>
+          <li>Choose <strong>Batch Edit</strong> from the actions menu</li>
+          <li>Apply common metadata (agents, subjects, notes) to all selected items</li>
+          <li>Saves significant time for collections with similar materials</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>✅ Quality Control Checklist</strong>
+          </div>
+        </div>
+        <ul style="margin-bottom:0;">
+          <li>Title is descriptive and accurate</li>
+          <li>Representative file is designated and published</li>
+          <li>Dates are formatted consistently</li>
+          <li>At least one agent link is present</li>
+          <li>Relevant subjects are added</li>
+          <li>Notes are published (if public-facing)</li>
+          <li>Test public view to confirm display</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- PHASE 5: PUBLICATION -->
+  <section id="phase-5">
+    <span class="phase-indicator">Phase 5</span>
+    <h2 class="section-head">Publication & Maintenance</h2>
+    <p style="margin-bottom:1.5rem;">
+      Final phase ensures your records are accessible to researchers through the public interface and establishes ongoing maintenance procedures.
+    </p>
+
+    <div class="grid grid-2col">
+      <!-- Publication Checklist -->
+      <div class="card" style="border-left:4px solid #10b981;">
+        <div class="card-header">
+          <div class="card-title" style="color:#047857;">
+            <strong>📋 Publication Checklist</strong>
+          </div>
+        </div>
+        <div class="card-desc">
+          Complete these steps before making collections public:
+        </div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Resource Published:</strong> Verify collection record has "Publish" checked</li>
+          <li><strong>Digital Objects Published:</strong> Each item should be marked "Publish"</li>
+          <li><strong>Representative Files:</strong> Public access files are designated as representative</li>
+          <li><strong>Finding Aid:</strong> Export and review EAD finding aid if applicable</li>
+          <li><strong>Public Interface Test:</strong> Access at <a href="https://harc.libraryhost.com/" target="_blank" rel="noopener">harc.libraryhost.com</a></li>
+          <li><strong>Broken Links:</strong> Verify all file URIs are accessible</li>
+        </ul>
+      </div>
+
+      <!-- Maintenance Tasks -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>🔄 Ongoing Maintenance</strong>
+          </div>
+        </div>
+        <div class="card-desc">
+          Establish regular maintenance routines:
+        </div>
+        <ul style="margin-bottom:0;">
+          <li><strong>Regular Reviews:</strong> Monthly check of public interface for issues</li>
+          <li><strong>Metadata Updates:</strong> Enhance descriptions based on researcher feedback</li>
+          <li><strong>New Additions:</strong> Follow complete workflow for new materials</li>
+          <li><strong>Staff Training:</strong> Keep team updated on workflow changes</li>
+          <li><strong>Backup Procedures:</strong> Coordinate with IT for system backups</li>
+          <li><strong>Usage Analytics:</strong> Monitor access logs to identify high-demand items</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Access Information -->
+    <div style="background:#dcfce7;border:2px solid #10b981;border-radius:12px;padding:1.5rem;margin-top:2rem;">
+      <h3 class="subhead" style="color:#047857;margin-top:0;">🔗 Access Your ArchivesSpace Instance</h3>
+      <div style="display:grid;gap:1rem;margin-top:1rem;">
+        <div>
+          <strong style="color:var(--text);">Staff Interface (Admin):</strong><br/>
+          <a href="https://harc.libraryhost.com/admin" target="_blank" rel="noopener" style="color:#047857;font-family:monospace;font-size:.8rem;">https://harc.libraryhost.com/admin</a>
+          <p style="margin-top:.5rem;font-size:.75rem;color:var(--muted);">
+            For cataloging, processing, and administrative functions. Requires staff login credentials.
+          </p>
+        </div>
+        <div>
+          <strong style="color:var(--text);">Public Access Page:</strong><br/>
+          <a href="https://harc.libraryhost.com/" target="_blank" rel="noopener" style="color:#047857;font-family:monospace;font-size:.8rem;">https://harc.libraryhost.com/</a>
+          <p style="margin-top:.5rem;font-size:.75rem;color:var(--muted);">
+            Public-facing interface for researchers to browse and access your digital collections.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Best Practices -->
+    <div style="background:#f0f4f8;border:2px solid var(--accent);border-radius:12px;padding:1.5rem;margin-top:2rem;">
+      <h3 class="subhead" style="color:var(--accent);margin-top:0;">Best Practices for Long-Term Success</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1rem;">
+        <div>
+          <strong style="color:var(--text);">📝 Document Everything</strong>
+          <p style="margin-top:.5rem;font-size:.8rem;line-height:1.6;">
+            Keep detailed processing notes about decisions made during workflow, especially for materials that don't fit neatly into standard patterns.
+          </p>
+        </div>
+        <div>
+          <strong style="color:var(--text);">🔄 Maintain Consistency</strong>
+          <p style="margin-top:.5rem;font-size:.8rem;line-height:1.6;">
+            Use controlled vocabularies and standardized formats for dates, subjects, and agent names to improve discoverability.
+          </p>
+        </div>
+        <div>
+          <strong style="color:var(--text);">👥 Engage Stakeholders</strong>
+          <p style="margin-top:.5rem;font-size:.8rem;line-height:1.6;">
+            Work with congregation leadership on sensitive materials, access decisions, and collection development priorities.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-split" />
+
+  <!-- Quick Reference -->
+  <section>
+    <h2 class="section-head">Quick Reference Summary</h2>
+    <p style="margin-bottom:1.5rem;">
+      Use this summary as a checklist for the complete ArchivesSpace workflow.
+    </p>
+
+    <div class="grid">
+      <div class="card" style="border-left:4px solid var(--accent);">
+        <div class="card-header">
+          <div class="card-title">
+            <strong>⏱️ Estimated Time Requirements</strong>
+          </div>
+        </div>
+        <div style="font-size:.8rem;line-height:1.7;">
+          <p style="margin-bottom:.5rem;"><strong>Phase 1 (Accession):</strong> 15-30 minutes per collection</p>
+          <p style="margin-bottom:.5rem;"><strong>Phase 2 (Resource):</strong> 1-2 hours per collection (includes series structure)</p>
+          <p style="margin-bottom:.5rem;"><strong>Phase 3 (Bulk Upload):</strong> 30-60 minutes for CSV preparation + import time</p>
+          <p style="margin-bottom:.5rem;"><strong>Phase 4 (Digital Objects):</strong> 3-5 minutes per item (manual enhancement)</p>
+          <p style="margin-bottom:0;"><strong>Phase 5 (Publication):</strong> 30 minutes for QA and publication setup</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:1.5rem;">
+      <strong>Need Help?</strong> Refer to the official <a href="https://archivesspace.org/documentation/" target="_blank" rel="noopener">ArchivesSpace Documentation</a> or contact your ArchivesSpace administrator for technical support.
+    </div>
+  </section>
+
+</main>
+
+<footer class="page-footer">
+  Heritage & Research Center (HARC) — ArchivesSpace Workflow Documentation<br/>
+  This guide standardizes digital collection processing from accession through publication for Women Religious archival collections.
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor){
+    anchor.addEventListener('click', function(e){
+      const targetId = this.getAttribute('href');
+      const target = document.querySelector(targetId);
+      if(target){
+        e.preventDefault();
+        target.scrollIntoView({behavior:'smooth', block:'start'});
+        history.pushState(null, '', targetId);
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
