@@ -15,7 +15,7 @@
       --text:#1a1f2e;
       --muted:#6b6f80;
       --accent:#1e3c72;      /* primary navy */
-      --accent-2:#2a5298;    /* lighter navy/blue */
+      --accent-2:#101929;    /* lighter navy/blue */
       --radius:14px;
       --shadow:0 16px 32px rgba(15,25,55,0.08);
       --max-width:1200px;
@@ -60,7 +60,7 @@
     }
 
     .brand-sub{
-      font-size:.8rem;
+      font-size:1.1rem;
       font-weight:400;
       opacity:.9;
       color:#e8ecff;
@@ -71,7 +71,7 @@
 
     .quick-meta{
       color:#fff;
-      font-size:.8rem;
+      font-size:1rem;
       display:grid;
       grid-auto-flow:row;
       row-gap:.4rem;
@@ -93,7 +93,7 @@
     main{
       max-width:var(--max-width);
       margin:0 auto 4rem;
-      padding:2rem 1rem 4rem;
+      padding:2rem 1rem 1rem;
       position:relative;
       z-index:2;
     }
@@ -261,7 +261,7 @@
       max-width:var(--max-width);
       margin:3rem auto 4rem;
       padding:0 1rem;
-      font-size:.7rem;
+      font-size:1rem;
       color:var(--muted);
       line-height:1.4;
     }
@@ -309,7 +309,7 @@
         2. Collection Registry <a target="_blank" rel="noopener noreferrer" href="https://harc.libraryhost.com/repositories/resources?utf8=%E2%9C%93&amp;action=index&amp;q%5B%5D=*&amp;limit=resource&amp;op%5B%5D=&amp;field%5B%5D=title&amp;sort=identifier+asc&amp;commit=Sort">(HARC Collection Numbers)</a>
     </h2>
     <p>
-        Each Congregation receives a permanent 3-digit collection number. This number is part of all identifiers for that Congregation.
+        Each Congregation receives a permanent 3-digit collection number. This number is part of all identifiers for that Congregation. [organized based on founding date]
     </p>
 </section>
 
@@ -388,30 +388,26 @@
 
   <hr class="section-split" />
 
-  <!-- IDENTIFIER FORMAT -->
   <section>
     <h2 class="section-head">
-        3. Identifier Format <a target="_blank" rel="noopener noreferrer" href="https://harc.libraryhost.com/repositories/2/resources/3">(HARC IDs)</a>
+        3. Identifier Format <a target="_blank" rel="noopener noreferrer" href="https://harc.libraryhost.com/repositories/2/resources/3"><span style="color:#0d47a1;">(HARC IDs)</span></a>
     </h2>
     <p>
         Every described component (series, subseries, box, folder, and when present, item) is assigned a structured HARC ID.
     </p>
 </section>
-
-    <p>
-      The HARC ID encodes the physical hierarchy of the record —
-      <code class="inline">collection → series → subseries → box → folder → item</code>.
-    </p>
-
-    <p>
-      The ID functions as <strong>both a persistent identifier and a physical retrieval path</strong>. If a record is separated from context, or systems are offline, <strong>staff can still locate the correct box and folder</strong>.
-    </p>
-
-    <h3 class="subhead">Identifier Pattern</h3>
-    <p>
-      The HARC identifier encodes the physical hierarchy (<code class="inline">collection, series, subseries, box, folder, item</code> if needed).
-      Use <code class="inline">0000</code> for items when you need to number individual items.
-    </p>
+<p>
+    The HARC ID encodes the physical hierarchy of the record — <code class="inline">collection → series → subseries → box → folder → item</code>.
+</p>
+<p>
+    The ID functions as <strong>both a persistent identifier and a physical retrieval path</strong>. If a record is separated from context, or systems are offline, <strong>staff can still locate the correct box and folder</strong>.
+</p>
+<h3 class="subhead">
+    Identifier Pattern
+</h3>
+<p>
+    The HARC identifier encodes the physical hierarchy (<code class="inline">collection, series, subseries, box, folder, item</code> if needed). Use <code class="inline">0000</code> for items when you need to number individual items.
+</p>
 
     <div class="table-wrap" style="min-width:0;">
       <table style="min-width:0;">
@@ -758,15 +754,14 @@
       <!-- 008 -->
       <div class="card">
         <div class="card-header">
-          <div class="card-title"><strong>Series 008 — External Relations &amp; Affiliations</strong></div>
-        </div>
+          <div class="card-title"><strong>Series 008 — Digital Assets &amp; Info Systems
         <div class="card-desc">
-          Diocesan, Vatican, consortia, partner organizations, lay associates.
+          Born-digital, digitized masters, access copies, metadata/exports, backups.
         </div>
         <ul>
-          <li>Arrange alphabetically by organization or entity name.</li>
-          <li>Then arrange chronologically within each organization’s file.</li>
-          <li>Some Vatican or diocesan correspondence may require special handling.</li>
+          <li>Arrange topically by function.</li>
+          <li>Then arrange chronologically within each function.</li>
+          <li>Some email correspondence may require special handling.</li>
         </ul>
       </div>
 
@@ -870,83 +865,109 @@
     </div>
   </section>
     <!-- IMPLEMENTATION WORKFLOW -->
-  <section>
-    <h2 class="section-head">7. Implementation Workflow</h2>
-
+<section>
+    <h2 class="section-head">
+        7. Proposed Implementation Workflow
+    </h2>
     <div class="grid grid-2col">
-      <!-- Step 1 -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title"><strong>Step 1. Inventory Collections</strong></div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <strong>Step 1. Inventory Collections</strong>
+                </div>
+            </div>
+            <div class="card-desc">
+                Review collection materials, create a detailed inventory using the Assessment Tools: <a target="_blank" rel="noopener noreferrer" href="https://prys0000.github.io/donor/harc_assessment_templates_form.html"><span style="color:#0d47a1;">Evaluation Worksheet</span></a>, <a target="_blank" rel="noopener noreferrer" href="https://prys0000.github.io/donor/box-list.html"><span style="color:#0d47a1;">Box-Level Inventory</span></a>, and the <a target="_blank" rel="noopener noreferrer" href="https://prys0000.github.io/donor/item-level-inventory.html"><span style="color:#0d47a1;">Item-Level Inventory</span></a>.
+            </div>
+            <ul>
+                <li data-list-item-id="e87860ec0d5e76c06015a3a05567c2737">
+                    Document the current order exactly as received.
+                </li>
+                <li data-list-item-id="e2d7b7530ec12ef56c043663b67b55f81">
+                    Flag material that is obviously restricted (personnel, canonical seal, health).
+                </li>
+                <li data-list-item-id="e0d42ef05056b4acdbb3a3954b69a9856">
+                    Note formats requiring special handling (AV, fragile, oversized, born-digital).
+                </li>
+            </ul>
         </div>
-        <div class="card-desc">
-          Build or review an itemized box/folder inventory before reboxing or re-filing.
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <strong>Step 2. Map to Standard Series</strong>
+                </div>
+            </div>
+            <div class="card-desc">
+                Crosswalk each legacy series into the 001–010 model, using the<span style="color:#0d47a1;"> </span><a target="_blank" rel="noopener noreferrer" href="https://github.com/prys0000/prys0000.github.io/blob/18452002b2cacb6255057a045e2e5ebe03bbb0d9/donor/series_subseries_worksheet.xlsx"><span style="color:#0d47a1;">Series/Subseries Worksheet</span></a> as a guide. See the <a target="_blank" rel="noopener noreferrer" href="https://github.com/prys0000/prys0000.github.io/blob/78b9832a7bcf2ccc0f74b717cafd3634eae2599c/donor/accession_level_inventory_template.xlsx"><span style="color:#0d47a1;">Example Templates</span></a>.
+            </div>
+            <ul>
+                <li data-list-item-id="e31db45339f05afef7222a1fa89e9d672">
+                    Create a simple crosswalk: “Original Series Title → HARC Series # / Title.”&nbsp;
+                </li>
+                <li data-list-item-id="ecb878a71ed9f6a08c74d1cb40f990f8e">
+                    Assign subseries numbers for institutions, provinces, or ministries.
+                </li>
+                <li data-list-item-id="e7088b6430b2df320a0c415e3d83e05f2">
+                    Note any boxes that span multiple functional areas (plan to split at folder level later, not during first pass).
+                </li>
+            </ul>
         </div>
-        <ul>
-          <li>Document the current order exactly as received.</li>
-          <li>Flag material that is obviously restricted (personnel, canonical seal, health).</li>
-          <li>Note formats requiring special handling (AV, fragile, oversized, born-digital).</li>
-        </ul>
-      </div>
-
-      <!-- Step 2 -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title"><strong>Step 2. Map to Standard Series</strong></div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <strong>Step 3. Assign HARC IDs</strong>
+                </div>
+            </div>
+            <div class="card-desc">
+                Assign identifiers at the folder level (and item level if we’re describing individual items).
+            </div>
+            <ul>
+                <li data-list-item-id="e44406571bc711f3e1f1acfd388d34c6d">
+                    Record box and folder numbers in container fields (Top Container / Subcontainer in ArchivesSpace).
+                </li>
+            </ul>
         </div>
-        <div class="card-desc">
-          Crosswalk each legacy series into the 001–010 model.
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <strong>Step 4. Create/Update Finding Aid</strong>
+                </div>
+            </div>
+            <div class="card-desc">
+                Build the resource record and component hierarchy and add to the<a target="_blank" rel="noopener noreferrer" href="https://github.com/prys0000/prys0000.github.io/blob/3aade4c7ee9bd1945ed968443de5a7ef40367b14/donor/finding_aid_template_aspace.xlsx"> <span style="color:#0d47a1;">collection finding aid worksheet</span></a>.&nbsp;
+            </div>
+            <ul>
+                <li data-list-item-id="e5798d959689028b3a9db8d579c75e30e">
+                    Write scope/arrangement notes at the series and subseries level.
+                </li>
+                <li data-list-item-id="e943ec5bee53f8198d1a231d4defce2df">
+                    Apply access notes and restriction statements (see Section 8).
+                </li>
+                <li data-list-item-id="e2ac3a1d912cf631b7dd0348d3fb4770d">
+                    Confirm that each described folder has a unique HARC ID.
+                </li>
+            </ul>
         </div>
-        <ul>
-          <li>Create a simple crosswalk: “Original Series Title → HARC Series # / Title.”</li>
-          <li>Assign subseries numbers for institutions, provinces, or ministries.</li>
-          <li>Note any boxes that span multiple functional areas (plan to split at folder level later, not during first pass).</li>
-        </ul>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title"><strong>Step 3. Assign HARC IDs</strong></div>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">
+                    <strong>Step 5. Phase In for Additional Collection Materials as Received</strong>
+                </div>
+            </div>
+            <div class="card-desc">
+                Newly transferred or newly processed boxes follow this model immediately.
+            </div>
+            <ul>
+                <li data-list-item-id="e5b746af2f4716d341f50502f2bbdee53">
+                    Legacy collections can be brought into conformance in phases to avoid disrupting researcher access.
+                </li>
+                <li data-list-item-id="ef742428d6f016a994a6bfe49c04798a5">
+                    Do not re-number boxes in-use unless staff sign-off is documented.
+                </li>
+            </ul>
         </div>
-        <div class="card-desc">
-          Assign identifiers at the folder level (and item level if we’re describing individual items).
-        </div>
-        <ul>
-          <li>Record box and folder numbers in container fields (Top Container / Subcontainer in ArchivesSpace).</li>
-        </ul>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title"><strong>Step 4. Create/Update Finding Aid</strong></div>
-        </div>
-        <div class="card-desc">
-          Build or update the resource record and component hierarchy.
-        </div>
-        <ul>
-          <li>Write scope/arrangement notes at the series and subseries level.</li>
-          <li>Apply access notes and restriction statements (see Section 8).</li>
-          <li>Confirm that each described folder has a unique HARC ID.</li>
-        </ul>
-      </div>
-
-      <!-- Step 5 -->
-      <div class="card">
-        <div class="card-header">
-          <div class="card-title"><strong>Step 5. Phase In for Legacy Collections</strong></div>
-        </div>
-        <div class="card-desc">
-          Newly transferred or newly processed boxes follow this model immediately.
-        </div>
-        <ul>
-          <li>Legacy collections can be brought into conformance in phases to avoid disrupting researcher access.</li>
-          <li>Do not re-number boxes in-use unless staff sign-off is documented.</li>
-        </ul>
-      </div>
     </div>
-  </section>
+</section>
 
   <hr class="section-split" />
 
