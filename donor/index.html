@@ -11,8 +11,8 @@
       --bg: #F5F7F9;
       --card: #FFFFFF;
       --muted: #6B7280;
-      --accent: #1c1b19;
-      --accent-2: #205072;
+      --accent: #1e3c72;
+      --accent-2: #2a5298;
       --radius: 10px;
       --container: 1100px;
     }
@@ -22,23 +22,29 @@
     a{color:var(--accent);text-decoration:none}
     .wrap{max-width:var(--container);margin:0 auto;padding:18px}
 
-    /* ——— TALLER, NICER HEADER ——— */
     header{
       background:rgba(255,255,255,0.75);
       backdrop-filter:blur(6px);
       border-bottom:1px solid rgba(15,23,42,0.06);
       position:sticky;top:0;z-index:10;
-      padding:12px 0; /* add vertical space */
+      padding:12px 0;
     }
     .nav{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
     .brand{display:flex;gap:14px;align-items:center}
     .logo-link{display:inline-block;line-height:0}
-    .logo-img{height:96px;width:auto;display:block}            /* bigger logo */
-    .logo-fallback{ width:96px;height:96px;border-radius:10px;background:linear-gradient(135deg,var(--accent-2),#c7b19d);color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather }
-    .button{background:var(--accent);color:#fff;padding:10px 16px;border-radius:10px;font-weight:600;border:0;box-shadow:0 4px 12px rgba(0,0,0,0.06)}
-    .button:focus-visible{outline:2px solid #2c7be5;outline-offset:2px}
+    .logo-img{height:96px;width:auto;display:block}
+    .logo-fallback{
+      width:96px;height:96px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent-2),var(--accent));
+      color:#fff;display:inline-grid;place-items:center;font-weight:700;font-family:Merriweather
+    }
+    .button{
+      background:var(--accent);color:#fff;padding:10px 16px;
+      border-radius:10px;font-weight:600;border:0;
+      box-shadow:0 4px 12px rgba(30,60,114,0.15);
+    }
+    .button:focus-visible{outline:2px solid var(--accent-2);outline-offset:2px}
 
-    /* two-row nav so "Archivist" sits under the main buttons */
     nav[aria-label="Primary"]{display:flex;flex-direction:column;gap:8px;min-width:320px}
     .nav-buttons{display:flex;gap:10px;flex-wrap:wrap}
     .nav-sub{display:flex;gap:10px;flex-wrap:wrap}
@@ -51,15 +57,24 @@
     .hero-grid{display:grid;grid-template-columns:1fr 320px;gap:24px;align-items:start}
     @media (max-width:880px){ .hero-grid{grid-template-columns:1fr} }
 
-    h1{font-family:Merriweather,serif;font-size:26px;margin:0 0 8px}
+    h1{font-family:Merriweather,serif;font-size:26px;margin:0 0 8px;color:var(--accent)}
     .lead{color:var(--muted);margin:0 0 14px}
 
     .card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:0 6px 18px rgba(15,23,42,0.05)}
     .links-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:12px}
     @media (max-width:880px){ .links-grid{grid-template-columns:1fr} }
 
-    .link-item{padding:12px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd);display:block}
-    .link-item h4{margin:0 0 6px;font-size:18px}
+    .link-item{
+      padding:12px;border-radius:8px;
+      border:1px solid rgba(15,23,42,0.04);
+      background:linear-gradient(#fff,#fbfbfd);
+      display:block;
+      transition:box-shadow 0.2s ease;
+    }
+    .link-item:hover{
+      box-shadow:0 4px 12px rgba(30,60,114,0.08);
+    }
+    .link-item h4{margin:0 0 6px;font-size:18px;color:var(--accent)}
     .link-item p{margin:0;color:var(--muted);font-size:13px}
 
     main{max-width:var(--container);margin:18px auto;padding:0 18px}
@@ -67,48 +82,68 @@
 
     .pdf-wrap{margin-top:14px}
     .pdf-frame{width:100%;height:64vh;border:0;border-radius:8px;box-shadow:0 6px 18px rgba(15,23,42,0.04);display:none}
-    .file-row{display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:8px;border:1px solid rgba(15,23,42,0.04);background:linear-gradient(#fff,#fbfbfd);gap:12px}
+    .file-row{
+      display:flex;justify-content:space-between;align-items:center;
+      padding:10px;border-radius:8px;
+      border:1px solid rgba(15,23,42,0.04);
+      background:linear-gradient(#fff,#fbfbfd);gap:12px
+    }
     .file-row .meta{color:var(--muted);font-size:13px}
-    .btn{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600}
+    .btn{
+      display:inline-block;padding:8px 12px;border-radius:8px;
+      background:var(--accent);color:#fff;text-decoration:none;font-weight:600;
+    }
 
     .error-box{display:none;padding:14px;border-radius:8px;background:#fff;border:1px solid rgba(15,23,42,0.04);margin-top:10px}
     footer{padding:28px 18px;text-align:center;color:var(--muted);font-size:14px}
 
-    aside.connect { display:block; background:linear-gradient(180deg,#fbfdff,#f6f9ff); padding:16px; border-radius:10px; border:1px solid #e7f1ff; box-shadow:0 8px 20px rgba(11,87,164,0.03); }
-    aside.connect img.thumb { width:100%; border-radius:8px; object-fit:cover; margin-bottom:10px; display:block }
-    aside.connect .muted { color:var(--accent-2); display:inline-block; margin:6px 0; text-decoration:underline; font-size:14px }
-    .gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(120px,1fr)); gap:8px; margin-top:12px }
-    .gallery-grid img { width:100%; height:84px; object-fit:cover; border-radius:8px; border:1px solid rgba(15,23,42,0.04) }
+    aside.connect{
+      display:block;
+      background:linear-gradient(180deg,#fbfdff,#f6f9ff);
+      padding:16px;border-radius:10px;
+      border:1px solid #e7f1ff;
+      box-shadow:0 8px 20px rgba(30,60,114,0.06);
+    }
+    aside.connect img.thumb{width:100%;border-radius:8px;object-fit:cover;margin-bottom:10px;display:block}
+    aside.connect .muted{color:var(--accent-2);display:inline-block;margin:6px 0;text-decoration:underline;font-size:14px}
+    aside.connect h3{color:var(--accent)}
+    .gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:12px}
+    .gallery-grid img{width:100%;height:84px;object-fit:cover;border-radius:8px;border:1px solid rgba(15,23,42,0.04)}
 
     @media print{
       header,footer,aside{display:none}
       .pdf-frame{height:800px;display:block}
     }
 
-    .sr-only { position: absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
+    .sr-only{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
-    .preview-highlight {
-      background: linear-gradient(180deg,#ffffff,#fbfdff);
-      border-left: 6px solid var(--accent-2);
-      padding: 18px;
-      border-radius: 12px;
-      box-shadow: 0 12px 30px rgba(32,80,114,0.06);
-      margin-bottom: 18px;
-      transition: transform .12s ease, box-shadow .12s ease;
+    .preview-highlight{
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border-left:6px solid var(--accent-2);
+      padding:18px;
+      border-radius:12px;
+      box-shadow:0 12px 30px rgba(30,60,114,0.08);
+      margin-bottom:18px;
+      transition:transform .12s ease, box-shadow .12s ease;
     }
     .preview-highlight:focus-within,
-    .preview-highlight:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(32,80,114,0.09); }
-    .preview-highlight .preview-header { display:flex; gap:12px; align-items:baseline; margin-bottom:12px; }
-    .preview-highlight h3 { margin:0; font-size:28px; color: var(--accent); font-family: Merriweather, serif; font-weight:700; }
-    .preview-badge { display:inline-block; background: var(--accent); color: #fff; font-weight:700; padding:6px 10px; border-radius:999px; font-size:13px; margin-left:8px; }
-    .preview-help { color: var(--muted); font-size:13px; margin-left:auto; }
+    .preview-highlight:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(30,60,114,0.12);}
+    .preview-highlight .preview-header{display:flex;gap:12px;align-items:baseline;margin-bottom:12px;}
+    .preview-highlight h3{margin:0;font-size:28px;color:var(--accent);font-family:Merriweather,serif;font-weight:700;}
+    .preview-badge{
+      display:inline-block;background:var(--accent);color:#fff;
+      font-weight:700;padding:6px 10px;border-radius:999px;
+      font-size:13px;margin-left:8px;
+    }
+    .preview-help{color:var(--muted);font-size:13px;margin-left:auto;}
+    .preview-highlight .file-row{background:transparent;border:1px dashed rgba(15,23,42,0.03);}
 
-    .preview-highlight .file-row { background: transparent; border: 1px dashed rgba(15,23,42,0.03); }
-
-    :root { --muted-line: rgba(0,0,0,0.10); }
-    .hr-muted { border: 0; height: 1px; background: var(--muted-line); margin: 1.25rem 0; border-radius: 1px; }
-    .hr-muted-lg { height: 2px; background: rgba(0,0,0,0.14); margin: 1.5rem 0; }
-    .hr-sep { border: 0; height: 1px; background: var(--muted-line); margin: 1rem 0; }
+    :root{--muted-line:rgba(0,0,0,0.10);}
+    .hr-muted{border:0;height:1px;background:var(--muted-line);margin:1.25rem 0;border-radius:1px;}
+    .hr-muted-lg{height:2px;background:rgba(0,0,0,0.14);margin:1.5rem 0;}
+    .hr-sep{border:0;height:1px;background:var(--muted-line);margin:1rem 0;}
+    
+    .small{font-size:13px}
   </style>
 </head>
 <body>
@@ -123,12 +158,11 @@
           <div id="logoFallback" class="logo-fallback" style="display:none" aria-hidden="true">H</div>
         </a>
         <div>
-          <div style="font-weight:700;font-size:1.05rem">Heritage &amp; Research Center</div>
+          <div style="font-weight:700;font-size:1.05rem;color:var(--accent)">Heritage &amp; Research Center</div>
           <div style="font-size:13px;color:var(--muted)">Resources for Congregations &amp; Staff</div>
         </div>
       </div>
 
-      <!-- UPDATED NAV: second row for Archivist -->
       <nav aria-label="Primary">
         <div class="nav-buttons">
           <a class="button" href="/donor/harc-archives-toolkit.html" target="_blank" rel="noopener">Transition Toolkit</a>
@@ -142,10 +176,8 @@
     </div>
   </header>
 
-  <!-- rest of your document remains unchanged -->
   <section class="hero">
     <div class="wrap hero-grid">
-      <!-- main column -->
       <div>
         <h1>Welcome — Resources for Congregations &amp; Staff</h1>
         <p class="lead">A hub to review collection policies, intake/transfer agreements, image &amp; publication guidance, handling instructions, and the donor packet.</p>
@@ -153,14 +185,12 @@
         <div class="card" aria-labelledby="quicklinks">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <div>
-              <strong id="quicklinks" style="font-size:1.65rem;font-family:Merriweather;font-weight:1050">Quick Links</strong>
+              <strong id="quicklinks" style="font-size:1.65rem;font-family:Merriweather;font-weight:700;color:var(--accent)">Quick Links</strong>
               <div class="meta">Click any item below to preview or download the document.</div>
             </div>
-            <div></div>
           </div>
 
           <div class="links-grid" style="margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
-            <!-- TOP ITEM: HARC Transition Toolkit -->
             <a class="link-item" href="#harc-toolkit"
                data-src="/donor/harc-archives-toolkit.html"
                id="toolkit-link"
@@ -199,7 +229,7 @@
           <hr class="hr-muted" aria-hidden="true">
 
           <div style="margin-top:14px">
-            <h4 style="margin:0 0 8px 0">HARC — Inside the Vault</h4>
+            <h4 style="margin:0 0 8px 0;color:var(--accent)">HARC — Inside the Vault</h4>
             <div class="gallery-grid" aria-hidden="false">
               <a href="/donor/vault-1.jpg" target="_blank" rel="noopener">
                 <img src="/donor/vault-1.jpg" alt="HARC archival vault with shelving and boxes" onerror="this.replaceWith(createImageFallback())">
@@ -217,29 +247,29 @@
         <img class="thumb" src="/donor/vault-1.jpg" alt="HARC archival vault with shelving and boxes" onerror="this.style.display='none'">
         <div style="margin-top:8px">
           <a class="btn" href="tel:+15746786155">(574) 678-6155</a>
-          <a class="btn" style="background:#2c7be5;margin-left:8px" href="mailto:japryse@harcsm.org">Email HARC</a>
+          <a class="btn" style="background:var(--accent-2);margin-left:8px" href="mailto:japryse@harcsm.org">Email HARC</a>
         </div>
         <div style="margin-top:12px">
-          <div class="small" style="font-weight:700;margin-bottom:6px">Visit / Resources</div>
+          <div class="small" style="font-weight:700;margin-bottom:6px;color:var(--accent)">Visit / Resources</div>
           <a class="muted" href="/donor/storage-environment-chart.html" title="Archival Storage Environment Standards">Archival Storage Environment Standards</a><br>
           <a class="muted" href="/donor/harc-archives-toolkit.html" title="Open HARC Transition Toolkit">Open HARC Transition Toolkit</a>
         </div>
         <hr style="margin:12px 0;border:none;border-top:1px solid #e7eefb">
         <div>
-          <h4 style="margin:0 0 6px 0">Office Hours</h4>
+          <h4 style="margin:0 0 6px 0;color:var(--accent)">Office Hours</h4>
           <p class="small">Mon–Fri, 9:00am–4:00pm (by appointment)</p>
-          <a class="btn" href="https://forms.microsoft.com/r/XB6YmaTD0D" style="background:#0b57a4">Request Visit</a>
+          <a class="btn" href="https://forms.microsoft.com/r/XB6YmaTD0D" style="background:var(--accent-2)">Request Visit</a>
         </div>
       </aside>
     </div>
   </section>
 
   <main class="wrap" id="resources" role="main">
-    <!-- … unchanged content … -->
+    <!-- Content here -->
   </main>
 
   <footer>
-    <div class="wrap">Made with care — Heritage &amp; Research Center at Saint Mary's · <a href="https://github.com/prys0000/prys0000.github.io" target="_blank" rel="noopener">GitHub</a></div>
+    <div class="wrap">Made with care — Heritage &amp; Research Center at Saint Mary's · <a href="https://github.com/prys0000/prys0000.github.io" target="_blank" rel="noopener" style="color:var(--accent-2)">GitHub</a></div>
   </footer>
 
   <script>
@@ -270,15 +300,18 @@
       var iframe = document.getElementById('pdfViewer');
       var err = document.getElementById('pdfError');
       var downloadFallback = document.getElementById('pdfDownloadFallback');
-      iframe.style.display = 'none'; iframe.src = ''; iframe.setAttribute('aria-hidden', 'true');
-      err.style.display = 'none'; downloadFallback.href = '/donor/';
+      if(iframe){
+        iframe.style.display = 'none'; iframe.src = ''; iframe.setAttribute('aria-hidden', 'true');
+      }
+      if(err) err.style.display = 'none';
+      if(downloadFallback) downloadFallback.href = '/donor/';
       try {
         let headOk = false;
         try { let headResp = await fetch(url, { method: 'HEAD' }); headOk = headResp.ok; }
         catch { try { let resp = await fetch(url, { method: 'GET', headers: { Range: 'bytes=0-0' } }); headOk = resp.ok; } catch { headOk = false; } }
-        if (headOk) { iframe.src = url; iframe.style.display = 'block'; iframe.setAttribute('aria-hidden', 'false'); iframe.scrollIntoView({behavior:'smooth'}); return true; }
-        else { err.style.display = 'block'; return false; }
-      } catch { err.style.display = 'block'; return false; }
+        if (headOk && iframe) { iframe.src = url; iframe.style.display = 'block'; iframe.setAttribute('aria-hidden', 'false'); iframe.scrollIntoView({behavior:'smooth'}); return true; }
+        else if(err) { err.style.display = 'block'; return false; }
+      } catch { if(err) err.style.display = 'block'; return false; }
     }
 
     function previewPDF(e){
