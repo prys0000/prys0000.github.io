@@ -1,695 +1,900 @@
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title></title>
-<!-- Paste this into an Omeka S Page (Freedom theme) using an HTML block. No external assets needed. -->
-<section aria-label="Document Scanning Guidelines" class="processing-guide">
-<style type="text/css">/* Enhanced styling for student engagement */
-.processing-guide{font: inherit; line-height:1.6; color:#333}
-.processing-guide h1,.processing-guide h2,.processing-guide h3{margin-top:1.2em}
-.processing-guide h1{color:#fff; font-size:2.5rem; font-weight:700}
-.processing-guide h2{color:#1e3c72; font-size:1.8rem; font-weight:600; border-bottom:3px solid #1e3c72; padding-bottom:0.5rem}
-.processing-guide h3{color:#2a5298; font-size:1.3rem; font-weight:600}
+<title>Document Scanning Guidelines</title>
 
-/* Hero header simplified */
+<!-- Paste this into an Omeka S Page (Freedom theme) using an HTML block. -->
+<section aria-label="Document Scanning Guidelines" class="processing-guide">
+<style type="text/css">
+/* Base + palette to match HARC toolkit */
+.processing-guide{
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height:1.6;
+  color:#333;
+  background:#f7f8fa;
+  padding:1.5rem 1rem 2rem;
+  max-width:1200px;
+  margin:0 auto;
+}
+
+.processing-guide h1,
+.processing-guide h2,
+.processing-guide h3,
+.processing-guide h4,
+.processing-guide h5{
+  font-family:"Merriweather", "Georgia", serif;
+  margin-top:1.2rem;
+  margin-bottom:0.5rem;
+}
+
+.processing-guide h1{
+  color:#ffffff;
+  font-size:2.4rem;
+  font-weight:700;
+}
+
+.processing-guide h2{
+  color:#1e3c72;
+  font-size:1.7rem;
+  font-weight:600;
+  border-bottom:3px solid #1e3c72;
+  padding-bottom:0.5rem;
+}
+
+.processing-guide h3{
+  color:#2a5298;
+  font-size:1.3rem;
+  font-weight:600;
+}
+
+.processing-guide h4{
+  color:#1e3c72;
+  font-size:1.15rem;
+  font-weight:600;
+}
+
+/* Hero header */
 .processing-guide .hero-header{
   background:linear-gradient(135deg,#1e3c72,#2a5298);
-  color:white; padding:2rem; margin-bottom:2rem; border-radius:0.5rem;
+  color:#ffffff;
+  padding:2rem;
+  margin:0 0 2rem;
+  border-radius:0.75rem;
   text-align:center;
+  box-shadow:0 12px 30px rgba(30,60,114,0.25);
 }
-.processing-guide .hero-title{margin:0 0 0.5rem 0; font-size:2.2rem; font-weight:600}
-.processing-guide .hero-subtitle{margin:0; opacity:0.9; font-size:1.1rem; font-weight:300}
+.processing-guide .hero-title{
+  margin:0 0 0.5rem 0;
+  font-size:2.1rem;
+  font-weight:700;
+}
+.processing-guide .hero-subtitle{
+  margin:0 0 1rem;
+  opacity:0.9;
+  font-size:1.05rem;
+  font-weight:400;
+}
 
+/* TOC / sidebar */
 .processing-guide .toc{
-  border:1px solid #cbd5e1; padding:1.25rem; border-radius:0.5rem; 
+  border:1px solid #cbd5e1;
+  padding:1.25rem;
+  border-radius:0.75rem;
   background:#f8fafc;
+  box-shadow:0 4px 12px rgba(15,23,42,0.06);
 }
-.processing-guide .toc strong{color:#1e3c72; font-size:1rem}
-.processing-guide .toc ol{margin:0.75rem 0 0 0; padding-left:1.2rem}
-.processing-guide .toc a{color:#2a5298; text-decoration:none; font-weight:500; padding:0.25rem 0; display:block; transition:color 0.2s}
-.processing-guide .toc a:hover{color:#1e3c72}
+.processing-guide .toc strong{
+  color:#1e3c72;
+  font-size:1.05rem;
+}
+.processing-guide .toc ol{
+  margin:0.75rem 0 0;
+  padding-left:1.2rem;
+}
+.processing-guide .toc a{
+  color:#1e3c72;
+  text-decoration:none;
+  font-weight:500;
+  padding:0.25rem 0;
+  display:block;
+  font-size:0.98rem;
+  transition:color 0.2s, transform 0.15s;
+}
+.processing-guide .toc a:hover{
+  color:#2a5298;
+  transform:translateX(2px);
+}
 
-.processing-guide .grid{display:grid; gap:1.5rem}
-@media(min-width:900px){.processing-guide .grid.cols-2{grid-template-columns:1fr 1fr}}
+/* Layout */
+.processing-guide .layout{
+  display:block;
+  max-width:1500px;
+  width:100%;
+  margin:0 auto;
+}
+.processing-guide .sidebar{
+  margin-bottom:2rem;
+}
+@media(min-width:1000px){
+  .processing-guide .layout{
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:2rem;
+    align-items:flex-start;
+  }
+  .processing-guide .sidebar{
+    position:sticky;
+    top:2rem;
+    height:fit-content;
+  }
+}
 
+/* Cards */
 .processing-guide .card{
-  border:1px solid #e2e8f0; border-radius:0.5rem; padding:1.25rem; 
-  background:#ffffff; 
-  box-shadow:0 1px 3px rgba(0,0,0,0.1)
+  border:1px solid #e2e8f0;
+  border-radius:0.75rem;
+  padding:1.25rem;
+  background:#ffffff;
+  box-shadow:0 6px 18px rgba(15,23,42,0.06);
 }
 
+/* Principle / callout cards */
 .processing-guide .principle-card{
-  border-left:4px solid #1e3c72; background:#f0f9ff;
+  border-left:4px solid #1e3c72;
+  background:#f0f4ff;
 }
-.processing-guide .principle-card h3{color:#1e3c72; margin-bottom:1rem; font-size:1.4rem}
+.processing-guide .principle-card h3{
+  color:#1e3c72;
+  margin-bottom:1rem;
+  font-size:1.25rem;
+}
 
+/* Neutral callout (informational) */
 .processing-guide .callout{
-  border-left:4px solid #0ea5e9; background:#f0f9ff; 
-  padding:1rem; border-radius:0.25rem; margin:1rem 0;
+  border-left:4px solid #1e3c72;
+  background:#eef2ff;
+  padding:1rem;
+  border-radius:0.4rem;
+  margin:1rem 0;
 }
-.processing-guide .callout strong{color:#0c4a6e; font-size:1rem}
+.processing-guide .callout strong{
+  color:#1e3c72;
+  font-size:1rem;
+}
 
+/* Warning / success callouts tuned to palette */
 .processing-guide .warning-callout{
-  border-left:4px solid #f59e0b; background:#fffbeb;
+  border-left:4px solid #f59e0b;
+  background:#fffbeb;
+  padding:1rem 1.25rem;
+  border-radius:0.4rem;
+  margin:1rem 0;
 }
-
 .processing-guide .success-callout{
-  border-left:4px solid #10b981; background:#f0fdf4;
+  border-left:4px solid #15803d;
+  background:#f0fdf4;
+  padding:1rem 1.25rem;
+  border-radius:0.4rem;
+  margin:1rem 0;
 }
 
+/* Checklist */
 .processing-guide .checklist{
-  background:#ffffff; border:1px solid #d1d5db;
-  border-radius:0.5rem; padding:1.25rem; margin:1rem 0;
+  background:#ffffff;
+  border:1px solid #d1d5db;
+  border-radius:0.5rem;
+  padding:1.25rem;
+  margin:1rem 0;
 }
 .processing-guide .checklist label{
-  display:flex; gap:0.75rem; align-items:flex-start; margin:0.5rem 0; padding:0.5rem;
-  border-radius:0.25rem; cursor:pointer
+  display:flex;
+  gap:0.75rem;
+  align-items:flex-start;
+  margin:0.5rem 0;
+  padding:0.5rem;
+  border-radius:0.35rem;
+  cursor:pointer;
+  transition:background 0.15s;
 }
 .processing-guide .checklist label:hover{background:#f9fafb}
 .processing-guide .checklist input[type="checkbox"]{
-  margin-top:0.2rem; width:20px; height:20px; accent-color:#1e3c72; cursor:pointer
+  margin-top:0.2rem;
+  width:20px;
+  height:20px;
+  accent-color:#1e3c72;
+  cursor:pointer;
 }
-.processing-guide .checklist input[type="checkbox"]:checked + span{text-decoration:line-through; opacity:0.7}
+.processing-guide .checklist input[type="checkbox"]:checked + span{
+  text-decoration:line-through;
+  opacity:0.7;
+}
 
+/* Badges */
 .processing-guide .badge{
-  display:inline-block; font-size:0.8rem; border-radius:999px; padding:0.3rem 0.8rem; 
-  margin-left:0.5rem; font-weight:600; white-space:nowrap; text-transform:uppercase; letter-spacing:0.3px
+  display:inline-block;
+  font-size:0.8rem;
+  border-radius:999px;
+  padding:0.3rem 0.8rem;
+  margin-left:0.5rem;
+  font-weight:600;
+  white-space:nowrap;
+  text-transform:uppercase;
+  letter-spacing:0.3px;
 }
-.processing-guide .badge-student{background:#dcfce7; color:#166534; border:1px solid #bbf7d0}
-.processing-guide .badge-ask{background:#fef3c7; color:#92400e; border:1px solid #fde68a}
-.processing-guide .badge-staff{background:#fee2e2; color:#dc2626; border:1px solid #fecaca}
+.processing-guide .badge-student{
+  background:#dcfce7;
+  color:#166534;
+  border:1px solid #bbf7d0;
+}
+.processing-guide .badge-ask{
+  background:#fef3c7;
+  color:#92400e;
+  border:1px solid #fde68a;
+}
+.processing-guide .badge-staff{
+  background:#fee2e2;
+  color:#dc2626;
+  border:1px solid #fecaca;
+}
 
+/* Details / accordion */
 .processing-guide details{
-  border:1px solid #e2e8f0; border-radius:0.5rem; padding:1rem 1.5rem; margin:1rem 0;
-  background:#ffffff; transition:all 0.2s
+  border:1px solid #e2e8f0;
+  border-radius:0.5rem;
+  padding:1rem 1.25rem;
+  margin:1rem 0;
+  background:#ffffff;
+  transition:all 0.2s;
 }
 .processing-guide details:hover{border-color:#1e3c72}
-.processing-guide details[open]{background:#f0f9ff; border-color:#1e3c72}
-.processing-guide summary{
-  cursor:pointer; font-weight:600; color:#1e3c72; padding:0.5rem 0;
-  display:flex; align-items:center; gap:0.5rem
+.processing-guide details[open]{
+  background:#f0f9ff;
+  border-color:#1e3c72;
 }
-.processing-guide summary::before{content:'▶'; transition:transform 0.2s; font-size:0.8rem}
+.processing-guide summary{
+  cursor:pointer;
+  font-weight:600;
+  color:#1e3c72;
+  padding:0.5rem 0;
+  display:flex;
+  align-items:center;
+  gap:0.5rem;
+}
+.processing-guide summary::before{
+  content:'▶';
+  transition:transform 0.2s;
+  font-size:0.8rem;
+}
 .processing-guide details[open] summary::before{transform:rotate(90deg)}
 .processing-guide summary:hover{color:#2a5298}
 
+/* Inline code */
 .processing-guide code{
-  background:#f1f5f9; color:#1e293b; 
-  padding:0.3rem 0.6rem; border-radius:0.5rem; font-family:'Monaco','Courier New',monospace;
-  font-size:0.9rem; border:1px solid #cbd5e1; box-shadow:0 2px 4px rgba(0,0,0,0.1)
+  background:#f1f5f9;
+  color:#1e293b;
+  padding:0.3rem 0.6rem;
+  border-radius:0.5rem;
+  font-family:'Monaco','Courier New',monospace;
+  font-size:0.9rem;
+  border:1px solid #cbd5e1;
+  box-shadow:0 2px 4px rgba(0,0,0,0.06);
 }
 
+/* Example / tip boxes */
 .processing-guide .example-box{
-  background:#f0fdf4; border:1px solid #bbf7d0;
-  border-radius:0.5rem; padding:1.5rem; margin:1.5rem 0; position:relative
+  background:#f0fdf4;
+  border:1px solid #bbf7d0;
+  border-radius:0.5rem;
+  padding:1.25rem 1.5rem;
+  margin:1.25rem 0;
+  position:relative;
 }
 .processing-guide .example-box::before{
-  content:'Example'; position:absolute; top:-12px; left:1rem;
-  background:#16a34a; color:white; padding:0.3rem 1rem; border-radius:999px;
-  font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px
+  content:'Example';
+  position:absolute;
+  top:-12px;
+  left:1rem;
+  background:#16a34a;
+  color:white;
+  padding:0.25rem 0.9rem;
+  border-radius:999px;
+  font-size:0.8rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
 }
 
 .processing-guide .tip-box{
-  background:#eff6ff; border:1px solid #93c5fd;
-  border-radius:0.5rem; padding:1.5rem; margin:1.5rem 0; position:relative
+  background:#eff6ff;
+  border:1px solid #93c5fd;
+  border-radius:0.5rem;
+  padding:1.25rem 1.5rem;
+  margin:1.25rem 0;
+  position:relative;
 }
 .processing-guide .tip-box::before{
-  content:'💡 Pro Tip'; position:absolute; top:-12px; left:1rem;
-  background:#3b82f6; color:white; padding:0.3rem 1rem; border-radius:999px;
-  font-size:0.8rem; font-weight:600; text-transform:uppercase; letter-spacing:0.5px
+  content:'💡 Pro Tip';
+  position:absolute;
+  top:-12px;
+  left:1rem;
+  background:#1d4ed8;
+  color:white;
+  padding:0.25rem 1rem;
+  border-radius:999px;
+  font-size:0.8rem;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
 }
 
-.processing-guide .muted{color:#6b7280; font-style:italic}
+.processing-guide .muted{
+  color:#6b7280;
+  font-style:italic;
+}
+
+/* Print button */
 .processing-guide .btn-print{
-  display:inline-block; margin:1rem 0; border:2px solid #1e3c72; border-radius:0.75rem;
-  padding:0.75rem 1.5rem; background:linear-gradient(135deg,#1e3c72,#2a5298); color:white;
-  text-decoration:none; font-weight:600; transition:all 0.2s; cursor:pointer
+  display:inline-block;
+  margin:1rem 0 0;
+  border:2px solid #1e3c72;
+  border-radius:0.75rem;
+  padding:0.75rem 1.5rem;
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+  font-size:0.95rem;
+  cursor:pointer;
+  transition:all 0.2s;
 }
-.processing-guide .btn-print:hover{transform:translateY(-2px); box-shadow:0 6px 20px rgba(30,60,114,0.3)}
-
-/* Two-column layout - CONSISTENT FOR ALL SECTIONS */
-.processing-guide .layout{display:block; max-width:1500px; width:100%; margin:0 auto;}
-@media(min-width:1000px){
-  .processing-guide .layout{display:grid; grid-template-columns:280px 1fr; gap:2rem; align-items:start}
-  .processing-guide .sidebar{position:sticky; top:2rem; height:fit-content}
+.processing-guide .btn-print:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 24px rgba(30,60,114,0.35);
 }
 
 /* Progress indicator */
 .processing-guide .step-indicator{
-  display:flex; align-items:center; gap:0.5rem; margin:1rem 0; padding:1rem;
-  background:#f0f9ff; border-radius:0.75rem; border:1px solid #bae6fd
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+  margin:1rem 0;
+  padding:1rem 1.25rem;
+  background:#eef2ff;
+  border-radius:0.75rem;
+  border:1px solid #c7d2fe;
 }
 .processing-guide .step-number{
-  background:#1e3c72; color:white; width:2rem; height:2rem; border-radius:50%;
-  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:0.9rem
+  background:#1e3c72;
+  color:white;
+  width:2.3rem;
+  height:2.3rem;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:1.1rem;
+}
+
+/* Numbered step cards */
+.processing-guide .step-list{
+  counter-reset:step-counter;
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+.processing-guide .step-list > li{
+  counter-increment:step-counter;
+  margin:1.75rem 0;
+  padding:1.5rem 1.5rem 1.25rem;
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:0.75rem;
+  position:relative;
+  box-shadow:0 2px 6px rgba(0,0,0,0.04);
+}
+.processing-guide .step-list > li::before{
+  content:counter(step-counter);
+  position:absolute;
+  left:-15px;
+  top:-15px;
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
+  width:2.5rem;
+  height:2.5rem;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+  font-size:1.05rem;
+  box-shadow:0 4px 10px rgba(30,60,114,0.35);
+}
+.processing-guide .step-list li h4{
+  color:#1e3c72;
+  margin-top:0;
+  margin-bottom:0.75rem;
+  font-size:1.15rem;
+  font-weight:600;
+}
+
+/* Settings grid/cards */
+.processing-guide .settings-container{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  margin:1.25rem 0 0.5rem;
+}
+.processing-guide .settings-row{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:1rem;
+  align-items:flex-start;
+}
+.processing-guide .settings-card{
+  background:#ffffff;
+  border-radius:0.75rem;
+  padding:1.1rem 1.25rem;
+  box-shadow:0 1px 6px rgba(0,0,0,0.06);
+  border:1px solid rgba(15,23,42,0.06);
+}
+.processing-guide .settings-card h3{
+  margin:0 0 0.6rem 0;
+  font-size:1.05rem;
+  color:#1e3c72;
+}
+.processing-guide .settings-card ul{
+  margin:0;
+  padding-left:1.1rem;
+  line-height:1.5;
+}
+@media(max-width:760px){
+  .processing-guide .settings-row{
+    grid-template-columns:1fr;
+  }
+}
+
+/* Highlight, folder example */
+.processing-guide .highlight-yellow{
+  background:#fef3c7;
+  padding:0.15rem 0.4rem;
+  border-radius:0.25rem;
+  font-weight:600;
+}
+.processing-guide .folder-example{
+  background:#f0f9ff;
+  border:2px dashed #3b82f6;
+  border-radius:0.5rem;
+  padding:1rem;
+  text-align:center;
+  font-family:'Monaco','Courier New',monospace;
+  font-weight:600;
+  color:#1e40af;
+  margin:1rem 0;
 }
 
 /* Footer */
 .processing-guide footer{
-  margin-top:2rem; padding:2rem; text-align:center;
-  background:linear-gradient(135deg,#1e3c72,#2a5298); color:white; border-radius:1rem
+  margin-top:2rem;
+  padding:1.75rem 1.5rem;
+  text-align:center;
+  background:linear-gradient(135deg,#1e3c72,#2a5298);
+  color:white;
+  border-radius:1rem;
+  box-shadow:0 10px 30px rgba(30,60,114,0.35);
+}
+.processing-guide footer p{
+  margin:0.25rem 0;
 }
 
-/* Numbered steps styling */
-.processing-guide .step-list {
-  counter-reset: step-counter;
-  list-style: none;
-  padding: 0;
-}
-
-.processing-guide .step-list > li {
-  counter-increment: step-counter;
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: #ffffff;
-  border: 1px solid #e2e8f0;
-  border-radius: 0.75rem;
-  position: relative;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-
-.processing-guide .step-list > li::before {
-  content: counter(step-counter);
-  position: absolute;
-  left: -15px;
-  top: -15px;
-  background: linear-gradient(135deg, #1e3c72, #2a5298);
-  color: white;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  font-size: 1.1rem;
-  box-shadow: 0 4px 8px rgba(30, 60, 114, 0.3);
-}
-
-.processing-guide .step-list li h4 {
-  color: #1e3c72;
-  margin-top: 0;
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  font-weight: 600;
-}
-
-.processing-guide .settings-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-  margin: 1.5rem 0;
-}
-
-.processing-guide .settings-card {
-  background: #f8fafc;
-  border: 1px solid #cbd5e1;
-  border-radius: 0.5rem;
-  padding: 1.25rem;
-}
-
-.processing-guide .settings-card h4 {
-  color: #1e3c72;
-  margin: 0 0 1rem 0;
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-.processing-guide .highlight-yellow {
-  background: #fef3c7;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.25rem;
-  font-weight: 600;
-}
-
-.processing-guide .folder-example {
-  background: #f0f9ff;
-  border: 2px dashed #3b82f6;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  text-align: center;
-  font-family: 'Monaco', 'Courier New', monospace;
-  font-weight: 600;
-  color: #1e40af;
-  margin: 1rem 0;
-}
-
-/* Layout: one row per media type, two columns (cards) side-by-side */
-.settings-container {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1rem 0;
-}
-
-/* Each row is a 2-col grid */
-.settings-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr; /* left = settings, right = quality */
-  gap: 1rem;
-  align-items: start;
-}
-
-/* Individual card styling */
-.settings-card {
-  background: #ffffff;
-  border-radius: 8px;
-  padding: 1rem;
-  box-shadow: 0 1px 6px rgba(0,0,0,0.06);
-  border: 1px solid rgba(0,0,0,0.06);
-}
-
-.settings-card h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.05rem;
-}
-
-.settings-card ul {
-  margin: 0;
-  padding-left: 1rem;
-  line-height: 1.5;
-}
-
-/* Responsive: stack the two columns on narrow screens */
-@media (max-width: 760px) {
-  .settings-row {
-    grid-template-columns: 1fr; /* stack */
+/* Small screens */
+@media(max-width:600px){
+  .processing-guide{
+    padding:1.25rem 0.75rem 2rem;
+  }
+  .processing-guide .hero-header{
+    padding:1.5rem;
+  }
+  .processing-guide .hero-title{
+    font-size:1.9rem;
   }
 }
-
-/* Optional utility: make a row full-width (both columns spanned by a single card) */
-.settings-row.full-width .settings-card {
-  grid-column: 1 / -1;
-}
-
-}
-
 </style>
-<header class="hero-header">
-<h1 class="hero-title">Document Scanning Guidelines</h1>
 
-<p class="hero-subtitle">Complete step-by-step workflow for digitizing archival materials</p>
-<button aria-label="Print this guide" class="btn-print" onclick="window.print()">🖨️ Print This Guide</button></header>
+<header class="hero-header">
+  <h1 class="hero-title">Document Scanning Guidelines</h1>
+  <p class="hero-subtitle">Complete step-by-step workflow for digitizing archival materials</p>
+  <button aria-label="Print this guide" class="btn-print" onclick="window.print()">🖨️ Print This Guide</button>
+</header>
 
 <div class="layout">
-<aside class="sidebar">
-<nav aria-label="Table of contents" class="toc"><strong>📋 Quick Navigation</strong>
+  <aside class="sidebar">
+    <nav aria-label="Table of contents" class="toc">
+      <strong>📋 Quick Navigation</strong>
+      <ol>
+        <li><a href="#setup">🚀 Initial Setup</a></li>
+        <li><a href="#scanner-settings">⚙️ Scanner Configuration</a></li>
+        <li><a href="#folder-setup">📁 Folder Organization</a></li>
+        <li><a href="#labeling">🏷️ File Naming Convention</a></li>
+        <li><a href="#scanning-process">📄 Scanning Workflow</a></li>
+        <li><a href="#multi-page">📚 Multi-Page Items</a></li>
+        <li><a href="#completion">✅ Finalizing &amp; Upload</a></li>
+        <li><a href="#troubleshooting">❓ Common Issues</a></li>
+      </ol>
+    </nav>
 
-<ol>
-	<li><a href="#setup">🚀 Initial Setup</a></li>
-	<li><a href="#scanner-settings">⚙️ Scanner Configuration</a></li>
-	<li><a href="#folder-setup">📁 Folder Organization</a></li>
-	<li><a href="#labeling">🏷️ File Naming Convention</a></li>
-	<li><a href="#scanning-process">📄 Scanning Workflow</a></li>
-	<li><a href="#multi-page">📚 Multi-Page Items</a></li>
-	<li><a href="#completion">✅ Finalizing &amp; Upload</a></li>
-	<li><a href="#troubleshooting">❓ Common Issues</a></li>
-</ol>
-</nav>
-
-<div class="tip-box" style="margin-top:2rem"><strong>🚀 New to Scanning?</strong><br />
-Start with Initial Setup, then carefully review Scanner Configuration before beginning your first folder!</div>
-</aside>
-
-<main>
-<section id="setup">
-<div class="step-indicator">
-<div class="step-number">🚀</div>
-
-<h2 style="margin:0">Before You Begin - Initial Setup</h2>
-</div>
-
-<div class="warning-callout">
-<p><big><strong>&nbsp; &nbsp;</strong></big></p>
-
-<h4><big><strong>&nbsp; &nbsp;Essential First Steps</strong></big></h4>
-
-<p>&nbsp; &nbsp; &nbsp;✅ Locate your assignment sheet with CAC identifiers<br />
-&nbsp; &nbsp; &nbsp;✅ Verify you have access to the Scan 2 software<br />
-&nbsp; &nbsp; &nbsp;✅ Confirm SharePoint folder access for uploads<br />
-&nbsp; &nbsp; &nbsp;✅ Review the Item Labeling Scheme document</p>
-
-<p>&nbsp;</p>
-</div>
-
-<ol class="step-list">
-	<li>
-	<h4>Navigate to Your Inventory Sheet</h4>
-
-	<p>Find the identifier for the box and folder you will be working with. This identifier will be crucial for organizing your scanned files.</p>
-
-	<div class="example-box">Example identifier: <code>HARC_2025_1_0000</code></div>
-	</li>
-	<li>
-	<h4>Turn On Scanner &amp; Launch Software</h4>
-
-	<p>Power on your scanner and click the <strong>Scan</strong> icon to open the Epson Scan 2 software. If the Scanner Settings box appears, try turning your scanner off and on again.</p>
-
-	<div class="tip-box">If the software doesn&#39;t detect your scanner, wait 30 seconds and try again. The scanner needs time to fully initialize.</div>
-	</li>
-</ol>
-</section>
-
-<section id="scanner-settings">
-<div class="step-indicator">
-<div class="step-number">⚙️</div>
-
-<h2 style="margin:0">Scanner Configuration - Critical Settings</h2>
-</div>
-
-<div class="callout"><strong>⚠️ Important:</strong> These settings should save between sessions, but always double-check before starting each scanning session!</div>
-
-<section id="scan-settings" aria-labelledby="scan-settings-heading">
-  <h2 id="scan-settings-heading">Scanning Settings</h2>
-
-<!-- Scanning settings: each media type is a single row with two side-by-side cards -->
-<section id="scan-settings" aria-labelledby="scan-settings-heading">
-  <h2 id="scan-settings-heading">Scanning Settings</h2>
-
-  <div class="settings-container">
-
-    <!-- Documents (row) -->
-    <div class="settings-row" role="group" aria-labelledby="doc-settings-title doc-quality-title">
-      <div class="settings-card" aria-labelledby="doc-settings-title">
-        <h3 id="doc-settings-title">📄 Document Settings</h3>
-        <ul>
-          <li><strong>Resolution:</strong> 600 DPI (documents)</li>
-          <li><strong>Color Mode:</strong> Color (24-bit)</li>
-          <li><strong>File Format:</strong> TIFF (documents)</li>
-          <li><strong>Page Size:</strong> Auto-detect</li>
-        </ul>
-      </div>
-
-      <div class="settings-card" aria-labelledby="doc-quality-title">
-        <h3 id="doc-quality-title">🎯 Quality Settings</h3>
-        <ul>
-          <li><strong>Brightness:</strong> Auto</li>
-          <li><strong>Contrast:</strong> Auto</li>
-          <li><strong>Sharpness:</strong> Standard</li>
-          <li><strong>Auto-crop:</strong> Enabled</li>
-        </ul>
-      </div>
+    <div class="tip-box" style="margin-top:2rem">
+      <strong>🚀 New to Scanning?</strong><br />
+      Start with Initial Setup, then carefully review Scanner Configuration before beginning your first folder!
     </div>
+  </aside>
 
-    <!-- Photographs (row) -->
-    <div class="settings-row" role="group" aria-labelledby="photo-settings-title photo-quality-title">
-      <div class="settings-card" aria-labelledby="photo-settings-title">
-        <h3 id="photo-settings-title">📷 Photograph Settings</h3>
-        <ul>
-          <li><strong>Resolution:</strong> 800 DPI (photographs)</li>
-          <li><strong>Color Mode:</strong> Color (24-bit)</li>
-          <li><strong>File Format:</strong> TIFF (photographs)</li>
-          <li><strong>Page Size:</strong> Auto-detect</li>
-        </ul>
+  <main>
+    <section id="setup">
+      <div class="step-indicator">
+        <div class="step-number">🚀</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Before You Begin – Initial Setup</h2>
       </div>
 
-      <div class="settings-card" aria-labelledby="photo-quality-title">
-        <h3 id="photo-quality-title">🎯 Quality Settings</h3>
-        <ul>
-          <li><strong>Brightness:</strong> Auto</li>
-          <li><strong>Contrast:</strong> Auto</li>
-          <li><strong>Sharpness:</strong> Standard</li>
-          <li><strong>Auto-crop:</strong> Enabled</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Maps / Oversized (row) -->
-    <div class="settings-row" role="group" aria-labelledby="map-settings-title map-quality-title">
-      <div class="settings-card" aria-labelledby="map-settings-title">
-        <h3 id="map-settings-title">🗺️ Map / Oversized Settings</h3>
-        <ul>
-          <li><strong>Resolution:</strong> 400 DPI (maps / oversized)</li>
-          <li><strong>Color Mode:</strong> Color (24-bit)</li>
-          <li><strong>File Format:</strong> TIFF (maps)</li>
-          <li><strong>Page Size:</strong> Auto-detect</li>
-        </ul>
+      <div class="warning-callout">
+        <h4 style="margin-top:0;">Essential First Steps</h4>
+        <p>
+          ✅ Locate your assignment sheet with CAC identifiers<br />
+          ✅ Verify you have access to the Scan 2 software<br />
+          ✅ Confirm SharePoint folder access for uploads<br />
+          ✅ Review the Item Labeling Scheme document
+        </p>
       </div>
 
-      <div class="settings-card" aria-labelledby="map-quality-title">
-        <h3 id="map-quality-title">🎯 Quality Settings</h3>
+      <ol class="step-list">
+        <li>
+          <h4>Navigate to Your Inventory Sheet</h4>
+          <p>Find the identifier for the box and folder you will be working with. This identifier will be crucial for organizing your scanned files.</p>
+          <div class="example-box">
+            Example identifier: <code>HARC_2025_1_0000</code>
+          </div>
+        </li>
+        <li>
+          <h4>Turn On Scanner &amp; Launch Software</h4>
+          <p>Power on your scanner and click the <strong>Scan</strong> icon to open the Epson Scan 2 software. If the Scanner Settings box appears, try turning your scanner off and on again.</p>
+          <div class="tip-box">
+            If the software doesn&#39;t detect your scanner, wait 30 seconds and try again. The scanner needs time to fully initialize.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="scanner-settings">
+      <div class="step-indicator">
+        <div class="step-number">⚙️</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Scanner Configuration – Critical Settings</h2>
+      </div>
+
+      <div class="callout">
+        <strong>⚠️ Important:</strong> These settings should save between sessions, but always double-check before starting each scanning session!
+      </div>
+
+      <section id="scan-settings" aria-labelledby="scan-settings-heading">
+        <h3 id="scan-settings-heading">Scanning Settings</h3>
+
+        <div class="settings-container">
+
+          <!-- Documents (row) -->
+          <div class="settings-row" role="group" aria-labelledby="doc-settings-title doc-quality-title">
+            <div class="settings-card" aria-labelledby="doc-settings-title">
+              <h3 id="doc-settings-title">📄 Document Settings</h3>
+              <ul>
+                <li><strong>Resolution:</strong> 600 DPI (documents)</li>
+                <li><strong>Color Mode:</strong> Color (24-bit)</li>
+                <li><strong>File Format:</strong> TIFF (documents)</li>
+                <li><strong>Page Size:</strong> Auto-detect</li>
+              </ul>
+            </div>
+
+            <div class="settings-card" aria-labelledby="doc-quality-title">
+              <h3 id="doc-quality-title">🎯 Quality Settings</h3>
+              <ul>
+                <li><strong>Brightness:</strong> Auto</li>
+                <li><strong>Contrast:</strong> Auto</li>
+                <li><strong>Sharpness:</strong> Standard</li>
+                <li><strong>Auto-crop:</strong> Enabled</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Photographs (row) -->
+          <div class="settings-row" role="group" aria-labelledby="photo-settings-title photo-quality-title">
+            <div class="settings-card" aria-labelledby="photo-settings-title">
+              <h3 id="photo-settings-title">📷 Photograph Settings</h3>
+              <ul>
+                <li><strong>Resolution:</strong> 800 DPI (photographs)</li>
+                <li><strong>Color Mode:</strong> Color (24-bit)</li>
+                <li><strong>File Format:</strong> TIFF (photographs)</li>
+                <li><strong>Page Size:</strong> Auto-detect</li>
+              </ul>
+            </div>
+
+            <div class="settings-card" aria-labelledby="photo-quality-title">
+              <h3 id="photo-quality-title">🎯 Quality Settings</h3>
+              <ul>
+                <li><strong>Brightness:</strong> Auto</li>
+                <li><strong>Contrast:</strong> Auto</li>
+                <li><strong>Sharpness:</strong> Standard</li>
+                <li><strong>Auto-crop:</strong> Enabled</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Maps / Oversized (row) -->
+          <div class="settings-row" role="group" aria-labelledby="map-settings-title map-quality-title">
+            <div class="settings-card" aria-labelledby="map-settings-title">
+              <h3 id="map-settings-title">🗺️ Map / Oversized Settings</h3>
+              <ul>
+                <li><strong>Resolution:</strong> 400 DPI (maps / oversized)</li>
+                <li><strong>Color Mode:</strong> Color (24-bit)</li>
+                <li><strong>File Format:</strong> TIFF (maps)</li>
+                <li><strong>Page Size:</strong> Auto-detect</li>
+              </ul>
+            </div>
+
+            <div class="settings-card" aria-labelledby="map-quality-title">
+              <h3 id="map-quality-title">🎯 Quality Settings</h3>
+              <ul>
+                <li><strong>Brightness:</strong> Auto</li>
+                <li><strong>Contrast:</strong> Auto</li>
+                <li><strong>Sharpness:</strong> Standard</li>
+                <li><strong>Auto-crop:</strong> Enabled</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Graphic materials (row) -->
+          <div class="settings-row" role="group" aria-labelledby="graphic-settings-title graphic-quality-title">
+            <div class="settings-card" aria-labelledby="graphic-settings-title">
+              <h3 id="graphic-settings-title">🖼️ Graphic Materials</h3>
+              <ul>
+                <li><strong>Resolution:</strong> 600 DPI (graphic materials)</li>
+                <li><strong>Color Mode:</strong> Color (24-bit)</li>
+                <li><strong>File Format:</strong> TIFF (graphic)</li>
+                <li><strong>Page Size:</strong> Auto-detect</li>
+              </ul>
+            </div>
+
+            <div class="settings-card" aria-labelledby="graphic-quality-title">
+              <h3 id="graphic-quality-title">🎯 Quality Settings</h3>
+              <ul>
+                <li><strong>Brightness:</strong> Auto</li>
+                <li><strong>Contrast:</strong> Auto</li>
+                <li><strong>Sharpness:</strong> Standard</li>
+                <li><strong>Auto-crop:</strong> Enabled</li>
+              </ul>
+            </div>
+          </div>
+
+        </div><!-- /.settings-container -->
+      </section>
+    </section>
+
+    <section id="folder-setup">
+      <div class="step-indicator">
+        <div class="step-number">📁</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Folder Organization Setup</h2>
+      </div>
+
+      <ol class="step-list">
+        <li>
+          <h4>Create Desktop Working Folder</h4>
+          <p>Create a new folder on your desktop. Copy and paste the folder ID from your assignment sheet to name this new folder.</p>
+          <div class="folder-example">Desktop Folder Name: HARC_2025_1_0000</div>
+        </li>
+        <li>
+          <h4>Configure Scan 2 Output Location</h4>
+          <p>In the Scan 2 software, change the Folder setting to point to the folder you just created on your desktop.</p>
+          <div class="tip-box">
+            Use the <strong>Browse</strong> button to navigate to your desktop folder. This ensures all scans go to the correct location automatically.
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="labeling">
+      <div class="step-indicator">
+        <div class="step-number">🏷️</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">File Naming Convention</h2>
+      </div>
+
+      <p class="muted">Consistent file naming is <strong>crucial for organization and findability</strong>. Follow this system exactly!</p>
+
+      <ol class="step-list">
+        <li>
+          <h4>Set Up Prefix Structure</h4>
+          <p>Begin with the folder identifier from your assignment sheet, add <span class="highlight-yellow">1</span> at the end (for the first item), followed by an underscore.</p>
+          <div class="example-box">
+            <strong>Prefix Format:</strong> <code>CAC_CC_109_9_1_1_</code>
+          </div>
+        </li>
+        <li>
+          <h4>Configure File Counter</h4>
+          <p>Check the <strong>&quot;Use File Counter&quot;</strong> box in Scan 2. <strong>Select <span class="highlight-yellow">4</span> characters and set the Start Number to 1</strong>.</p>
+          <div class="success-callout">
+            This will <strong>automatically append 0001, 0002, 0003, etc.</strong> to each page of your current item.
+          </div>
+        </li>
+      </ol>
+
+      <div class="card">
+        <h3>📋 Complete File Name Examples</h3>
         <ul>
-          <li><strong>Brightness:</strong> Auto</li>
-          <li><strong>Contrast:</strong> Auto</li>
-          <li><strong>Sharpness:</strong> Standard</li>
-          <li><strong>Auto-crop:</strong> Enabled</li>
+          <li>First item: <code>HARC_2025_1_0001.pdf</code></li>
+          <li>Second item: <code>HARC_2025_1_0002.pdf</code></li>
+          <li>Third item: <code>HARC_2025_1_0003.pdf</code></li>
         </ul>
       </div>
-    </div>
+    </section>
 
-    <!-- Graphic materials (row) -->
-    <div class="settings-row" role="group" aria-labelledby="graphic-settings-title graphic-quality-title">
-      <div class="settings-card" aria-labelledby="graphic-settings-title">
-        <h3 id="graphic-settings-title">🖼️ Graphic Materials</h3>
-        <ul>
-          <li><strong>Resolution:</strong> 600 DPI (graphic materials)</li>
-          <li><strong>Color Mode:</strong> Color (24-bit)</li>
-          <li><strong>File Format:</strong> TIFF (graphic)</li>
-          <li><strong>Page Size:</strong> Auto-detect</li>
-        </ul>
+    <section id="scanning-process">
+      <div class="step-indicator">
+        <div class="step-number">📄</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Basic Scanning Workflow</h2>
       </div>
 
-      <div class="settings-card" aria-labelledby="graphic-quality-title">
-        <h3 id="graphic-quality-title">🎯 Quality Settings</h3>
-        <ul>
-          <li><strong>Brightness:</strong> Auto</li>
-          <li><strong>Contrast:</strong> Auto</li>
-          <li><strong>Sharpness:</strong> Standard</li>
-          <li><strong>Auto-crop:</strong> Enabled</li>
-        </ul>
+      <ol class="step-list">
+        <li>
+          <h4>Choose Scanning Method</h4>
+          <p>Use the <strong>scanning bed</strong> for thin papers that lie flat. Use the <strong>document feeder</strong> for thicker items or when you have multiple pages.</p>
+          <div class="tip-box">
+            When in doubt, use the scanning bed for better quality and more control over placement.
+          </div>
+        </li>
+        <li>
+          <h4>Scan First Page</h4>
+          <p>Place your first document on the scanner and click <strong>Scan</strong>. The file will be saved automatically with your configured naming convention.</p>
+        </li>
+        <li>
+          <h4>Handle Single-Page Items</h4>
+          <p>For items that are only one page, you&#39;re done with that item! Proceed to the next item and update your prefix number.</p>
+          <div class="example-box">
+            <strong>Next item prefix:</strong> Change from <code>..._1_</code> to <code>..._2_</code> and <strong>reset the counter to 1.</strong>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section id="multi-page">
+      <div class="step-indicator">
+        <div class="step-number">📚</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Multi-Page Items (Stapled/Clipped Together)</h2>
       </div>
-    </div>
 
-  </div> <!-- /.settings-container -->
-</section>
+      <div class="warning-callout">
+        <strong>Key Concept:</strong> All pages that are stapled or paper-clipped together
+        <u><strong>constitute ONE ITEM and should be combined into a single PDF.</strong></u>
+      </div>
 
+      <ol class="step-list">
+        <li>
+          <h4>Scan All Pages of the Item</h4>
+          <p>Scan each page of the multi-page item individually. Keep the same prefix number for all pages of this item.</p>
+          <div class="success-callout">
+            The file counter will automatically increment: _0001.pdf, _0002.pdf, _0003.pdf, etc.
+          </div>
+        </li>
+        <li>
+          <h4>Select &quot;Add or Edit Pages After Scanning&quot;</h4>
+          <p>This option allows you to combine all pages of the current item into one PDF file. Click &#39;Save&#39; after the entire document has been scanned.</p>
+        </li>
+        <li>
+          <h4>Combine Pages into a Single PDF</h4>
+          <p>If there is a mistake or a forgotten page you can combine pages using Adobe Acrobat:</p>
+          <ul>
+            <li>Highlight all PDF files for this item</li>
+            <li>Right-click and select combine/merge PDFs</li>
+            <li>Save the combined PDF with the item number</li>
+            <li>Delete the individual page files [<strong>crucial!</strong>]</li>
+          </ul>
+        </li>
+      </ol>
 
+      <div class="tip-box">
+        <strong>Pro Tip:</strong> Keep your individual scans until you&#39;ve successfully created the combined PDF, just in case something goes wrong!
+      </div>
+    </section>
 
-<section id="folder-setup">
-<div class="step-indicator">
-<div class="step-number">📁</div>
+    <section id="completion">
+      <div class="step-indicator">
+        <div class="step-number">✅</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Finalizing &amp; Upload Process</h2>
+      </div>
 
-<h2 style="margin:0">Folder Organization Setup</h2>
-</div>
+      <ol class="step-list">
+        <li>
+          <h4>Update Item Numbers for Next Item</h4>
+          <p>Before scanning the next folder or box, don&#39;t forget to change the prefix in Scan 2 and reset the file counter to 1.</p>
+          <div class="example-box">
+            Change <code>HARC_2025_1_1_<strong>1</strong></code> to <code>HARC_2025_1_1_<strong>2</strong></code>
+          </div>
+        </li>
+        <li>
+          <h4>Complete Entire Folder</h4>
+          <p>Repeat the scanning process for all items in the assigned folder. Keep referring to the Item Labeling Scheme until you&#39;re confident with the format.</p>
+        </li>
+        <li>
+          <h4>Upload to SharePoint</h4>
+          <p>When the folder is complete, upload your entire desktop folder to the designated location on the server in the Map Studio.</p>
+          <div class="warning-callout">
+            <strong>Important:</strong> Don&#39;t delete your desktop folder until you&#39;ve confirmed the SharePoint upload was successful!
+          </div>
+        </li>
+        <li>
+          <h4>Move to Next Assignment</h4>
+          <p>Navigate back to your assignment sheet and begin the process for the next folder.</p>
+        </li>
+      </ol>
+    </section>
 
-<ol class="step-list">
-	<li>
-	<h4>Create Desktop Working Folder</h4>
+    <section id="troubleshooting">
+      <div class="step-indicator">
+        <div class="step-number">❓</div>
+        <h2 style="margin:0;border-bottom:none;padding-bottom:0;">Troubleshooting Common Issues</h2>
+      </div>
 
-	<p>Create a new folder on your desktop. Copy and paste the folder ID from your assignment sheet to name this new folder.</p>
+      <details>
+        <summary>🖨️ Scanner not detected by software</summary>
+        <p>Turn the scanner off, wait 30 seconds, then turn it back on. If the problem persists, restart the Scan 2 software completely.</p>
+      </details>
 
-	<div class="folder-example">Desktop Folder Name: HARC_2025_1_0000</div>
-	</li>
-	<li>
-	<h4>Configure Scan 2 Output Location</h4>
+      <details>
+        <summary>📁 Can&#39;t find my scanned files</summary>
+        <p>Check that you&#39;ve set the correct output folder in Scan 2. Files should be saving to your desktop folder with the CAC identifier name.</p>
+      </details>
 
-	<p>In the Scan 2 software, change the Folder setting to point to the folder you just created on your desktop.</p>
+      <details>
+        <summary>🏷️ File naming seems wrong</summary>
+        <p>Double-check your prefix setup and file counter settings. Remember to update the item number for each new item and reset the counter to 1.</p>
+      </details>
 
-	<div class="tip-box">Use the <strong>Browse button to navigate to your desktop folder</strong>. This ensures all scans go to the correct location automatically.</div>
-	</li>
-</ol>
-</section>
+      <details>
+        <summary>📄 Pages are scanning upside down or crooked</summary>
+        <p>Make sure documents are placed correctly on the scanner bed. Use the preview function to check orientation before final scan.</p>
+      </details>
 
-<section id="labeling">
-<div class="step-indicator">
-<div class="step-number">🏷️</div>
+      <details>
+        <summary>💾 PDF combine function not working</summary>
+        <p>Ensure you&#39;re selecting all the pages for the current item only. Try using a different PDF merge tool if the built-in function fails.</p>
+      </details>
 
-<h2 style="margin:0">File Naming Convention</h2>
-</div>
+      <details>
+        <summary>📤 SharePoint upload failing</summary>
+        <p>Check your internet connection and file sizes. Large folders may need to be uploaded in smaller batches.</p>
+      </details>
 
-<p class="muted">Consistent file naming is <strong>crucial for organization and findability</strong>. Follow this system exactly!</p>
-
-<ol class="step-list">
-	<li>
-	<h4>Set Up Prefix Structure</h4>
-
-	<p>Begin with the folder identifier from your assignment sheet, add <span class="highlight-yellow">1</span> at the end (for the first item), followed by an underscore.</p>
-
-	<div class="example-box"><strong>Prefix Format:</strong> <code>CAC_CC_109_9_1_1_</code></div>
-	</li>
-	<li>
-	<h4>Configure File Counter</h4>
-
-	<p>Check the <strong>&quot;Use File Counter&quot;</strong> box in Scan 2. <strong>Select <span class="highlight-yellow">4</span> characters and set the Start Number to 1</strong>.</p>
-
-	<div class="success-callout">This will <strong>automatically append 0001, 0002, 0003, etc.</strong> to each page of your current item.</div>
-	</li>
-</ol>
-
-<div class="card">
-<h3>📋 Complete File Name Examples</h3>
-
-<ul>
-	<li>First item: <code>HARC_2025_1_0001.pdf</code></li>
-	<li>Second item: <code>HARC_2025_1_0002.pdf</code></li>
-	<li>Third item: <code>HARC_2025_1_0003.pdf</code></li>
-</ul>
-</div>
-</section>
-
-<section id="scanning-process">
-<div class="step-indicator">
-<div class="step-number">📄</div>
-
-<h2 style="margin:0">Basic Scanning Workflow</h2>
-</div>
-
-<ol class="step-list">
-	<li>
-	<h4>Choose Scanning Method</h4>
-
-	<p>Use the <strong>scanning bed</strong> for thin papers that lie flat. Use the <strong>document feeder</strong> for thicker items or when you have multiple pages.</p>
-
-	<div class="tip-box">When in doubt, use the scanning bed for better quality and more control over placement.</div>
-	</li>
-	<li>
-	<h4>Scan First Page</h4>
-
-	<p>Place your first document on the scanner and click <strong>Scan</strong>. The file will be saved automatically with your configured naming convention.</p>
-	</li>
-	<li>
-	<h4>Handle Single-Page Items</h4>
-
-	<p>For items that are only one page, you&#39;re done with that item! Proceed to the next item and update your prefix number.</p>
-
-	<div class="example-box"><strong>Next item prefix:</strong> Change from <code>..._1_</code> to <code>..._2_</code> and <strong>reset the counter to 1.</strong></div>
-	</li>
-</ol>
-</section>
-
-<section id="multi-page">
-<div class="step-indicator">
-<div class="step-number">📚</div>
-
-<h2 style="margin:0">Multi-Page Items (Stapled/Clipped Together)</h2>
-</div>
-
-<div class="warning-callout"><strong>Key Concept:</strong> All pages that are stapled or paper-clipped together <u><strong>constitute ONE ITEM and should be combined into a single PDF.</strong></u></div>
-
-<ol class="step-list">
-	<li>
-	<h4>Scan All Pages of the Item</h4>
-
-	<p>Scan each page of the multi-page item individually. Keep the same prefix number for all pages of this item.</p>
-
-	<div class="success-callout">The file counter will automatically increment: _0001.pdf, _0002.pdf, _0003.pdf, etc.</div>
-	</li>
-	<li>
-	<h4>Select &quot;Add or Edit Pages After Scanning&quot;</h4>
-
-	<p>This option allows you to combine all pages of the current item into one PDF file. Click &#39;Save&#39; after the entire document has been scanned.</p>
-	</li>
-	<li>
-	<h4>Combine Pages into a Single PDF</h4>
-
-	<p>If there is a mistake or a forgotten page you can combine pages using Adobe Acrobat:</p>
-
-	<ul>
-		<li>Highlight all PDF files for this item</li>
-		<li>Right-click and select combine/merge PDFs</li>
-		<li>Save the combined PDF with the item number</li>
-		<li>Delete the individual page files [<strong>crucial!</strong>]</li>
-	</ul>
-	</li>
-</ol>
-
-<div class="tip-box"><strong>Pro Tip:</strong> Keep your individual scans until you&#39;ve successfully created the combined PDF, just in case something goes wrong!</div>
-</section>
-
-<section id="completion">
-<div class="step-indicator">
-<div class="step-number">✅</div>
-
-<h2 style="margin:0">Finalizing &amp; Upload Process</h2>
-</div>
-
-<ol class="step-list">
-	<li>
-	<h4>Update Item Numbers for Next Item</h4>
-
-	<p>Before scanning the next folder or box, don&#39;t forget to change the prefix in Scan 2 and reset the file counter to 1.</p>
-
-	<div class="example-box">Change <code>HARC_2025_1_1_<strong>1</strong></code> to <code>HARC_2025_1_1_<strong>2</strong></code></div>
-	</li>
-	<li>
-	<h4>Complete Entire Folder</h4>
-
-	<p>Repeat the scanning process for all items in the assigned folder. Keep referring to the Item Labeling Scheme until you&#39;re confident with the format.</p>
-	</li>
-	<li>
-	<h4>Upload to SharePoint</h4>
-
-	<p>When the folder is complete, upload your entire desktop folder to the designated location on the server in the Map Studio.</p>
-
-	<div class="warning-callout"><strong>&nbsp; &nbsp;Important:</strong> Don&#39;t delete your desktop folder until you&#39;ve confirmed the SharePoint upload was successful!</div>
-	</li>
-	<li>
-	<h4>Move to Next Assignment</h4>
-
-	<p>Navigate back to your assignment sheet and begin the process for the next folder.</p>
-	</li>
-</ol>
-</section>
-
-<section id="troubleshooting">
-<div class="step-indicator">
-<div class="step-number">❓</div>
-
-<h2 style="margin:0">Troubleshooting Common Issues</h2>
-</div>
-
-<details><summary>🖨️ Scanner not detected by software</summary>
-
-<p>Turn the scanner off, wait 30 seconds, then turn it back on. If the problem persists, restart the Scan 2 software completely.</p>
-</details>
-
-<details><summary>📁 Can&#39;t find my scanned files</summary>
-
-<p>Check that you&#39;ve set the correct output folder in Scan 2. Files should be saving to your desktop folder with the CAC identifier name.</p>
-</details>
-
-<details><summary>🏷️ File naming seems wrong</summary>
-
-<p>Double-check your prefix setup and file counter settings. Remember to update the item number for each new item and reset the counter to 1.</p>
-</details>
-
-<details><summary>📄 Pages are scanning upside down or crooked</summary>
-
-<p>Make sure documents are placed correctly on the scanner bed. Use the preview function to check orientation before final scan.</p>
-</details>
-
-<details><summary>💾 PDF combine function not working</summary>
-
-<p>Ensure you&#39;re selecting all the pages for the current item only. Try using a different PDF merge tool if the built-in function fails.</p>
-</details>
-
-<details><summary>📤 SharePoint upload failing</summary>
-
-<p>Check your internet connection and file sizes. Large folders may need to be uploaded in smaller batches.</p>
-</details>
-
-<div class="success-callout"><strong>🤝 Need Help?</strong> Never hesitate to reach out to anyone on the team! We&#39;re here to support you through this process.</div>
-</section>
-</main>
+      <div class="success-callout">
+        <strong>🤝 Need Help?</strong> Never hesitate to reach out to anyone on the team! We&#39;re here to support you through this process.
+      </div>
+    </section>
+  </main>
 </div>
 
 <footer>
-<p style="margin-bottom:0.5rem; font-size:1.1rem; font-weight:600">Thank you for your dedication to preserving our congressional heritage!</p>
-
-<p style="margin-bottom:0; font-style:italic; opacity:0.9">Carl Albert Congressional Research and Studies Center &bull; University of Oklahoma</p>
-
-<p style="margin:0.5rem 0 0 0; font-size:0.9rem; opacity:0.8">Edited April 2025</p>
+  <p style="margin-bottom:0.5rem;font-size:1.05rem;font-weight:600">
+    Thank you for your dedication to preserving our congressional heritage!
+  </p>
+  <p style="margin-bottom:0;font-style:italic;opacity:0.9">
+    Carl Albert Congressional Research and Studies Center &bull; University of Oklahoma
+  </p>
+  <p style="margin:0.5rem 0 0;font-size:0.9rem;opacity:0.8">
+    Edited April 2025
+  </p>
 </footer>
+
 <script>
-// Add any interactive functionality here if needed
-document.querySelectorAll('details').forEach(detail => {
+// Simple accordion: only one <details> open at a time
+document.querySelectorAll('.processing-guide details').forEach(detail => {
   detail.addEventListener('toggle', function() {
     if (this.open) {
-      // Close other details when opening one (accordion behavior)
-      document.querySelectorAll('details').forEach(otherDetail => {
-        if (otherDetail !== this && otherDetail.open) {
-          otherDetail.open = false;
-        }
+      document.querySelectorAll('.processing-guide details').forEach(other => {
+        if (other !== this && other.open) other.open = false;
       });
     }
   });
 });
-</script></section>
+</script>
+</section>
