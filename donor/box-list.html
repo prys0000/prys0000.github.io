@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Professional Document</title>
+  <title>Box-level Inventory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
@@ -299,15 +299,19 @@
   <div class="wrap">
     <header>
       <nav class="nav">
-        <div class="brand">
-          <a href="#" class="logo-link" aria-label="Home">
-            <div class="logo-fallback">LOGO</div>
-          </a>
-          <div>
-            <div class="brand-title">Your Company</div>
-            <div class="brand-sub">Professional Document System</div>
-          </div>
+            <div class="wrap nav" role="banner">
+      <div class="brand">
+        <a class="logo-link" href="/donor/#handling" aria-label="Back to HARC home">
+          <img src="/donor/harc-logo-2.jpg" alt="Heritage & Research Center" class="logo-img"
+               onerror="this.style.display='none'; document.getElementById('logoFallback').style.display='inline-grid';" />
+          <div id="logoFallback" class="logo-fallback" style="display:none" aria-hidden="true">H</div>
+        </a>
+
+        <div>
+          <div class="brand-title">Heritage & Research Center</div>
+          <div class="brand-sub">Item-level Inventory Template</div>
         </div>
+      </div>
         <button class="button">Get Started</button>
       </nav>
     </header>
