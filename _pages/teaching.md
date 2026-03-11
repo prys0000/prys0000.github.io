@@ -1,6 +1,6 @@
 ---
 permalink: /teaching/
-title: "Teaching Experience"
+title: "Current Courses"
 author_profile: true
 redirect_from: 
   - /md/
