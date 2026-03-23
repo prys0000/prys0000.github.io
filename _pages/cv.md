@@ -77,7 +77,7 @@ Founding archivist for a collaborative archive uniting ten congregations of Cath
 ---
 
 ## Education
-- **Ph.D. (Forthcoming 2026)**, Information Science (Large-Scale Digital Asset Management) – University of North Texas
+- **Ph.D. (2026)**, Information Science (Large-Scale Digital Asset Management) – University of North Texas
 - **M.L.I.S. (2015)**, Library & Information Science (Digital Content Management) – University of North Texas
 - **M.S. (2011)**, Museum Science (Digital Asset Management) – University of North Texas
 - **B.S. (2007)**, Criminal Justice – University of Central Oklahoma
