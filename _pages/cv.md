@@ -9,8 +9,8 @@ redirect_from:
 
 {% include base_path %}
 
-# JA Pryse  
-**Lead Archivist III, Instructor**  
+# JA Pryse, PhD  
+**Lead Archivist, Instructor**  
 [japryse@harcsm.org](mailto:japryse@harcsm.org)  
 Notre Dame, Indiana
 
