@@ -156,7 +156,8 @@ Founding archivist for a collaborative archive uniting ten congregations of Cath
 ---
 
 ## Professional Service
-- Executive Board Member, [National Association of Government Archives & Records Administrators (NAGARA)](https://www.nagara.org/), 2021–present
+- Member, [Archivists For Congregations of Women Religious (ACWR)](https://archivistsacwr.org/), 2026-present
+- Executive Board Member, [National Association of Government Archives & Records Administrators (NAGARA)](https://www.nagara.org/), 2021–2026
 - Advisory Board, [American Congress Digital Archives Portal](https://congressarchives.org/), 2023–present
 - Data Curation Network Mentorship Program, 2023-2024
 - National Association of Government Archives and Records Administrators: Mentorship Program, 2024-2025
