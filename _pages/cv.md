@@ -10,10 +10,19 @@ redirect_from:
 {% include base_path %}
 
 # JA Pryse, PhD  
-**Lead Archivist, Instructor**  
+**Lead Archivist III, Instructor**  
 [japryse@harcsm.org](mailto:japryse@harcsm.org)  
 Notre Dame, Indiana
 
+## Jump to Section
+- [Professional Experience](#professional-experience)
+- [Education](#education)
+- [Technical and Media Engineering Expertise](#technical-and-media-engineering-expertise)
+- [Publications](#publications)
+- [Select Projects and Grants](#select-projects-and-grants-pico-pi)
+- [Professional Service](#professional-service)
+- [Awards and Fellowships](#awards-and-fellowships))
+  
 ---
 
 ## Professional Summary
