@@ -1,6 +1,6 @@
 ---
 permalink: /
-title: "JA Pryse, Lead Archivist III and Curator"
+title: "JA Pryse, PhD, Lead Archivist III and Curator"
 excerpt: "About me"
 author_profile: true
 redirect_from: 
