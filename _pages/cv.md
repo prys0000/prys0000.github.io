@@ -9,7 +9,7 @@ redirect_from:
 
 {% include base_path %}
 
-# JA Pryse, PhD  
+# J.A. Pryse, PhD  
 **Lead Archivist III, Instructor**  
 [japryse@harcsm.org](mailto:japryse@harcsm.org)  
 Notre Dame, Indiana
@@ -116,22 +116,23 @@ Founding archivist for a collaborative archive uniting ten congregations of Cath
 - Breuer, A., Dietrich, B.J., Crespin, M.H., Pryse, J.A., Butler, M., Imai, K. Using AI to Summarize US Presidential Campaign TV Advertisement Videos, 1952–2012. *Sci Data* 12, 1552 (2025). [https://doi.org/10.1038/s41597-025-05558-9](https://doi.org/10.1038/s41597-025-05558-9)
 - Pryse, J.A. Adaptive learning models for efficient and standardized archival processes. *Arch Sci* 25, 24 (2025). [https://doi.org/10.1007/s10502-025-09488-8](https://doi.org/10.1007/s10502-025-09488-8)
 - Pryse, J.A. (2022). Practical Remote Workflow Solutions for Complex Digital Projects: Opportunities in a Pandemic. *Collections: A Journal for Museum and Archives Professionals*, 18(2), 258-279. [https://doi.org/10.1177/15501906211052720](https://doi.org/10.1177/15501906211052720)
-- "Changing Guard," JA Pryse, *Public Libraries Journal* (2017), 78(1): 118-137.
+- "Changing Guard," J.A. Pryse, *Public Libraries Journal* (2017), 78(1): 118-137.
+
+### Working Papers
+- "Operationalizing Authenticity by Design: Point-of-Creation Controls in AI-Assisted Archival Information Systems" - Pre-print, Archival Science - J.A. Pryse
+- "Encoding Knowledge: Training Internal AI Models to Recognize and Support Indigenous Languages in Visual Media" – J.A. Pryse
+- "Coded Words: Adaptive AI Models for Detecting Indigenous Languages in Textual Artifacts" – J.A. Pryse
 
 ### Other Publications and Datasets
 - Pryse, J.A.; Harp, Matthew; Mannheimer, Sara; Marsolek, Wanda; and Cowles, Wind. (2020). [Oral History Interviews Data Curation Primer](https://github.com/DataCurationNetwork/data-primers/blob/be75e0eda34f2912390e2e0eff820713e819c119/Oral%20History%20Interviews%20Data%20Curation%20Primer/oral-history-interviews-data-curation-primer.md). *Data Curation Network GitHub Repository*.
-- "Carl Albert Center COVID-19 Curation Project." JA Pryse, *Southwestern Archivist* (2020) 43(2): 18-24.
+- "Carl Albert Center COVID-19 Curation Project." J.A. Pryse, *Southwestern Archivist* (2020) 43(2): 18-24.
 - "Audiovisual data curation primer." Grace M. Jerrild, Lauren Phegley. *Data Curation Network* (2023).
-- "Carl Albert Center Human Rights Digital Archive," JA Pryse, *Southwestern Archivist* 43(1): 23-25.
-- "The Carl Albert Photo Collection." JA Pryse, *Southwestern Archivist* 42(3): 24-26.
-- ["Audio, Film, and Video Preservation and Access at the Oklahoma Historical Society,"](https://www2.archivists.org/groups/oral-history-section/audio-film-and-video-preservation-and-access-at-the-oklahoma-historical-society) Rachel Mosman, JA Pryse. *Recorded Sound Journal*, Summer: 6-8.
-- ["Journey of Big Bertha Webster,"](https://journal.iasa-web.org/index.php/pubs/article/view/10) JA Pryse, *IASA Journal* (46): 67-68.
-- ["Journey Back to Life,"](https://mydigitalpublication.com/publication/?i=301933&p=16&view=issueViewer) JA Pryse, *Archival Outlook* (May-June) p23.
-- ["Clara Luper Collection at the Oklahoma Historical Society: Community Description Project,"](https://www.iasa-web.org/sites/default/files/iasa_journal_43_part10.pdf) JA Pryse, *IASA Journal* (43): 70-74.
-
-### Working Papers
-- "Encoding Knowledge: Training Internal AI Models to Recognize and Support Indigenous Languages in Visual Media" – JA Pryse
-- "Coded Words: Adaptive AI Models for Detecting Indigenous Languages in Textual Artifacts" – JA Pryse
+- "Carl Albert Center Human Rights Digital Archive," J.A. Pryse, *Southwestern Archivist* 43(1): 23-25.
+- "The Carl Albert Photo Collection." J.A. Pryse, *Southwestern Archivist* 42(3): 24-26.
+- ["Audio, Film, and Video Preservation and Access at the Oklahoma Historical Society,"](https://www2.archivists.org/groups/oral-history-section/audio-film-and-video-preservation-and-access-at-the-oklahoma-historical-society) Rachel Mosman, J.A. Pryse. *Recorded Sound Journal*, Summer: 6-8.
+- ["Journey of Big Bertha Webster,"](https://journal.iasa-web.org/index.php/pubs/article/view/10) J.A. Pryse, *IASA Journal* (46): 67-68.
+- ["Journey Back to Life,"](https://mydigitalpublication.com/publication/?i=301933&p=16&view=issueViewer) J.A. Pryse, *Archival Outlook* (May-June) p23.
+- ["Clara Luper Collection at the Oklahoma Historical Society: Community Description Project,"](https://www.iasa-web.org/sites/default/files/iasa_journal_43_part10.pdf) J.A. Pryse, *IASA Journal* (43): 70-74.
 
 ### Recent Conference Papers (2023–2025)
 - **Association of Centers for the Study of Congress (ACSC)** – *National Archives and Records Administration, Washington, D.C.*  
