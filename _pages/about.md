@@ -1,71 +1,103 @@
 ---
 permalink: /
-title: "JA Pryse, PhD | Digital Archivist, Curator & Archival Informatics Researcher"
-excerpt: "Digital archivist, curator, and information science researcher building archival systems, preservation infrastructure, and new pathways to discovery."
+title: "JA Pryse, PhD | Digital Archival Systems Architect & Consultant"
+excerpt: "Independent consulting and contract services for digital archives, research portals, preservation infrastructure, metadata architecture, and workflow automation."
 author_profile: true
 redirect_from:
   - /about/
   - /about.html
 ---
 
-## Archives, Systems, and Access
+## Your collections. A system built to support them.
 
-**I build archival systems for collections that are too large, complex, or distributed to be managed by traditional workflows alone.**
+**I design and build digital archival systems—from the infrastructure that protects collections to the tools that make them discoverable.**
 
-I am a digital archivist, curator, and information science researcher working at the intersection of archives, technology, and institutional knowledge. My work centers on making complex collections more reliable, discoverable, and sustainable, from preservation infrastructure and metadata models to workflow automation, AI-assisted discovery, and public access.
+I’m **J.A. Pryse, PhD**, an independent consultant, digital archival systems architect, and archival informatics researcher. I bring more than **14 years of experience** turning complex collections, fragmented workflows, and research ideas into practical digital environments.
 
-I currently serve as **Lead Archivist III and Curator** at **The Heritage and Research Center at Saint Mary’s (HARC)** in Notre Dame, Indiana. As one of HARC’s two founding archivists, I am helping build a collaborative archive that brings together the records of **ten congregations of Catholic women religious and their sponsored ministries**. The work is unusually broad: establishing archival policy and processing systems, developing digital preservation infrastructure, creating public discovery tools, and designing a shared framework for collections that originated in separate institutions.
+> **Available for consulting and contract work**  
+> Digital content development · Infrastructure design · Digital archival systems architecture  
+> Short-term projects, phased implementations, and long-term engagements.  
+> **[Discuss your project →](mailto:ja-pryse@outlook.com)**
 
-Before HARC, I served as **Senior Archivist III and Curator** at the **Carl Albert Congressional Research and Studies Center Archives** at the University of Oklahoma, where my work focused on congressional archives, large-scale digital collections, electronic records, preservation systems, and collaborative research. I also taught information science at the University of Oklahoma.
+**[View my CV](https://prys0000.github.io/cv/)** · **[Explore my portfolio](https://prys0000.github.io/projects/)** · **[Read my publications](https://prys0000.github.io/publications/)**
 
-I hold a **Ph.D. in Information Science**, with a focus on **Archival Informatics**, an **M.L.I.S. in Digital Content Management**, and an **M.S. in Museum Science**.
+## What I Can Build With You
 
-**[CV](https://prys0000.github.io/cv/)** · **[Publications](https://prys0000.github.io/publications/)** · **[Project Portfolio](https://prys0000.github.io/projects/)** · **[Projects & Grants](https://prys0000.github.io/markdown/)**
+### Digital Archives and Preservation Infrastructure
 
-## Research That Becomes Practice
+Translate collection needs into a practical system architecture: acquisition, ingest, repository configuration, storage, backup, integrity verification, and long-term access. I develop implementation plans, preservation workflows, and documentation that support daily operations and future growth.
 
-My research begins with a practical question: **what has to happen inside an archival information system for information to remain reliable as it moves from creation and ingest through preservation, description, and access?**
+**Deliverables:** system assessments, architecture plans, repository migrations, preservation procedures, and technical documentation.
 
-I study the points where archival systems create friction, lose information, or become difficult to sustain. From there, I develop and test controls, metadata structures, training methods, and adaptive learning mechanisms that make workflows easier to understand and more dependable over time.
+### Digital Content, Research Portals, and Online Exhibits
 
-This work spans **archival informatics, digital preservation, metadata strategy, workflow design, responsible AI, and large-scale digital asset management**. A recurring theme is that technology alone does not solve archival problems. Good systems depend on the relationship between people, data, tools, institutional knowledge, and the decisions made at each stage of a workflow.
+Build research and public-access environments that connect digital objects, finding aids, names, institutional histories, and related collections. My work combines archival description, content organization, interface design, and public interpretation so that people can understand and use what they find.
 
-My research and professional practice are deliberately connected. I use working archives as environments for testing ideas, then turn what works into repeatable methods, documentation, software, and sustainable repository practice.
+**Deliverables:** digital collections, research portals, online exhibits, collection-browsing tools, and content workflows.
 
-**[Explore my research and project portfolio →](https://prys0000.github.io/projects/)**
+### Metadata Architecture and Cross-Collection Discovery
 
-## Selected Work
+Make information work across collections and institutions. I develop metadata models, crosswalks, controlled vocabularies, and name authority structures that preserve context while improving consistency and discovery—including the challenge of distinguishing people whose names change or overlap.
 
-### [HARC Archives and Digital Discovery](https://harc-archives.libraryhost.com/s/purple/page/welcome)
+**Deliverables:** metadata schemas, name authority structures, data-mapping specifications, normalization scripts, and quality-control procedures.
 
-At HARC, I am helping create a shared archival environment for ten congregations of Catholic women religious. In addition to building the underlying archival and digital preservation infrastructure, I have developed public research pathways that connect **finding aids, digital collections, a Sisters Names Index, collection browsing, research resources, and AI-assisted archival discovery**.
+### Automation and AI-Assisted Archival Workflows
 
-The goal is not simply to place records online. It is to create a research environment in which collections from separate institutions can be understood, searched, and used together while preserving their original context.
+Reduce repetitive processing through scripts, APIs, text extraction, and structured data transformation. I design AI-assisted workflows around documented sources, human review, and measurable quality controls, with particular interests in handwriting recognition, entity resolution, description, and discovery.
 
-### [Adaptive Learning Models for Archival Systems](https://prys0000.github.io/adaptive-learning-models/)
+**Deliverables:** processing tools, system integrations, OCR/HTR workflows, evaluation methods, and repeatable processing procedures.
 
-My archival informatics research examines how adaptive learning, feedback mechanisms, and point-of-creation controls can improve archival workflows. Rather than treating AI as a stand-alone solution, I focus on how machine-assisted processes can operate inside structured archival systems, learn from correction, and support human decision-making.
+### Documentation, Training, and Technical Handoff
 
-This work grew from large-scale processing and digitization projects and has developed into a broader model for improving reliability, standardization, and information flow across archival systems.
+Help teams operate and sustain the systems they inherit. I translate technical decisions into clear policies, operating procedures, training, and handoff materials for archivists, students, project staff, and institutional technology partners.
+
+**Deliverables:** workflow guides, staff training, system documentation, maintenance procedures, and transition plans.
+
+## Experience Behind the Work
+
+My experience connects **archival practice, hands-on development, and information science research**. I work across the full path from acquiring a record to preserving its integrity, describing its context, and making it useful to researchers.
+
+- **175.5 TB of digital congressional assets:** Directed stewardship at the University of Oklahoma’s Carl Albert Congressional Research and Studies Center Archives, including email, legislative records, photographs, audiovisual materials, and born-digital files.
+- **Large-scale preservation and access:** Led repository migration work with Preservica and developed electronic-records policies, automated ingest, fixity verification, and preservation-event workflows.
+- **Statewide digitization:** Directed Oklahoma Historical Society projects encompassing approximately 13 million legislative journal pages, 118,000 maps and related records, and 3,000 oral-history recordings.
+- **Collaborative archival infrastructure:** Developed policies, digital workflows, metadata models, and discovery tools as a founding archivist at HARC, a repository representing ten congregations of Catholic women religious and their sponsored ministries.
+
+I previously served as **Lead Archivist III and Curator at HARC (2025–2026)**, **Senior Archivist III and Curator at the University of Oklahoma (2018–2025)**, and **Director of Digital Archives / Archivist III at the Oklahoma Historical Society (2016–2018)**. I also taught information science at the University of Oklahoma.
+
+I hold a **Ph.D. in Information Science**, with a focus on archival informatics, an **M.L.I.S.**, and an **M.S. in Museum Science**.
+
+**[Full professional experience, technical expertise, and credentials →](https://prys0000.github.io/cv/)**
+
+## Selected Systems, Projects, and Research
 
 ### [American Congress Digital Archives Portal](https://congressarchives.org/)
 
-My congressional archives work has included collaborative development of the **American Congress Digital Archives Portal**, a multi-institutional effort to expand access to congressional collections and strengthen their use in research, civics, and history education.
+Co-led development of a multi-institutional discovery portal expanding access to congressional collections for research, history, and civics education. My contributions included archival workflows, digital preservation, metadata, interoperability, and scalable processing methods.
 
-My contributions have centered on archival workflows, digital preservation, metadata, interoperability, processing methodology, and scalable approaches for bringing complex congressional collections into shared discovery environments.
+### [HARC Archives and Digital Discovery](https://harc-archives.libraryhost.com/s/purple/page/welcome)
+
+During my 2025–2026 role at HARC, I developed research pathways connecting finding aids, digital collections, a Sisters Names Index, collection browsing, research resources, and AI-assisted discovery. I designed metadata and digital preservation workflows to support shared access while maintaining the provenance and context of separately created collections.
+
+### [Adaptive Learning Models for Archival Systems](https://prys0000.github.io/adaptive-learning-models/)
+
+My research examines how feedback, point-of-creation controls, and adaptive learning can improve reliability and standardization in archival workflows. I translate that research into methods that support human judgment, document corrections, and make information movement through a system easier to understand and evaluate.
 
 ### [Archives Handwriting Text Extraction and Analysis](https://github.com/prys0000/archives-handwriting-text-extract-project)
 
-This project explores flexible methods for extracting and improving text from handwritten archival documents. It was designed so that repositories can adapt the workflow to their own collections and technical environments rather than depend on a single platform.
-
-The larger research question is equally important: how can archival systems learn the characteristics of particular writers, scripts, names, abbreviations, and recurring language so that transcription improves through use?
+Developed an adaptable approach to extracting and improving text from handwritten archival documents. The project explores how workflows can account for particular writers, scripts, names, abbreviations, and recurring language while accommodating different collections and technical environments.
 
 ### [Political Campaign Advertisement Research](https://github.com/prys0000/political-commercial-collection-archives)
 
-This NSF-supported collaborative research uses a large historical collection of political campaign advertisements to study changes in political communication across time. My work has focused on the archival, metadata, preservation, and computational infrastructure needed to turn a complex audiovisual collection into usable research data.
+Contributed archival, metadata, preservation, and computational infrastructure to NSF-supported collaborative research using historical political campaign advertisements. The work connects audiovisual preservation with the preparation of complex collections for computational analysis.
 
-## Collaboration and Contact
+**[More projects and grant-supported work →](https://prys0000.github.io/markdown/)**
 
-I am interested in projects involving **digital archives, archival informatics, preservation systems, AI in cultural heritage, large-scale collections, metadata and discovery, and collaborative archival infrastructure**.
+## Let’s Discuss Your Project
 
-For research or professional collaboration, contact me at **[japryse@harcsm.org](mailto:japryse@harcsm.org)**.
+**Need a digital archive, a research portal, a preservation plan, or a workflow your team can sustain?**
+
+I welcome consulting and contract inquiries from archives, libraries, museums, universities, research centers, and collaborative collecting initiatives. Engagements can focus on a specific technical problem, a defined build, or longer-term development and implementation.
+
+Tell me what you are working with, what you need the system to do, and your anticipated timeline.
+
+**[Contact me: ja-pryse@outlook.com](mailto:ja-pryse@outlook.com)**
