@@ -1,103 +1,256 @@
 ---
+layout: archive
+title: "CV"
 permalink: /
-title: "JA Pryse, PhD | Digital Archival Systems Architect & Consultant"
-excerpt: "Independent consulting and contract services for digital archives, research portals, preservation infrastructure, metadata architecture, and workflow automation."
 author_profile: true
 redirect_from:
-  - /about/
-  - /about.html
+  - /cv/
+  - /resume
 ---
 
-## Your collections. A system built to support them.
+{% include base_path %}
 
-**I design and build digital archival systems—from the infrastructure that protects collections to the tools that make them discoverable.**
+# J.A. Pryse, PhD
 
-I’m **J.A. Pryse, PhD**, an independent consultant, digital archival systems architect, and archival informatics researcher. I bring more than **14 years of experience** turning complex collections, fragmented workflows, and research ideas into practical digital environments.
+Digital Archival Systems Architect · Independent Consultant · Archival Informatics Researcher  
+[ja-pryse@outlook.com](mailto:ja-pryse@outlook.com) · Notre Dame, Indiana
 
-> **Available for consulting and contract work**  
-> Digital content development · Infrastructure design · Digital archival systems architecture  
-> Short-term projects, phased implementations, and long-term engagements.  
-> **[Discuss your project →](mailto:ja-pryse@outlook.com)**
+[Professional Experience](#professional-experience) · [Education](#education) · [Technical Expertise](#technical-expertise) · [Publications](#publications) · [Projects & Grants](#selected-projects-and-grants) · [Service](#professional-service) · [Awards](#awards-and-fellowships)
 
-**[View my CV](https://prys0000.github.io/cv/)** · **[Explore my portfolio](https://prys0000.github.io/projects/)** · **[Read my publications](https://prys0000.github.io/publications/)**
+---
 
-## What I Can Build With You
+## Professional Profile
 
-### Digital Archives and Preservation Infrastructure
+Digital archivist, systems architect, and information science researcher with more than 14 years of experience designing and managing digital infrastructure for complex archival collections. I provide **consulting and contract services in digital content development, infrastructure design, and digital archival systems architecture**, connecting preservation requirements with practical tools for processing, discovery, and public access.
 
-Translate collection needs into a practical system architecture: acquisition, ingest, repository configuration, storage, backup, integrity verification, and long-term access. I develop implementation plans, preservation workflows, and documentation that support daily operations and future growth.
+My work spans the full archival information lifecycle: acquisition, metadata modeling, repository configuration, workflow automation, preservation, and access. I design systems that maintain provenance and context, support collaboration across institutions, and can be sustained through clear documentation, staff training, and technical handoff. My research examines how point-of-creation controls, adaptive learning, and structured feedback can improve the reliability and interoperability of archival systems.
 
-**Deliverables:** system assessments, architecture plans, repository migrations, preservation procedures, and technical documentation.
+As a founding archivist at the Heritage and Research Center at Saint Mary’s, I developed archival policies, digital workflows, and discovery infrastructure for a collaborative repository representing ten congregations of Catholic women religious and their sponsored ministries. Earlier work at the University of Oklahoma and Oklahoma Historical Society included congressional and governmental collections, born-digital records programs, repository migrations, audiovisual preservation, and statewide digitization initiatives.
 
-### Digital Content, Research Portals, and Online Exhibits
+### Areas of Expertise
 
-Build research and public-access environments that connect digital objects, finding aids, names, institutional histories, and related collections. My work combines archival description, content organization, interface design, and public interpretation so that people can understand and use what they find.
+- Digital Archival Systems Architecture and Infrastructure Design
+- Digital Content Development, Research Portals, and Public Discovery
+- Digital Preservation Strategy and Repository Implementation
+- Born-Digital Acquisition and Electronic Records Management
+- Metadata Architecture, Interoperability, and Name Authority Systems
+- Workflow Automation, Python, APIs, and Cloud Infrastructure
+- AI-Assisted Archival Processing and Discovery
+- Digital Forensics, Secure Transfer, and Integrity Verification
+- Audiovisual Preservation and Legacy-Media Digitization
+- Multi-Institutional Collaboration and Grant Development
+- Technical Documentation, Staff Training, and Systems Handoff
 
-**Deliverables:** digital collections, research portals, online exhibits, collection-browsing tools, and content workflows.
+---
 
-### Metadata Architecture and Cross-Collection Discovery
+## Professional Experience
 
-Make information work across collections and institutions. I develop metadata models, crosswalks, controlled vocabularies, and name authority structures that preserve context while improving consistency and discovery—including the challenge of distinguishing people whose names change or overlap.
+### Independent Consulting and Contract Services
+**Digital Archival Systems Architect and Digital Content Consultant**  
+*Project-based, short-term, and long-term engagements*
 
-**Deliverables:** metadata schemas, name authority structures, data-mapping specifications, normalization scripts, and quality-control procedures.
+Provide consulting and implementation services for archives, libraries, museums, research centers, and collaborative collecting initiatives. Services focus on building sustainable digital content environments and connecting archival requirements with system design and day-to-day operations.
 
-### Automation and AI-Assisted Archival Workflows
+- **Systems assessment and architecture:** Assess collections, existing tools, and institutional requirements; develop system designs, implementation plans, and workflows for acquisition, processing, preservation, and access.
+- **Digital content and discovery:** Develop digital collections, research portals, online exhibits, and discovery interfaces that connect finding aids, digital objects, contextual information, and related collections.
+- **Preservation infrastructure:** Design storage, ingest, backup, fixity, and preservation-event workflows for born-digital and digitized materials, including cloud-based and local environments.
+- **Metadata and interoperability:** Develop metadata schemas, crosswalks, controlled vocabularies, name authority structures, and data-normalization procedures for consistent description and cross-repository discovery.
+- **Automation and integration:** Build scripts, API integrations, and processing tools for inventory, transformation, quality control, repository migration, and repetitive archival tasks.
+- **AI-assisted research and processing:** Design and evaluate text-extraction, description, entity-resolution, and discovery workflows with documented sources, human review, and quality controls.
+- **Documentation and transition:** Create policies, operating procedures, system documentation, and training materials; support staff onboarding and a documented handoff to ongoing institutional management.
 
-Reduce repetitive processing through scripts, APIs, text extraction, and structured data transformation. I design AI-assisted workflows around documented sources, human review, and measurable quality controls, with particular interests in handwriting recognition, entity resolution, description, and discovery.
+### Heritage and Research Center at Saint Mary’s — Notre Dame, Indiana
+**Lead Archivist III and Curator, 2025–2026**
 
-**Deliverables:** processing tools, system integrations, OCR/HTR workflows, evaluation methods, and repeatable processing procedures.
+Founding archivist for a collaborative repository representing ten congregations of Catholic women religious and their sponsored ministries.
 
-### Documentation, Training, and Technical Handoff
+- Developed archival policies, processing procedures, digital workflows, and access protocols for a new multi-congregational research center.
+- Designed approaches to shared preservation, description, and discovery that maintained the provenance and institutional context of separately created collections.
+- Designed digital preservation architecture and workflows for born-digital and digitized correspondence, photographs, administrative records, audiovisual materials, and other complex formats.
+- Developed public discovery tools connecting finding aids, digital collections, name authorities, collection browsing, and AI-assisted archival reference.
+- Created metadata models, controlled vocabularies, and name-identification workflows supporting research into women religious, congregations, ministries, missions, and institutional history.
+- Built automation and data-processing workflows for archival description, metadata normalization, migration, and digital access.
+- Created exhibit concepts, visual designs, and digital exhibit content connecting archival collections with public interpretation.
+- Worked with congregational leaders, archivists, partner institutions, faculty, students, and researchers to develop shared practices, project frameworks, and grant proposals.
 
-Help teams operate and sustain the systems they inherit. I translate technical decisions into clear policies, operating procedures, training, and handoff materials for archivists, students, project staff, and institutional technology partners.
+### University of Oklahoma — Norman, Oklahoma
+**Senior Archivist III and Curator, Carl Albert Congressional Research and Studies Center Archives, 2018–2025**  
+**Instructor of Information Science, 2019–2025**
 
-**Deliverables:** workflow guides, staff training, system documentation, maintenance procedures, and transition plans.
+- Directed stewardship of approximately **175.5 TB of digital congressional assets**, including email, social-media exports, legislative records, photographs, audiovisual materials, and born-digital files.
+- Designed the Center’s electronic records management framework and digital collections policies, integrating appraisal, fixity verification, PREMIS event logging, automated ingest, and long-term preservation.
+- Led migration of legacy digital collections into **Preservica Cloud Edition**, creating operating procedures, documentation, and training materials used across collaborative projects.
+- Developed transfer guidance for congressional offices covering file organization, naming conventions, encryption, secure transfer, and born-digital accessioning.
+- Co-led development of the **American Congress Digital Archives Portal**, expanding federated discovery across congressional repositories and supporting research and K–12 civics education.
+- Developed and tested AI- and automation-assisted archival workflows, including an AWS Textract handwriting pilot involving approximately 20,000 letters.
+- Built scalable processing and digitization workflows for large congressional collections, integrating metadata creation, quality control, preservation, and public access.
+- Supervised professional staff, student employees, interns, and project teams and developed competency-based training for archival and digitization work.
+- Taught information science courses and integrated practical archival systems, digital preservation, and project-based learning into instruction.
 
-## Experience Behind the Work
+### Oklahoma Historical Society — Oklahoma City, Oklahoma
+**Director of Digital Archives / Archivist III, 2016–2018**  
+**Digital Archivist / Projects Archivist, 2011–2016**
 
-My experience connects **archival practice, hands-on development, and information science research**. I work across the full path from acquiring a record to preserving its integrity, describing its context, and making it useful to researchers.
+- Managed statewide digital preservation and digitization initiatives involving legislative records, maps, photographs, audiovisual collections, oral histories, and born-digital materials.
+- Directed projects encompassing approximately **13 million legislative journal pages**, **118,000 maps and related records**, and **3,000 oral-history recordings**.
+- Developed the Society’s early born-digital transfer policies and digital preservation workflows.
+- Implemented repository, BagIt, checksum, derivative-generation, and preservation procedures supporting both internal stewardship and public access.
+- Collaborated with state information technology and records-management offices to align retention, acquisition, preservation, and access practices.
+- Developed triage and preservation workflows for at-risk magnetic and audiovisual media.
+- Progressed through multiple archival roles with increasing responsibility for digital preservation, systems, project management, and statewide digital initiatives.
 
-- **175.5 TB of digital congressional assets:** Directed stewardship at the University of Oklahoma’s Carl Albert Congressional Research and Studies Center Archives, including email, legislative records, photographs, audiovisual materials, and born-digital files.
-- **Large-scale preservation and access:** Led repository migration work with Preservica and developed electronic-records policies, automated ingest, fixity verification, and preservation-event workflows.
-- **Statewide digitization:** Directed Oklahoma Historical Society projects encompassing approximately 13 million legislative journal pages, 118,000 maps and related records, and 3,000 oral-history recordings.
-- **Collaborative archival infrastructure:** Developed policies, digital workflows, metadata models, and discovery tools as a founding archivist at HARC, a repository representing ten congregations of Catholic women religious and their sponsored ministries.
+---
 
-I previously served as **Lead Archivist III and Curator at HARC (2025–2026)**, **Senior Archivist III and Curator at the University of Oklahoma (2018–2025)**, and **Director of Digital Archives / Archivist III at the Oklahoma Historical Society (2016–2018)**. I also taught information science at the University of Oklahoma.
+## Education
 
-I hold a **Ph.D. in Information Science**, with a focus on archival informatics, an **M.L.I.S.**, and an **M.S. in Museum Science**.
+- **Ph.D., Information Science, 2026** — University of North Texas  
+  Focus: Archival Informatics and Large-Scale Digital Asset Management
+- **M.L.I.S., Library and Information Science, 2015** — University of North Texas  
+  Focus: Digital Content Management
+- **M.S., Museum Science, 2011** — University of North Texas  
+  Focus: Digital Asset Management
+- **B.S., Criminal Justice, 2007** — University of Central Oklahoma
 
-**[Full professional experience, technical expertise, and credentials →](https://prys0000.github.io/cv/)**
+### Selected Advanced Training
 
-## Selected Systems, Projects, and Research
+- **Smithsonian Institution Research Fellow**, Electronic Records Management and Digital Archives, 2014
+- **Data Curation Network Workshops**, Specialized Data Types, 2019 and 2023
+- **Archival Education and Research Institute (AERI)**, Louisiana State University, 2023
 
-### [American Congress Digital Archives Portal](https://congressarchives.org/)
+---
 
-Co-led development of a multi-institutional discovery portal expanding access to congressional collections for research, history, and civics education. My contributions included archival workflows, digital preservation, metadata, interoperability, and scalable processing methods.
+## Technical Expertise
 
-### [HARC Archives and Digital Discovery](https://harc-archives.libraryhost.com/s/purple/page/welcome)
+### Systems Architecture and Digital Content Development
+Archival system requirements, infrastructure planning, digital collections and research portals, online exhibits, acquisition-to-access workflows, system integration, technical documentation, implementation planning, and staff training.
 
-During my 2025–2026 role at HARC, I developed research pathways connecting finding aids, digital collections, a Sisters Names Index, collection browsing, research resources, and AI-assisted discovery. I designed metadata and digital preservation workflows to support shared access while maintaining the provenance and context of separately created collections.
+### Digital Preservation and Repository Systems
+Preservica, ArchivesSpace, Omeka S, Islandora, Cuadra STAR, Archivists’ Toolkit, Archon, PastPerfect, BagIt, AWS S3 and Glacier, Google Cloud Storage, fixity and integrity validation, repository migration, preservation planning, and disaster-recovery workflows.
 
-### [Adaptive Learning Models for Archival Systems](https://prys0000.github.io/adaptive-learning-models/)
+### Archival Description, Metadata, and Interoperability
+DACS, EAD, Dublin Core, PREMIS, METS, MODS, MARC/MARCXML, PBCore, EBUCore, WARC, XML, linked data, controlled vocabularies, authority records, metadata crosswalking, bulk import/export, and descriptive normalization.
 
-My research examines how feedback, point-of-creation controls, and adaptive learning can improve reliability and standardization in archival workflows. I translate that research into methods that support human judgment, document corrections, and make information movement through a system easier to understand and evaluate.
+### Programming, Automation, and AI
+Python, JavaScript, Java, R, PHP, PowerShell, shell scripting, XML/XSLT, LaTeX/TeX, AWS Textract, API-based data exchange, workflow automation, OCR/HTR processing, AI-assisted archival description, and adaptive learning models.
 
-### [Archives Handwriting Text Extraction and Analysis](https://github.com/prys0000/archives-handwriting-text-extract-project)
+### Born-Digital and Digital Forensics
+FRED forensic workstations, Tableau and UltraBlock write blockers, FTK, Sleuth Kit, EnCase, DataAccessioner, Brunnhilde, disk imaging, secure transfer, file-system triage, integrity validation, and preservation of email, social media, web content, and complex born-digital records.
 
-Developed an adaptable approach to extracting and improving text from handwritten archival documents. The project explores how workflows can account for particular writers, scripts, names, abbreviations, and recurring language while accommodating different collections and technical environments.
+### Audiovisual and Legacy-Media Preservation
+Hands-on preservation experience with wax cylinders, wire recordings, open-reel audio, lacquer and shellac discs, 1-inch Type C video, 2-inch Quad video, VHS and related analog formats. Experience includes equipment repair and calibration, tape-path and head servicing, time-base correction, waveform monitoring, analog-to-digital signal chains, and film scanning.
 
-### [Political Campaign Advertisement Research](https://github.com/prys0000/political-commercial-collection-archives)
+### Preservation Studio Design and Training
+Designed and operated multi-format audiovisual preservation environments integrating legacy playback equipment with broadcast-grade capture hardware. Developed procedures and trained archivists, students, and staff in media handling, signal flow, digitization, quality control, and troubleshooting.
 
-Contributed archival, metadata, preservation, and computational infrastructure to NSF-supported collaborative research using historical political campaign advertisements. The work connects audiovisual preservation with the preparation of complex collections for computational analysis.
+---
 
-**[More projects and grant-supported work →](https://prys0000.github.io/markdown/)**
+## Publications
 
-## Let’s Discuss Your Project
+### Peer-Reviewed
 
-**Need a digital archive, a research portal, a preservation plan, or a workflow your team can sustain?**
+- Breuer, A., Dietrich, B. J., Crespin, M. H., Pryse, J. A., Butler, M., & Imai, K. (2025). **Using AI to Summarize US Presidential Campaign TV Advertisement Videos, 1952–2012.** *Scientific Data, 12*, 1552. [https://doi.org/10.1038/s41597-025-05558-9](https://doi.org/10.1038/s41597-025-05558-9)
+- Pryse, J. A. (2025). **Adaptive Learning Models for Efficient and Standardized Archival Processes.** *Archival Science, 25*, 24. [https://doi.org/10.1007/s10502-025-09488-8](https://doi.org/10.1007/s10502-025-09488-8)
+- Pryse, J. A. (2022). **Practical Remote Workflow Solutions for Complex Digital Projects: Opportunities in a Pandemic.** *Collections: A Journal for Museum and Archives Professionals, 18*(2), 258–279. [https://doi.org/10.1177/15501906211052720](https://doi.org/10.1177/15501906211052720)
+- Pryse, J. A. (2017). **Changing Guard.** *Public Libraries Journal, 78*(1), 118–137.
 
-I welcome consulting and contract inquiries from archives, libraries, museums, universities, research centers, and collaborative collecting initiatives. Engagements can focus on a specific technical problem, a defined build, or longer-term development and implementation.
+### Current Research and Working Papers
 
-Tell me what you are working with, what you need the system to do, and your anticipated timeline.
+- **Operationalizing Authenticity by Design: Point-of-Creation Controls in AI-Assisted Archival Information Systems**
+- **Encoding Knowledge: Training Internal AI Models to Recognize and Support Indigenous Languages in Visual Media**
+- **Coded Words: Adaptive AI Models for Detecting Indigenous Languages in Textual Artifacts**
 
-**[Contact me: ja-pryse@outlook.com](mailto:ja-pryse@outlook.com)**
+### Selected Professional Publications and Data Resources
+
+- Pryse, J. A., Harp, M., Mannheimer, S., Marsolek, W., & Cowles, W. (2020). [**Oral History Interviews Data Curation Primer**](https://github.com/DataCurationNetwork/data-primers/blob/be75e0eda34f2912390e2e0eff820713e819c119/Oral%20History%20Interviews%20Data%20Curation%20Primer/oral-history-interviews-data-curation-primer.md). *Data Curation Network*.
+- Pryse, J. A. (2020). **Carl Albert Center COVID-19 Curation Project.** *Southwestern Archivist, 43*(2), 18–24.
+- Pryse, J. A. **Carl Albert Center Human Rights Digital Archive.** *Southwestern Archivist, 43*(1), 23–25.
+- Pryse, J. A. **The Carl Albert Photo Collection.** *Southwestern Archivist, 42*(3), 24–26.
+- Mosman, R., & Pryse, J. A. [**Audio, Film, and Video Preservation and Access at the Oklahoma Historical Society**](https://www2.archivists.org/groups/oral-history-section/audio-film-and-video-preservation-and-access-at-the-oklahoma-historical-society). *Recorded Sound Journal*.
+- Pryse, J. A. [**Journey of Big Bertha Webster**](https://journal.iasa-web.org/index.php/pubs/article/view/10). *IASA Journal*, 46, 67–68.
+- Pryse, J. A. [**Journey Back to Life**](https://mydigitalpublication.com/publication/?i=301933&p=16&view=issueViewer). *Archival Outlook*, May–June, 23.
+- Pryse, J. A. [**Clara Luper Collection at the Oklahoma Historical Society: Community Description Project**](https://www.iasa-web.org/sites/default/files/iasa_journal_43_part10.pdf). *IASA Journal*, 43, 70–74.
+
+### Selected Conference Presentations
+
+- **Association of Centers for the Study of Congress**, National Archives and Records Administration, Washington, D.C.  
+  *AI and Python for Efficient and Standardized Archival Processes.*
+- **Society of American Archivists**, Chicago, Illinois  
+  *Archival Chaos and the Exhaustive Layers of Order: The Story of Kanter’s Political Ads.*
+- **Archival Education and Research Institute**, Louisiana State University  
+  *Julian P. Kanter Collection: Chaos and Order.*
+
+---
+
+## Selected Projects and Grants
+
+### James R. Jones Carl Albert Center Digital Archive — Principal Investigator
+**$1 million gift, 2021**  
+Led a major digital archive initiative supporting migration, preservation, and long-term access to the Center’s digital collections through Preservica.
+
+### American Congress Digital Archives Portal — Co-Principal Investigator
+**National Endowment for the Humanities · $349,580**  
+Multi-institutional project led by West Virginia University Libraries with the Dirksen Congressional Center, Robert J. Dole Institute of Politics, Richard B. Russell Library for Political Research and Studies, University of Hawaiʻi Congressional Papers Collection, and Carl Albert Center. Developed shared approaches to discovery, interoperability, and use of congressional archives.
+
+### Understanding the Evolution of Political Campaign Advertisements over the Last Century — Principal Investigator / Collaborator
+**National Science Foundation · SES-2147635 · $538,484 · 2022–2025**  
+Collaborative research with Kosuke Imai, Bryce Dietrich, and partner institutions examining political campaign advertisements through computational research and archival data.
+
+### Congressional Correspondence Handwriting Textract Pilot — Principal Investigator
+**Data Institute for Societal Challenges · 2022**  
+Evaluated AWS Textract for handwritten congressional correspondence and developed methods for integrating machine-assisted text extraction into archival workflows.
+
+### Oklahoma City Redlining: A Community Analysis Project — Principal Investigator
+**Oklahoma Humanities Council · 2020–2022**
+
+### The Independent Student Voice — Principal Investigator
+**Inasmuch Ethics and Excellence in Journalism Program · $25,000 · 2020–2022**  
+Expanded digital access to the University of Oklahoma’s historic student newspaper.
+
+### Oklahoma Commissioners of the Land Office Digitization and Preservation Project — Principal Investigator
+**$98,000**  
+Preserved and digitized more than 20,000 pages of pre-statehood and early statehood records for remote access.
+
+### Oklahoma State Tourism and Recreation Digitization Project — Principal Investigator
+**$90,000**  
+Preserved and digitized more than 118,000 maps, ledgers, photographs, and blueprints.
+
+### Oklahoma State Legislature Preservation and Digitization Program
+Large-scale preservation initiative resulting in approximately **13 million searchable pages** of Oklahoma State Senate journals from statehood forward.
+
+### Additional Projects
+
+- **Indian Self-Determination and the People’s Voice** — APSA Special Projects Fund Seed Grant
+- **Carl Albert Platform of Interactive Discovery** — Oklahoma Department of Libraries / OHRAB
+- **Improving Access to Collections: Carl Albert Collection** — NHPRC / OHRAB / ODL
+- **Carl Albert Congressional Research and Studies Center Native American Politics Archival Workshop** — Co-Principal Investigator, APSA Centennial Center
+- **Google Cloud Computing Credits** — Co-Principal Investigator
+- **The Gateway to Oklahoma History** — statewide historic newspaper digitization
+- **Living Legends Oral History Project** — magnetic tape preservation and digitization
+
+[View additional project details →](https://prys0000.github.io/markdown/)
+
+---
+
+## Professional Service
+
+- **ArchivesSpace Governance Board** — Board Member, 2026–2029
+- **Archivists for Congregations of Women Religious (ACWR)** — Member, 2026–Present
+- **American Congress Digital Archives Portal** — Advisory Board, 2023–Present
+- **National Association of Government Archives and Records Administrators (NAGARA)** — Executive Board Member, 2021–2023
+- **Oklahoma Museums Association** — Board Member, 2019–2024
+- **University of Oklahoma Staff Senate** — Staff Initiatives Committee, 2020–2024
+- **University of Oklahoma Native American Studies Tribal Collaboration Committee** — Member, 2018–Present
+- **Data Curation Network Mentorship Program** — Mentor/Participant, 2023–2024
+- **NAGARA Mentorship Program** — 2024–2025
+- **Society of Southwest Archivists, Reference, Access & Outreach Section** — Steering Committee, 2018–2019
+- **Digital Public Library of America** — Oklahoma Representative, 2014–2016
+
+---
+
+## Awards and Fellowships
+
+- **Dean’s Outstanding Staff Award**, University of Oklahoma College of Arts and Sciences, 2022
+- **Recognition for Outreach and Community Work**, Oklahoma Museums Association, 2019
+- **Community Outreach Recognition**, Pioneer Library System East, 2019
+- **Smithsonian Institution Research Fellowship**, Electronic Records Management and Digital Archives, 2014
+- **Emerging Leader Award Nominee**, Society of American Archivists, 2017
