@@ -7,9 +7,9 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "JA Pryse, PhD, Senior Archivist III"
+title                    : "Digital Archivist, Curator, and Archival Information Systems Researcher"
 title_separator          : "-"
-name                     : &name "JA Pryse"
+name                     : &name "J.A. Pryse"
 description              : &description "personal description"
 url                      : https://prys0000.github.io # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
@@ -86,7 +86,7 @@ author:
   location         : 
   employer         : "Carl Albert Congressional Archives"
   googlescholar    : "https://scholar.google.com/citations?user=u_6-7z0AAAAJ&hl=en&oi=ao"
-  email            :  "japryse@ou.edu"
+  email            :  "ja-pryse@outlook.com"
   researchgate     :  "https://ou.academia.edu/japryse"
   uri              :
   bitbucket        :
