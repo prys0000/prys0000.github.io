@@ -368,7 +368,7 @@ function payload(){const data={submission_id:submissionId};new FormData(form).fo
 form.addEventListener('submit',event=>{
   event.preventDefault();if(!validate())return;
   error.hidden=true;submit.disabled=true;submit.textContent='Submitting…';
-  const done=()=>{form.hidden=true;document.getElementById('napwr-success').hidden=false;window.scrollTo({top:0,behavior:'smooth'});};
+  const done=()=>{form.hidden=true;document.getElementById('napwr-success').hidden=false;document.getElementById('napwr-success').scrollIntoView({behavior:'smooth',block:'start'});};
   const fail=()=>{showError('We could not confirm receipt. Your answers remain here. Please try again.');submit.disabled=false;submit.textContent='Submit Survey';};
   // Served by Apps Script itself: use the built-in channel
   if(window.google?.script?.run){
