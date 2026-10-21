@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Women Religious Portal · Design &amp; Research Survey</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:light;--navy:#213845;--navy2:#173b55;--cream:#fbfaf6;--paper:#fff;--ink:#253944;--muted:#526570;--aqua:#63b7bb;--gold:#c99050;--line:#d9e1e2;--focus:#087a86}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--cream);color:var(--ink);font:18px/1.65 'Open Sans',Arial,sans-serif}
+.survey{max-width:980px;margin:auto;padding:0 20px 64px}
+.hero{background:var(--navy);color:#fff;padding:58px clamp(24px,5vw,64px) 52px;margin:0 -20px 0}
+.eyebrow{color:#d5a36e;text-transform:uppercase;letter-spacing:.12em;font-size:14px;font-weight:700;margin:0 0 14px}
+h1{font:700 clamp(38px,5vw,58px)/1.12 'Noto Serif',Georgia,serif;margin:0 0 12px;color:#fff}
+.subtitle{font:600 clamp(23px,3vw,31px)/1.3 'Noto Serif',Georgia,serif;color:#e5f2f1;margin:0 0 22px}
+.intro{max-width:760px;margin:0;color:#f0f5f4;font-size:19px}
+.accent{height:6px;margin:0 -20px;background:linear-gradient(90deg,var(--gold) 0 34%,var(--aqua) 34% 67%,#68899a 67%)}
+.survey-nav{display:flex;gap:8px;flex-wrap:wrap;padding:22px 0 12px}
+.survey-nav a{color:var(--navy2);font-size:15px;font-weight:700;text-decoration:none;padding:5px 9px;border-bottom:2px solid transparent}
+.survey-nav a:hover,.survey-nav a:focus-visible{border-color:var(--aqua)}
+.guide{color:var(--muted);font-size:16px;margin:12px 0 28px}
+.sec-hdr{font:700 clamp(24px,3vw,31px)/1.3 'Noto Serif',Georgia,serif;color:var(--navy);border-bottom:3px solid var(--aqua);padding:28px 0 13px;margin:36px 0 22px;scroll-margin-top:14px}
+.q-card{background:var(--paper);padding:27px clamp(18px,3vw,36px);margin:0 0 18px;border:1px solid var(--line);border-radius:4px}
+.q-text{display:block;font:700 21px/1.45 'Noto Serif',Georgia,serif;color:var(--navy);margin:0 0 18px}
+.q-hint,.max-note{color:var(--muted);font:400 16px/1.55 'Open Sans',Arial,sans-serif}
+.q-hint{margin:-6px 0 16px}.max-note{white-space:normal}.req{color:#9c4b20;font-weight:700}
+.choice-label{display:flex;align-items:flex-start;gap:13px;margin:0 0 10px;padding:13px 16px;background:#f5f8f7;border:1px solid var(--line);border-radius:4px;cursor:pointer;font-size:18px;line-height:1.5}
+.choice-label:hover{background:#eaf4f2;border-color:#8dc5c6}
+.choice-label:has(input:checked){background:#e7f2ef;border-color:#4b9e9f}
+input[type=radio],input[type=checkbox]{accent-color:var(--navy2);width:21px;height:21px;margin:3px 0 0;flex:none}
+.napwr-input,.rank-sel{font:18px/1.5 'Open Sans',Arial,sans-serif;color:var(--ink);background:#fff;border:2px solid #a9b9bd;border-radius:4px;padding:11px 14px}
+.napwr-input{width:100%;max-width:100%}textarea.napwr-input{min-height:136px;resize:vertical}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px}
+.field-err{display:none;color:#8c2c1c;font-size:16px;font-weight:700;margin:10px 0 0}
+.choice-with-help{display:flex;align-items:flex-start;gap:10px}.choice-with-help>.choice-label{flex:1}
+.info-help{position:relative;flex:none}.info-help summary{display:grid;place-items:center;width:40px;height:40px;border:2px solid var(--navy2);border-radius:50%;color:var(--navy2);font-weight:700;cursor:pointer;list-style:none}.info-help summary::-webkit-details-marker{display:none}
+.info-help p{position:absolute;right:0;top:40px;z-index:3;width:min(330px,78vw);padding:16px;border:1px solid var(--line);background:#fff;box-shadow:0 5px 18px #21384533;font-size:16px;line-height:1.5;margin:0}
+.info-help:not([open]) p{display:none}@media(hover:hover){.info-help:hover p{display:block}}
+.rank-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line)}.rank-lbl{font-size:18px}.rank-sel{min-width:125px}
+.rating-row{border:0;border-bottom:1px solid var(--line);padding:18px 0;margin:0}.rating-row legend{font-weight:700;color:var(--navy);padding:0 0 9px}.rating-options{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px}.rating-options label{display:flex;align-items:center;gap:7px;background:#f5f8f7;border:1px solid var(--line);border-radius:4px;padding:10px;font-size:15px;line-height:1.3;cursor:pointer}.rating-options label:has(input:checked){background:#e7f2ef;border-color:#4b9e9f}.rating-options input{width:18px;height:18px;margin:0}
+#barriers-detail{border:0;padding:16px 0 0;margin:0}#barriers-detail[hidden]{display:none}#barriers-detail legend{font-weight:700;color:var(--navy);margin-bottom:12px}.detail-label{display:block;font-weight:700;margin:19px 0 10px}
+.submit-area{border-top:2px solid var(--line);padding-top:26px;margin-top:36px}.submit-button{background:var(--navy2);color:#fff;border:0;border-radius:4px;padding:16px 30px;font:700 18px 'Open Sans',Arial,sans-serif;cursor:pointer}.submit-button:hover{background:#275779}.submit-button:disabled{opacity:.65;cursor:wait}.submit-note{color:var(--muted);font-size:15px}.status{margin-top:16px;padding:15px 18px;border-left:4px solid #a13b28;background:#fff4ef;color:#772d20;font-weight:700}.status[hidden]{display:none}.success{background:#fff;border:1px solid var(--line);padding:40px;margin-top:30px}.success[hidden]{display:none}.success h2{font:700 32px 'Noto Serif',Georgia,serif;color:var(--navy)}
+.footer{font-size:15px;color:var(--muted);padding:42px 0 0;border-top:1px solid var(--line);margin-top:35px}
+@media(max-width:620px){body{font-size:17px}.hero{padding:42px 24px}.q-card{padding:22px 18px}.q-text{font-size:20px}.choice-label{font-size:17px}.rank-row{align-items:flex-start;flex-direction:column}.rank-sel{width:100%}.survey-nav{gap:0}.rating-options{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style></head><body>
+<main class="survey"><header class="hero"><p class="eyebrow">NAPWR · Research and discovery</p><h1>Women Religious Portal</h1><p class="subtitle">Design &amp; Research Survey</p><p class="intro">This survey supports the development of the Network of Archives of the Past for Women Religious (NAPWR) shared discovery portal. Your responses help us understand how people find and use archival materials. Responses will be reviewed privately to improve the portal.</p></header><div class="accent"></div>
+<nav class="survey-nav" aria-label="Survey sections"><a href="#section-1">About you</a><a href="#section-2">Research goals</a><a href="#section-3">Discovery</a><a href="#section-4">Features</a><a href="#section-5">Challenges</a><a href="#section-6">Access</a><a href="#section-7">Future vision</a></nav>
+<p class="guide">Seven short sections · 19 questions · Fields marked <span class="req">*</span> are required. You can skip questions without an asterisk.</p>
+<div id="napwr-success" class="success" hidden role="status"><h2>Thank you!</h2><p>Your responses have been received. We appreciate your time and input.</p></div>
+<form id="napwr-form" novalidate>
+
+    <!-- ═══ SECTION 1: ABOUT YOU ══════════════════════════════ -->
+    <h2 class="sec-hdr"><span id="section-1">Section 1 &mdash;</span> About You</h2>
+
+    <!-- Q1 -->
+    <section class="q-card">
+      <h3 class="q-text">Q1. Which best describes your primary role? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="role" value="Member of a religious congregation (sister, novice, associate)"> Member of a religious congregation (sister, novice, associate)</label>
+      <label class="choice-label"><input type="radio" name="role" value="Congregation staff or sponsored-institution employee"> Congregation staff or sponsored-institution employee</label>
+      <label class="choice-label"><input type="radio" name="role" value="Academic researcher / faculty"> Academic researcher / faculty</label>
+      <label class="choice-label"><input type="radio" name="role" value="Graduate student"> Graduate student</label>
+      <label class="choice-label"><input type="radio" name="role" value="Undergraduate student"> Undergraduate student</label>
+      <label class="choice-label"><input type="radio" name="role" value="Genealogist / family historian"> Genealogist / family historian</label>
+      <label class="choice-label"><input type="radio" name="role" value="Archivist / librarian / museum professional"> Archivist / librarian / museum professional</label>
+      <label class="choice-label"><input type="radio" name="role" value="Educator (K-12)"> Educator (K&ndash;12)</label>
+      <label class="choice-label"><input type="radio" name="role" value="Journalist / media"> Journalist / media</label>
+      <label class="choice-label"><input type="radio" name="role" value="Artist / creative"> Artist / creative</label>
+      <label class="choice-label"><input type="radio" name="role" value="General public"> General public</label>
+      <label class="choice-label"><input type="radio" name="role" value="Government / legal researcher"> Government / legal researcher</label>
+      <label class="choice-label"><input type="radio" name="role" value="Other"> Other</label>
+      <div class="field-err" role="alert" id="err-role">Please select your primary role.</div>
+    </section>
+
+    <!-- Q2 -->
+    <section class="q-card">
+      <h3 class="q-text">Q2. How experienced are you with archival research? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="experience" value="Beginner (little to no experience)"> Beginner (little to no experience)</label>
+      <label class="choice-label"><input type="radio" name="experience" value="Intermediate (some experience using archives)"> Intermediate (some experience using archives)</label>
+      <label class="choice-label"><input type="radio" name="experience" value="Advanced (regular archival researcher)"> Advanced (regular archival researcher)</label>
+      <label class="choice-label"><input type="radio" name="experience" value="Expert (professional archivist/researcher)"> Expert (professional archivist / researcher)</label>
+      <div class="field-err" role="alert" id="err-experience">Please select your experience level.</div>
+    </section>
+
+    <!-- Q3 -->
+    <section class="q-card">
+      <h3 class="q-text">Q3. How often do you use archival or special collections materials? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="use_frequency" value="Daily"> Daily</label>
+      <label class="choice-label"><input type="radio" name="use_frequency" value="Weekly"> Weekly</label>
+      <label class="choice-label"><input type="radio" name="use_frequency" value="Monthly"> Monthly</label>
+      <label class="choice-label"><input type="radio" name="use_frequency" value="A few times per year"> A few times per year</label>
+      <label class="choice-label"><input type="radio" name="use_frequency" value="Rarely / first time"> Rarely / first time</label>
+      <div class="field-err" role="alert" id="err-use_frequency">Please select how often you use archival materials.</div>
+    </section>
+
+    <!-- ═══ SECTION 2: RESEARCH GOALS & USE CASES ════════════ -->
+    <h2 class="sec-hdr"><span id="section-2">Section 2 &mdash;</span> Research Goals &amp; Use Cases</h2>
+
+    <!-- Q4 -->
+    <section class="q-card">
+      <h3 class="q-text">Q4. What are your primary reasons for using archival materials? <span class="max-note">(Select all that apply)</span></h3>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Academic research / publication"> Academic research / publication</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Coursework / assignments"> Coursework / assignments</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Genealogy / family history"> Genealogy / family history</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Personal interest / curiosity"> Personal interest / curiosity</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Professional work (museum, legal, consulting)"> Professional work (museum, legal, consulting, etc.)</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Journalism / media production"> Journalism / media production</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Creative projects (art, writing, film)"> Creative projects (art, writing, film)</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Teaching / curriculum development"> Teaching / curriculum development</label>
+      <label class="choice-label"><input type="checkbox" name="use_reasons" value="Other"> Other</label>
+    </section>
+
+    <!-- Q5 -->
+    <section class="q-card">
+      <h3 class="q-text">Q5. What types of materials do you typically search for? <span class="max-note">(Select all that apply)</span></h3>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Photographs / images"> Photographs / images</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Manuscripts / handwritten documents"> Manuscripts / handwritten documents</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Books / printed materials"> Books / printed materials</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Maps / cartographic materials"> Maps / cartographic materials</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Audio recordings"> Audio recordings</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Video / film"> Video / film</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Newspapers / periodicals"> Newspapers / periodicals</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Born-digital records"> Born-digital records</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Ephemera (postcards, flyers, etc.)"> Ephemera (postcards, flyers, etc.)</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Data sets / structured data"> Data sets / structured data</label>
+      <label class="choice-label"><input type="checkbox" name="material_types" value="Other"> Other</label>
+    </section>
+
+    <!-- Q6 -->
+    <section class="q-card">
+      <h3 class="q-text">Q6. How specific are your research needs when you begin? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="research_specificity" value="Very specific (exact item or collection)"> Very specific (exact item or collection)</label>
+      <label class="choice-label"><input type="radio" name="research_specificity" value="Somewhat specific (topic, person, or time period)"> Somewhat specific (topic, person, or time period)</label>
+      <label class="choice-label"><input type="radio" name="research_specificity" value="Broad / exploratory"> Broad / exploratory</label>
+      <label class="choice-label"><input type="radio" name="research_specificity" value="Unsure / browsing"> Unsure / browsing</label>
+      <div class="field-err" role="alert" id="err-research_specificity">Please select how specific your needs typically are.</div>
+    </section>
+
+    <!-- ═══ SECTION 3: DISCOVERY & SEARCH BEHAVIOR ═══════════ -->
+    <h2 class="sec-hdr"><span id="section-3">Section 3 &mdash;</span> Discovery &amp; Search Behavior</h2>
+
+    <!-- Q7 -->
+    <section class="q-card">
+      <h3 class="q-text">Q7. How do you typically begin your search for archival materials? <span class="max-note">(Select all that apply)</span></h3>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Google or other search engines"> Google or other search engines</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Library discovery systems"> Library discovery systems</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Archival databases / portals (e.g., ArchiveGrid, DPLA)"> Archival databases / portals (e.g., ArchiveGrid, DPLA)</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Institutional websites"> Institutional websites</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Recommendations from colleagues"> Recommendations from colleagues</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Visiting in person"> Visiting in person</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Social media / online communities"> Social media / online communities</label>
+      <label class="choice-label"><input type="checkbox" name="search_start" value="Other"> Other</label>
+    </section>
+
+    <!-- Q8: Rank order -->
+    <section class="q-card">
+      <h3 class="q-text">Q8. What search methods do you prefer?</h3>
+      <p class="q-hint">Select a rank for each method &mdash; 1 = most preferred, 6 = least preferred. Each rank should be used once.</p>
+      <div class="rank-row">
+        <span class="rank-lbl">Keyword search</span>
+        <select name="rank_keyword" class="rank-sel"><option value="">-- rank --</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option></select>
+      </div>
+      <div class="rank-row">
+        <span class="rank-lbl">Advanced search (filters, Boolean)</span>
+        <select name="rank_advanced" class="rank-sel"><option value="">-- rank --</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option></select>
+      </div>
+      <div class="rank-row">
+        <span class="rank-lbl">Browsing collections</span>
+        <select name="rank_browsing" class="rank-sel"><option value="">-- rank --</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option></select>
+      </div>
+      <div class="rank-row">
+        <span class="rank-lbl">Curated exhibits or guides</span>
+        <select name="rank_exhibits" class="rank-sel"><option value="">-- rank --</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option></select>
+      </div>
+      <div class="rank-row">
+        <span class="rank-lbl">Visual / map-based exploration</span>
+        <select name="rank_visual" class="rank-sel"><option value="">-- rank --</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option></select>
+      </div>
+      <div class="rank-row">
+        <span class="rank-lbl">AI or recommendation-based search</span>
+        <select name="rank_ai" class="rank-sel"><option value="">-- rank --</option><option value="1">1st</option><option value="2">2nd</option><option value="3">3rd</option><option value="4">4th</option><option value="5">5th</option><option value="6">6th</option></select>
+      </div>
+    </section>
+
+    <!-- Q9: Top 3 -->
+    <section class="q-card">
+      <h3 class="q-text">Q9. When using finding aids or inventories, what information is most important? <span class="max-note">(Select up to 3)</span></h3>
+      <p class="q-hint">Maximum 3 selections.</p>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Subject keywords"> Subject keywords</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Dates / time period"> Dates / time period</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Creator / author names"> Creator / author names</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Geographic location"> Geographic location</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Collection scope and content note"> Collection scope and content note</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Item-level descriptions"> Item-level descriptions</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Digital availability indicator"> Digital availability indicator</label>
+      <label class="choice-label"><input type="checkbox" name="finding_aid_priority" value="Provenance / context"> Provenance / context</label>
+    </section>
+
+    <!-- ═══ SECTION 4: PLATFORM USABILITY & FEATURES ══════════ -->
+    <h2 class="sec-hdr"><span id="section-4">Section 4 &mdash;</span> Platform Usability &amp; Features</h2>
+
+    <!-- Q10: Select up to 5 -->
+    <section class="q-card">
+      <h3 class="q-text">Q10. When interacting with digital archival materials, which features are most important? <span class="max-note">(Select up to 5)</span></h3>
+      <p class="q-hint">Maximum 5 selections.</p>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="High-resolution zoom viewer"> High-resolution zoom viewer</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Full-text search (OCR/transcripts)"> Full-text search (OCR / transcripts)</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Download options (PDF, images, data)"> Download options (PDF, images, data)</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Clear metadata display"> Clear metadata display</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Citation tools (export citations)"> Citation tools (export citations)</label>
+      <div class="choice-with-help"><label class="choice-label"><input type="checkbox" name="important_features" value="IIIF viewer compatibility" aria-describedby="iiif-explanation"> IIIF viewer compatibility</label><details class="info-help"><summary aria-label="What is an IIIF viewer?">i</summary><p id="iiif-explanation">IIIF is a standard for viewing high-resolution digital images. A compatible viewer lets you zoom in and may let you compare material from different archives side by side.</p></details></div>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Side-by-side comparison"> Side-by-side comparison</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Annotation tools"> Annotation tools</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Ability to save/bookmark items"> Ability to save / bookmark items</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Accessibility features (screen reader, captions)"> Accessibility features (screen reader support, captions)</label>
+      <label class="choice-label"><input type="checkbox" name="important_features" value="Other"> Other</label>
+    </section>
+
+    <!-- Q11: Likert matrix -->
+    <section class="q-card">
+      <h3 class="q-text">Q11. How important are the following platform features to your work?</h3>
+      <p class="q-hint">Rate each from Not at all important to Extremely important.</p>
+      <div class="ratings"><fieldset class="rating-row"><legend>Ease of navigation and interface</legend><div class="rating-options"><label><input aria-label="Rating" type="radio" name="imp_navigation" value="1"><span>Not at all</span></label><label><input aria-label="Rating" type="radio" name="imp_navigation" value="2"><span>Slightly</span></label><label><input aria-label="Rating" type="radio" name="imp_navigation" value="3"><span>Moderately</span></label><label><input aria-label="Rating" type="radio" name="imp_navigation" value="4"><span>Very</span></label><label><input aria-label="Rating" type="radio" name="imp_navigation" value="5"><span>Extremely</span></label></div></fieldset><fieldset class="rating-row"><legend>Speed and performance</legend><div class="rating-options"><label><input aria-label="Rating" type="radio" name="imp_speed" value="1"><span>Not at all</span></label><label><input aria-label="Rating" type="radio" name="imp_speed" value="2"><span>Slightly</span></label><label><input aria-label="Rating" type="radio" name="imp_speed" value="3"><span>Moderately</span></label><label><input aria-label="Rating" type="radio" name="imp_speed" value="4"><span>Very</span></label><label><input aria-label="Rating" type="radio" name="imp_speed" value="5"><span>Extremely</span></label></div></fieldset><fieldset class="rating-row"><legend>Quality and relevance of search results</legend><div class="rating-options"><label><input aria-label="Rating" type="radio" name="imp_search_quality" value="1"><span>Not at all</span></label><label><input aria-label="Rating" type="radio" name="imp_search_quality" value="2"><span>Slightly</span></label><label><input aria-label="Rating" type="radio" name="imp_search_quality" value="3"><span>Moderately</span></label><label><input aria-label="Rating" type="radio" name="imp_search_quality" value="4"><span>Very</span></label><label><input aria-label="Rating" type="radio" name="imp_search_quality" value="5"><span>Extremely</span></label></div></fieldset><fieldset class="rating-row"><legend>Clarity of metadata and descriptions</legend><div class="rating-options"><label><input aria-label="Rating" type="radio" name="imp_metadata" value="1"><span>Not at all</span></label><label><input aria-label="Rating" type="radio" name="imp_metadata" value="2"><span>Slightly</span></label><label><input aria-label="Rating" type="radio" name="imp_metadata" value="3"><span>Moderately</span></label><label><input aria-label="Rating" type="radio" name="imp_metadata" value="4"><span>Very</span></label><label><input aria-label="Rating" type="radio" name="imp_metadata" value="5"><span>Extremely</span></label></div></fieldset><fieldset class="rating-row"><legend>Mobile and tablet compatibility</legend><div class="rating-options"><label><input aria-label="Rating" type="radio" name="imp_mobile" value="1"><span>Not at all</span></label><label><input aria-label="Rating" type="radio" name="imp_mobile" value="2"><span>Slightly</span></label><label><input aria-label="Rating" type="radio" name="imp_mobile" value="3"><span>Moderately</span></label><label><input aria-label="Rating" type="radio" name="imp_mobile" value="4"><span>Very</span></label><label><input aria-label="Rating" type="radio" name="imp_mobile" value="5"><span>Extremely</span></label></div></fieldset><fieldset class="rating-row"><legend>Accessibility for users with disabilities</legend><div class="rating-options"><label><input aria-label="Rating" type="radio" name="imp_accessibility" value="1"><span>Not at all</span></label><label><input aria-label="Rating" type="radio" name="imp_accessibility" value="2"><span>Slightly</span></label><label><input aria-label="Rating" type="radio" name="imp_accessibility" value="3"><span>Moderately</span></label><label><input aria-label="Rating" type="radio" name="imp_accessibility" value="4"><span>Very</span></label><label><input aria-label="Rating" type="radio" name="imp_accessibility" value="5"><span>Extremely</span></label></div></fieldset></div>
+    </section>
+
+    <!-- ═══ SECTION 5: PAIN POINTS & CHALLENGES ══════════════ -->
+    <h2 class="sec-hdr"><span id="section-5">Section 5 &mdash;</span> Pain Points &amp; Challenges</h2>
+
+    <!-- Q12 -->
+    <section class="q-card">
+      <label class="q-text" for="frustrations">Q12. What are your biggest frustrations when using archival search platforms?</label>
+      <textarea id="frustrations" name="frustrations" class="napwr-input" placeholder="Describe your main frustrations or difficulties..."></textarea>
+    </section>
+
+    <!-- Q13 -->
+    <section class="q-card">
+      <h3 class="q-text">Q13. Which of the following challenges have you experienced? <span class="max-note">(Select all that apply)</span></h3>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Difficulty finding relevant materials"> Difficulty finding relevant materials</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Inconsistent or unclear metadata"> Inconsistent or unclear metadata</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Limited or no digital access"> Limited or no digital access</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Poor search functionality"> Poor search functionality</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Slow performance or loading"> Slow performance or loading</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Confusing navigation/interface"> Confusing navigation / interface</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Lack of context about materials"> Lack of context about materials</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Restrictions on downloads or use"> Restrictions on downloads or use</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Accessibility barriers"> Accessibility barriers</label>
+      <label class="choice-label"><input type="checkbox" name="challenges" value="Other"> Other</label>
+    </section>
+
+    <!-- ═══ SECTION 6: ACCESS, USE, AND OUTCOMES ════════════ -->
+    <h2 class="sec-hdr"><span id="section-6">Section 6 &mdash;</span> Access, Use, and Outcomes</h2>
+
+    <!-- Q14 -->
+    <section class="q-card">
+      <h3 class="q-text">Q14. Once you find materials, what do you usually do with them? <span class="max-note">(Select all that apply)</span></h3>
+      <label class="choice-label"><input type="checkbox" name="material_use" value="View online only"> View online only</label>
+      <label class="choice-label"><input type="checkbox" name="material_use" value="Download for personal use"> Download for personal use</label>
+      <label class="choice-label"><input type="checkbox" name="material_use" value="Cite in research/publications"> Cite in research / publications</label>
+      <label class="choice-label"><input type="checkbox" name="material_use" value="Incorporate into teaching or presentations"> Incorporate into teaching or presentations</label>
+      <label class="choice-label"><input type="checkbox" name="material_use" value="Request physical access"> Request physical access</label>
+      <label class="choice-label"><input type="checkbox" name="material_use" value="Share with others"> Share with others</label>
+    </section>
+
+    <!-- Q15 -->
+    <section class="q-card">
+      <h3 class="q-text">Q15. How do you prefer to access archival materials? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="access_preference" value="Fully online"> Fully online</label>
+      <label class="choice-label"><input type="radio" name="access_preference" value="Hybrid (online discovery + in-person access)"> Hybrid (online discovery + in-person access)</label>
+      <label class="choice-label"><input type="radio" name="access_preference" value="Primarily in-person"> Primarily in-person</label>
+      <div class="field-err" role="alert" id="err-access_preference">Please select your access preference.</div>
+    </section>
+
+    <!-- ═══ SECTION 7: DESIGN FEEDBACK & FUTURE VISION ═══════ -->
+    <h2 class="sec-hdr"><span id="section-7">Section 7 &mdash;</span> Design Feedback &amp; Future Vision</h2>
+
+    <!-- Q16 -->
+    <section class="q-card">
+      <label class="q-text" for="ideal_platform">Q16. What would an ideal archival discovery platform look like for you?</label>
+      <textarea id="ideal_platform" name="ideal_platform" class="napwr-input" placeholder="Describe features, design, or capabilities of your ideal platform..."></textarea>
+    </section>
+
+    <!-- Q17: Select up to 3 -->
+    <section class="q-card">
+      <h3 class="q-text">Q17. Which innovations would you most like to see? <span class="max-note">(Select up to 3)</span></h3>
+      <p class="q-hint">Maximum 3 selections.</p>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="AI-assisted search / recommendations"> AI-assisted search / recommendations</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="Automatic transcription and translation"> Automatic transcription and translation</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="Visual timeline or map-based browsing"> Visual timeline or map-based browsing</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="Linked data / connections across collections"> Linked data / connections across collections</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="User-generated tags or contributions"> User-generated tags or contributions</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="Enhanced multimedia viewing"> Enhanced multimedia viewing</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="Personalized dashboards"> Personalized dashboards</label>
+      <label class="choice-label"><input type="checkbox" name="desired_innovations" value="Other"> Other</label>
+    </section>
+
+    <!-- Q18 -->
+    <section class="q-card">
+      <h3 class="q-text">Q18. What is your primary work setting or affiliation? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="work_setting" value="University / academic institution"> University / academic institution</label>
+      <label class="choice-label"><input type="radio" name="work_setting" value="Cultural heritage institution (archives, museum, library)"> Cultural heritage institution (archives, museum, library)</label>
+      <label class="choice-label"><input type="radio" name="work_setting" value="Government agency"> Government agency</label>
+      <label class="choice-label"><input type="radio" name="work_setting" value="Private sector"> Private sector</label>
+      <label class="choice-label"><input type="radio" name="work_setting" value="Independent researcher"> Independent researcher</label>
+      <label class="choice-label"><input type="radio" name="work_setting" value="Not affiliated"> Not affiliated</label>
+      <div class="field-err" role="alert" id="err-work_setting">Please select your work setting.</div>
+    </section>
+
+    <!-- Q19 -->
+    <section class="q-card">
+      <h3 class="q-text">Q19. Have you encountered barriers to accessing archival materials? <span class="req">*</span></h3>
+      <label class="choice-label"><input type="radio" name="access_barriers" value="Yes"> Yes</label>
+      <label class="choice-label"><input type="radio" name="access_barriers" value="No"> No</label>
+      <fieldset id="barriers-detail" hidden disabled><legend>Which barriers have you encountered? Select all that apply.</legend>
+        <p class="q-hint">Some restrictions protect privacy or reflect collection policies. Select any circumstances that affected your access.</p>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Privacy, confidentiality, donor agreement, or collection restrictions"> Privacy, confidentiality, donor agreement, or collection restrictions</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Archives closed to the public"> Archives closed to the public</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Limited hours or appointments"> Limited hours or appointments</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Limited staffing or response delays"> Limited staffing or response delays</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Travel or transportation costs"> Travel or transportation costs</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Copying, digitization, or use fees"> Copying, digitization, or use fees</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Materials unavailable online"> Materials unavailable online</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Hard to find access information"> Hard to find access information</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Physical or digital accessibility"> Physical or digital accessibility</label>
+        <label class="choice-label"><input type="checkbox" name="barrier_types" value="Other"> Other</label>
+        <label for="barriers-description" class="detail-label">Please tell us more, if you wish.</label>
+        <p class="q-hint">A short answer is welcome. Share only what you are comfortable providing.</p>
+        <textarea id="barriers-description" name="barriers_description" class="napwr-input" rows="4" placeholder="Describe the barrier or your experience..."></textarea>
+      </fieldset>
+      <div class="field-err" role="alert" id="err-access_barriers">Please indicate whether you have encountered barriers.</div>
+    </section>
+<div class="submit-area"><button type="submit" id="napwr-submit" class="submit-button">Submit Survey</button><p class="submit-note">Please review your answers before submitting.</p><p id="form-error" class="status" role="alert" tabindex="-1" hidden></p></div></form>
+<footer class="footer">Network of Archives of the Past for Women Religious (NAPWR) · Heritage and Research Center at Saint Mary’s · Notre Dame, Indiana</footer></main>
+<script>
+// Apps Script web app URL (the deployment that writes to your Google Sheet)
+const SURVEY_ENDPOINT='https://script.google.com/macros/s/AKfycbw8YwOE8s1wSEDxXQcVpeGoDVWfqo_3BoYgoy9maoKT4vOyN65dyt8pOjNGKEkcj3aAtA/exec';
+const form=document.getElementById('napwr-form');
+const error=document.getElementById('form-error');
+const submit=document.getElementById('napwr-submit');
+const required=['role','experience','use_frequency','research_specificity','access_preference','work_setting','access_barriers'];
+const limits={finding_aid_priority:3,important_features:5,desired_innovations:3};
+document.querySelectorAll('input[name="access_barriers"]').forEach(r=>r.addEventListener('change',()=>{
+  const detail=document.getElementById('barriers-detail');
+  const yes=form.querySelector('input[name="access_barriers"][value="Yes"]').checked;
+  detail.hidden=!yes; detail.disabled=!yes;
+  if(!yes){detail.querySelectorAll('input').forEach(x=>x.checked=false);detail.querySelector('textarea').value='';}
+}));
+Object.entries(limits).forEach(([name,max])=>document.querySelectorAll(`input[name="${name}"]`).forEach(x=>x.addEventListener('change',()=>{
+  if(form.querySelectorAll(`input[name="${name}"]:checked`).length>max){x.checked=false;showError(`Select no more than ${max} choices for this question.`);}
+})));
+form.querySelectorAll('input[type="radio"]').forEach(x=>x.addEventListener('change',()=>{
+  const e=document.getElementById('err-'+x.name);if(e)e.style.display='none';
+}));
+function showError(message){error.textContent=message;error.hidden=false;error.focus();}
+function validate(){let first=null;required.forEach(name=>{
+  const ok=!!form.querySelector(`input[name="${name}"]:checked`);
+  const e=document.getElementById('err-'+name);if(e)e.style.display=ok?'none':'block';
+  if(!ok&&!first)first=e;
+});
+  if(first){showError('Please complete the required questions before submitting.');first.closest('.q-card').scrollIntoView({behavior:'smooth',block:'center'});return false;}
+  const ranks=[...form.querySelectorAll('.rank-sel')].map(x=>x.value).filter(Boolean);
+  if(new Set(ranks).size!==ranks.length){showError('Use each search-method rank only once.');return false;}
+  return true;
+}
+const submissionId = (window.crypto?.randomUUID?.() || 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g,c=>{const r=Math.random()*16|0;return (c==='x'?r:(r&3|8)).toString(16)}));
+function payload(){const data={submission_id:submissionId};new FormData(form).forEach((value,key)=>{
+  if(data[key]===undefined)data[key]=value;
+  else if(Array.isArray(data[key]))data[key].push(value);
+  else data[key]=[data[key],value];
+});return data;}
+form.addEventListener('submit',event=>{
+  event.preventDefault();if(!validate())return;
+  error.hidden=true;submit.disabled=true;submit.textContent='Submitting…';
+  const done=()=>{form.hidden=true;document.getElementById('napwr-success').hidden=false;window.scrollTo({top:0,behavior:'smooth'});};
+  const fail=()=>{showError('We could not confirm receipt. Your answers remain here. Please try again.');submit.disabled=false;submit.textContent='Submit Survey';};
+  // Served by Apps Script itself: use the built-in channel
+  if(window.google?.script?.run){
+    google.script.run.withSuccessHandler(r=>r?.ok?done():fail()).withFailureHandler(fail).submitSurvey(payload());
+    return;
+  }
+  // Hosted anywhere else (GitHub Pages, Omeka iframe): post to the same Apps Script / Sheet.
+  // text/plain = no CORS preflight; credentials:'omit' = no Google sign-in cookies,
+  // which is what removes the multi-account "Incognito only" error.
+  fetch(SURVEY_ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},
+    body:JSON.stringify(payload()),redirect:'follow',credentials:'omit'})
+    .then(r=>r.json()).then(r=>r?.ok?done():fail()).catch(fail);
+});
+</script></body></html>
